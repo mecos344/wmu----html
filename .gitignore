@@ -1,0 +1,5 @@
+# 渲染/测试过程产物（非页面运行所需）
+frames/
+chrome_chrome_url_fetcher_*/
+*.log
+/*.png
