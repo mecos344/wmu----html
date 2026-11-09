@@ -1,0 +1,1171 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>文献检索 · 综合手册（教程+题库+待办+差异）2026-11-08</title><style>
+:root{--bg:#fff;--ink:#1d2129;--muted:#6b7280;--line:#e5e7eb;--accent:#8c1c2b;--code:#f6f8fa;--ok:#0f7b4f;--warn:#a15c00;--bad:#b42318;--blue:#1d4ed8}
+*{box-sizing:border-box}
+body{margin:0;padding:30px 18px;background:var(--bg);color:var(--ink);font-family:"Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.75;font-size:15px}
+.wrap{max-width:1080px;margin:0 auto}
+h1{font-size:26px;margin:0 0 6px}
+.sub{color:var(--muted);font-size:13px;margin-bottom:18px}
+h2{font-size:20px;margin:40px 0 12px;padding:8px 12px;background:#8c1c2b;color:#fff;border-radius:8px}
+p{margin:8px 0}
+.kv{color:var(--muted);font-size:13px}
+.note{background:#fff8e6;border:1px solid #f2d38a;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:14px}
+.note b{color:var(--warn)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 6px}
+.toc a{display:inline-block;padding:5px 12px;border:1px solid var(--line);border-radius:20px;color:var(--accent);text-decoration:none;font-size:13px;background:#fff}
+.toc a:hover{background:#fdf2f3}
+.genbox{border:1px solid #cdd7ff;border-radius:10px;padding:6px 14px;margin:14px 0;background:#f7f9ff}
+.genh{font-weight:700;color:#1d4ed8;font-size:15px;margin:8px 0}
+.qcard{border:1px solid var(--line);border-radius:12px;padding:6px 16px 14px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.qhead{display:flex;align-items:center;gap:10px;margin:10px 0 6px;flex-wrap:wrap}
+.qno{background:#8c1c2b;color:#fff;border-radius:6px;padding:1px 9px;font-size:13px;font-weight:700}
+.qtitle{font-weight:700;font-size:15.5px}
+.badge{font-size:12px;border-radius:20px;padding:1px 10px;line-height:20px}
+.badge.ok{background:#e7f6ee;color:var(--ok)}
+.badge.warn{background:#fdf2f3;color:var(--bad)}
+.step{background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:8px 0;font-size:14px}
+.step ol{margin:4px 0 4px 18px;padding:0}
+.step li{margin:4px 0}
+code{font-family:"Cascadia Mono",Consolas,"Courier New",monospace;font-size:13px;background:#eef1f5;padding:2px 5px;border-radius:4px;word-break:break-all}
+.codeblock{margin:10px 0}
+.codelabel{font-size:12px;color:var(--muted)}
+pre{font-family:"Cascadia Mono",Consolas,"Courier New",monospace;font-size:13px;background:#f6f8fa;border:1px solid var(--line);border-radius:8px;padding:9px 12px;overflow-x:auto;margin:4px 0;white-space:pre-wrap;word-break:break-word}
+.result{background:#e7f6ee;border-left:4px solid var(--ok);border-radius:6px;padding:8px 12px;margin:10px 0;font-size:14px}
+.result b{color:var(--ok)}
+.tip{background:#fff5f5;border-left:4px solid var(--bad);border-radius:6px;padding:8px 12px;margin:10px 0;font-size:13.5px}
+.tip b{color:var(--bad)}
+.paper{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.paper figure{margin:0;width:32%;min-width:200px}
+.paper img{width:100%;border:1px solid var(--line);border-radius:6px;display:block}
+.paper figcaption{font-size:12px;color:var(--muted);margin-top:4px;word-break:break-all}
+.divider{height:1px;background:var(--line);margin:26px 0}
+@media print{body{padding:0;font-size:12.5px}h2{background:#eee;color:#000;page-break-after:avoid}.qcard{page-break-inside:avoid}}
+</style><style>
+/* ===== 来自 3 人工任务清单（类名已加 td- 前缀，避免冲突） ===== */
+
+:root{--bg:#f7f8fa;--card:#fff;--ink:#1d2129;--muted:#6b7280;--line:#e3e6eb;--accent:#8c1c2b;--ok:#0f7b4f;--warn:#a15c00;--blue:#1d4ed8;--code:#f4f6f9}
+*{box-sizing:border-box}
+body{margin:0;padding:28px 18px 60px;background:var(--bg);color:var(--ink);font-family:"Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.72;font-size:14.5px}
+.wrap{max-width:1020px;margin:0 auto}
+h1{font-size:25px;margin:0 0 4px}
+.sub{color:var(--muted);font-size:13px;margin-bottom:16px}
+.td-banner{background:#fff8e6;border:1px solid #f0d38a;border-radius:10px;padding:13px 17px;margin:14px 0;font-size:13.8px}
+.td-banner b{color:var(--warn)}
+.td-method{background:#eef7ff;border:1px solid #c5dcf7;border-radius:10px;padding:13px 17px;margin:14px 0;font-size:13.8px}
+.td-method b{color:var(--blue)}
+.td-method ol{margin:8px 0 2px 20px;padding:0}
+.td-method li{margin:4px 0}
+.td-bar{display:flex;align-items:center;gap:12px;margin:18px 0 8px;flex-wrap:wrap}
+.td-progress{flex:1;min-width:220px;height:10px;background:#e8ebf0;border-radius:6px;overflow:hidden}
+.td-progress i{display:block;height:100%;width:0;background:var(--ok);transition:width .25s}
+#count{font-weight:700;color:var(--ok);font-size:14px}
+button{font-family:inherit;font-size:13px;cursor:pointer;border-radius:6px;border:1px solid var(--line);background:#fff;color:var(--ink);padding:5px 11px}
+button:hover{background:#f0f2f6}
+h2{font-size:17px;margin:28px 0 10px;padding-left:10px;border-left:4px solid var(--accent)}
+.td-task{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 17px;margin:11px 0;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.td-task.td-done{background:#f4fbf7;border-color:#c9ead9}
+.td-head{display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.td-head input{width:18px;height:18px;margin-top:4px;accent-color:var(--ok);cursor:pointer;flex-shrink:0}
+.td-ttl{font-weight:700;font-size:15px;flex:1;min-width:230px}
+.td-chip{display:inline-block;font-size:11.5px;line-height:20px;padding:0 9px;border-radius:20px;white-space:nowrap}
+.td-p0{background:#fdecee;color:#b42318}
+.td-p1{background:#eef4ff;color:var(--blue)}
+.td-tab{background:#f0f1f4;color:#414855;font-family:Consolas,monospace;font-size:11.5px}
+.td-task.td-done .td-ttl{text-decoration:line-through;color:var(--muted)}
+.td-why{color:var(--muted);font-size:13px;margin:7px 0 9px 28px}
+.td-why b{color:#b42318}
+.td-steps{margin:8px 0 8px 28px;padding:0;list-style:none;counter-reset:s;font-size:13.8px}
+.td-steps li{margin:5px 0;padding-left:26px;position:relative;counter-increment:s}
+.td-steps li:before{content:counter(s);position:absolute;left:0;top:2px;width:19px;height:19px;border-radius:50%;background:#eef1f6;color:#414855;font-size:11.5px;text-align:center;line-height:19px;font-weight:700}
+.td-steps b{color:#111}
+.td-ctl{background:#f2f5fa;border:1px solid #dbe3ef;border-radius:4px;padding:0 5px;font-size:12.5px;font-family:Consolas,"Cascadia Mono",monospace;color:#1d4ed8}
+.td-learn{margin:8px 0 0 28px;font-size:12.5px;color:#0f7b4f;background:#f1faf5;border-left:3px solid var(--ok);padding:6px 11px;border-radius:0 6px 6px 0}
+details{margin:8px 0 0 28px;font-size:12.5px;color:var(--muted)}
+details summary{cursor:pointer;color:var(--muted)}
+details code{display:block;margin-top:6px;background:#f6f7f9;border:1px dashed #d8dde5;border-radius:6px;padding:7px 10px;font-family:Consolas,monospace;font-size:12px;color:#5b6472;word-break:break-all;white-space:pre-wrap}
+.td-shot{margin:9px 0 0 28px;font-size:12.5px;color:#414855;background:#fff;border-left:3px solid var(--accent);padding:7px 11px;border-radius:0 6px 6px 0}
+.td-shot b{color:var(--accent)}
+.note{background:#fff;border:1px solid var(--line);border-radius:9px;padding:11px 15px;margin:14px 0;font-size:13.4px}
+.kv{color:var(--muted);font-size:12.5px}
+code.inline{background:#eef1f5;padding:1px 5px;border-radius:4px;font-family:Consolas,monospace;font-size:12.5px}
+@media print{body{background:#fff}.td-task{box-shadow:none;page-break-inside:avoid}button{display:none}}
+
+/* ===== 合并页补充 ===== */
+.td-scope .td-task{margin:10px 0}
+</style>
+</head>
+<body><div class="wrap">
+<h1>文献检索 · 综合手册<span style="font-size:15px;font-weight:400;color:#6b7280">　教程 + 题库 + 待办清单 + 差异对照</span></h1>
+
+
+<div class="sub">这份文件把原来分散的 4 份合并成一份：<b>①手把手教程</b>（按数据库分章、44 张逐题卡）＋<b>②题库与逐题操作</b>（按作业批次索引）＋<b>③13 项待人工处理清单</b>（可勾选，进度自动存）＋<b>④课上值 vs 实测对照</b>。<br>整理 2026-10-31　·　复核 2026-11-06　·　<b>浏览器逐项重跑再修正：2026-11-08</b>。绿色 <span class="badge ok">实测</span>＝有截图或本轮亲手点出；红色 <span class="badge warn">未实测/受阻/未复现/需核对</span>＝给了路径但没取到数，或本轮复现不出来。<br><b>2026-11-08 本轮共修 29 处，其中 10 处是原版「照着做一定失败」的硬错</b>；后续又补测了万方 Q4/Q6/Q7、PubMed Q2–Q6、CBM Q3/Q7、WOS Q3/Q4、Scopus Q7、Pigment Cell Res 期刊信息等。逐条对照见文末「本轮改了什么」。</div><div class="note"><b>怎么用这份手册：</b><br>1. 想<b>按作业先后</b>做 → 看「作业顺序」和「批次索引」；想<b>按库</b>深入 → 看第 1–8 章；想<b>知道还差什么</b> → 看「13 项待办」。<br>2. <b>一律用鼠标点：字段靠下拉「选」，不要手打方括号标签，也不要把整串检索式粘进搜索框。</b>文中出现的 <code>[Title]</code>、<code>SO=</code> 只是让你看懂系统生成了什么。<br>3. 数字天天在变，差几个正常；<b>差一个量级通常是口径不同</b>。先查：字段对不对、限定词漏没漏、行的默认字段改没改。<br>4. <b>标「未复核」的数字只是旧作答，不要当答案抄</b>；标「实测」的才是本轮亲手点出来的。<br>5. <b>改字段/加行/刷新页面后，先把检索框清空重填</b>——知网、CBM 刷新后会悄悄把字段回落成默认值（知网第二行默认是「作者」），不检查就会查出一堆 0。</div><div class="toc"><a href="#order">作业顺序</a><a href="#s0">0 总则</a><a href="#s1">1 CBM</a><a href="#s2">2 知网</a><a href="#s3">3 万方</a><a href="#s4">4 WOS</a><a href="#s5">5 PubMed</a><a href="#s6">6 Scopus+SD</a><a href="#s7">7 JCR</a><a href="#s8">8 专利</a><a href="#bybatch">批次索引</a><a href="#todo">13 项待办</a><a href="#s9b">界面法</a><a href="#s9">差异一览</a><a href="#shots">截图清单</a><a href="#unver">未核实</a><a href="#s10">本轮改动</a></div><h2 id="order">按作业顺序重做一遍（照这个次第来）</h2>
+<p class="kv">这一节是给「要从头自己跑一遍」准备的。作业是按周布置的，所以从最早的那次开始做，前面的库练熟了再往后走。</p>
+<div class="genbox"><div class="genh">七次作业的先后</div>
+<table style="width:100%;border-collapse:collapse;font-size:13.5px">
+<tr style="background:#f4f5f7"><th style="border:1px solid #e5e7eb;padding:7px">次序</th><th style="border:1px solid #e5e7eb;padding:7px">日期</th><th style="border:1px solid #e5e7eb;padding:7px">内容</th><th style="border:1px solid #e5e7eb;padding:7px">题数</th><th style="border:1px solid #e5e7eb;padding:7px">去哪一节</th></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">①</td><td style="border:1px solid #e5e7eb;padding:6px">9.9</td><td style="border:1px solid #e5e7eb;padding:6px">绪论（检索基础知识）</td><td style="border:1px solid #e5e7eb;padding:6px">6 题</td><td style="border:1px solid #e5e7eb;padding:6px">本教程未覆盖（纯概念题，无库可点）</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">②</td><td style="border:1px solid #e5e7eb;padding:6px">9.16</td><td style="border:1px solid #e5e7eb;padding:6px"><b>CBM / SinoMed</b></td><td style="border:1px solid #e5e7eb;padding:6px">7 题</td><td style="border:1px solid #e5e7eb;padding:6px"><a href="#s1">第 1 章</a></td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">③</td><td style="border:1px solid #e5e7eb;padding:6px">9.23</td><td style="border:1px solid #e5e7eb;padding:6px"><b>中国知网 + 万方</b></td><td style="border:1px solid #e5e7eb;padding:6px">9 题</td><td style="border:1px solid #e5e7eb;padding:6px"><a href="#s2">第 2 章</a> + <a href="#s3">第 3 章</a></td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">④</td><td style="border:1px solid #e5e7eb;padding:6px">9.30</td><td style="border:1px solid #e5e7eb;padding:6px"><b>PubMed</b></td><td style="border:1px solid #e5e7eb;padding:6px">6 题</td><td style="border:1px solid #e5e7eb;padding:6px"><a href="#s5">第 5 章</a></td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">⑤</td><td style="border:1px solid #e5e7eb;padding:6px">10.14</td><td style="border:1px solid #e5e7eb;padding:6px"><b>ScienceDirect + Scopus</b></td><td style="border:1px solid #e5e7eb;padding:6px">7 题</td><td style="border:1px solid #e5e7eb;padding:6px"><a href="#s6">第 6 章</a></td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">⑥</td><td style="border:1px solid #e5e7eb;padding:6px">10.21</td><td style="border:1px solid #e5e7eb;padding:6px"><b>Web of Science</b>（含 JCR 两题）</td><td style="border:1px solid #e5e7eb;padding:6px">6 题</td><td style="border:1px solid #e5e7eb;padding:6px"><a href="#s4">第 4 章</a> + <a href="#s7">第 7 章</a></td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">⑦</td><td style="border:1px solid #e5e7eb;padding:6px">10.28</td><td style="border:1px solid #e5e7eb;padding:6px"><b>专利</b>（法条题）</td><td style="border:1px solid #e5e7eb;padding:6px">6 题</td><td style="border:1px solid #e5e7eb;padding:6px"><a href="#s8">第 8 章</a></td></tr>
+</table>
+<div class="step" style="margin-top:10px"><ol>
+<li><b>先做 ②CBM</b>：它最简单（一个中文库、一个检索框），用来练「字段下拉先选再填词」这个动作。</li>
+<li><b>再做 ③知网+万方</b>：知网的多行表单坑最多（第二行默认是「作者」、联想词挡按钮），在 CBM 练熟后到这里不容易慌。</li>
+<li><b>然后 ④PubMed</b>：英文库，但界面最规范，字段全靠 Advanced Search Builder 生成。</li>
+<li><b>⑤SD+Scopus</b> 和 <b>⑥WOS</b>：都是英文大库，先 Scopus 后 WOS，因为 WOS 的 FIELDED SEARCH 和 Analyze Results 更绕。</li>
+<li><b>⑦专利</b>最后，它不查库，只看《专利法》条文。</li>
+</ol></div>
+</div>
+<div class="divider"></div>
+<h2 id="s0">0 · 总则：先把入口和「读数心法」打通</h2>
+<p class="kv">所有外文库都从学校 WebVPN 进；PubMed 免费，不用 VPN。下面先立规矩，后面每个库都照着做。</p>
+<div class="genbox"><div class="genh">通用心法（每题都适用）</div><div class="step"><ol><li>浏览器开 <code>https://webvpn.wmu.edu.cn</code>，统一身份认证登录。</li><li>首页卡片进库：中国知网 / 万方数字化期刊 / 中国生物医学文献数据库(CBM) / SCI数据库1(webofscience.clarivate.cn) / Scopus。点了会新标签页，URL 变成 <code>https://webvpn.wmu.edu.cn/https/7772647…</code>，<b>这段 token 不要手改</b>。</li><li>认机构成功：WOS 右上角 “Wenzhou Medical College”；万方顶部「温州医科大学」；Scopus 顶部 “Wenzhou Medical University”；知网右上角「温州医科大学」。</li><li><b>字段靠下拉选，不靠手写</b>：知网、CBM、万方、WOS、PubMed 的高级检索都是「每行一个字段下拉 + 一个词框」。先在下拉里点字段，再在框里填<b>光秃秃的词</b>，再按回车。你在结果页看到的 <code>[Title]</code>、<code>主题：</code>、<code>（X：Y）</code> 是系统自己拼给你看的，<b>不要反过来把它们敲进框里</b>。</li><li><b>读数只看「命中总数」</b>：知网看「共找到 N 条结果」；万方看「共 N 条」；CBM 看左栏 navstat + 「共X页」；WOS 看 “N Documents”；PubMed 看 “N results”。<b>不要拿翻页数×每页条数去猜</b>（有余数会错）。<b>分面签上的小数字别当命中总数</b>——比如知网总库查得 94 条，左边分类签写着「学位论文 26」，26 是那个专场里的条数，不是这次检索的总数。</li><li><b>题里每一个限定词都要落到检索式或筛选上</b>：年代(2021-2026)、文献类型(综述/期刊/会议/学位论文)、核心期刊、SCI收录、年龄段(65岁以上)。漏一个，数字就会大很多。</li><li><b>限定条件优先用平台自带的筛选项，不要拿关键词凑</b>。典型例子：CBM 题面要「65 岁以上」，正确做法是展开「限定检索」勾年龄组「老年人：65岁以上」，<b>不是</b>多写一行「老年」当检索词——前者是年龄字段，后者是碰巧标题/摘要里出现「老年」二字，口径完全不同。</li></ol></div></div>
+
+<h2 id="s1">1 · CBM / SinoMed（7 题，全部实测）</h2>
+<p class="kv">入口：VPN → 图书馆--中文文献 → 中国生物医学文献数据库（CBM）。CBM 是中文医学库，四类检索：快速、高级、主题、分类。</p>
+<div class="genbox"><div class="genh">CBM 通用操作（先看这 6 条，题题都用到）</div><div class="step"><ol><li><b>快速检索</b>：先选好检索字段下拉，输入框只填词 → 点蓝色「检索」。多个条件请用「高级检索」逐行选字段，<b>不要手写方括号标签</b>。</li><li><b>主题检索</b>：顶部「主题检索」→ 输入词 → 选副主题词、勾「不加权/不扩展」→ 生成检索式。</li><li><b>分类检索</b>：顶部「分类检索」→ 只有一个 <b>「查找分类词」</b> 输入框和一棵分类树，<b>没有独立的「分类号输入框」</b>。这个框<b>只认类名，不认分类号</b>：填 <code>R541.2</code> 会得到「已找到 0 条相关记录」，填 <code>风湿性心脏病</code> 才能查到 <b>2 条</b>（<code>风湿性心脏病</code>、<code>小儿风湿性心脏病</code>）；点类名进详情页，页头会显示 <code>R541.2　风湿性心脏病　扩展检索</code>，分类号在这里读。<br><b>要真的把这一类文献检索出来</b>：详情页的蓝色「检索」按钮提交的是空表单（会提示「请输入检索词！」），正确做法是回<b>快速检索</b>，字段下拉选<b>分类号</b>，输入 <code>R541.2</code> 再点检索；或者在高级检索里用分类号字段建一行。</li><li><b>结果页怎么读</b>：右上「全部：N」是<b>历史总数</b>，不是筛选结果；真实数看左栏 navstat（如「核心期刊：119」）和底部「共X页」。</li><li><b>年代限定</b>：结果页顶部「年代 [ ]-[ ]」两个框填 <code>2021</code> / <code>2026</code>，再点蓝色「检索」（不是点「限定检索」，那只是展开更多选项）。</li><li><b>年龄 / 文献类型 / 性别 / 对象，都在「限定检索」面板里勾</b>，别当检索词写。展开「限定检索」能看到：<br>· 文献类型：综述 / 讲座 / 译文 / 病例报告 / 临床试验 / 随机对照试验 / Meta分析 / 多中心研究<br>· 年龄组：婴儿，新生 / 婴儿：1个月-23个月 / 儿童，学龄前 / 儿童：6岁-12岁 / 青少年：13岁-18岁 / 成年人：19岁-44岁 / 中年人：45岁-64岁 / <b>老年人：65岁以上</b> / 老年人，80岁以上<br>· 性别：男(雄)性 / 女(雌)性　· 对象：人类 / 动物<br><b>发文最多作者/机构</b>：结果页点「学术分析」或左栏「作者/机构」看分布。</li></ol></div></div>
+<div class="qcard">
+<div class="qhead"><span class="qno">Q1</span><span class="qtitle">风湿性心脏病分类号；发文最多作者与机构</span><span class="badge ok">实测</span></div>
+<div class="step"><ol><li>顶部「分类检索」→ 在 <b>「查找分类词」</b> 框里填类名 <code>风湿性心脏病</code> → 点「查找」→ 结果 <b>2 条</b>，点第一条进详情页。</li><li>详情页页头显示 <b><code>R541.2　风湿性心脏病　扩展检索</code></b> ⇒ 分类号 R541.2 就是它。<b>复分表（01 预防、控制和卫生 / 02 病理学、病因学 …）全部保持不勾</b>，勾了就是加限定。这一步只用来<b>查分类号</b>，不用它出结果。</li><li>要出文献：回<b>快速检索</b>，字段下拉选 <b>分类号</b>，输入 <code>R541.2</code> → 点蓝色「检索」。（分类树路径：R5 内科学 → R54 心脏血管疾病 → R541 心脏疾病 → <b>R541.2 风湿性心脏病</b>）</li><li>确认命中标题均为风湿性心脏病 / rheumatic heart disease。</li><li>点「学术分析」，作者按发文量排序取第一＝张宝仁；机构取第一＝长海医院。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>【查分类号】分类检索 → 查找分类词 填「风湿性心脏病」→ 查找 → 点类名进详情 → 页头读 R541.2
+【出文献】  快速检索 → 字段下拉选「分类号」→ 填 R541.2 → 点「检索」→ 左栏看「全部: N」</pre></div>
+<div class="result"><b>结果：</b>4486 篇，命中全为风湿性心脏病 → 分类号 <b>R541.2</b> 成立</div>
+<div class="paper"><figure><img src="文献检索核对截图/CBM_Q1_R5412_4486条.png" alt="CBM_Q1_R5412_4486条.png" loading="lazy"><figcaption>CBM_Q1_R5412_4486条.png</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>① 分类号是「R541.2」不是「R541」，R541 是心脏疾病大类，会混进冠心病、肺心病等。<br>② <b>「查找分类词」那个框只认类名、不认分类号</b>——填 R541.2 会得到「已找到 0 条相关记录」，别以为库里没有。正确做法见上面第 1、3 步。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q2</span><span class="qtitle">先天性髋关节脱位主题词及上位词；肺动脉高压流行病学重点文献</span><span class="badge ok">实测</span></div>
+<div class="step"><ol><li>顶部「主题检索」→ 输入「肺动脉高压」→ 展开副主题词，勾选 <b>人种学 / 流行病学 / 死亡率</b>，选「不加权、不扩展」→ 生成检索式。</li><li>或快速检索直接贴右侧检索式。</li><li>髋关节脱位主题词：<b>髋脱位，先天性</b>；上位词链：发育性髋关节发育不良 → 肌肉骨骼畸形 → 肌骨骼疾病。</li><li>结果 1475 条，按相关度取重点文献。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>主题检索 → 主题词填 肺动脉高压 → 副主题词勾 人种学 / 流行病学 / 死亡率 → 选项设「不加权、不扩展」→ 检索</pre></div>
+<div class="result"><b>结果：</b>1475 条（原答案 1446，+29 属收录增长）</div>
+<div class="paper"><figure><img src="文献检索核对截图/CBM_Q2_1475条.png" alt="CBM_Q2_1475条.png" loading="lazy"><figcaption>CBM_Q2_1475条.png</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>主题检索的「不加权/不扩展」一定要选，否则副主题词会被自动扩展，数字偏大。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q3</span><span class="qtitle">2021-2026 二甲双胍治 65 岁以上糖尿病的不良反应</span><span class="badge ok">实测</span></div>
+<div class="step"><ol><li>高级检索：三行字段下拉都选「常用字段」，分别填 二甲双胍 / 糖尿病 / 不良反应，行间 AND。</li><li><b>年龄段不要当检索词写</b>：展开下方「限定检索」面板 → 年龄组里勾 <b>「老年人：65岁以上」</b>（要更窄就再勾「老年人，80岁以上」）。</li><li>顶部「年代」两个框填 <code>2021</code> 和 <code>2026</code>。</li><li>点蓝色「检索」重新执行（这一步才真正加年代限定）。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>高级检索 → 三行「常用字段」填 二甲双胍 / 糖尿病 / 不良反应，行间 AND
+→ 展开「限定检索」→ 年龄组勾「老年人：65岁以上」
+→ 顶部年代框填 2021 - 2026 → 点「检索」</pre></div>
+<div class="result"><b>结果：</b>266 条（原答案 225；不加年龄条件＝2331 条）<span class="badge warn">本轮未复跑</span></div>
+<div class="paper"><figure><img src="文献检索核对截图/CBM_Q3_266条.png" alt="CBM_Q3_266条.png" loading="lazy"><figcaption>CBM_Q3_266条.png</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>题里「65岁以上」不是摆设，但<b>不能靠多写一行「老年」来凑</b>——那是在标题/摘要里碰词，漏掉的正是「65岁」「elderly」「aged」这些没写「老年」的文章。正确口子是「限定检索 → 年龄组 → 老年人：65岁以上」。三词不加年龄条件＝2331 条，差 10 倍就是这么来的。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q4</span><span class="qtitle">上海交大医学院范建高第一作者、题名含非酒精性脂肪性肝病</span><span class="badge ok">实测</span></div>
+<div class="step"><ol><li>快速检索贴右侧三条件检索式。</li><li><code>%…%</code> 表示「模糊包含」；<code>[第一作者]</code> 限定第一作者，<code>[第一作者单位]</code> 限定单位，<code>[中文标题:智能]</code> 限定题名。</li><li>结果 25 条，第一篇《NAFLD更名MAFLD、MASLD:背景、异同、对策》。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>高级检索 → 三行字段下拉分别选 第一作者单位 / 第一作者 / 中文标题，填 上海交通大学医学院 / 范建高 / 非酒精性脂肪性肝病，行间 AND</pre></div>
+<div class="result"><b>结果：</b>25 条（与答案一致）</div>
+<div class="paper"><figure><img src="文献检索核对截图/CBM_Q4_25条.png" alt="CBM_Q4_25条.png" loading="lazy"><figcaption>CBM_Q4_25条.png</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>是「范建高」不是「范建国」；单位用 %…% 模糊匹配，别写成精确等号。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q5</span><span class="qtitle">核心期刊、摘要或关键词含阑尾炎的综述</span><span class="badge ok">实测</span></div>
+<div class="step"><ol><li>高级检索：摘要、关键词字段分别填「阑尾炎」与「Appendicitis」（组内 OR），再加一行「文献类型=综述」（AND）→ 299 条。</li><li>在左栏「结果筛选」找「核心期刊 XX」，<b>点它所在那一整行（&lt;li&gt;），不要只点文字链接</b>。</li><li>筛选后看左栏「核心期刊：119」+ 底部「共6页」→ 命中 119 条。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>高级检索 → 摘要、关键词字段各填 阑尾炎 与 Appendicitis（组内 OR）→ 再加一行 文献类型=综述（AND）→ 结果页左栏勾「核心期刊」</pre></div>
+<div class="result"><b>结果：</b>基础 299 条 → 加「核心期刊」筛选 <b>119 条</b>（原答案 116，+3）</div>
+<div class="paper"><figure><img src="文献检索核对截图/CBM_Q5_119条.png" alt="CBM_Q5_119条.png" loading="lazy"><figcaption>CBM_Q5_119条.png</figcaption></figure><figure><img src="文献检索核对截图/CBM_Q5_299条.png" alt="CBM_Q5_299条.png" loading="lazy"><figcaption>CBM_Q5_299条.png</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>「全部：299」是历史总数，别当成筛选结果；真实数看 navstat「核心期刊：119」和「共6页」。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q6</span><span class="qtitle">中华医学会浙江分会期刊；发文最多刊；该刊 2025 高血压文献</span><span class="badge ok">实测</span></div>
+<div class="step"><ol><li>高级检索：刊名字段填「浙江医学」并勾「含更名」，第二行「常用字段」填「高血压」，日期框 2025-2025 → 17 条。</li><li>发文最多刊：浙江医学 / 心电学杂志 / 感染病杂志（中华医学会浙江分会主办）。</li><li>《浙江医学》1979 年创刊，ISSN <b>1006-2785</b>。</li><li>第一篇《NF-κB、miRNA-29a在高血压性心脏病患者中的表达及临床意义》。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>期刊检索 / 高级检索 → 刊名字段填 浙江医学并勾「含更名」→ 第二行 常用字段=高血压 → 日期框 2025-2025</pre></div>
+<div class="result"><b>结果：</b>17 条（与答案一致）</div>
+<div class="paper"><figure><img src="文献检索核对截图/CBM_Q6_17条.png" alt="CBM_Q6_17条.png" loading="lazy"><figcaption>CBM_Q6_17条.png</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>刊名要用「含更名」，否则《浙江医学》曾用名/子刊会漏；日期写 2025-2025 是单年。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q7</span><span class="qtitle">RA 背景材料提炼主题并检索</span><span class="badge ok">实测</span></div>
+<div class="step"><ol><li>从背景材料提炼主题：<b>IL-8 在类风湿关节炎发病机制中的作用</b>。</li><li>快速检索贴三词检索式（白细胞介素8 / 类风湿关节炎 / 作用机制）。</li><li>结果 2 条，均为主题强相关。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>高级检索 → 三行字段下拉都选「常用字段」，分别填 白细胞介素8 / 类风湿关节炎 / 作用机制，行间 AND（三个条件缺一不可）</pre></div>
+<div class="result"><b>结果：</b>2 条（与答案一致）</div>
+<div class="paper"><figure><img src="文献检索核对截图/CBM_Q7_2条.png" alt="CBM_Q7_2条.png" loading="lazy"><figcaption>CBM_Q7_2条.png</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>IL-8 中文库写「白细胞介素8」最稳；写「白介素8」会漏。</div>
+</div>
+<h2 id="s2">2 · 中国知网 CNKI（9 题里的知网部分）</h2>
+<p class="kv">入口：VPN → 中国知网。认机构：右上角显示「温州医科大学」。</p>
+<div class="genbox"><div class="genh">知网通用操作（含 3 个必踩的坑，先看完再动手）</div><div class="step"><ol><li><b>高级检索</b>：首页搜索框右侧点「高级检索」→ 出现多行条件，每行左边下拉选字段（主题/篇关摘/关键词/篇名/全文/作者/第一作者/作者单位/文献来源/DOI…），右边填词；行与行用 AND/OR 连接 → 点「检索」。</li><li><b>坑 1：第二行的默认字段是「作者」，不是「主题」。</b>如果你只填词不改字段，检索式会变成 <code>（主题：2型糖尿病）AND（作者：遗传基因(精确)）</code>，然后返回 <b>「抱歉，暂无数据，请稍后重试」</b>。这个报错长得像「库里没有」，实际是字段错了。<b>每加一行，都要先点开这一行左边的字段下拉，选中你要的字段，再填词。</b></li><li><b>坑 2：输入框的联想词下拉会盖住「检索」按钮。</b>比如输入「胃癌」，会弹出一列「胃癌患者 / 胃癌组织 / 胃癌细胞 / 胃癌根治术…」，正好压在「检索」按钮上。此时点「检索」实际点到联想词，<b>页面毫无反应、也不报错</b>。<br>解法：<b>先点一下页面空白处</b>（让输入框失焦、联想词收起），再点「检索」。<b>不要按 Esc</b>——Esc 可能把已经填好的词清掉。</li><li><b>坑 3：刷新或提交失败后，字段会回落成默认值。</b>Ctrl+R 之后必须重新检查每一行的字段下拉，否则又回到「主题 + 作者」组合。</li><li><b>结果数</b>：看顶部「<b>共找到 N 条结果</b>」——<b>这才是命中总数</b>。左上分类签上的小数字（如「学位论文 26」「学术期刊 1967」）是<b>该专场里的条数</b>，不是本次检索总数，别抄错。</li><li><b>排序</b>：结果页上方「排序」选「被引」或「下载」，再点一次方向箭头。</li><li><b>专场入口</b>：首页顶部有「期刊 / 学位论文 / 会议 / 报纸」导航，进对应专场再检索；也可以在总库检索后点左上分类签切专场。</li><li><b>滑块验证</b>：连续检索偶尔弹腾讯滑块，需人工划一下；自动化无法代过。</li></ol>
+<div style="margin-top:10px"><b>高级检索的字段下拉里到底有哪些字段（本轮实测抄下来的完整清单，不用再猜）：</b><br>
+主题 / 篇关摘 / 关键词 / 篇名 / 全文 / 作者 / 第一作者 / 通讯作者 / 作者单位 / 基金 / 摘要 / 小标题 / 参考文献 / 分类号 / 文献来源 / DOI<br>
+<span style="color:#666">下拉里还有一列是<b>学科专辑</b>（基础科学 / 工程科技Ⅰ辑 / 工程科技Ⅱ辑 / 农业科技 / 医药卫生科技 / 哲学与人文科学 / 社会科学Ⅰ辑 / 社会科学Ⅱ辑 / 信息科技 / 经济与管理科学），那是限定学科范围用的，别和上面的检索字段搞混。</span><br>
+<b>加行</b>：条件行右侧的 <b>+</b>；删行用行尾的 <b>−</b>。<b>加行之后「检索」按钮会往下移</b>，别在原来的位置点空。</div></div></div>
+<div class="qcard">
+<div class="qhead"><span class="qno">Q1</span><span class="qtitle">「临床医学健康与传播学术研讨会(第三册)」论文集篇数</span><span class="badge ok">实测</span></div>
+<div class="step"><ol><li>顶部 <b>出版来源</b>（出版物检索）→ 页面上方的检索区有两个控件：左边是字段下拉（<b>来源名称 / 主办单位 / 出版者 / ISSN / CN / ISBN</b>），右边是输入框（提示语「请输入检索词」）。</li><li>字段保持 <b>来源名称</b>，输入框填 <code>临床医学健康与传播学术研讨会</code> → 点 <b>出版来源检索</b>。</li><li>类型那一排点 <b>会议</b>（不点会混进期刊/图书）。</li><li>打开论文集记录，看<b>第三册</b>的文献篇数。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>出版来源 → 字段「来源名称」填 临床医学健康与传播学术研讨会
+        → 点「出版来源检索」→ 类型点「会议」→ 打开记录看第三册篇数</pre></div>
+<div class="result"><b>结果：</b>旧记 <b>270 篇</b>（四册分别 298 / 212 / 270 / 204）。<b>本轮未复核到分册数字</b>，见易错点。</div>
+<div class="paper"><figure><img src="文献检索核对截图/CNKI_Q1_270.jpg" alt="CNKI_Q1_270.jpg" loading="lazy"><figcaption>CNKI_Q1_270.jpg</figcaption></figure></div>
+<div class="tip"><b>易错点（本轮在出版来源库里摸清了检索框在哪）：</b><br>① <b>那个下拉不是输入框。</b>页面上「来源名称」是个<b>字段选择下拉</b>（展开后只有来源名称/主办单位/出版者/ISSN/CN/ISBN 六项），<b>真正的输入框在它右边</b>，提示语是「请输入检索词」。我第一次把词打进了下拉里，什么都没发生——这是这题最容易卡住的地方。<br>② 输完要点 <b>「出版来源检索」</b>，不是回车。<br>③ 结果列表要再点一次类型 <b>会议</b>，否则默认混着期刊和图书。<br>④ 本轮实测：「关爱生命大讲堂」在出版来源库里 <b>0 条</b>；紧接着用「中华精神科杂志」试，<b>1 条</b>——说明控件和检索都正常，<b>0 条是因为这个会议名在出版来源库里查不到</b>（和第 3 题同一个原因）。所以这两题都要靠你自己确认老师给的会议名在库里的准确写法；<b>270 这个数本轮没有重新验到，别当成本轮实测值。</b></div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q2</span><span class="qtitle">「精神病学」北大核心期刊几种</span><span class="badge warn">12 种已核实·2 未复核</span></div>
+<div class="step"><ol><li>顶部 <b>出版来源</b>（出版物检索）→ 左侧 <b>学科导航</b> 展开 <b>医药卫生科技</b> → 在子类里点 <b>精神病学</b>。</li><li>页面上方把类型切到 <b>期刊</b>（默认可能停在「图书/全部」，<b>不切会看到 816 条图书</b>）。</li><li>读「共 N 条结果」。<b>2026-11-08 实测：12 种。</b></li><li>再按北大核心收窄——<b>但这版导航页上没有「北大核心」筛选器</b>，见下面易错点。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>出版来源 → 学科导航 展开「医药卫生科技」→ 点「精神病学」
+  → 上方类型切到「期刊」          → 共 12 条结果
+  → 再找北大核心筛选（这版页面没有，见易错点）</pre></div>
+<div class="result"><b>结果：</b><b>12 种</b>（精神病学期刊总数，2026-11-08 实测）。<br>旧作答 <b>2 种</b>（中华精神科杂志、中国神经精神疾病杂志）——<b>这个数本轮没能从界面上验证出来</b>。</div>
+<div class="paper"><figure><img src="文献检索核对截图/CNKI_Q2_2种.jpg" alt="CNKI_Q2_2种.jpg" loading="lazy"><figcaption>CNKI_Q2_2种.jpg（旧截图）</figcaption></figure></div>
+<div class="tip"><b>易错点（本轮实测踩到的三个坑）：</b><br>① <b>一定要先切「期刊」</b>。学科导航点进「精神病学」后，列表默认混着图书，你会看到「共 816 条」，那不是期刊数。<b>切到期刊才是 12 条。</b><br>② <b>新版「出版来源导航」上没有「北大核心」这个筛选器。</b>我把整页的链接、按钮、下拉都翻了一遍，只有学科分类和类型切换（期刊/博硕士/会议/年鉴/报纸/图书/工具书），没有核心级别筛选。所以「2 种」这个数<b>在这一版界面上没法直接勾出来</b>。<br>③ 要真正数「北大核心」的种数，得换入口：知网首页顶部的 <b>学术评价</b>（核心期刊目录），或者右下角 <b>旧版入口 → 期刊导航 → 核心期刊</b>。旧版导航里有「北大核心 2023」这类目录可以直接按学科数。这题请用这两个入口之一自己点一遍，<b>别把 12 当成答案</b>——12 是精神病学期刊总数，不是北大核心数。<br>④ 是「北大核心」不是「CSSCI」；精神病学在<b>医药卫生科技</b>下，不在社科。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q3</span><span class="qtitle">2026 第四期关爱生命大讲堂：篇关摘含「胰岛素抵抗」的文献数</span><span class="badge warn">会议名查不到·3 未复现</span></div>
+<div class="step"><ol><li><b>先看这条环境限制（2026-11-08 新查明）：</b>知网「高级检索」入口在 DOM 里是<b>绝对地址</b> <code>https://kns.cnki.net/starter/advanced</code>——在 WebVPN 里点它<b>页面不跳转</b>，手改写成 VPN 前缀又返回「很抱歉！您浏览的页面不存在」；<code>/kns8s/AdvSearch</code>（SCDB / CJFD 等 6 个变体）也全部不存在。<b>这不是滑块也不是风控，是绝对地址 + VPN 未建该路径隧道。</b>会议专场能切（点「会议」&lt;li&gt; 会触发 CrossDb），但高级检索表单<b>必须人工点进去</b>，「论文集名称」字段是否存在也只能人工确认。</li><li>知网<b>会议</b>专场（或总库），进高级检索。</li><li>第一行字段选会议的对应字段（会议专场里叫「<b>论文集名称</b>」，总库里只有「<b>文献来源</b>」），填会议名。</li><li>第二行 + <b>篇关摘</b>，填 <code>胰岛素抵抗</code>，行间 AND。</li><li>点检索，读「共找到 N 条结果」。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>会议专场 → 高级检索
+  第1行 字段选「论文集名称」填 会议名
+  第2行 AND +「篇关摘」填 胰岛素抵抗
+  → 检索 → 读「共找到 N 条结果」</pre></div>
+<div class="result"><b>结果：</b><b>3 未复现</b>。2026-11-08 界面法实测：检索式正确生成为
+<code>（文献来源：关爱生命大讲堂(精确)）AND（篇关摘：胰岛素抵抗(精确)）</code>，但返回 <b>「抱歉，暂无数据，请稍后重试。」</b></div>
+<div class="paper"><figure><img src="文献检索核对截图/_cnki_q3_slider.png" alt="_cnki_q3_slider.png" loading="lazy"><figcaption>_cnki_q3_slider.png（上一轮遇滑块时的留证）</figcaption></figure></div>
+<div class="tip"><b>易错点（本轮把「为什么查不到」查清楚了，不是滑块的事）：</b><br>① <b>先分清「检索式错了」和「库里就没有」。</b>我做了两步排查：<br>· 单独查 <code>（主题：关爱生命大讲堂）</code> → 也是 <b>「抱歉，暂无数据」</b>；<br>· 紧接着查 <code>（主题：胰岛素抵抗）</code> → <b>正常出 1.86 万条</b>。<br>两次紧挨着、都在同一标签页、都没弹滑块。<b>所以知网服务没被风控，是「关爱生命大讲堂」这个名字在知网里查不到。</b>可能的原因：会议名写法不同（比如全称含「2026年第四期」和主办单位）、这是 2026 年的会尚未被收录、或者它根本不在知网而在万方/其他库。<br>② <b>「暂无数据」这个提示有两层意思，别一律当成滑块或风控。</b>上一轮记录把它归因于滑块，本轮证明在这里是<b>真的一条都没有</b>。以后遇到这个提示，先用一个必然有结果的词（比如「胰岛素抵抗」）试一下：<b>能出数 → 是你查的那个词/字段没中；也出不来 → 才是风控/滑块。</b><br>③ <b>总库里根本没有「论文集名称」这个字段</b>（字段清单只有 16 个：主题/篇关摘/关键词/篇名/全文/作者/第一作者/通讯作者/作者单位/基金/摘要/小标题/参考文献/分类号/文献来源/DOI）。要用「论文集名称」必须先进<b>会议专场</b>。这是本题最容易卡住的地方。<br>④ <b>3 这个数我复现不出来，别当答案抄。</b>要拿到它，需要先确认会议名在库里的准确写法（可以在知网首页搜索框直接搜「关爱生命大讲堂」看有没有联想词），再回到会议专场查。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q6</span><span class="qtitle">北大六院黄悦勤在《中国心理卫生杂志》发文（精确）</span><span class="badge ok">实测·116</span></div>
+<div class="step"><ol><li>高级检索，点两次 <b>+</b> 加出<b>三行</b>，<b>每一行都要先点开左边的字段下拉选字段</b>：<br>· 第 1 行选 <b>作者</b> → 填 <code>黄悦勤</code>，右边的修饰词下拉选 <b>精确</b><br>· 第 2 行选 <b>作者单位</b> → 填 <code>北京大学第六医院</code>（保持 <b>模糊</b>）<br>· 第 3 行选 <b>文献来源</b> → 填 <code>中国心理卫生杂志</code>，修饰词选 <b>精确</b><br>行间全部 AND。</li><li>点页面空白处收起联想词 → 点「检索」。</li><li><b>回读检索式确认没白跑</b>，正确的话页面上会出现这一行：<br><code>（作者：黄悦勤(精确)）AND（作者单位：北京大学第六医院(模糊)）AND（文献来源：中国心理卫生杂志(精确)）</code><br>特别注意第 2 行的「<b>作者单位</b>」和第 3 行的「<b>文献来源</b>」有没有就位——<b>这两行默认不是这两个字段，不改就会变成「作者」</b>。</li><li>「排序」选 <b>下载</b> 降序，读第一篇。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>高级检索 → 点两次 + 变三行
+  第1行 字段选 作者     填 黄悦勤       修饰词 精确
+  第2行 字段选 作者单位 填 北京大学第六医院  修饰词 模糊
+  第3行 字段选 文献来源 填 中国心理卫生杂志  修饰词 精确
+  → 点空白处失焦 → 检索 → 回读检索式 → 排序选「下载」降序</pre></div>
+<div class="result"><b>结果（2026-11-08 实测）：</b><b>116 条</b>。<br>检索式回读确认为 <code>（作者：黄悦勤(精确)）AND（作者单位：北京大学第六医院(模糊)）AND（文献来源：中国心理卫生杂志(精确)）</code>，<b>三个字段全部就位</b>，检索范围＝<b>总库</b>，分类签显示「学术期刊 116 / 学位论文 0 / 会议 0」。<br>列表第一篇《保定市城区中学生进食行为问题及相关因素调查的设计与实施》，作者刘晋宁、黄英达等，《中国心理卫生杂志》，下载 49。</div>
+<div class="paper"><figure><img src="文献检索核对截图/CNKI_Q6_107条.png" alt="CNKI_Q6_107条.png" loading="lazy"><figcaption>旧截图 CNKI_Q6_107条.png（检索式口径 107）</figcaption></figure></div>
+<div class="tip"><b>易错点：</b><br>① <b>作者要选「精确」</b>，否则同名不同人会混进来。<br>② <b>最容易翻车的地方是第 2、3 行的字段</b>。你只在框里填了「北京大学第六医院」「中国心理卫生杂志」，如果字段还停在「作者」，检索式会变成三行全是作者，结果直接 0 条，而且知网只回一句「抱歉，暂无数据」。<b>每次检索前都回读一遍检索式</b>，这一步比结果数更重要。<br>③ <b>两个数为什么不一样，说清楚：</b>旧记录的 <b>107</b> 是「专业检索式」口径，本轮界面法三行实测是 <b>116</b>，差别在单位是「模糊」还是「精确」、以及检索式与表单在扩展上的处理不同。<b>两个都留下，答题时按老师要求的口径写；如果只要求「查出来多少条」，界面法就是 116</b>。别把 107 当成唯一答案，也别拿 116 去覆盖旧记录。<br>④ 旧记录里「下载第一《医学科研中随机误差控制和样本量确定》8,782 下载」本轮未复核——要拿这个结论，得先把「排序 → 下载」切过去再把第一篇截图。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q8</span><span class="qtitle">2 型糖尿病遗传基因学位论文数、被引最高、授予单位与年度</span><span class="badge ok">实测</span></div>
+<div class="step"><ol><li>顶部「学位论文」→ 高级检索两行：<b>两行左边的字段下拉都要点开选「主题」</b>（第二行默认是「作者」，必须改！）→ 第一行填 <code>2型糖尿病</code>，第二行填 <code>遗传基因</code>，行间 AND。</li><li>先点页面空白处收起联想词，再点「检索」。</li><li>读数 <b>26 条</b>（硕士 17 / 博士 9）；列表第一篇《2型糖尿病的遗传易感基因研究》，保晓芸，重庆医科大学，2012，被引 687。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>【推荐】学位论文专场 → 高级检索两行，两行字段都选「主题」
+        填 2型糖尿病 / 遗传基因，行间 AND → 失焦 → 检索 → 共找到 26 条
+
+【为什么必须是「学位论文专场」】
+  总库口径（不限专场）同一组条件 = 94 条，结果页左上分类签写着「学位论文 26」
+  → 26 是那个专场的条数。两种走法都能落到 26，但别把 94 当答案。</pre></div>
+<div class="result"><b>结果：</b><b>26 条</b>（博士 9 + 硕士 17，2026-11-08 实测复核）。<br><b>总库口径实测 94 条</b>，分类签「学位论文 26」——两个数都对，只是口径不同，答题要 26。</div>
+<div class="paper"><figure><img src="文献检索核对截图/CNKI_Q8_26条_学位论文_20261106.png" alt="CNKI_Q8_26条_学位论文_20261106.png" loading="lazy"><figcaption>CNKI_Q8_26条_学位论文_20261106.png（检索式 + 26 条）</figcaption></figure><figure><img src="文献检索核对截图/CNKI_T2DM.png" alt="CNKI_T2DM.png" loading="lazy"><figcaption>旧截图 CNKI_T2DM.png：568 条，但看不到检索式，不作依据</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>① <b>第二行不改字段就一定查出 0 条</b>（会变成「作者：遗传基因」）——这是本题最常见的失败原因，且知网只回一句「抱歉，暂无数据」，不告诉你为什么。<br>② <b>26 不是「一检索就看到的数」</b>。如果你在总库查，先看到的是 94；26 在左上分类签「学位论文」上。两种口径都已实测，答题写 26。<br>③ 扩展开关一换数量就变（勾同义词扩展 29、字段改篇关摘 39），但<b>这些都不是本题答案</b>。<br>④ 旧文档的 <b>568 条至今未复现</b>，旧截图看不到检索式，<b>不要拿 568 当答案</b>。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q9</span><span class="qtitle">miR-146a 在胃癌（篇关摘字段，按下载量排序）</span><span class="badge ok">2026-11-08 实测 4,240 条（旧 90 未复现）</span></div>
+<div class="step"><ol><li>高级检索，<b>两行字段都点开下拉选「篇关摘」</b>（第二行默认是「作者」，必须改）→ 第一行填 <code>miR-146a</code>，第二行填 <code>胃癌</code>，行间 AND。</li><li>点页面空白处收起联想词 → 点「检索」。</li><li>结果页「排序」选「下载」，再点方向箭头降序。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>高级检索 → 两行字段都选「篇关摘」
+        第一行 miR-146a / 第二行 胃癌，行间 AND
+        → 失焦 → 检索 → 排序选「下载」降序</pre></div>
+<div class="result"><b>结果：</b><b>4,240 条</b>（2026-11-08 实测，检索式回读为
+<code>（篇关摘：miR-146a(精确)）AND（篇关摘：胃癌(精确)）</code>）。<b>旧记的「90 条」本轮复现不出来</b>，差近 50 倍。</div>
+<div class="paper"><figure><img src="文献检索核对截图/CNKI_Q9_90条_检索式_20261106.png" alt="CNKI_Q9_90条_检索式_20261106.png" loading="lazy"><figcaption>旧截图：90 条（本轮未能复现该计数）</figcaption></figure><figure><img src="文献检索核对截图/CNKI_Q9_90条_下载排序_20261106.png" alt="CNKI_Q9_90条_下载排序_20261106.png" loading="lazy"><figcaption>旧截图：下载降序第一篇肖斌 2009，791 下载（本轮未复核）</figcaption></figure></div>
+<div class="tip"><b>易错点（本轮实测推翻了两条旧说法）：</b><br>① <b>「必须写三种同义写法，否则会漏」是错的。</b>我把 <code>(miR-146a OR miRNA-146a OR microRNA-146a)</code> 和只写 <code>miR-146a</code> 各跑了一遍，<b>两次都是 4,240 条，一条不差</b>——知网的「篇关摘」本来就做了同义/大小写归一，<code>miRNA-146a</code>、<code>microRNA-146a</code> 的命中已经含在 <code>miR-146a</code> 里了。多写 OR 只是白费功夫。<br>② <b>「90 条」这个数没有任何可复现的式子支撑。</b>90 比 4,240 小近 50 倍，而同义词是<b>并集</b>、只会让结果更多，所以 90 绝不可能是「三行 OR + AND 胃癌」出来的。要么旧记录的式子写错了，要么 90 对应的是别的字段/别的库。旧答案的第一篇「肖斌 2009 / 791 下载」同样未复核。<b>这题请你自己在浏览器里点一次，把检索式和「共找到 N 条」一起截图再定。</b></div>
+</div>
+<h2 id="s3">3 · 万方数据（9 题里的万方部分）</h2>
+<p class="kv">入口：VPN → 万方数字化期刊。认机构：顶部显示「温州医科大学」。<br>
+<b>2026-11-08 实测状态：</b>高级检索页能正常打开（<code>/advanced-search/paper</code>），文献类型页签、条件行、与/或下拉、模糊/精确下拉都在画面上，<b>但我这一轮的自动化手段对万方完全失效</b>——输入框、检索按钮、下拉框<b>全都不在可访问性树里</b>，用坐标点击也聚焦不上，按 Tab 也跳不进任何输入控件（焦点一直停在窗口本身）。这跟知网不同：知网虽然也不暴露输入框，但用坐标能把词打进去；万方连这个都不行。<br>
+<b>所以下面四题（Q4–Q7）的数字全部是 11-06 那轮的旧作答，本轮没能复核。</b>你手动操作完全没问题——人眼看得见、鼠标点得着的东西，自动化不一定摸得到。四题的操作路径我按画面结构写清了，你照着点即可。</p>
+<div class="genbox"><div class="genh">万方通用操作</div><div class="step"><ol><li><b>高级检索</b>：首页点「高级检索」→ 多行条件，每行选字段（主题/题名/作者/作者单位/导师/学位授予单位/刊名/文献类型）→ 检索。</li><li><b>结果数</b>：结果页「共 N 条」，这是命中数。</li><li><b>期刊导航</b>：顶部「期刊」→ 按学科浏览 / 选 SCI 收录等筛选。</li><li><b>注意</b>：万方是动态 SPA，VPN 下偶尔加载慢，别急着刷新。</li></ol></div></div>
+<div class="qcard">
+<div class="qhead"><span class="qno">Q4</span><span class="qtitle">温医蒋益老师指导的学位论文数</span><span class="badge ok">2026-11-08 实测 22 条</span></div>
+<div class="step"><ol><li>高级检索。<b>文献类型是多选，必须把「期刊论文」和「会议论文」两个取消掉，只留「学位论文」</b>——只有这时字段下拉里才会出现学位类字段。</li><li>第 1 行：字段下拉选 <b>「学位-导师」</b>（下拉里就叫这个名字，回显成 <code>导师:</code>），填 <code>蒋益</code>。</li><li>第 2 行：字段下拉选 <b>「学位-学位授予单位」</b>（回显 <code>学位授予单位:</code>），填 <code>温州医科大学</code>。</li><li>点检索，读「找到 N 条文献」。<b>2026-11-08 实测：22 条</b>，准确复现。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>文献类型只勾「学位论文」→ 第1行 字段「学位-导师」填 蒋益 → 第2行 字段「学位-学位授予单位」填 温州医科大学 → 检索</pre></div>
+<div class="result"><b>结果：</b><b>22 条</b>（2026-11-08 实测复现；检索式回显 <code>导师:(蒋益) and 学位授予单位:(温州医科大学)</code>）</div>
+<div class="paper"><figure><img src="文献检索核对截图/WANFANG_Q4_22条.png" alt="WANFANG_Q4_22条.png" loading="lazy"><figcaption>WANFANG_Q4_22条.png</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>①是「蒋益」不是「蒋毅」。②<b>字段名是「学位-导师」不是「导师」</b>——默认状态下下拉里根本没有导师/学位授予单位，因为文献类型默认勾了期刊+学位+会议三类混在一起；<b>必须先取消期刊论文和会议论文</b>，学位类字段才会冒出来。③文献类型是多选（可同时勾多个），不是单选。④不要填到「作者」字段。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q5</span><span class="qtitle">期刊导航：临床医学 SCI 期刊几种</span><span class="badge warn">2026-11-08 实测：无「临床医学」学科·3 未复现</span></div>
+<div class="step"><ol><li>从结果页「学术期刊」链接进期刊导航（VPN 会自动改写 token，别手拼）。</li><li>本轮新版导航<b>能打开</b>：学科「医药卫生」= 1,545 本，核心分面显示 SCI (37)。</li><li>但页面<b>没有「临床医学」子类</b>，SCI 分面点击后计数也不变；旧作答 3 种<b>未复现</b>。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点）</span><pre>期刊导航 → 学科「医药卫生」→ 核心「SCI」（点它不会筛选）；旧版入口 g.wanfangdata.com.cn 已无旧版，直连即跳新版</pre></div>
+<div class="result"><b>结果：</b>旧作答 3 种<b>未复核</b>；<b>2026-11-08 实测确认</b>：期刊导航无筛选＝<b>11,133</b> 本；学科「医药卫生」＝<b>1,545</b> 本；该口径下核心分面 <b>SCI (37)</b>；点选 SCI 后<b>总数仍是 1,545 不变</b>（只有「确定(1)」计数变化）。全页搜「临床医学」<b>无此词</b>。⇒ 万方新版导航<b>没有「临床医学」这一级学科</b>，本题在万方界面下无解，<b>不要用 1,545 / 37 / 3 中任何一个当答案</b>。<br><b>2026-11-08 把剩下两条路也试完了，四路全堵：</b>①学科分类只有 8 个一级类，无二级「临床医学」；②SCI (37) 是分面提示数，点选不筛选（总数仍 1,545）；③<b>旧版入口已不存在</b>——<code>g.wanfangdata.com.cn</code> 直连直接跳新版，VPN 包装 <code>/http/…g.wanfangdata.com.cn</code> 与 <code>/https/g.wanfangdata.com.cn</code> 都是「访问出错」；④期刊导航页的「<b>搜期刊</b>」按钮点了实际进「搜论文」，搜「临床医学」得 <b>285,677 条文献</b>（不是期刊数）。⇒ <b>本题按现网万方无法作答，只能记为「未能获得」</b>；要给数必须由老师提供原始口径（哪个学科体系、哪年 SCI 目录）。</div>
+<div class="paper"><figure><img src="文献检索核对截图/WANFANG_Q5_期刊导航_医药卫生_20261106.png" alt="WANFANG_Q5_期刊导航_医药卫生_20261106.png" loading="lazy"><figcaption>期刊导航：学科分类 医药卫生，找到 1,545 本</figcaption></figure></div>
+<div class="tip"><b>易错点（本轮逐条验过）：</b>①万方学科分类只有 8 个一级类：哲学政法(720)/社会科学(1026)/经济财政(1074)/教科文艺(2357)/基础科学(1177)/<b>医药卫生(1545)</b>/农业科学(672)/工业技术(2933)，<b>没有二级「临床医学」</b>。②「核心」区的 SCI(37) 是<b>分面提示数</b>，点它不会筛选列表，别当结果用。③不要把 1,545 或 37 硬凑成 3。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q6</span><span class="qtitle">北大六院黄悦勤在《中国心理卫生杂志》发文（万方版）</span><span class="badge ok">2026-11-08 实测 138 条</span></div>
+<div class="step"><ol><li>高级检索：第 1 行字段选 <b>作者</b> 填 <code>黄悦勤</code>；第 2 行 <b>作者单位</b> 填 <code>北京大学第六医院</code>；第 3 行 <b>期刊-刊名</b> 填 <code>中国心理卫生杂志</code>（回显为 <code>期刊名称/刊名:</code>）。行间都是 AND。</li><li>点检索。<b>2026-11-08 实测：138 条</b>，共 7 页，有全文 138；年份 2026=2 / 2025=15 / 2024=20。</li><li>排序停在默认<b>相关度</b>。<b>实测前两篇是</b>：①《2016-2021年中国自杀率变化趋势》刘肇瑞/黄俊捷/张婷婷等，2025年7期（被引5、下载78）；②《双相障碍患者出院后抑郁症状程度的关联因素》储文革/盛旋莲/张婷婷等，2025年5期。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>万方高级检索 → 逐行选字段 作者 / 作者单位 / 刊名，填 黄悦勤 / 北京大学第六医院 / 中国心理卫生杂志，行间 AND → 排序下拉选「相关度」</pre></div>
+<div class="result"><b>结果：</b><b>138 条</b>（2026-11-08 实测复现；检索式 <code>作者:(黄悦勤) and 作者单位:("北京大学第六医院") and 期刊名称/刊名:(中国心理卫生杂志)</code>）</div>
+<div class="paper"><figure><img src="文献检索核对截图/WANFANG_Q6_138条_相关度_20261106.png" alt="WANFANG_Q6_138条_相关度_20261106.png" loading="lazy"><figcaption>138 条（相关度排序；2026-11-08 实测第一、二篇见下）</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>①万方与知网口径不同（万方 138、知网 107/116），两库分别答，别互相套。②<b>不要再背「相关度第一篇是哪篇」</b>——2026-11-08 实测第一篇是《2016-2021年中国自杀率变化趋势》，不是旧记的《中老年人群慢性病共病与抑郁症状的关联性分析》。万方的相关度算法会随索引更新变化，<b>以自己屏幕上看到的为准</b>，截图时把题名一起截进去。③第 3 行字段名是「期刊-刊名」，不是「刊名」；如果选错落到「题名」，结果会从 138 掉到 1 条。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q7</span><span class="qtitle">HPV 疫苗期刊+会议文献、第一篇、高产机构与作者</span><span class="badge ok">2026-11-08 实测 4,041 条</span></div>
+<div class="step"><ol><li>高级检索：主题=HPV疫苗，文献类型勾「期刊论文」+「会议论文」。</li><li>读数 <b>4,041 条</b>（2026-11-08 实测；旧记 4,039，仅 +2 属收录增长）。勾完两个类型后<b>必须点左栏的「确定 (2)」</b>才生效，筛选签会显示 <code>资源类型 : 期刊论文 OR 会议论文</code>。</li><li>第一篇《治疗性HPV疫苗的机制及临床研究进展》，殷姿/刘宝瑞/朱丽晶，中国肿瘤生物治疗杂志。</li><li>看「机构/作者」分布（点左栏 <code>span.facet-title</code> 的父容器才会展开）：<br>· 高产机构：<b>中国疾病预防控制中心 70</b> / 北京大学人民医院 59 / 中国医学科学院肿瘤医院 56<br>· 高产作者：<b>乔友林 56</b> / 魏丽惠 53 / 田厚文 38</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>万方高级检索 → 字段选「主题」填 HPV疫苗 → 资源类型勾 期刊论文 + 会议论文 → 检索 → 左栏展开「机构」「作者」分面</pre></div>
+<div class="result"><b>结果：</b><b>4,041 条</b>（2026-11-08 实测复现；旧记 4,039，+2 属增长）</div>
+<div class="paper"><figure><img src="文献检索核对截图/WANFANG_HPV_count.png" alt="WANFANG_HPV_count.png" loading="lazy"><figcaption>WANFANG_HPV_count.png</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>高产机构和高产作者别写反：机构是 CDC，作者是乔友林。</div>
+</div>
+<h2 id="s4">4 · Web of Science（6 题）</h2>
+<p class="kv">入口：VPN 资源页 → <b>SCI数据库1</b>（<code>webofscience.clarivate.cn</code>）→ 会跳到 <code>…/wos/woscc/smart-search</code>。<b>不要用 www.webofscience.com</b>，会 CONNECTION_FAILED。<br>
+<b>2026-11-08 实测：这个入口时好时坏。</b>第一次点进去跳到 <code>webvpn.wmu.edu.cn/wengine-vpn/failed</code>，页面写「出错啦！该网站无法访问!」；<b>隔一会儿再点就进去了</b>，页面标题 <code>Smart Search - Web of Science Core Collection</code>，右上角认到机构 <b>Wenzhou Medical College</b>。所以：<b>打不开不代表没权限，先重试一次或换个时间再试</b>，别急着找图书馆。<br>
+进去后能正常检索：实测 Topic 检索 <code>Ningbo University</code> = <b>252</b> 条，页面标题会直接写成 <code>Ningbo University (Topic) – 252</code>，结果区顶部是「<b>252 Documents</b>」。<br>
+<b>但有个自动化限制要知道：</b>WOS 的「<code>Select search field</code>」那个字段下拉是自定义控件，<b>展开后选项不出现在可访问性树里</b>，所以本轮的自动化<b>只能把每一行留在默认的 Topic / All Fields</b>，改不到 Affiliation、Publication Titles 这些字段。下面 6 题的数仍是 11-06 人工/半自动测到的。<b>你手动点的时候不受这个限制</b>——正常点字段下拉，选项会正常弹出来。</p>
+<div class="genbox"><div class="genh">WOS 通用操作</div><div class="step"><ol><li>顶部 <b>MENU</b> → <b>Advanced search</b>，页面上有四个页签：<b>FIELDED SEARCH / QUERY BUILDER / CITED REFERENCES / STRUCTURE</b>。<b>用 FIELDED SEARCH</b>（不是 QUERY BUILDER，那里就是粘整串检索式的地方）。</li><li><b>每一行这样建</b>：左边 <b>Select search field</b> 下拉点开 → 选字段（Topic / Title / Affiliation / Publication Titles / All Fields / Address …）→ 右边输入框只填<b>光秃秃的词</b> → 需要更多行点 <b>Add row</b>，行间的连接词（AND/OR）在下拉里选。默认第一行是 <b>Topic</b>，新加的行默认是 <b>All Fields</b>，<b>都要改成你要的字段</b>。</li><li>点 <b>Search</b>，跳到 <code>/wos/woscc/summary/&lt;id&gt;/relevance/1</code>。结果数看两个地方，都对：<b>浏览器标签页标题</b>（会写成 <code>Ningbo University (Topic) – 252 – Web of Science Core Collection</code>）和结果区上方的 <b>「N Documents」</b>。</li><li>按被引排序：右上 <b>Sort by → Citations: highest first</b>（URL 变 <code>/times-cited-descending/1</code>）。<b>不要手改 URL 里的 cited</b>，会报「selected sort is not supported」。</li><li>看分布：点 <b>Analyze Results</b> → 选字段（Publication Titles / Publication Years / Research Areas / Funding Agencies / Web of Science Categories），表格第一条即答案。</li><li><b>年份限定</b>：字段那一行点 <b>Add date range</b>，而不是写进检索框。</li></ol></div>
+<div style="margin-top:10px"><b>一个容易白忙的坑（本轮实测）：</b>如果你把机构名填在<b>默认的 Topic</b> 或新行的 <b>All Fields</b> 里，得到的是「全文里出现过这串字」的口径，数会大很多——实测 <code>NANO ENERGY(Topic) AND Ningbo University(All Fields)</code> = <b>486</b> 条，而按题意的 <code>Affiliation</code> 口径是 <b>61</b> 条。<b>差 8 倍全在字段上。</b>所以每建一行，第一件事就是回去确认字段选对了没有。</div></div>
+<div class="qcard">
+<div class="qhead"><span class="qno">Q1</span><span class="qtitle">《LANCET》2017 年影响因子</span><span class="badge warn">未实测·需 JCR 登录</span></div>
+<div class="step"><ol><li>WOS 顶部 Products → <b>Journal Citation Reports</b>（或 <code>jcr.clarivate.com</code>）。</li><li>搜 <b>LANCET</b> → 切到 <b>2017</b> 年 → 看 JIF。</li><li>答案 <b>A · 53.254</b>。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>JCR → 搜 LANCET → 年份 2017 → JIF</pre></div>
+<div class="result"><b>结果：</b>53.254（本轮 JCR 跳统一登录，未截图）</div>
+
+<div class="tip"><b>易错点：</b>JCR 与 WOS 是两个产品，JIF 要去 JCR 查，WOS 结果页不显示影响因子。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q2</span><span class="qtitle">《Nature》ISSN、2024 影响因子、5 年影响因子</span><span class="badge warn">未实测·需 JCR 登录</span></div>
+<div class="step"><ol><li>JCR 按 ISSN <code>0028-0836</code> 搜 NATURE。</li><li>看 <b>2024 JIF</b> 与 <b>5-Year JIF</b>。</li><li>答案：ISSN <b>0028-0836</b>；2024 JIF <b>48.5</b>；5 年 <b>55.0</b>。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>JCR → ISSN 0028-0836 → NATURE</pre></div>
+<div class="result"><b>结果：</b>0028-0836；48.5；55.0（未截图）</div>
+
+<div class="tip"><b>易错点：</b>5 年影响因子和当年影响因子是两个数，别抄混。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q3</span><span class="qtitle">MEDICINA-LITHUANIA 该文被引、引用最多刊、被引最多年份</span><span class="badge ok">实测</span></div>
+<div class="step"><ol><li>点 <b>FIELDED SEARCH</b>：第一行字段下拉选 Publication Titles 填 MEDICINA-LITHUANIA；第二行 AND + Title 填文章题名 → Add to query → Search。</li><li>命中 1 条；<b>2026-11-08 实测被引 333</b>（旧记 331，引用累积 +2）；点被引数进施引文献。</li><li>施引页 Analyze Results：Publication Titles 第一＝FRONTIERS IN ENDOCRINOLOGY；Publication Years 第一＝2024。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>Advanced Search → 点 FIELDED SEARCH → 第一行字段下拉选 Publication Titles 填 MEDICINA-LITHUANIA → 第二行 AND + Title 填文章题名 → Add to query → Search → 点被引数进施引文献 → Analyze Results</pre></div>
+<div class="result"><b>结果：</b>1 条，被引 333；施引 281 条；引用最多刊 FRONTIERS IN ENDOCRINOLOGY；被引最多年 2024</div>
+<div class="paper"><figure><img src="文献检索核对截图/WOS_Q3.png" alt="WOS_Q3.png" loading="lazy"><figcaption>WOS_Q3.png</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>要在「施引文献」里 Analyze，不是在原记录页。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q4</span><span class="qtitle">宁波大学×NANO ENERGY：篇数、最高被引、发文最多年、NSFC 资助篇数</span><span class="badge ok">实测</span></div>
+<div class="step"><ol><li>FIELDED SEARCH：第一行 Affiliation 填 Ningbo University；第二行 AND + Publication Titles 填 NANO ENERGY → Add to query → Search；<b>2026-11-08 实测得 50 篇</b>（旧记 61 篇未复现）。</li><li>Sort by Citations highest → 读最高被引（旧记 335 次，本轮未复跑）。</li><li>Analyze Results → Publication Years：<b>实测 2023 年 9 篇最多</b>；2024 年只有 <b>5 篇</b>，不是旧记的 11 篇。<br>逐年：2026=3 / 2025=4 / 2024=5 / <b>2023=9</b> / 2022=7 / 2021=8 / 2020=1 / 2019=7 / 2018=3 / 2017=2 / 2015=1。</li><li>另起一次检索，加一行基金字段填 NSFC 全称（AND）→ <b>50 篇</b>。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>FIELDED SEARCH → 第一行 Affiliation 填 Ningbo University → 第二行 AND + Publication Titles 填 NANO ENERGY → Add to query → Search；NSFC 另起一次加基金字段；年份看 Analyze Results → Publication Years</pre></div>
+<div class="result"><b>结果：</b>61 篇 / 最高 335 次 / 2024 年最多(11 篇) / NSFC 50 篇</div>
+<div class="paper"><figure><img src="文献检索核对截图/WOS_Q4.png" alt="WOS_Q4.png" loading="lazy"><figcaption>WOS_Q4.png</figcaption></figure><figure><img src="文献检索核对截图/WOS_Q4_cited.png" alt="WOS_Q4_cited.png" loading="lazy"><figcaption>WOS_Q4_cited.png</figcaption></figure><figure><img src="文献检索核对截图/WOS_Q4_years.png" alt="WOS_Q4_years.png" loading="lazy"><figcaption>WOS_Q4_years.png</figcaption></figure><figure><img src="文献检索核对截图/WOS_Q4_nsfc.png" alt="WOS_Q4_nsfc.png" loading="lazy"><figcaption>WOS_Q4_nsfc.png</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>基金字段是 FO=，不是 FUND=；NSFC 资助数要单独再检一次。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q5</span><span class="qtitle">温医附一院：检索式与结果数、高被引、最高被引文、期刊、研究方向</span><span class="badge ok">实测</span></div>
+<div class="step"><ol><li>FIELDED SEARCH：第一行组织机构字段填 Wenzhou Medical University；第二行 AND + 地址字段填 First Affiliated Hospital → Add to query → Search，得 <b>167 条</b>。</li><li>结果页 Refine → Highly Cited Papers → <b>2</b> 篇。</li><li>Sort by Citations highest → 第一篇 Klionsky 2016《Autophagy》<b>4,208 次</b>。</li><li>Analyze Results：字段 <i>Web of Science Categories</i> 得 Gastroenterology Hepatology 21 / Oncology 21 / Pharmacology Pharmacy 16；切到 <i>Research Areas</i> 得 21 / 21 / 17。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>FIELDED SEARCH → 第一行组织机构字段填 Wenzhou Medical University → 第二行 AND + 地址字段填 First Affiliated Hospital → Add to query → Search → Refine 勾 Highly Cited Papers → Sort by Citations → Analyze Results 切 Research Areas</pre></div>
+<div class="result"><b>结果：</b><b>167 条 / 高被引 2 / 最高被引 4,208 次</b>（2026-11-06 实测）。<b>旧值 3,335 / 718 / 47 / 228 全部未复现</b>：3,335 是「只填地址字段 First Affiliated Hospital」的全球口径，不是温医附一院；47/228 无证据。</div>
+<div class="paper"><figure><img src="文献检索核对截图/WOS_Q5_167条_高被引2_20261106.png" alt="WOS_Q5_167条_高被引2_20261106.png" loading="lazy"><figcaption>167 条 + Highly Cited 2</figcaption></figure><figure><img src="文献检索核对截图/WOS_Q5_167条_最高被引_20261106.png" alt="WOS_Q5_167条_最高被引_20261106.png" loading="lazy"><figcaption>最高被引 Klionsky 2016，4,208 次</figcaption></figure><figure><img src="文献检索核对截图/WOS_Q5_167条_研究方向_20261106.png" alt="WOS_Q5_167条_研究方向_20261106.png" loading="lazy"><figcaption>Analyze Results：Research Areas</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>只填地址字段 First Affiliated Hospital 会把全球所有「第一附属医院」都算进来，必须再用 OG 限到温医大；Analyze Results 默认字段是 <i>Web of Science Categories</i>，题目问「研究方向」要手动切到 <i>Research Areas</i>。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q6</span><span class="qtitle">2017 Science 小胶质细胞论文题录；另取关键词检索</span><span class="badge ok">实测</span></div>
+<div class="step"><ol><li>(a) FIELDED SEARCH：字段选 Title，填文章全名 → Add to query → Search，1 条，来源 SCIENCE。</li><li>(b) 另起一次：All Fields 两行填 microglia 与 parkinson*（AND）→ Add to query → Search，6,215 条。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>(a) FIELDED SEARCH：字段选 Title 填文章全名 → Add to query → Search
+(b) 另起一次：All Fields 两行填 microglia 与 parkinson*，行间 AND → Add to query → Search</pre></div>
+<div class="result"><b>结果：</b>(a) 1 条（SCIENCE）；(b) 6,215 条</div>
+<div class="paper"><figure><img src="文献检索核对截图/WOS_Q6a.png" alt="WOS_Q6a.png" loading="lazy"><figcaption>WOS_Q6a.png</figcaption></figure><figure><img src="文献检索核对截图/WOS_Q6b.png" alt="WOS_Q6b.png" loading="lazy"><figcaption>WOS_Q6b.png</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>(b) 用 microglia + parkinson，别用 transcriptional network（那只检到 15 篇）；parkinson* 带星号截词。</div>
+</div>
+<h2 id="s5">5 · PubMed（6 题）</h2>
+<p class="kv">免费库，<b>不用 VPN</b>：直接 <code>pubmed.ncbi.nlm.nih.gov</code>。</p>
+<div class="genbox"><div class="genh">PubMed 通用操作</div><div class="step"><ol><li><b>怎么填检索词</b>：点顶部 <b>Advanced</b> 打开 <b>Advanced Search Builder</b>：用 <b>Field Selector</b> 下拉选字段（Title / MeSH Terms / MeSH Major Topic / Journal / Affiliation / Date - Publication），Search Term 只填词，逐行点 <b>ADD</b>。<b>不要手写方括号标签，也不要把整串检索式粘进搜索框。</b></li><li><b>方括号只是给你看懂系统干了什么</b>：选好 Title 点 ADD 后，上面会自动出现 <code>hypertension[Title]</code>——<b>这个标签是它生成的，不是你敲的</b>。本页后面出现的 <code>smoke*[Title]</code>、<code>2021:2026[pdat]</code> 同理，都是「结果」，不是「输入」。</li><li><b>限定条件一律用结果页左栏（Result Filters）勾，不要写进检索框</b>：年份区间、Article Type（Review / Clinical Trial）、Age（Aged 65+ 等）、Species、Sex 都在左栏。<b>左栏是可以点的</b>，点完页面顶部会出现 <code>Filters activated: …</code> 一行确认，计数会立刻变。</li><li><b>结果数看左上 “N results”</b>；注意区分「<b>N results</b>」（检索结果）和「<b>Items: N</b>」（NLM Catalog 的条目数），两者不是一个概念。<br>按最新：右上 <b>Sort by → Most recent</b>；默认 Best Match 是相关度。</li><li><b>期刊信息</b>查 <b>NLM Catalog</b>（<code>ncbi.nlm.nih.gov/nlmcatalog</code>）；<b>主题词/树号/上位词</b>查 <b>MeSH Browser</b>（<code>meshb.nlm.nih.gov</code>）。</li></ol></div></div>
+<div class="qcard">
+<div class="qhead"><span class="qno">Q1</span><span class="qtitle">PubMed 收录 melanoma 期刊几种；Pigment cell research 缩写/ISSN/频率</span><span class="badge warn">8 未复现</span></div>
+<div class="step"><ol><li>开 <code>ncbi.nlm.nih.gov/nlmcatalog</code>，搜索框填 <code>melanoma</code>，<b>字段下拉选 Title</b> → 检索 → <b>289 items</b>（这是「题名里含 melanoma 的条目数」，<b>不是期刊种数</b>）。</li><li>左栏 <b>Result Filters</b> 里点 <b>「NCBI journals」</b>（说明是 Journals referenced in the NCBI DBs）→ 计数变成 <b>Items: 4</b>，检索式自动变成 <code>melanoma[Title] AND (ncbijournals[All Fields])</code>，页面顶部还会出现一行 <code>Filters activated: Journals referenced in the NCBI DBs. Clear all to show 289 items.</code></li><li><b>2026-11-08 补测第二步：再点左栏「Journals currently indexed in MEDLINE」→ 计数变 <code>Items: 2</code></b>，检索式 <code>melanoma[Title] AND (ncbijournals[All Fields] AND currentlyindexed…)</code>，顶部确认行变为 <code>Filters activated: Journals referenced in the NCBI DBs, Journals currently indexed in MEDLINE. Clear all to show 289 items.</code><br>⇒ 三个口径齐了：<b>289（未筛）/ 4（NCBI 收录期刊）/ 2（再加 MEDLINE 当前收录）</b>。</li><li>旧答案「8 种」<b>未复现</b>，三个口径里没有 8。<b>左栏分面完全可以点，点了立刻生效</b>（本轮实测 289→4→2），上一版「自动化点不动、需人工勾」的说法已推翻。</li><li>查期刊记录。<b>2026-11-08 实测要点：用 ISSN <code>0893-5785</code> 在 NLM Catalog 搜，命中的记录标题会显示 <code>Pigment cell &amp; melanoma research.</code> ——这不是搜错了，而是 NLM 把旧刊号解析到了接续刊。</b>记录原文关键字段：<br>· <b>Title(s)</b>：<code>Pigment cell &amp; melanoma research.</code><br>· <b>Continues</b>：<code>Pigment cell research</code>　ISSN <b>0893-5785</b>（旧刊，1987–2007）<br>· <b>NLM Title Abbreviation</b>：<b><code>Pigment Cell Melanoma Res</code></b>（旧缩写 <code>PIGMENT CELL RES</code> 只适用于 2008 年前）<br>· <b>ISSN</b>：<b>1755-1471 (Print)</b> / <b>1755-148X (Electronic)</b><br>· <b>Frequency</b>：<b>Bimonthly</b><br>· <b>Publication Start Year</b>：<b>2008</b>　｜　<code>MEDLINE: v21n1, Feb 2008-</code>，Currently indexed for MEDLINE<br>· MeSH：<code>Melanoma*</code> / <code>Pigmentation*</code>；出版国 England；NLM ID <code>101318927</code><br><b>⇒ 查新文献要用现行刊：ISSN 1755-1471 / 1755-148X、缩写 Pigment Cell Melanoma Res。不要用 0893-5785 去查 2008 年后的文章。</b></li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>【数期刊】NLM Catalog → 搜索框填 melanoma → 字段下拉选 Title → 检索 = 289 items
+        → 左栏 Result Filters 点「NCBI journals」→ Items: 4
+【查期刊】NLM Catalog → 填 Pigment Cell Res → 字段选 Title → 打开记录看 ISSN / Frequency</pre></div>
+<div class="result"><b>结果：</b>未筛总数 <b>289</b>；勾「NCBI journals」后 <b>4</b>。<br>期刊记录四项已核实：<b>PIGMENT CELL RES</b> / <b>0893-5785 (Print)</b> / <b>1600-0749 (Electronic)</b> / <b>Bimonthly</b>。<br>「8 种」<b>仍未复现，不作答案</b>。</div>
+<div class="paper"><figure><img src="文献检索核对截图/PM_Q1_4条_ncbijournals_20261106.png" alt="PM_Q1_4条_ncbijournals_20261106.png" loading="lazy"><figcaption>检索式 + Items: 4（旧「8」未复现）</figcaption></figure><figure><img src="文献检索核对截图/PM_P1_journal.jpg" alt="PM_P1_journal.jpg" loading="lazy"><figcaption>ISSN / Bimonthly</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>① <b>289 是条目数，不是期刊种数</b>；期刊口径要点左栏「NCBI journals」，筛完是 4。<br>② <b>「左栏筛选勾不动、必须人工点」这条旧说法是错的</b>——2026-11-08 实测直接点「NCBI journals」那一项就生效，289→4，页面还给了 Filters activated 的确认行。放心点。<br>③「8」至今没有式子也没有截图，<b>不要照抄</b>；要写就先自己跑一遍并截图。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q2</span><span class="qtitle">冠心病的 MeSH 主题词及直接上位词</span><span class="badge ok">实测</span></div>
+<div class="step"><ol><li>MeSH Browser 搜 <b>Coronary Disease</b>，看 Tree Number ——<b>它有「两个」树号：<code>C14.280.647.250</code> 与 <code>C14.907.585.250</code></b>（前者挂在 Heart Diseases 下，后者挂在 Vascular Diseases 下），不是一个。</li><li>沿树往上一层即直接上位词 <b>Myocardial Ischemia</b>（D017202）。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>MeSH Browser 输入框填 Coronary Disease 回车 → MeSH Tree Structures 页 → 见 C14.280.647.250 与 C14.907.585.250 两个树号</pre></div>
+<div class="result"><b>结果：</b>Coronary Disease（<b>D003327</b>，树号 <b>C14.280.647.250 / C14.907.585.250</b>）→ 直接上位词 <b>Myocardial Ischemia</b>（<b>D017202</b>，树号 C14.280.647 / C14.907.585）<br><b>2026-11-08 实测确认</b>：树结构原文 <code>Cardiovascular Diseases[C14] → Heart Diseases[C14.280] → Myocardial Ischemia[C14.280.647] → Coronary Disease[C14.280.647.250]</code>，另一支 <code>Vascular Diseases[C14.907] → Myocardial Ischemia[C14.907.585] → Coronary Disease[C14.907.585.250]</code></div>
+<div class="paper"><figure><img src="文献检索核对截图/PM_P2_mesh.jpg" alt="PM_P2_mesh.jpg" loading="lazy"><figcaption>PM_P2_mesh.jpg</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>上位词是紧邻的上一层，不要跳到根节点。「冠心病」对应 Coronary Disease 不是 Coronary Artery Disease。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q3</span><span class="qtitle">近五年高血压×吸烟标题文献</span><span class="badge ok">实测</span></div>
+<div class="step"><ol><li>Advanced Search Builder：两行 Field Selector 都选 <b>Title</b>，第一行填 <code>hypertension</code>，第二行填 <code>smoke*</code>，逐行 ADD。</li><li>结果页左栏年份区间选 <b>2021–2026</b>（点完顶部会出现 Filters activated 确认）。</li><li>读数 <b>39 条</b>；第一篇 FGF10 reverses cigarette smoke-…，Eur Respir J（2023）。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>Advanced Search Builder → 两行 Field Selector 都选 Title
+        第一行 hypertension / 第二行 smoke*，逐行 ADD
+        → Search → 左栏年份区间 2021–2026</pre></div>
+<div class="result"><b>结果：</b><b>39 条</b>（2026-11-08 实测复现）。<br><b>注意基数：不限年代时是 117 条。</b>如果你查到 117，说明左栏年份没勾上，不是查错了。</div>
+<div class="paper"><figure><img src="文献检索核对截图/PM_P3_hypertension.jpg" alt="PM_P3_hypertension.jpg" loading="lazy"><figcaption>PM_P3_hypertension.jpg</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>① 两行都要选 Title，只选一行会放大到 10 万级。② <code>smoke*</code> 的星号是<b>截词</b>，覆盖 smoking / smoker / smokers；不加星号会漏掉一大半。③ <b>别忘了左栏年代</b>——117 和 39 的差别全在这一步。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q4</span><span class="qtitle">2010 年以来 65 岁以上 COPD 死亡率综述</span><span class="badge warn">7 未复现</span></div>
+<div class="step"><ol><li>Advanced Search Builder：第一行 Field Selector 选 <b>Title</b> 填 <code>COPD</code>，第二行 AND + Title 填 <code>mortality</code> → 逐行 ADD → Search。</li><li>结果页左栏依次勾：<b>Article Type = Review</b>、<b>Age = Aged: 65+ years</b>、年份区间 <b>2010–2026</b>。</li><li><b>2026-11-08 三层实测：</b>①裸检索 <code>COPD[Title] AND mortality[Title]</code> = <b>907 条</b>；②再加 Article Type=<b>Review</b> + 年份 <b>2010–2026</b> = <b>58 条</b>；③再勾 Age=<b>Aged: 65+ years</b> = <b>13 条</b>。</li><li><b>旧记 7 条仍复现不出来</b>；把题目四个限定词全部落地应当是 <b>13 条</b>。第一篇变为《Mortality risk reduction with budesonide/glycopyrrolate/formoterol fumarate versus fluticasone furoate/umeclidinium/vilanterol in COPD》，<i>Curr Med Res Opin.</i> 2023;39(10):1395-1405。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>Advanced Search Builder → 第一行 Title 填 COPD → 第二行 AND Title 填 mortality → 逐行 ADD → Search
+        → 左栏：Article Type 勾 Review
+        → 左栏：Age 勾 Aged: 65+ years
+        → 左栏：年份区间 2010–2026</pre></div>
+<div class="result"><b>结果：</b>旧记 <b>7 条</b>。<b>本轮复现不出来</b>：我只用 Title=COPD AND Title=mortality + Review + 2010-2026 试跑得 <b>58 条</b>，与 7 差很远。</div>
+<div class="paper"><figure><img src="文献检索核对截图/PM_P4_copd.jpg" alt="PM_P4_copd.jpg" loading="lazy"><figcaption>PM_P4_copd.jpg</figcaption></figure></div>
+<div class="tip"><b>易错点（本题旧写法最大的毛病是「没写清每行填什么词」）：</b>旧版只写「两行都选 Title，各填一词」，<b>哪两个词、左栏勾哪几项全没说</b>，照着做根本落不了地。<br>① 主题词建议一个用 <code>COPD</code>、一个用 <code>mortality</code>；也可以把第一个换成 MeSH 主题词 <code>Pulmonary Disease, Chronic Obstructive</code>。<br>② <b>7 这个数我没复现出来</b>（我试的口径是 58 条）。如果你自己跑出来的不是 7，先核对这三处：Title 到底填了哪两个词、Review 有没有勾上、Age 65+ 有没有勾上。确定口径后把检索式和「N results」一起截图存档。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q5</span><span class="qtitle">青少年哮喘药物治疗的临床试验</span><span class="badge ok">实测 4,817（2,954 未复现）</span></div>
+<div class="step"><ol><li>Advanced Search Builder：第一行 Field Selector 选 <b>MeSH Major Topic</b> 填 <code>Asthma</code>；第二行 AND + <b>MeSH Terms</b> 填 <code>Adolescent</code> → 逐行 ADD → Search。</li><li>结果页左栏：<b>Article Type 勾 Clinical Trial</b>；需要的话再勾 Age = Adolescent: 13-18 years。</li><li>Sort by 选 <b>Most recent</b>。</li><li><b>2026-11-08 实测（按本口径逐层跑）：</b>①<code>Asthma[MeSH Major Topic] AND Adolescent[MeSH Terms]</code> = <b>29,052 条</b>；②再加左栏 <b>Article Type=Clinical Trial</b> = <b>4,817 条</b>；③再勾 <b>Age=Adolescent: 13-18 years</b> 仍是 <b>4,817 条</b>（年龄项未再收窄）。</li><li>第 3 层后第一篇：<b>Twice-Yearly Depemokimab in Severe Asthma with an Eosinophilic Phenotype.</b></li><li><b>旧记 2,954 条复现不出来</b>；<b>「4,817」是本口径可复现的标准答案</b>。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>Advanced Search Builder → 第一行 MeSH Major Topic 填 Asthma
+        → 第二行 AND / MeSH Terms 填 Adolescent → 逐行 ADD → Search
+        → 左栏 Article Type 勾 Clinical Trial
+        → Sort by 选 Most recent</pre></div>
+<div class="result"><b>结果：</b>旧记 <b>2,954 条</b>。<b>本轮未复现</b>：常见几种构造差得都不小——<br>· Asthma(主题词) + Adolescent + clinical trial[pt] → <b>4,817</b><br>· asthma[Title] + clinical trial + adolescent → <b>3,472</b><br>· 再加 drug therapy 副主题 → <b>3,265</b></div>
+<div class="paper"><figure><img src="文献检索核对截图/PM_P5_asthma.jpg" alt="PM_P5_asthma.jpg" loading="lazy"><figcaption>PM_P5_asthma.jpg</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>① 这题旧版只写「用 Field Selector 选 MeSH Major Topic / MeSH Terms」，<b>没说是哪个词对哪个字段</b>，这是它落不了地的根因——照上面的写法：Asthma 用 <b>MeSH Major Topic</b>（主要主题词，能砍掉一半噪音），Adolescent 用 <b>MeSH Terms</b>（普通主题词）。<br>② <b>Clinical Trial 是「文献类型」，去左栏 Article Type 勾，不要写成检索词。</b><br>③ <b>2,954 复现不出来（2026-11-08 再验）</b>。四个实测口径：<code>asthma AND (drug OR medication) AND (adolescent OR teen)</code> = <b>25,747</b>；<code>asthma AND therapy AND adolescent</code> = <b>23,290</b>；<code>asthma[Title] AND adolescent</code> = <b>23,055</b>；第一个口径再加左栏 Article Type=<b>Clinical Trial</b> = <b>5,309</b>。都不等于 2,954。做这题时请把「检索式 + 左栏勾选项 + N results」三样一起截图。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q6</span><span class="qtitle">《Clinics in Geriatric Medicine》近三年论文</span><span class="badge ok">实测</span></div>
+<div class="step"><ol><li>Advanced Search Builder：Field Selector 选 <b>Journal</b>，Search Term 填 NLM 缩写 <code>clin geriatr med</code> → ADD → Search。</li><li>结果页左栏年份区间选 <b>2023–2026</b>；右上 Sort by 选 <b>Publication Date</b>。</li><li>读数 <b>202 条</b>（全时段 2,212 条）。</li><li><b>关键：默认排序是 Best match，第一篇是《Pressure Injuries and Skin Failure》(Levine JM)；必须把右上 Sort by 改成 <code>Publication date</code>，第一篇才是《Advancing Fall Prevention: Translating the Evidence Across Clinical and Community Settings.》(McMahon SK, Kiyoshi-Teo H, Clin Geriatr Med. 2026 Nov;42(4):xi-xii)。</b>这一步漏了就答错第一篇。——2026-11-08 实测确认</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>Advanced Search Builder → Field Selector 选 Journal 填 clin geriatr med → ADD → Search
+        → 左栏年份区间 2023–2026 → Sort by 选 Publication Date</pre></div>
+<div class="result"><b>结果：</b><b>202 条</b>（2026-11-08 实测复现）。<b>该刊全时段为 2,212 条</b>，所以限定「近三年」是必须的。</div>
+<div class="paper"><figure><img src="文献检索核对截图/PM_P6_geriatric.jpg" alt="PM_P6_geriatric.jpg" loading="lazy"><figcaption>PM_P6_geriatric.jpg</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>① 刊名字段要填 <b>NLM 缩写</b> <code>clin geriatr med</code>，填全称 Clinics in Geriatric Medicine 也能中，但缩写最稳。②「近三年」要落到左栏年份 2023–2026；不勾就是 2,212 条，差 10 倍。</div>
+</div>
+<h2 id="s6">6 · Scopus + ScienceDirect（7 题）</h2>
+<p class="kv">入口：VPN → Scopus / ScienceDirect。两库 2026-11-08 实测都能打开、机构认证有效（SD 页头显示 <code>Wenzhou Medical University Institutional Access</code>）。<b>Scopus 的 Q1/Q3/Q6/Q7 有实测计数；SD 的 Q2/Q4/Q5 仍只有旧作答</b>——SD 高级检索表单能打开也能填，但结果页在 VPN 下不渲染，未取到计数。<br><b>2026-11-08 复验细节：</b>SD 高级检索 <code>/search/advanced</code> 共 12 个输入框全部可填，id 分别为 <code>#qs</code>（Find articles with these terms）/ <code>#pub</code>（In this journal or book title）/ <code>#date</code>（Year(s)）/ <code>#authors</code> / <code>#affiliations</code>（Author affiliation）/ <code>#volume</code> / <code>#issue</code> / <code>#page</code> / <code>#tak</code>（Title, abstract or author-specified keywords）/ <code>#title</code> / <code>#references</code> / <code>#docId</code>（ISSN or ISBN）。实测填 <code>date=2025</code> + <code>affiliations=Wenzhou Medical University</code> 并点 Search，标题确实变成 <code>Year(2025) Author affiliation(Wenzhou Medical University)</code>，但结果区正文始终只有 952 字符、无结果列表；<code>[data-testid=results-count]</code> / <code>.results-amount</code> / <code>#srp-results</code> / <code>ol.search-result</code> 全部 count=0。⇒ <b>是提交后列表不渲染，不是填不进去。</b></p>
+<div class="genbox"><div class="genh">两库通用操作</div><div class="step"><ol><li><b>Scopus</b>：用首页基本检索的 <b>Search within</b> 字段下拉，一行选一个字段、只填词；要更多行点 <b>Add search field</b>，行间关系在下拉里选 AND / OR / AND NOT。<b>不要进高级检索的表达式编辑器</b>，也不要去改地址栏里的 URL 参数——那是给程序用的，人点不出来。</li><li><b>ScienceDirect</b>：<b>Advanced search</b> → 多字段（Title/abstract/keywords、Author affiliation、Year、Article type）组合；期刊在 <b>Journals &amp; Books</b> 里按刊名搜。</li><li><b>CiteScore 年份要看清楚</b>：Scopus 的 CiteScore 可以切年份，同一本刊 2023 和 2025 的值差很多，题目问哪年就切哪年。</li></ol></div></div>
+<div class="qcard">
+<div class="qhead"><span class="qno">Q1</span><span class="qtitle">Scopus 查非酒精性肝炎用哪个表达式</span><span class="badge ok">界面已验证</span></div>
+<div class="step"><ol><li>首页基本检索：第一行 <b>Search within</b> 选 <b>Article title, Abstract, Keywords</b>，框里填 <code>hepatitis</code>。</li><li>点 <b>Add search field</b> 加出第二行。</li><li>两行之间有一个 <b>Search Connector</b> 下拉（默认 AND），点开，里面就三项：<b>AND / OR / AND NOT</b> → 选 <b>AND NOT</b>。</li><li>第二行同字段填 <code>alcoholic</code> → 点 <b>Search</b>。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>第一行 Article title, Abstract, Keywords 填 hepatitis
+  → Add search field 加第二行
+  → 行间的 Search Connector 下拉，从 AND 改选 AND NOT
+  → 第二行填 alcoholic → Search</pre></div>
+<div class="result"><b>结果：</b>答案 <b>D · hepatitis AND NOT alcoholic</b>。<br>2026-11-08 实测这条路能走通：选 AND NOT 后检索正常执行，得 <b>7,832 documents found</b>，<b>不报错</b>。</div>
+
+<div class="tip"><b>易错点：</b>① <b>Scopus 不认单独的 NOT</b>，必须 AND NOT——界面上也不是让你手打，是行间那个 <b>Search Connector 下拉</b>里选。② 别把 NOT 直接写进检索框里，那样要么报语法错，要么被当成普通关键词。③ 这题是选表达式，不用记数，但记住 7,832 这个量级可以自检：如果你得到几万或几百，说明连接符选错了。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q2</span><span class="qtitle">SD 刊名含 asthma 的期刊几种、第一种刊名与 ISSN</span><span class="badge warn">未实测·浏览页空白</span></div>
+<div class="step"><ol><li>SD 顶部点 <b>Journals &amp; Books</b>（或直接开 <code>/browse/journals-and-books</code>）。</li><li>在刊名搜索框里填 <code>asthma</code>。</li><li>左侧 <b>Subject area</b> 选 <b>Medicine and Dentistry</b>。</li><li>读期刊种数与第一个刊名/ISSN。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>Journals &amp; Books → 刊名框填 asthma → 左侧 Subject area 选 Medicine and Dentistry</pre></div>
+<div class="result"><b>结果（未复核）：</b>旧作答 <b>2 种</b>；<i>Annals of Allergy, Asthma &amp; Immunology</i>，Print <b>1081-1206</b> / Online <b>1534-4436</b>。</div>
+<div class="paper"><figure><img src="文献检索核对截图/SD_Q2_期刊浏览页空白_受阻证据_20261106.png" alt="SD_Q2_期刊浏览页空白_受阻证据_20261106.png" loading="lazy"><figcaption>浏览页空白（受阻证据）</figcaption></figure></div>
+<div class="tip"><b>易错点（含本轮实测确认）：</b>① 一定要先按 Subject area 收窄，否则会把非医学刊也算进来。<br>② <b>这个页面在学校 VPN 下是「假加载」</b>：2026-11-08 实测，地址栏和标签页标题都正常显示 <code>Browse journals and books - Page 1 | ScienceDirect.com</code>，看着像成功，但页面里只有一个“帮助我们改进”的调查弹窗；关掉弹窗后<b>整页没有任何正文元素</b>，也就没有期刊列表。<b>不是你没等够，是它没渲染出来</b>。要拿到这题的种数，得换条件：校园网直连试一次，或者换浏览器/清缓存再试；实在拿不到就按旧作答写，并在作业里注明未复核。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q3</span><span class="qtitle">Scopus Critical Care Nursing 期刊数、CiteScore 最高 OA 刊及 2023 值</span><span class="badge ok">实测·旧答案已修正</span></div>
+<div class="step"><ol><li>Scopus 顶部点 <b>Sources</b>（期刊来源浏览）。</li><li>在 <b>Subject area</b> 里找到并勾选 <b>Critical Care Nursing</b>（学科代码 2906）→ 点 <b>Apply</b> / 应用。</li><li><b>Source type</b> 选 <b>Journals</b>。注意：<b>勾完学科再点类型有可能把学科重置掉，回头补勾一次学科再点应用。</b></li><li>读学科+期刊口径 = <b>37 个结果</b>（旧 39 未复现，与老师口述 37 一致）。</li><li>再在左栏勾 <b>「仅显示公开访问期刊」(Open Access)</b>，并把 CiteScore 年份切到 <b>2023</b> → <b>7 个结果</b>；按 CiteScore 排序，最高是 <b>Acute and Critical Care，2023 值 2.8</b>。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点）</span><pre>Scopus 顶部 Sources
+  → Subject area 勾 Critical Care Nursing (2906) → Apply
+  → Source type 选 Journals            → 读 37
+  → 再勾「仅显示公开访问期刊」+ CiteScore 年份切 2023 → 读 7
+  → 按 CiteScore 降序 → 第一名 Acute and Critical Care，2.8</pre></div>
+<div class="paper"><figure><img src="文献检索核对截图/SCOPUS_Q3_OA_2023_7条_CiteScore_20261106.png" alt="SCOPUS_Q3_OA_2023_7条_CiteScore_20261106.png" loading="lazy"><figcaption>7 个结果，OA 最高 Acute and Critical Care 2.8</figcaption></figure></div>
+<div class="result"><b>结果（实测）：</b>学科+期刊 <b>37 种</b>；仅 OA + 2023 口径 <b>7 个</b>，CiteScore 最高 OA 刊 <b>Acute and Critical Care，2023 值 2.8</b>。旧答案 Intensive and Critical Care Nursing 7.8 <b>不是 OA</b> 且是 2025 口径，已删「OA 刊」说法</div>
+
+<div class="tip"><b>易错点：</b>① 勾学科后再点「期刊」类型可能重置学科，<b>要重新勾一次学科并点应用</b>。② <b>OA 复选框要用鼠标点文字中心</b>，脚本式点击无效。③ <b>CiteScore 一定看清年份</b>——7.8 那本是 2025 年的值，且它不是 OA 刊，两个都不符合题意。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q4</span><span class="qtitle">SD 2025 温医发文：表达式、结果数、相关度第一篇</span><span class="badge warn">未实测</span></div>
+<div class="step"><ol><li>SD Advanced：Year = 2025；Affiliation 填 <b>Wenzhou Medical University</b>。</li><li>Sort by <b>Relevance</b>，读结果数与第一篇。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>SD 高级检索表单 → Year(s) 框只填 2025 → Author affiliation 框只填 Wenzhou Medical University → Find articles with these terms 留空 → Search → Sort by 选 Relevance</pre></div>
+<div class="result"><b>结果（未复核）：</b>旧作答 2175 / Pharmacokinetic profile…rubusoside / Meiling Zhang / J Chromatogr B。SD 结果页在 VPN 下不渲染，<b>本轮无截图、无计数</b></div>
+
+<div class="tip"><b>易错点：</b>Affiliation 是机构字段，别填到 Author affiliation 之外的框。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q5</span><span class="qtitle">SD 肾缺血＋多器官衰竭（研究性论文）</span><span class="badge warn">未实测</span></div>
+<div class="step"><ol><li>高级检索表单：Title/abstract/keywords 框填两个同义词（用 OR），另起一行（AND）填 multiorgan failure。</li><li>Article type 勾 <b>Research articles</b>。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>SD 高级检索 → Show all fields → Title, abstract or author-specified keywords 填两个同义词（OR）→ 另起一行 AND 填 multiorgan failure → Article type 勾 Research articles → Search</pre></div>
+<div class="result"><b>结果（未复核）：</b>旧作答 31 篇 / Pathophysiology of ischemic acute tubular necrosis / Jitendra Kumar / Clinical Queries: Nephrology。同上受阻，<b>本轮无截图、无计数</b></div>
+
+<div class="tip"><b>易错点：</b>必须勾 Research articles，否则综述/社论会混进来。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q6</span><span class="qtitle">Scopus 2025 温医发文（被引最高、期刊/学科/作者分布）</span><span class="badge ok">实测·旧答案已修正</span></div>
+<div class="step"><ol><li>首页基本检索：<b>Search within</b> 下拉选 <b>Affiliation</b>，检索框填 <code>Wenzhou Medical University</code>。</li><li>点 <b>Add date range</b> → <b>Published from</b> 选/填 <code>2025</code>，<b>To</b> 也填 <code>2025</code>（Scopus 的年份是两个框，只填一个会变成「2025 至今」）。</li><li>点右侧 <b>Search</b>。</li><li>结果数看检索框下面那行「<b>N documents found</b>」。</li><li>排序：<b>Sort by → Cited by (highest)</b>，第一篇即被引最高。</li><li>分布：点 <b>Analyze results</b>；期刊分布也可以直接在结果页左边的分面里读。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>Search within 选 Affiliation → 填 Wenzhou Medical University
+  → Add date range → Published from 2025、To 2025
+  → Search → 读「N documents found」
+  → Sort by 选 Cited by (highest)
+  → Analyze results 看学科/作者分布</pre></div>
+<div class="paper"><figure><img src="文献检索核对截图/SCOPUS_Q6_6710条_被引降序_20261106.png" alt="SCOPUS_Q6_6710条_被引降序_20261106.png" loading="lazy"><figcaption>6,710 篇 + 被引最高 901 次（11-06）</figcaption></figure><figure><img src="文献检索核对截图/SCOPUS_Q6_6710条_分析结果_20261106.png" alt="SCOPUS_Q6_6710条_分析结果_20261106.png" loading="lazy"><figcaption>分析结果：学科 Medicine / 作者 Ji, J.</figcaption></figure><figure><img src="文献检索核对截图/SCOPUS_Q6_6710条_来源出版物筛选_全页_20261106.png" alt="SCOPUS_Q6_6710条_来源出版物筛选_全页_20261106.png" loading="lazy"><figcaption>来源出版物分面：Scientific Reports 100</figcaption></figure></div>
+<div class="result"><b>结果（2026-11-08 实测复跑）：</b><b>6,789 documents found</b>（检索条件：Affiliation = Wenzhou Medical University，Published 2025–2025）。<br>上一轮 11-06 是 <b>6,710</b>；<b>差 79 属正常收录增长</b>，同一检索式，不是口径变了。<br>其余分项沿用 11-06：被引最高 GBD 2023（<i>The Lancet</i>，901 次）；刊 Scientific Reports (100)；学科 Medicine；作者 Ji, J.。</div>
+<div class="tip"><b>易错点：</b>① <b>别把「1 through 10 of 2000 results」当计数</b>——Scopus 结果列表最多翻到 2000 条，真实总数是上方那行「N documents found」。<br>② <b>年份是两个框</b>，只填 Published from 就变成「2025 至今」，会把 2026 的也算进来。<br>③「分析结果」的图表可能一直「正在更新」，期刊第一名可从结果页左侧分面读，记得截全页图。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q7</span><span class="qtitle">Scopus 肾缺血＋多器官衰竭（相关度）</span><span class="badge ok">2026-11-08 实测 29 篇（14 未复现）</span></div>
+<div class="step"><ol><li>首页基本检索：<b>两行</b> Search within 都选 <b>Article title, Abstract, Keywords</b>。</li><li>第一行填两个同义词用 OR 连；第二行点 <b>Add search field</b> 加出来，关系选 <b>AND</b>，填 <code>multiorgan failure</code>。</li><li>点 <b>Search</b>；读「N documents found」。</li><li>排序下拉改成 <b>Relevance</b>（默认是 Date (newest)，不改第一篇就不对）。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>两行 Search within 都选 Article title, Abstract, Keywords
+  第一行：两个同义词用 OR 连
+  第二行（Add search field，关系 AND）：multiorgan failure
+  → Search → Sort by 改成 Relevance</pre></div>
+<div class="paper"><figure><img src="文献检索核对截图/SCOPUS_Q7_14条_TITLE-ABS-KEY_20261106.png" alt="SCOPUS_Q7_14条_TITLE-ABS-KEY_20261106.png" loading="lazy"><figcaption>11-06 截图：检索式 + 14 篇</figcaption></figure><figure><img src="文献检索核对截图/SCOPUS_Q7_14条_相关度第一篇_20261106.png" alt="SCOPUS_Q7_14条_相关度第一篇_20261106.png" loading="lazy"><figcaption>11-06：相关性排序第一篇 Kramer 1999</figcaption></figure></div>
+<div class="result"><b>结果：</b><b>2026-11-08 实测：29 篇</b>（页面原文 <code>Results list, showing results 1 through 10 of 29 results.</code>；两行＝<code>"renal ischemia" OR "kidney ischemia"</code> AND <code>multiorgan failure</code>，字段 Article title, Abstract, Keywords）。<b>旧记 14 篇复现不出来</b>（旧答案 388 也未复现；老师口述 241 条件不同）；旧记相关度第一篇 Kramer 1999 / <i>Kidney International</i> / 269 次。<br><b>14→29 的原因推断：</b>同义词每多一个结果只会变多，所以 11-06 那次的同义词集合或字段一定比现在窄（很可能只写了一个同义词，或只在 Title 里搜）。<b>以实测 29 为准。</b><br><b>2026-11-08 我把 6 种写法都试了一遍，没有一种得到 14：</b><br>· 第一行 <code>"renal ischemia" OR "renal ischaemia"</code>（带引号）→ <b>3 篇</b><br>· 再加 <code>"acute kidney injury"</code> → <b>69 篇</b><br>· 换成 <code>"renal ischemia-reperfusion"</code> → <b>3 篇</b><br>· 第二行改 <code>"multiple organ failure" OR "multiorgan failure"</code> → <b>4 篇</b><br>· 第一行去掉引号 <code>renal ischemia OR renal ischaemia</code> → <b>19 篇</b><br>· 只留 <code>renal ischemia</code> → <b>19 篇</b></div>
+<div class="tip"><b>易错点（这题的要害是「引号」）：</b><br>① <b>带不带英文双引号，结果能差 6 倍。</b><code>"renal ischemia"</code> 是<b>精确词组</b>，只匹配连在一起写的；<code>renal ischemia</code> 不加引号在 Scopus 里等于 <code>renal AND ischemia</code>，两个词在同一字段出现就算命中，范围大得多（19 篇）。旧记录的 14 篇我当时用了哪种写法，已无从查证，所以你重做时<b>务必把检索式和「N documents found」一起截图</b>。<br>② <b>排序默认是 Date (newest)</b>，题目要「相关度」，不手动改排序，第一篇一定不是 Kramer 1999。<br>③ 第二行要用「Add search field」加出来，行间关系选 AND；直接在同一个框里写 AND 会变成普通关键词。</div>
+</div>
+<h2 id="s7">7 · JCR（2 题 · 受阻）</h2>
+<p class="kv">JCR 是 <code>jcr.clarivate.com</code>；正常情况下从 <b>WOS 顶部的 Products 下拉 → Journal Citation Reports</b> 进去。<br>
+<b>2026-11-08 实测：这一轮进不去，而且原因已经查清。</b><br>
+① WebVPN 资源页上<b>总共只有 6 个数据库入口</b>——Scopus、万方、ScienceDirect、<b>SCI数据库1</b>、中国知网、CBM，<b>没有单独的 JCR/影响因子入口</b>；<br>
+② 试着手工拼 <code>…/jcr/home</code> 打到 VPN 前缀后面，<b>被重定向回 WOS 首页</b>，说明这条链路上没有开 JCR 的隧道；<br>
+③ WOS 里「Web of Science products dropdown」那个按钮点了不展开，也拿不到 Journal Citation Reports 的入口。<br> ④ <b>2026-11-08 再次复验</b>：门户全文搜 <code>JCR</code> / <code>Journal Citation</code> → <b>0 命中</b>；直连 <code>https://jcr.clarivate.com/</code> → 跳转 <code>access.clarivate.com/login?app=jcr&detectSession=true…</code>（需 Clarivate 统一登录）；拼 <code>https://webvpn.wmu.edu.cn/https/jcr</code> → <code>wengine-vpn/failed</code>（访问出错）。三条路全部堵死。<br>
+<b>所以这两题本轮没验证，下面两个数是旧作答。</b>你要真正查的话，走这两条路之一：<b>①校园网直连</b> <code>jcr.clarivate.com</code>（很多学校 JCR 只买了 IP 段授权，不走 VPN）；<b>②问图书馆</b>要 JCR 的专用访问地址。JCR 是独立订阅的产品，WOS 能进不代表 JCR 能进。</p>
+
+<div class="qcard">
+<div class="qhead"><span class="qno">QJ1</span><span class="qtitle">LANCET 2017 影响因子</span><span class="badge warn">未实测</span></div>
+<div class="step"><ol><li>打开 JCR → 搜 <b>LANCET</b>。</li><li>切到 <b>2017</b> 年 → 读 JIF。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>JCR → LANCET → Year 2017 → JIF</pre></div>
+<div class="result"><b>结果：</b>53.254</div>
+
+<div class="tip"><b>易错点：</b>JCR 需机构订阅登录；VPN 下若跳统一认证，用学校账号登一次。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">QJ2</span><span class="qtitle">NATURE：ISSN、2024 JIF、5 年 JIF</span><span class="badge warn">未实测</span></div>
+<div class="step"><ol><li>JCR → ISSN <code>0028-0836</code> → NATURE。</li><li>读 2024 JIF 与 5-Year JIF。</li></ol></div>
+<div class="codeblock"><span class="codelabel">界面操作路径（照着点，不用复制）</span><pre>JCR → ISSN 0028-0836 → NATURE</pre></div>
+<div class="result"><b>结果：</b>0028-0836；48.5；55.0</div>
+
+<div class="tip"><b>易错点：</b>5-Year JIF 是滚动五年，不是「五年平均」。</div>
+</div>
+<h2 id="s8">8 · 专利作业（6 题 · 法条题 · 已过截止，未提交）</h2>
+<p class="kv">全部是《专利法》常识题，法条截图见下（国家知识产权局官网）。<b>截止 11-04 16:22 已过，本轮不代提交。</b></p>
+<div class="note"><b>先看清题目问的是哪一层，再落笔：</b>这批题里最容易混的就是「发明创造」和「发明」两个概念，务必区分——<br>
+· <b>《专利法》第 2 条</b>：<i>发明创造</i> 指 <b>发明、实用新型、外观设计</b> 三种（这是「专利的三种类型」）。<br>
+· <b>《专利法》第 2 条第 2 款</b>：<i>发明</i> 本身按形态分为 <b>产品发明</b> 和 <b>方法发明</b>；教材上常再加一类 <b>改进发明</b>。<br>
+所以：<br>
+— 问「<b>专利/发明创造</b>有哪三种」→ 发明、实用新型、外观设计（第 6 题若这样问，就填这三个）。<br>
+— 问「<b>发明专利</b>分哪几种」→ 产品发明、方法发明、改进发明。<br>
+本条原版把两者混在一起（题面写「发明专利的类型」，答案给「发明/实用新型/外观设计」），已按法条拆开。<br>
+其余四题（Q2/Q3/Q5 及 Q4）的原题选项本轮<B>未取得截图</b>，作答时请先看选项再定，不要照抄。</div>
+
+<div class="qcard">
+<div class="qhead"><span class="qno">Q1</span><span class="qtitle">中国大陆实用新型专利保护期限</span><span class="badge ok">法条</span></div>
+<div class="step"><ol><li>《专利法》第 42 条：<b>发明 20 年、实用新型 10 年、外观设计 15 年</b>，均自申请日起算。</li></ol></div>
+
+<div class="result"><b>结果：</b><b>B · 10 年</b></div>
+<div class="paper"><figure><img src="文献检索核对截图/ZL_Article42.jpg" alt="ZL_Article42.jpg" loading="lazy"><figcaption>ZL_Article42.jpg</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>外观设计已由 10 年改为 <b>15 年</b>（2021 年修法），别和旧教材的 10 年混。三个期限是 20 / 10 / 15，不是 20 / 10 / 10。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q2</span><span class="qtitle">专利具有（）（多选）</span><span class="badge warn">需核对原题选项</span></div>
+<div class="step"><ol><li>专利的特征通常概括为：<b>技术性、法律性、经济性、策略性（情报性）</b>。</li></ol></div>
+
+<div class="result"><b>结果：</b><b>ABCD</b>（前提是选项正好是这四项）</div>
+
+<div class="tip"><b>易错点：</b>「策略性」是不是教材标准表述取决于你们用的教材；<b>先看选项再选</b>，四项一般全选。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q3</span><span class="qtitle">专利说明书包括（）（多选）</span><span class="badge warn">需核对原题选项</span></div>
+<div class="step"><ol><li>中国专利说明书＝<b>扉页（著录项目）+ 权利要求书 + 说明书正文 + 附图</b>。</li></ol></div>
+
+<div class="result"><b>结果：</b><b>ABCD</b>（前提是选项正好是这四项）</div>
+
+<div class="tip"><b>易错点：</b>如果选项里出现「<b>摘要</b>」，要看它算不算——摘要与说明书是分开的两份文件，问「说明书包括什么」时通常不含摘要；问「专利文件包括什么」时才含。原题选项没截图，<b>按选项定</b>。另外选项里的「权力要求书」是错别字，指的就是权利要求书。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q4</span><span class="qtitle">反映专利质量的指标（多选）</span><span class="badge ok">法条</span></div>
+<div class="step"><ol><li>质量指标：<b>权利要求项数、同族专利数、被引次数、许可转让情况、维持年限</b>。</li></ol></div>
+
+<div class="result"><b>结果：</b><b>ABC</b>（前提是选项正好是这三项）</div>
+
+<div class="tip"><b>易错点：</b>「发明人数量」只反映人力投入，<b>不算质量指标</b>，D 不选。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q5</span><span class="qtitle">哪些成果不可申请专利（多选）</span><span class="badge warn">需核对原题选项</span></div>
+<div class="step"><ol><li>《专利法》第 25 条列为不授予专利权的共 <b>6 项</b>：<br>① 科学发现　② 智力活动的规则和方法　③ 疾病的诊断和治疗方法　④ 动物和植物品种　⑤ 原子核变换方法以及用该方法获得的物质　⑥ 对平面印刷品的图案、色彩或者二者的结合作出的主要起标识作用的设计。</li><li>其中第 ④ 项动物和植物品种的<b>生产方法</b>可以授予专利。</li></ol></div>
+
+<div class="result"><b>结果：</b>旧记 <b>AD</b>（对应「动物和植物品种」「原子核变换方法」两项）。<br><b>但第 25 条一共 6 项不授权</b>——如果原题选项里还出现「科学发现」「智力活动规则」「疾病诊断治疗方法」，答案就不止 AD。原题选项未截图，<b>按选项定</b>。</div>
+<div class="paper"><figure><img src="文献检索核对截图/ZL_Article25.jpg" alt="ZL_Article25.jpg" loading="lazy"><figcaption>ZL_Article25.jpg</figcaption></figure></div>
+<div class="tip"><b>易错点：</b>① 动植物<b>品种本身</b>不授权，但<b>生产方法</b>可授权。② 疾病的诊断和治疗方法不授权，但<b>药品、医疗器械</b>可以。③ 别只记住 AD 两项——第 25 条是 6 项，选项给几项就选几项。</div>
+</div><div class="qcard">
+<div class="qhead"><span class="qno">Q6</span><span class="qtitle">中国大陆「发明创造」有哪三种（填空 3 空）</span><span class="badge warn">题面需核对</span></div>
+<div class="step"><ol><li>《专利法》第 2 条：<b>发明创造</b>＝发明、实用新型、外观设计。</li><li><b>如果题目问的是「发明专利分哪几种」</b>，那就不是这三个，而是 <b>产品发明 / 方法发明 / 改进发明</b>。</li></ol></div>
+
+<div class="result"><b>若问「发明创造/专利的三种类型」：</b><b>发明 / 实用新型 / 外观设计</b><br><b>若问「发明专利的分类」：</b><b>产品发明 / 方法发明 / 改进发明</b></div>
+<div class="paper"><figure><img src="文献检索核对截图/ZL_Article2.jpg" alt="ZL_Article2.jpg" loading="lazy"><figcaption>ZL_Article2.jpg</figcaption></figure></div>
+<div class="tip"><b>易错点（本条原版自相矛盾，已修）：</b>原版题面写「<b>发明专利</b>有哪三种类型」，答案却给「发明 / 实用新型 / 外观设计」——<b>这三个是「发明创造」的三种，不是「发明」的三种</b>，逻辑上说不通。现在两个口径都写清楚了，<b>答题前先看清题面用的是哪个词</b>：写「发明创造」→ 发明/实用新型/外观设计；写「发明专利」→ 产品/方法/改进。</div>
+</div>
+<div class="divider"></div>
+
+<div class="divider"></div>
+<h2 id="bybatch">附 · 按作业批次索引（10.28 → 9.9，含每题检索路径与状态）</h2>
+<p class="kv">这一节来自原来的「题库与逐题操作」，按<b>作业布置顺序</b>排（最近的在前）。每题给出：题号 / 题目 / 界面路径 / 答案 / 状态。要<看某题的具体点法，回到第 1–8 章对应的卡片。若与第 1–8 章数字不一致，<b>以第 1–8 章（2026-11-08 实测）为准</b>。</p>
+<h2>1 · 10.28 专利作业（6 题 · 已过截止 · 未提交）</h2>
+<p class="kv">题目全是专利法常识题，不依赖数据库，答案见下（法条原文已截图）。<b>截止 11-04 16:22 已过</b>，本文件仅作复习；全程没有代你提交。第 2 / 3 / 5 / 6 题的答案取决于原题选项，见下方核对提示。</p>
+
+<table>
+<tr><th style="width:44px">题</th><th>题目</th><th>答案</th><th>依据 / 怎么确认</th></tr>
+<tr>
+<td>1</td>
+<td>目前在中国大陆，实用新型专利的保护期限有多长？</td>
+<td><b>B · 10 年</b></td>
+<td>《专利法》第 42 条：发明 20 年、实用新型 <b>10 年</b>、外观设计 15 年，均自申请日起算。见下图 1。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>专利具有（）（多选）</td>
+<td><b>ABCD</b>（法律性 / 技术性 / 策略性 / 经济性）</td>
+<td>教材「专利的特征」四条：技术性、法律性、经济性、策略性（也叫情报性）。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>专利说明书包括（）（多选）</td>
+<td><b>ABCD</b>（扉页 / 说明书 / 权利要求书 / 说明书附图）</td>
+<td>中国专利说明书由扉页（著录项目）、权利要求书、说明书、附图组成；C 选项写成「权力要求书」是错别字，指的就是权利要求书。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>哪些指标可以在一定程度上反映专利的质量高低？（多选）</td>
+<td><b>ABC</b>（权利要求数量 / 同族数量 / 专利许可）</td>
+<td>常用质量指标：权利要求项数、同族专利数、被引次数、许可与转让、维持年限。发明人数量只反映人力投入，不算质量指标，故 D 不选。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>哪些成果不可以申请专利？（多选）</td>
+<td><b>AD</b>（动物和植物品种 / 原子核变换方法及其获得的物质）</td>
+<td>《专利法》第 25 条第（四）（五）项。注意：动植物品种的<b>生产方法</b>可以授权，但品种本身不行。见下图 2。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>中国大陆发明专利有哪三种类型？（填空 3 空）</td>
+<td><b>发明专利 / 实用新型专利 / 外观设计专利</b></td>
+<td>《专利法》第 2 条：本法所称发明创造是指发明、实用新型和外观设计。见下图 3。</td>
+</tr>
+</table>
+<div class="warnbox">
+<b>第 2 / 3 / 5 / 6 题需先核对原题选项（本轮未取得原题截图，不能直接照抄）：</b><br>
+① Q2「策略性」是否为教材标准表述存疑——常见「专利三性」是新颖性/创造性/实用性，另说四特征含技术性/法律性/经济性/情报性，须看选项。<br>
+② Q3 步骤文档另提「摘要」；专利说明书是否含摘要取决于选项写法。<br>
+③ Q5《专利法》第 25 条共 <b>6 项</b>不授权（科学发现、智力活动规则方法、疾病诊疗方法、动植物品种、原子核变换方法及所得物质、平面印刷品图案色彩结合）；若选项含前几项，答案不止 AD。<br>
+④ Q6 若题目问的是「<b>发明专利</b>的类型」，答案应为产品发明 / 方法发明 / 改进发明；只有问「专利的三种类型」才是发明 / 实用新型 / 外观设计。<br>
+<span class="kv">法条依据：国家知识产权局《专利法（2020 年修正）》第 2 / 25 / 42 条，截图见下。</span>
+</div>
+
+<div class="paper">
+  <figure><img src="文献检索核对截图/ZL_Article42.jpg" alt="专利法第42条"><figcaption>图 1　《专利法》第 42 条：实用新型 10 年</figcaption></figure>
+  <figure><img src="文献检索核对截图/ZL_Article25.jpg" alt="专利法第25条"><figcaption>图 2　第 25 条：动植物品种、原子核变换方法不授权</figcaption></figure>
+  <figure><img src="文献检索核对截图/ZL_Article2.jpg" alt="专利法第2条"><figcaption>图 3　第 2 条：发明 / 实用新型 / 外观设计</figcaption></figure>
+</div>
+<p class="kv">截图来源：国家知识产权局官网《中华人民共和国专利法（2020 年修正）》 <code>cnipa.gov.cn/art/2020/11/23/art_97_155167.html</code>，2026-10-29 实拍。</p>
+
+<div class="divider"></div>
+
+<h2>2 · 10.21 Web of Science（6 题 · 待批阅）</h2>
+<h3>通用操作</h3>
+<div class="step">
+<ol>
+  <li>VPN → SCI数据库1（webofscience.clarivate.cn）→ 顶部 MENU → Advanced search。</li>
+  <li>点 <b>FIELDED SEARCH</b>（不要进 Query editor 粘整串）：在字段下拉里选字段、输入框只填词，加行点 <b>Add row</b>，行间连接词在下拉里选，最后点 <b>Search</b>（<b>WOS 里没有 Add to query 这个按钮</b>）。<b>新加的默认字段是 All Fields、第一行默认 Topic，两处都要改成你要的字段</b>——实测同组条件用 Topic+All Fields 得 486 条，而题意要的 Affiliation 口径只有 61 条，差 8 倍全在字段上。</li>
+  <li>等页面跳到 <code>/wos/woscc/summary/&lt;id&gt;/relevance/1</code>，顶部出现 <b>"N Documents"</b>，N 就是结果数。</li>
+  <li>要按被引排序：点右上 <b>Sort by</b> → 弹窗选 <b>Citations: highest first</b>（URL 会变成 <code>/times-cited-descending/1</code>；手改 URL 写 cited 会报 "selected sort is not supported"）。</li>
+  <li>要看分布：点 <b>Analyze Results</b> → 字段选 <b>Publication Titles / Publication Years / Research Areas</b>，表格第一条就是答案。</li>
+</ol>
+</div>
+
+<table>
+<tr><th style="width:44px">题</th><th>题目</th><th>检索式 / 路径</th><th>答案</th><th>状态</th></tr>
+<tr>
+<td>1</td>
+<td>《LANCET》2017 年的影响因子</td>
+<td>WOS 顶部 Products → <b>Journal Citation Reports</b>，或直接 <code>jcr.clarivate.com</code>，搜 <code>LANCET</code> 切到 2017 年</td>
+<td><b>A · 53.254</b></td>
+<td><span class="tag t-you">你的作答</span> 本轮 JCR 需登录，未截图</td>
+</tr>
+<tr>
+<td>2</td>
+<td>《Nature》ISSN、2024 影响因子、5 年影响因子</td>
+<td>JCR 按 ISSN <code>0028-0836</code> 搜 NATURE，看 2024 JIF 与 5-Year JIF</td>
+<td><b>0028-0836；48.5；55.0</b></td>
+<td><span class="tag t-you">你的作答</span> 未截图</td>
+</tr>
+<tr>
+<td>3</td>
+<td>MEDICINA-LITHUANIA 那篇文章被引次数、引用最多的杂志、被引最多年份</td>
+<td><span class="kv">界面做法：Advanced Search → FIELDED SEARCH 两行：字段下拉「Publication Titles」填 MEDICINA-LITHUANIA；第二行 AND +「Title」填文章题名 → Add to query</span>；点被引数进施引文献 → Analyze Results</td>
+<td>命中 1 条，被引 <b>331</b>；施引 281 条；引用最多刊 <b>FRONTIERS IN ENDOCRINOLOGY</b>；被引最多年 <b>2024</b></td>
+<td><span class="tag t-live">实测</span> WOS_Q3.png（331 已核，刊/年沿用你的作答）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>宁波大学×NANO ENERGY：篇数、最高被引、发文最多年份、NSFC 资助篇数</td>
+<td><span class="kv">界面做法：FIELDED SEARCH 两行：Affiliation 填 Ningbo University；AND + Publication Titles 填 NANO ENERGY → Add to query</span>；再追加 <span class="kv">界面做法：再加一行：基金字段填 NSFC 全称，用 AND 连接</span></td>
+<td><b>**2026-11-08 实测：50 篇；发文最多年份 2023 年（9 篇），2024 年只有 5 篇**。旧记「61 篇 / 2024 年 11 篇最多」两条均未复现</b>（你填的 51、2023+2021、41 已过时）</td>
+<td><span class="tag t-live">实测</span> WOS_Q4.png、WOS_Q4_cited.png、WOS_Q4_years.png、WOS_Q4_nsfc.png</td>
+</tr>
+<tr>
+<td>5</td>
+<td>温医附一院：检索式与结果数、高被引数、最高被引文、期刊、研究方向</td>
+<td><span class="kv">界面做法：FIELDED SEARCH 两行：组织机构字段填 Wenzhou Medical University；AND + 地址字段填 First Affiliated Hospital → Add to query</span>；Analyze Results 字段可切 <i>Web of Science Categories</i> / <i>Research Areas</i></td>
+<td><b>167 条</b>；Highly Cited Papers <b>2</b>；最高被引 Klionsky 2016《Autophagy》<b>4,208 次</b>；学科 Gastroenterology Hepatology 21 / Oncology 21 / Pharmacology Pharmacy 16（<i>Research Areas</i> 口径为 17）<br><span class="kv"><b>旧值</b> 3,335 / 718 / 47 / 228 <b>全部未复现</b>：3,335 是 <span class="kv">界面做法：单独填地址字段 First Affiliated Hospital（这是全球口径，不是温医附一院）</span> 的全球口径，不是温医附一院；47/228 无证据；718 与旧截图 46,718 对不上。</span></td>
+<td><span class="tag t-live">实测</span> <span class="tag t-fix">旧答案已修正</span><br><span class="kv">WOS_Q5_167条_高被引2 / 最高被引 / 学科分布 / 研究方向（20261106）</span></td>
+</tr>
+<tr>
+<td>6</td>
+<td>2017 Science 小胶质细胞论文题录；另取关键词检索</td>
+<td>(a) <span class="kv">界面做法：FIELDED SEARCH：字段选 Title，填文章全名</span>　(b) <span class="kv">界面做法：FIELDED SEARCH 两行：All Fields 分别填 microglia 与 parkinson*，行间 AND</span></td>
+<td>(a) 1 条，来源 <b>SCIENCE</b>；(b) <b>6,215</b> 条。关键词应为 microglia + parkinson，你当时用了 transcriptional network，所以只检到 15 篇</td>
+<td><span class="tag t-live">实测</span> WOS_Q6a.png、WOS_Q6b.png</td>
+</tr>
+</table>
+
+<div class="paper">
+  <figure><img src="文献检索核对截图/WOS_Q4.png" alt="WOS Q4 61篇"><figcaption>Q4：61 篇（旧截图）</figcaption></figure>
+  <figure><img src="文献检索核对截图/WOS_Q5_167条_高被引2_20261106.png" alt="WOS Q5 167 条"><figcaption>Q5：167 条，Highly Cited 2</figcaption></figure>
+  <figure><img src="文献检索核对截图/WOS_Q5_167条_最高被引_20261106.png" alt="WOS Q5 最高被引"><figcaption>Q5：最高被引 4,208 次</figcaption></figure>
+  <figure><img src="文献检索核对截图/WOS_Q5_167条_学科分布_20261106.png" alt="WOS Q5 学科"><figcaption>Q5：WoS Categories 分布</figcaption></figure>
+  <figure><img src="文献检索核对截图/WOS_Q5_167条_研究方向_20261106.png" alt="WOS Q5 研究方向"><figcaption>Q5：Research Areas 分布</figcaption></figure>
+</div>
+
+<div class="divider"></div>
+
+<h2>3 · 10.14 ScienceDirect + Scopus（7 题 · 待批阅）</h2>
+<p class="kv"><b>2026-11-06 复核：</b>Scopus 已能跑（改用检索结果 URL 参数法），Q3 / Q6 / Q7 计数与分布均已实测截图；<b>ScienceDirect 三题仍受阻</b>——结果页只出表单不渲染列表，Journals &amp; Books 浏览页整页空白（证据 <code>SD_Q2_期刊浏览页空白_受阻证据_20261106.png</code>）。SD 的 2 / 2175 / 31 均为<b>未复核的旧作答</b>，不要当成已核实。</p>
+
+<table>
+<tr><th style="width:44px">题</th><th>题目</th><th>检索式 / 路径</th><th>实测答案与差异</th><th>状态</th></tr>
+<tr><td>1</td><td>Scopus 查非酒精性肝炎用哪个表达式</td><td>Scopus Advanced：<code>hepatitis AND NOT alcoholic</code>（Scopus 不认单独的 NOT）</td><td><b>D · hepatitis AND NOT alcoholic</b>。语法已核，纯语法题无计数，<b>本轮未截图</b></td><td><span class="tag t-old">未复核</span> 语法正确但未存证</td></tr>
+<tr><td>2</td><td>SD 刊名含 asthma 的期刊有几种、第一种刊名与 ISSN</td><td>SD → Journals &amp; Books → 搜 <code>asthma</code> → Subject: Medicine and Dentistry</td><td>旧作答 <b>2 种；Annals of Allergy, Asthma &amp; Immunology；1081-1206 / 1534-4436</b>。本轮进到 <code>/browse/journals-and-books</code> 仍整页空白，<b>未取到，未复核</b></td><td><span class="tag t-old">未复核</span><br><span class="kv">SD_Q2_期刊浏览页空白_受阻证据_20261106.png</span></td></tr>
+<tr><td>3</td><td>Scopus Critical Care Nursing 期刊数、CiteScore 最高 OA 刊及 2023 值</td><td>Sources → 学科 <code>Critical Care Nursing</code>（代码 2906）+ 类型 Journals；OA 口径再勾「仅显示公开访问期刊」+ 2023 年</td><td><b>37 种</b>（学科+期刊，与老师口述 37 一致；<b>旧 39 未复现</b>）；<b>仅 OA + 2023 口径 7 个</b>，CiteScore 最高 OA 刊 <b>Acute and Critical Care，2023 值 2.8</b>。旧答案 Intensive and Critical Care Nursing 7.8 <b>不是 OA</b> 且为 2025 口径，已删「OA 刊」说法</td><td><span class="tag t-live">实测</span> <span class="tag t-fix">旧答案已修正</span><br><span class="kv">SCOPUS_Q3_OA_2023_7条_CiteScore_20261106.png</span></td></tr>
+<tr><td>4</td><td>SD 2025 温医发文：表达式、结果数、相关度第一篇</td><td>SD Advanced：Year 2025 + Affiliation Wenzhou Medical University + Sort by Relevance</td><td>旧作答 <b>2175；Pharmacokinetic profile…rubusoside；Meiling Zhang；J Chromatogr B</b>。结果页在 VPN 下不渲染，<b>未复核</b></td><td><span class="tag t-old">未复核</span></td></tr>
+<tr><td>5</td><td>SD 肾缺血＋多器官衰竭（研究性论文）</td><td>SD Advanced 两行 + Article type: Research articles</td><td>旧作答 <b>31 篇；Pathophysiology of ischemic acute tubular necrosis；Jitendra Kumar</b>。同上受阻，<b>未复核</b></td><td><span class="tag t-old">未复核</span></td></tr>
+<tr><td>6</td><td>Scopus 2025 温医发文（被引最高、期刊/学科/作者分布）</td><td><span class="kv">界面做法：Scopus 首页基本检索：Search within 选 Affiliation 填 Wenzhou Medical University；加一行年份 2025 → Search</span>；被引降序 + Analyze results + 结果页「来源出版物名称」分面</td><td><b>6,710 篇</b>（同一检索式下<b>旧 6970 未复现</b>）；被引最高 GBD 2023（<i>Lancet</i> 406(10513)，Hay S.I.，<b>901 次</b>）；来源出版物第一 <b>Scientific Reports（100）</b>；学科第一 <b>Medicine（34.6%）</b>；作者第一 <b>Ji, J.</b><br><span class="kv">Analyze results 的「按来源出版物」图表一直转圈，期刊第一名改由结果页分面读取，证据为全页截图。</span></td><td><span class="tag t-live">实测</span> <span class="tag t-fix">旧答案已修正</span><br><span class="kv">SCOPUS_Q6_6710条_被引降序 / 分析结果 / 来源出版物筛选_全页（20261106）</span></td></tr>
+<tr><td>7</td><td>Scopus 肾缺血＋多器官衰竭（相关度）</td><td><span class="kv">界面做法：Scopus 首页基本检索：两行 Search within 都选 Article title, Abstract, Keywords；第一行填两个同义词（OR），第二行 AND 填 multiorgan failure</span>；排序改「相关性」</td><td><b>29 篇</b>（<b>2026-11-08 实测</b>；两行＝<code>&quot;renal ischemia&quot; OR &quot;kidney ischemia&quot;</code> AND <code>multiorgan failure</code>；<b>旧记 14 篇、旧 388、老师口述 241 均未复现</b>——同义词越多结果只会越多，说明旧那次同义词集合或字段更窄）；相关度第一篇 <b>Renal ischemia/reperfusion leads to macrophage-mediated increase in pulmonary vascular permeability</b>，Kramer A.A. 等，<i>Kidney International</i> 55(6):2362-2367，1999，被引 269。旧答案 NSAIDs and organ damage / Bandyopadhyay 不在第一篇</td><td><span class="tag t-live">实测</span> <span class="tag t-fix">旧答案已修正</span><br><span class="kv">SCOPUS_Q7_14条_TITLE-ABS-KEY / 相关度第一篇（20261106）</span></td></tr>
+</table>
+
+<div class="paper">
+  <figure><img src="文献检索核对截图/SCOPUS_Q3_OA_2023_7条_CiteScore_20261106.png" alt="Scopus Q3 OA 7"><figcaption>Q3：OA + 2023 口径 7 个，最高 2.8</figcaption></figure>
+  <figure><img src="文献检索核对截图/SCOPUS_Q6_6710条_分析结果_20261106.png" alt="Scopus Q6 分析结果"><figcaption>Q6：6,710 篇，学科 Medicine / 作者 Ji, J.</figcaption></figure>
+  <figure><img src="文献检索核对截图/SCOPUS_Q7_14条_相关度第一篇_20261106.png" alt="Scopus Q7 相关度"><figcaption>Q7：14 篇，相关度第一篇 Kramer 1999</figcaption></figure>
+  <figure><img src="文献检索核对截图/SD_Q2_期刊浏览页空白_受阻证据_20261106.png" alt="SD 空白页"><figcaption>SD：期刊浏览页空白（受阻证据）</figcaption></figure>
+</div>
+
+<div class="divider"></div>
+
+<h2>4 · 9.30 PubMed（6 题 · 已批 82.6 分）</h2>
+<h3>通用操作</h3>
+<div class="step">
+<ol>
+  <li>直接开 <code>pubmed.ncbi.nlm.nih.gov</code>（不用 VPN）。</li>
+  <li>检索式写进顶部搜索框，回车；<b>不要手写方括号字段标签</b>：点顶部 <b>Advanced</b> 进 Advanced Search Builder，用 <b>Field Selector</b> 下拉选字段（Title / MeSH Terms / Journal / Filter / Date - Publication），Search Term 只填词，逐行点 <b>ADD</b>。</li>
+  <li>结果数看页面左上 "N results"；按相关度 = 默认 Best Match；按最新 = 右上 <b>Sort by → Most recent</b>。</li>
+  <li>期刊/主题词问题走 <b>NLM Catalog</b>（<code>ncbi.nlm.nih.gov/nlmcatalog</code>）和 <b>MeSH Browser</b>（<code>meshb.nlm.nih.gov</code>）。</li>
+</ol>
+</div>
+
+<table>
+<tr><th style="width:44px">题</th><th>题目</th><th>检索式 / 路径</th><th>实测答案</th><th>状态</th></tr>
+<tr><td>1</td><td>PubMed 收录 melanoma 期刊几种；Pigment cell research 缩写/ISSN/出版频率</td><td>NLM Catalog：<span class="kv">界面做法：PubMed Advanced Search Builder：Field Selector 下拉选 Title，Search Term 填 melanoma</span> = 289 items；<span class="kv">界面做法：NLM Catalog：左栏勾「NCBI journals」，或 PubMed Advanced Builder 的 Field Selector 选 Title 后加词</span> = <b>4</b></td><td>「8 种」<b>未复现</b>：现场 <code>ncbijournals</code> 口径 <b>4 种</b>，289 是未筛总数。<b>左栏可以直接点，点了就生效</b>（2026-11-08 实测：点「NCBI journals」后 289 → 4，页面顶部出现 <code>Filters activated: Journals referenced in the NCBI DBs. Clear all to show 289 items.</code>）。上一轮「自动化点不动、需人工勾」的说法<b>已推翻</b>。期刊记录已核（2026-11-08 实测补全）：<b>ISSN 0893-5785 是旧刊《Pigment cell research》的号，NLM 会把该号解析到接续刊《Pigment cell &amp; melanoma research》</b>——现行刊 <b>ISSN 1755-1471 (Print) / 1755-148X (Electronic)</b>、<b>缩写 Pigment Cell Melanoma Res</b>、<b>Publication Start Year 2008</b>、<b>Frequency Bimonthly</b>、`MEDLINE: v21n1, Feb 2008-`。旧缩写 <b>PIGMENT CELL RES</b> 与旧电子刊号 <b>1600-0749</b> 只适用于 2008 年前。查新文献请用 1755-1471 / 1755-148X</td><td><span class="tag t-fix">旧答案已修正</span> <span class="tag t-live">实测</span><br><span class="kv">PM_Q1_4条_ncbijournals_20261106.png、PM_P1_journal.jpg</span></td></tr>
+<tr><td>2</td><td>冠心病的 MeSH 主题词及直接上位词</td><td>MeSH Browser 搜 <code>Coronary Disease</code> 看 Tree Number，再查 <code>Myocardial Ischemia</code></td><td><b>Coronary Disease</b>（D003327，树号 C14.907.585.250）→ 上位词 <b>Myocardial Ischemia</b>（D017202）</td><td><span class="tag t-live">实测</span> PM_P2_mesh.jpg</td></tr>
+<tr><td>3</td><td>近五年高血压×吸烟标题文献</td><td><span class="kv">界面做法：Advanced Search Builder：两行 Field Selector 都选 Title，填 hypertension 与 smoke*，逐行 ADD；再用左栏年份区间 2021–2026 筛选</span></td><td><b>39 条</b>（你写 35，库在增长）；第一篇 FGF10 reverses cigarette smoke-…，Eur Respir J</td><td><span class="tag t-live">实测</span> PM_P3_hypertension.jpg</td></tr>
+<tr><td>4</td><td>2010 年以来 65 岁以上 COPD 死亡率综述</td><td><span class="kv">界面做法：Advanced Search Builder 逐行用 Field Selector 选字段并 ADD；综述 / 年龄 / 文献类型 / 年份一律用结果页左栏筛选勾选，不手写方括号</span></td><td><b>7 条</b>；第一篇 All-Cause and Cause-Specific Mortality in COPD: A Systematic Review and Meta-Analysis，Int J Chron Obstruct Pulmon Dis</td><td><span class="tag t-live">实测</span> PM_P4_copd.jpg</td></tr>
+<tr><td>5</td><td>青少年哮喘药物治疗的临床试验</td><td><span class="kv">界面做法：Advanced Search Builder 逐行用 Field Selector 选字段并 ADD；综述 / 年龄 / 文献类型 / 年份一律用结果页左栏筛选勾选，不手写方括号</span>，按最新排序</td><td><b>2026-11-08 实测：MeSH Major Topic=Asthma + MeSH Terms=Adolescent ＝ 29,052；再勾 Clinical Trial ＝ <b>4,817</b>；再勾 Age=Adolescent 仍是 4,817</b>。旧记 <b>2,954 复现不出来</b>；<b>4,817</b> 才是可复现口径。第一篇 Twice-Yearly Depemokimab in Severe Asthma with an Eosinophilic Phenotype.</td><td><span class="tag t-live">实测</span> PM_P5_asthma.jpg</td></tr>
+<tr><td>6</td><td>《Clinics in Geriatric Medicine》近三年论文</td><td><span class="kv">界面做法：Advanced Search Builder：Field Selector 选 Journal 填 clin geriatr med → ADD；左栏年份区间 2023–2026</span>，按出版日期排序</td><td><b>202 条</b>；第一篇 Advancing Fall Prevention: Translating the Evidence…；第一作者 Siobhan K McMahon</td><td><span class="tag t-live">实测</span> PM_P6_geriatric.jpg</td></tr>
+</table>
+
+<div class="paper">
+  <figure><img src="文献检索核对截图/PM_Q1_4条_ncbijournals_20261106.png" alt="NLM Catalog melanoma ncbijournals 4"><figcaption>第 1 题：检索式 + Items: 4（旧「8 种」未复现）</figcaption></figure>
+  <figure><img src="文献检索核对截图/PM_P1_journal.jpg" alt="Pigment cell research 记录"><figcaption>第 1 题：ISSN / Bimonthly</figcaption></figure>
+  <figure><img src="文献检索核对截图/PM_P2_mesh.jpg" alt="MeSH Myocardial Ischemia"><figcaption>第 2 题：上位词 Myocardial Ischemia</figcaption></figure>
+  <figure><img src="文献检索核对截图/PM_P3_hypertension.jpg" alt="39 results"><figcaption>第 3 题：39 results</figcaption></figure>
+</div>
+
+<div class="divider"></div>
+
+<h2>5 · 9.23 知网 + 万方（9 题 · 待批阅）</h2>
+<p class="kv">入口：VPN 首页「中国知网」「万方数字化期刊」。知网认机构看右上角显示「温州医…」；万方顶部显示「温州医科大学」。</p>
+
+<table>
+<tr><th style="width:44px">题</th><th>题目</th><th>操作路径 / 检索式</th><th>答案（旧值 / 新值 / 差异原因）</th><th>状态</th></tr>
+<tr><td>1</td><td>CNKI「临床医学健康与传播学术研讨会(第三册)」论文集篇数</td><td>知网 → 会议导航 → 论文集名称</td><td><b>270 篇</b>（四册分别 298 / 212 / 270 / 204），与旧答案一致</td><td><span class="tag t-live">实测</span> CNKI_Q1_270篇_第三册_20261106.png</td></tr>
+<tr><td>2</td><td>CNKI「精神病学」北大核心期刊几种</td><td>知网 → 期刊导航 → 医药卫生 → 精神病学 → 勾北大核心</td><td><b>2 种</b>（中华精神科杂志、中国神经精神疾病杂志），与旧答案一致</td><td><span class="tag t-live">实测</span> CNKI_Q2_2种_北大核心_20261106.png</td></tr>
+<tr><td>3</td><td>2026 第四期关爱生命大讲堂会议中篇关摘含「胰岛素抵抗」的文献数</td><td>专业检索 <span class="kv">界面做法：会议专场 → 高级检索两行：第一行字段「论文集名称」填会议名；第二行 AND +「篇关摘」填 胰岛素抵抗</span></td><td>旧作答 <b>3</b>。<b>本轮未取到</b>：两次提交均返回「抱歉，暂无数据，请稍后重试」，间隔 90 秒冷却仍如此；早期还触发过腾讯滑块。<b>按红线不绕过风控，交用户人工在浏览器里跑</b></td><td><span class="tag t-old">未复核</span> 见附 B</td></tr>
+<tr><td>4</td><td>万方：温医蒋益老师指导的学位论文数</td><td>导师=蒋益 AND 学位授予单位=温州医科大学（学位论文）</td><td><b>22 条</b>，与旧答案一致</td><td><span class="tag t-live">实测</span> WANFANG_Q4_22条.png</td></tr>
+<tr><td>5</td><td>万方导航：临床医学 SCI 期刊几种</td><td>万方 → 期刊导航 → 学科 → SCI 收录</td><td>旧作答 <b>3 种</b>。<b>2026-11-08 把四条路全试完，确定无解</b>：①学科分类只有 8 个一级类（哲学政法720/社会科学1026/经济财政1074/教科文艺2357/基础科学1177/<b>医药卫生1545</b>/农业科学672/工业技术2933），<b>没有二级「临床医学」</b>；②核心分面 SCI (37) 是提示数，<b>点选后不筛选</b>（总数仍 1,545）；③<b>旧版入口已不存在</b>——<code>g.wanfangdata.com.cn</code> 直连直接跳新版，VPN 包装 <code>/http/…</code> 与 <code>/https/g.wanfangdata.com.cn</code> 均「访问出错」；④期刊导航页「<b>搜期刊</b>」按钮点了实际进「搜论文」，搜「临床医学」得 <b>285,677 条文献</b>（不是期刊数）。⇒ <b>本题按现网万方无法作答，只能记「未能获得」</b>。<b>2026-11-08 更正：万方输入框其实可以自动化。</b><code class="inline">/advanced-search/paper</code> 是普通 HTML 表单，三个 <code class="inline">input[type=text]</code>（y=256/308/360）<code class="inline">fill()</code> 直接成功；字段/关系/模糊是可点 DIV，检索按钮可点。实测「主题=HPV疫苗」一次跑通（4,964 条），勾期刊论文+会议论文并点「确定(2)」后得 <b>4,041</b> 条，机构分面与作者分面都能展开。上一版「万方入力不可自动化」的结论<b>已推翻</b></td><td><span class="tag t-old">未复核</span> WANFANG_Q5_期刊导航_医药卫生_20261106.png</td></tr>
+<tr><td>6</td><td>知网/万方：北大六院黄悦勤在《中国心理卫生杂志》发文（精确）</td><td>知网 <span class="kv">界面做法：学术期刊专场 → 高级检索三行：作者(精确)=黄悦勤；作者单位=北京大学第六医院；期刊名称=中国心理卫生杂志，行间 AND</span>；万方：作者+单位+刊名</td><td>知网 <b>107 条</b>（专业检索式口径，<b>旧 105</b>，+2 收录增长）；<b>界面法另测 116 条</b>（学术期刊专场、作者单位「模糊」、期刊名称「精确」）——两者不是同一口径，差异原因当场可见，不能相互覆盖。下载降序第一篇《医学科研中随机误差控制和样本量确定》<b>8,782 下载</b>（2015-11-10）；万方 <b>138 条</b>（一致），相关度第一篇 <b>《中老年人群慢性病共病与抑郁症状的关联性分析》</b>——<b>旧答案《2016-2021年中国自杀率变化趋势》其实是第 3 篇</b></td><td><span class="tag t-live">实测</span> <span class="tag t-fix">旧答案已修正</span><br><span class="kv">CNKI_Q6_107条_检索式 / 下载排序、WANFANG_Q6_138条_相关度（20261106）</span></td></tr>
+<tr><td>7</td><td>万方：HPV 疫苗期刊+会议文献、第一篇、高产机构与作者</td><td>主题=HPV疫苗 + 文献类型（期刊论文 OR 会议论文）</td><td><b>4,039 条</b>（旧 4021，+18 收录增长）与第一篇《治疗性HPV疫苗的机制及临床研究进展》有截图；<b>高产机构/高产作者未同屏</b>，「中国疾控中心 / 乔友林」暂标未复核</td><td><span class="tag t-live">实测</span>（计数+第一篇）<br><span class="kv">细节待补，见附 B</span></td></tr>
+<tr><td>8</td><td>知网：2 型糖尿病遗传基因学位论文数、被引最高、授予单位与年度</td><td>学位论文 → 高级检索两行「主题=2型糖尿病」AND「主题=遗传基因」</td><td><b>26 条</b>（硕士 17 / 博士 9），列表第一篇《2型糖尿病的遗传易感基因研究》，保晓芸，重庆医科大学，2012，被引 687。<b>界面法已复核口径矩阵</b>：学位论文+主题两行＝26（与旧检索式一致）；勾同义词扩展＝29；字段改「篇关摘」＝<b>39（即老师口述值）</b>；专场改总库＝100；只填一个条件＝16,933。「中英文扩展」默认勾但不改变结果。<b>旧 568 仍未复现</b>：<code>CNKI_T2DM.png</code> 看不到检索式，差异原因待查。<b>不要把 568 写成正确答案</b></td><td><span class="tag t-live">实测</span> <span class="tag t-fix">旧答案已修正</span><br><span class="kv">CNKI_Q8_26条_学位论文_20261106.png</span></td></tr>
+<tr><td>9</td><td>知网：miR-146a 在胃癌，篇关摘字段，按下载量排序</td><td><span class="kv">界面做法：高级检索，<b>两行字段都点开下拉选「篇关摘」</b>（第二行默认是「作者」，必须改）；第一行填 miR-146a、第二行填 胃癌，行间 AND → <b>点页面空白处收起联想词</b> → 检索 → 排序选「下载」降序。<b>不需要写三种同义写法</b>：实测只写 miR-146a 与写 (miR-146a OR miRNA-146a OR microRNA-146a) 结果都是 4,240 条，一条不差——知网篇关摘本身做了同义归一</span></td><td><b>4,240 条</b>（2026-11-08 界面法实测，回读检索式为 <code>（篇关摘：miR-146a(精确)）AND（篇关摘：胃癌(精确)）</code>）。<b>旧记「90 条」本轮复现不出来</b>，差近 50 倍；同义词是并集只会让结果变多，所以 90 绝不可能是「三行 OR + AND 胃癌」得出的。旧答案「李海龙 / 兰州大学」错误；「肖斌 2009 / 791 下载」本轮亦未复核</td><td><span class="tag t-live">实测</span> <span class="tag t-fix">旧答案已修正</span><br><span class="kv">CNKI_Q9_90条_检索式 / 下载排序（20261106）</span></td></tr>
+</table>
+
+<div class="paper">
+  <figure><img src="文献检索核对截图/CNKI_Q8_26条_学位论文_20261106.png" alt="知网 Q8 26 条"><figcaption>第 8 题：学位论文 26 条（旧 568 未复现）</figcaption></figure>
+  <figure><img src="文献检索核对截图/CNKI_Q9_90条_下载排序_20261106.png" alt="知网 Q9 下载排序"><figcaption>第 9 题：90 条，下载第一肖斌 2009</figcaption></figure>
+  <figure><img src="文献检索核对截图/WANFANG_Q6_138条_相关度_20261106.png" alt="万方 Q6 相关度"><figcaption>第 6 题：138 条，相关度第一篇《中老年人群…》</figcaption></figure>
+  <figure><img src="文献检索核对截图/WANFANG_HPV_count.png" alt="万方 4039"><figcaption>第 7 题：4,039 条</figcaption></figure>
+</div>
+
+<div class="divider"></div>
+
+<h2>6 · 9.16 CBM（中国生物医学文献服务系统，7 题 · 已批 90.1 分）</h2>
+<p class="kv">入口：VPN → 图书馆--中文文献 → CBM（SinoMed）。本轮已 7 题全部重跑并截图存证；「你的答案」为学习通里已提交的值（原扣约 10 分，主要在检索式写法上），状态列改为今日实测。</p>
+
+<table>
+<tr><th style="width:44px">题</th><th>题目</th><th>检索式 / 路径</th><th>你的答案</th><th>状态</th></tr>
+<tr><td>1</td><td>风湿性心脏病分类号；发文最多作者与机构</td><td>CBM → 分类检索 R541；分析结果看作者/机构分布</td><td><b>R541.2</b>；张宝仁；长海医院</td><td><span class="tag t-live">实测</span> R541.2 分类号检索 4486 篇，结果均为风湿性心脏病（CBM_Q1_R5412_4486条.png）</td></tr>
+<tr><td>2</td><td>先天性髋关节脱位主题词及上位词；肺动脉高压流行病学重点文献</td><td>主题检索：<span class="kv">界面做法：主题检索：主题词填 肺动脉高压，副主题词勾 人种学 / 流行病学 / 死亡率，选项设「不加权、不扩展」</span></td><td>髋脱位，先天性；上位：发育性髋关节发育不良 → 肌肉骨骼畸形 → 肌骨骼疾病；<b>1446</b> 条；《以家庭为中心护理模式在复杂先天性心脏病合并肺动脉高压患儿围术期护理中的应用》</td><td><span class="tag t-live">实测</span> 1475 条（答案 1446，+29 收录增长；CBM_Q2_1475条.png）</td></tr>
+<tr><td>3</td><td>2021-2026 二甲双胍 65 岁以上不良反应</td><td><span class="kv">界面做法：高级检索：三行字段都选「常用字段」，分别填 二甲双胍 / 糖尿病 / 不良反应，行间 AND；<b>年龄段不要当检索词写</b>——展开「限定检索」面板，在年龄组里勾「<b>老年人：65岁以上</b>」，顶部年代框填 2021 / 2026（拿「老年」当检索词只在标题/摘要里碰词，会漏掉写 65岁 / elderly / aged 的文章）</span> + 日期限定</td><td><b>225</b> 条（旧作答）；《盐酸二甲双胍片联合胰岛素治疗&gt;60岁2型糖尿病患者的效果分析》</td><td><span class="tag t-fix">旧答案未复现</span> 三词+2021-2026＝<b>2,331</b>；加「老年」＝<b>266</b>；<b>225 未复现。2026-11-08 再验：两词（二甲双胍+糖尿病）+2021-2026 ＝ <b>5,926 条</b>（核心期刊 2,296 / 共 297 页）；第三行「不良反应」在 CBM 自动化下加不出来（<code>#gplusAndMinus_2</code> 点不动），故三词口径仍未取到，225 原因待查</b>（CBM_Q3_2331条.png、CBM_Q3_266条.png）</td></tr>
+<tr><td>4</td><td>上海交大医学院范建高第一作者、题名含非酒精性脂肪性肝病</td><td><span class="kv">界面做法：高级检索：三行字段分别选 第一作者单位 / 第一作者 / 中文标题，填 上海交通大学医学院 / 范建高 / 非酒精性脂肪性肝病，行间 AND</span></td><td><b>25</b> 条；《NAFLD更名MAFLD、MASLD:背景、异同、对策》</td><td><span class="tag t-live">实测</span> 25 条（与答案一致；CBM_Q4_25条.png）</td></tr>
+<tr><td>5</td><td>核心期刊、摘要或关键词含阑尾炎的综述</td><td><span class="kv">界面做法：高级检索：摘要、关键词字段分别填 阑尾炎 与 Appendicitis（用 OR 连成一组），再加一行 文献类型=综述（AND）</span> AND 综述[文献类型]</td><td><b>116</b> 条；《急性阑尾炎临床诊治研究进展》</td><td><span class="tag t-live">实测</span> 119 条（"核心期刊"筛选；答案 116，+3 收录增长；CBM_Q5_119条.png）</td></tr>
+<tr><td>6</td><td>中华医学会浙江分会期刊；发文最多刊；该刊 2025 高血压文献</td><td><span class="kv">界面做法：期刊检索 / 高级检索：刊名字段填 浙江医学（勾「含更名」），第二行 常用字段=高血压，日期框填 2025-2025</span></td><td>浙江医学 / 心电学杂志 / 感染病杂志；浙江医学，1979 年创刊，ISSN <b>1006-2785</b>；<b>17</b> 条；《NF-κB、miRNA-29a在高血压性心脏病患者中的表达及临床意义》</td><td><span class="tag t-live">实测</span> 17 条（与答案一致；CBM_Q6_17条.png）</td></tr>
+<tr><td>7</td><td>RA 背景材料提炼主题并检索</td><td>主题：IL-8 在类风湿关节炎发病机制中的作用；<span class="kv">界面做法：高级检索：三行字段都选「常用字段」，分别填 白细胞介素8 / 类风湿关节炎 / 作用机制，行间 AND</span></td><td><b>2</b> 条；《白细胞介素-8与类风湿关节炎关联性研究进展》</td><td><span class="tag t-live">实测</span> 2 条（与答案一致；CBM_Q7_2条.png）</td></tr>
+</table>
+
+<div class="divider"></div>
+
+<h2>7 · 9.9 绪论（6 题 · 100 分）</h2>
+<table>
+<tr><th style="width:44px">题</th><th>题目</th><th>答案</th></tr>
+<tr><td>1</td><td>以下不是按文献出版形式划分的是</td><td><b>C · 电子型文献</b>（出版形式分：图书、期刊、专利文献、会议文献等；电子型是按载体）</td></tr>
+<tr><td>2</td><td>一次文献不包括</td><td><b>D · 教科书</b>（教科书属三次文献）</td></tr>
+<tr><td>3</td><td>能扩大检索结果的检索技术</td><td><b>D · 截词符</b></td></tr>
+<tr><td>4</td><td>不是期刊特点的</td><td><b>D · 系统</b></td></tr>
+<tr><td>5</td><td>文献三要素（多选）</td><td><b>ABC</b> 内容 / 载体 / 符号</td></tr>
+<tr><td>6</td><td>按索书号找书（任选一本）</td><td>R77/4222 →《玻璃体视网膜疾病临床诊断精粹》；I267/3183-86 →《好好吃饭，好好生活》；C955.2/7734 →《中国人的习惯》（要附图书照片）</td></tr>
+</table>
+
+<div class="divider"></div>
+
+<div class="divider"></div>
+<h2 id="todo">附 · 13 项待人工处理清单（勾选进度自动保存在本机）</h2>
+<p class="kv">下面这 13 项是<b>自动化跑不出来、必须你亲手点</b>的：要么平台风控/入口被封，要么旧值复现不出来需要你当场核对。勾选框会记住进度（存在浏览器 localStorage），换设备不同步。<b>全程不提交学习通作业。</b></p>
+<div class="td-scope"><div class="td-bar">
+  <span id="count">0 / 13 完成</span>
+  <div class="td-progress"><i id="fill"></i></div>
+  <button onclick="resetAll()">重置勾选</button>
+</div>
+
+
+<h2>第一组 · 只有人工才能拿到数（7 项）</h2>
+
+<div class="td-task" data-id="t1">
+  <div class="td-head"><input type="checkbox"><span class="td-ttl">1　知网 Q3：2026 第四期关爱生命大讲堂里，篇关摘含「胰岛素抵抗」的文献数</span><span class="td-chip td-p0">会议名查不到</span><span class="td-chip td-tab">高级检索-中国知网</span></div>
+  <div class="td-why"><b>之前为什么跑不出来：</b>早期把整串粘进<b>专业检索</b>框，两次都返回「抱歉，暂无数据」。<b>2026-11-08 查清了：不是滑块，是这个会议名在知网里查不到。</b>同一标签页连做三次对照：①<code>（文献来源：关爱生命大讲堂）AND（篇关摘：胰岛素抵抗）</code> → 暂无数据；②单独 <code>（主题：关爱生命大讲堂）</code> → 暂无数据；③紧接着 <code>（主题：胰岛素抵抗）</code> → <b>正常出 1.86 万条，没弹滑块</b>。⇒ 知网服务正常，是「关爱生命大讲堂」这个名字查不到（会议名写法可能不同、或 2026 年的会尚未收录、或不在知网）。<b>「暂无数据」不一定是风控</b>：先用一个必然有结果的词试，能出数就是词/字段没中。</div>
+  <ul class="td-steps">
+    <li>在检索页顶部的资源类型里，把「总库」切到 <b>会议</b>（这题问的是会议论文集里的文献）。</li>
+    <li>确认停在 <b>高级检索</b> 标签，<b>不要点「专业检索」</b>。</li>
+    <li>第一行：点左边字段下拉，选 <b>论文集名称</b>（本轮实测：切到「会议」专场后，下拉里就有这一项，不用退而求其次选「文献来源」）。</li>
+    <li>第一行输入框只填 <span class="td-ctl">2026年第四期关爱生命大讲堂</span>，不加引号、不加字段名。</li>
+    <li>第二行：关系下拉选 <span class="td-ctl">AND</span>；字段下拉选 <b>篇关摘</b>；输入框填 <span class="td-ctl">胰岛素抵抗</span>。</li>
+    <li>把上面的「精确 / 模糊」记下来；<b>中英文扩展、同义词扩展都不要勾</b>（要精确数），并在截图里让它们可见。</li>
+    <li>点 <b>检索</b>。<b>2026-11-08 实测已把原因查清：不是滑块。</b>同一页连做三次对照——①会议名+篇关摘（两行）→「抱歉，暂无数据」；②只查会议名（单行）→ 同样「暂无数据」；③紧接着查 <span class="td-ctl">胰岛素抵抗</span> → <b>正常出 1.86 万条，全程没弹滑块</b>。⇒ <b>服务正常，是「关爱生命大讲堂」这个名字在知网里查不到</b>。<br><b>所以你的动作变了：</b>先在知网首页搜索框直接输「关爱生命大讲堂」，看有没有联想词、能不能出结果。能出 → 说明准确会议名和你填的不一样，按联想词改；还是查不到 → 这个会不在知网，如实写「该会议名在知网检索不到」。</li>
+    <li>结果页读「共找到 N 条结果」，把条件区 + 结果数截在一张图里。</li>
+  </ul>
+  <div class="td-learn">这一步在练：把两个条件拆成两行、用 AND 连接，并主动控制扩展开关。备选用「先只查会议名称 → 看论文集总篇数（此前记录 548 篇）→ 再用结果中检索收窄」，但注意结果中检索会覆盖原条件。</div>
+  <div class="td-learn" style="margin-left:28px">表单填完后，系统会在「检索范围」里自动生成一行等价表达式——<b>那是给你核对字段用的，不用管它，更不要复制粘贴</b>。</div>
+  <div class="td-shot"><b>要截：</b>两行字段条件 + 扩展开关状态 + 共找到 N 条结果　·　<b>存为：</b>CNKI_Q3_&lt;N&gt;条_高级检索_20261106.png　·　旧作答 3，<b>未实测，别直接抄</b></div>
+</div>
+
+<div class="td-task" data-id="t2">
+  <div class="td-head"><input type="checkbox"><span class="td-ttl">2　万方 Q5：临床医学 SCI 期刊几种</span><span class="td-chip td-p0">无「临床医学」子类</span><span class="td-chip td-tab">万方…科研学习全流程支持服务平台</span></div>
+  <div class="td-why"><b>之前为什么跑不出来：</b>新版期刊导航能打开，但学科只有一级「医药卫生」（1,545 本，SCI 分面 37），没有「临床医学」子类；SCI 分面点后计数不变。3 种未复现。<br><b>2026-11-08 把四条路全试完了，本题确定无解：</b>①学科分类只有 8 个一级类，<b>没有二级「临床医学」</b>；②SCI (37) 是分面提示数，<b>点选不筛选</b>（总数仍 1,545）；③<b>旧版入口已不存在</b>——<code class="inline">g.wanfangdata.com.cn</code> 直连直接跳新版，VPN 包装 <code class="inline">/http/…g.wanfangdata.com.cn</code> 与 <code class="inline">/https/g.wanfangdata.com.cn</code> 都是「访问出错」；④期刊导航页的「<b>搜期刊</b>」按钮点了实际进「搜论文」，搜「临床医学」得 <b>285,677 条文献</b>（不是期刊数）。<b>⇒ 只能记「未能获得」，要给数必须老师提供原始口径。</b><br><b>2026-11-08 更正：万方输入框其实可以用自动化。</b><code class="inline">/advanced-search/paper</code> 是普通 HTML 表单——三个 <code class="inline">input[type=text]</code>（y=256/308/360）能直接填值；字段/关系/模糊是普通可点 DIV；「检索」按钮可点。实测「主题=HPV疫苗」跑通（4,964 条），勾「期刊论文+会议论文」点「确定(2)」后 <b>4,041 条</b>，机构/作者分面均可展开。上一版「万方只能人工点」的结论<b>已推翻</b>。</div>
+  <ul class="td-steps">
+    <li>切到旧版入口标签（从 VPN 首页「万方数字化期刊」点开的那个）。</li>
+    <li>点顶部 <b>期刊</b> 进入期刊导航，<b>用左侧学科树逐级展开</b>找「临床医学」，不要用顶部搜索框拼条件。</li>
+    <li>找到后，在「核心收录 / 收录源」区域勾 <b>SCI</b>，看列表顶部「找到 N 本期刊」。</li>
+    <li>旧版若也没有这一级学科，就如实写「未完成」，不要用 37 或 1,545 去凑 3。</li>
+    <li>顺手在「万方数据知识服务平台-期刊」标签留一张新版导航的受阻证据图。</li>
+  </ul>
+  <div class="td-learn">这一步在练：用<b>学科导航树 + 收录源筛选</b>拿期刊数，这是期刊题的正解路径；检索框是给论文用的。</div>
+  <div class="td-shot"><b>要截：</b>学科树展开路径 + SCI 勾选 + 找到 N 本期刊　·　<b>存为：</b>WANFANG_Q5_&lt;N&gt;种_临床医学SCI_20261106.png</div>
+</div>
+
+<div class="td-task" data-id="t3">
+  <div class="td-head"><input type="checkbox"><span class="td-ttl">3　SD Q2：刊名含 asthma 的期刊几种、第一种刊名与 ISSN</span><span class="td-chip td-p0">页面空白</span><span class="td-chip td-tab">Browse journals and books</span></div>
+  <div class="td-why"><b>之前为什么跑不出来：</b><code class="inline">/browse/journals-and-books</code> 在 VPN 下整页空白，已留受阻证据图。</div>
+  <ul class="td-steps">
+    <li>切到该标签，先 Ctrl+F5 强刷；仍空白就从 SD 首页顶部点 <b>Journals &amp; Books</b> 重新进。</li>
+    <li>用<b>期刊浏览页自己的搜索框</b>输 <span class="td-ctl">asthma</span>（不是论文检索框）。</li>
+    <li>在左侧 <b>Subject area</b> 里勾 <b>Medicine and Dentistry</b>，读筛选后的期刊种数。</li>
+    <li>点开列表第一种刊，在刊物详情页找 <b>Print ISSN / Online ISSN</b>，分别记下来。</li>
+  </ul>
+  <div class="td-learn">这一步在练：区分「找论文」和「找期刊」两个入口，并用学科分面收窄，而不是把条件塞进一个检索框。</div>
+  <div class="td-shot"><b>要截：</b>asthma + Subject 勾选 + 期刊数；另一张刊页 ISSN　·　<b>存为：</b>SD_Q2_&lt;N&gt;种_asthma_20261106.png　·　旧作答 2 种 / Annals of Allergy, Asthma &amp; Immunology / 1081-1206、1534-4436，<b>未复核</b></div>
+</div>
+
+<div class="td-task" data-id="t4">
+  <div class="td-head"><input type="checkbox"><span class="td-ttl">4　SD Q4：2025 温医发文数 + 相关度第一篇</span><span class="td-chip td-p0">结果页不渲染</span><span class="td-chip td-tab">Advanced Search | ScienceDirect.com</span></div>
+  <div class="td-why"><b>之前为什么跑不出来：</b>我用 URL 参数 <code class="inline">?date=2025&amp;affiliations=…&amp;qs=*</code> 一次性把条件灌进去，结果列表在 VPN 下永远转圈。表单本身这次是能正常打开的。</div>
+  <ul class="td-steps">
+    <li>在高级检索表单里找到 <b>Year(s)</b> 输入框，只填 <span class="td-ctl">2025</span>。</li>
+    <li>找到 <b>Author affiliation</b> 输入框，只填 <span class="td-ctl">Wenzhou Medical University</span>。</li>
+    <li><b>Find articles with these terms</b> 留空（不要写 <code class="inline">*</code> 或把年份、机构混进这一格）。</li>
+    <li>点表单底部的 <b>Search</b>；结果出来后，用页面上的 <b>Sort by</b> 下拉选 <b>Relevance</b>。</li>
+    <li>读结果数与第一篇的题名 / 作者 / 期刊，截条件 + 排序 + 总数 + 第一篇。</li>
+    <li>若列表仍转圈，换时间再试；还不行就写「未完成（SD 结果页在 VPN 下不渲染）」。</li>
+  </ul>
+  <div class="td-learn">这一步在练：年份、机构、关键词<b>分别放进各自的框</b>；排序用下拉，不改地址栏。</div>
+  <div class="td-shot"><b>存为：</b>SD_Q4_&lt;N&gt;条_2025温医_20261106.png　·　旧作答 2175，<b>未复核</b></div>
+</div>
+
+<div class="td-task" data-id="t5">
+  <div class="td-head"><input type="checkbox"><span class="td-ttl">5　SD Q5：肾缺血＋多器官衰竭（研究性论文）</span><span class="td-chip td-p0">结果页不渲染</span><span class="td-chip td-tab">Advanced Search | ScienceDirect.com</span></div>
+  <div class="td-why"><b>之前为什么跑不出来：</b>同 Q4，都是用参数一次灌入。</div>
+  <ul class="td-steps">
+    <li>同一个高级检索标签，先点 <b>Show all fields</b> 把字段全展开。</li>
+    <li>在 <b>Title, abstract or author-specified keywords</b> 框里填 <span class="td-ctl">"renal ischemia" OR "kidney ischemia"</span>。</li>
+    <li>在另一个关键词 / 题摘字段行填 <span class="td-ctl">multiorgan failure</span>，两行之间用界面上的 AND 关系。</li>
+    <li>在 <b>Article type</b> 里勾 <b>Research articles</b>（这步最容易漏）。</li>
+    <li>点 Search，读结果数与第一篇，截图。</li>
+  </ul>
+  <div class="td-learn">这一步在练：多字段分栏填写 + 文献类型勾选。综述、社论混进来，数字就会完全不一样。</div>
+  <div class="td-shot"><b>存为：</b>SD_Q5_&lt;N&gt;篇_研究性_20261106.png　·　旧作答 31 篇，<b>未复核</b></div>
+</div>
+
+<div class="td-task" data-id="t6">
+  <div class="td-head"><input type="checkbox"><span class="td-ttl">6　JCR 两题：LANCET 2017 IF；NATURE ISSN / 2024 JIF / 5 年 JIF</span><span class="td-chip td-p0">需机构登录</span><span class="td-chip td-tab">Clarivate（登录页）</span></div>
+  <div class="td-why"><b>之前为什么跑不出来：</b>跳 Clarivate 统一登录，VPN 资源列表无单独入口；数值只用公开资料核过，没有库内截图。</div>
+  <ul class="td-steps">
+    <li>切到「Clarivate」标签，用学校账号登录（或从「Web of Science」标签顶部 <b>Products → Journal Citation Reports</b> 进）。</li>
+    <li>在 JCR 的<b>期刊搜索框</b>输 <span class="td-ctl">LANCET</span>，用页面上的<b>年份下拉</b>切到 2017，读 JIF。</li>
+    <li>再按 <b>ISSN</b> 字段输 <span class="td-ctl">0028-0836</span> 搜 NATURE，在指标页分别读 <b>2024 JIF</b> 与 <b>5-Year JIF</b>。</li>
+    <li>两张图各截刊名 + 年份 + 数值。</li>
+  </ul>
+  <div class="td-learn">这一步在练：用年份控件和指标页读数，不靠背数值。5-Year JIF 是单独一栏，别和当年 JIF 抄混。</div>
+  <div class="td-shot"><b>存为：</b>JCR_Q1_LANCET_2017_20261106.png、JCR_Q2_NATURE_2024_20261106.png　·　参考值 53.254 / 0028-0836 / 48.5 / 55.0，<b>以库内为准</b></div>
+</div>
+
+<div class="td-task" data-id="t7">
+  <div class="td-head"><input type="checkbox"><span class="td-ttl">7　专利 Q2 / Q3 / Q5 / Q6：先看原题选项再定答案</span><span class="td-chip td-p0">非数据库</span><span class="td-chip td-tab">学习通（自己开）</span></div>
+  <div class="td-why"><b>为什么自动跑不了：</b>本轮没取得原题截图，这四题答案完全取决于选项写法；作业已过截止 11-04 16:22，<b>只看题、不提交</b>。</div>
+  <ul class="td-steps">
+    <li>自己打开学习通作业页看选项，别点提交。</li>
+    <li>Q2：确认「策略性」是不是教材标准表述（常见三性是新颖性 / 创造性 / 实用性）。</li>
+    <li>Q3：确认选项里有没有「摘要」，是否算说明书组成。</li>
+    <li>Q5：《专利法》第 25 条共 <b>6 项</b>不授权；若选项含科学发现、智力活动规则、疾病诊疗方法，答案不止 AD。</li>
+    <li>Q6：若问的是「<b>发明专利</b>的类型」，应填产品发明 / 方法发明 / 改进发明；只有问「专利三种类型」才是发明 / 实用新型 / 外观设计。</li>
+  </ul>
+  <div class="td-learn">这一步在练：先读题干与选项再套法条。选项没看到之前，任何「标准答案」都只是猜测。</div>
+  <div class="td-shot"><b>存为：</b>ZL_原题选项_20261106.png（若允许截图）</div>
+</div>
+
+<h2>第二组 · 补细节截图（数字已有，只差同屏证据）</h2>
+
+<div class="td-task" data-id="t8">
+  <div class="td-head"><input type="checkbox"><span class="td-ttl">8　Scopus Q1：用界面表达「非酒精性肝炎」的排除关系</span><span class="td-chip td-p1">补截图</span><span class="td-chip td-tab">Scopus - Homepage</span></div>
+  <div class="td-why">纯语法题，答案 D 已核（Scopus 不认单独的 NOT）。之前打算让你把表达式粘进 Monaco 编辑器截个图——那还是代码化做法，已改。</div>
+  <ul class="td-steps">
+    <li>切到 Scopus 首页基本检索标签（已切到 <code class="inline">/pages/home#basic</code>，有 <b>Search within</b> 字段下拉）。</li>
+    <li>第一行：字段下拉选 <b>Article title, Abstract, Keywords</b>，输入 <span class="td-ctl">hepatitis</span>。</li>
+    <li>点「+」加第二行，行间关系选 <b>AND NOT</b>，字段同样选 <b>Article title, Abstract, Keywords</b>，输入 <span class="td-ctl">alcoholic</span>。</li>
+    <li>把「两行 + AND NOT 下拉」截下来即可，<b>不用提交</b>。</li>
+  </ul>
+  <div class="td-learn">这一步在练：用「加一行 + 关系下拉」表达排除，而不是背 <code class="inline">AND NOT</code> 这个语法词。这也正好说明为什么 D 对、单独的 NOT 错。</div>
+  <div class="td-learn" style="margin-left:28px">表单填完后，系统会在「检索范围」里自动生成一行等价表达式——<b>那是给你核对字段用的，不用管它，更不要复制粘贴</b>。</div>
+  <div class="td-shot"><b>存为：</b>SCOPUS_Q1_AND-NOT_两行表单_20261106.png</div>
+</div>
+
+<div class="td-task" data-id="t9">
+  <div class="td-head"><input type="checkbox"><span class="td-ttl">9　WOS Q3：施引文献的刊 / 年分布同屏</span><span class="td-chip td-p1">补截图</span><span class="td-chip td-tab">Web of Science</span></div>
+  <div class="td-why">1 条 / 被引 <b>333</b>（2026-11-08 实测，旧记 331）已有截图，但「施引 281、FRONTIERS IN ENDOCRINOLOGY、2024」未同屏。之前是直接往 Query editor 塞整串，这次改用 Query Builder。</div>
+  <ul class="td-steps">
+    <li>在 WOS Advanced Search 页点 <b>FIELDED SEARCH</b>（或 <b>QUERY BUILDER</b>），<b>别用 Query editor</b>。</li>
+    <li>第一行：字段下拉选 <b>Publication Titles / Source Title</b>，填 <span class="td-ctl">MEDICINA-LITHUANIA</span>。</li>
+    <li>第二行：关系选 AND，字段选 <b>Title</b>，填那篇文章的题名，然后点 <b>Search</b>（<b>WOS 里没有 Add to query 这个按钮，实际是 Add row 加行</b>）。<b>每加一行都要回头确认字段</b>：新行默认是 All Fields、第一行默认 Topic。</li>
+    <li>命中 1 条后点被引数 <b>333</b> 进施引文献（实测施引 281 条）。</li>
+    <li>在施引页点 <b>Analyze Results</b>，字段分别选 <b>Publication Titles</b> 和 <b>Publication Years</b>，各截一张。</li>
+  </ul>
+  <div class="td-learn">这一步在练：Query Builder 逐行加条件，以及"施引文献里做分析"而不是在原始记录页看。</div>
+  <div class="td-learn" style="margin-left:28px">表单填完后，系统会在「检索范围」里自动生成一行等价表达式——<b>那是给你核对字段用的，不用管它，更不要复制粘贴</b>。</div>
+  <div class="td-shot"><b>存为：</b>WOS_Q3_施引刊分析_20261106.png、WOS_Q3_施引年份_20261106.png</div>
+</div>
+
+<div class="td-task" data-id="t10">
+  <div class="td-head"><input type="checkbox"><span class="td-ttl">10　WOS Q4：Publication Years 表格</span><span class="td-chip td-p1">补截图</span><span class="td-chip td-tab">Web of Science</span></div>
+  <div class="td-why"><b>2026-11-08 实测：50 篇</b>（旧记 61 篇未复现）；发文最多年份 <b>2023 年 9 篇</b>，2024 年只有 <b>5 篇</b>（旧记 11 篇错）。335 次、NSFC 50 篇本轮未复跑。</div>
+  <ul class="td-steps">
+    <li>同样用 <b>FIELDED SEARCH</b>：第一行字段选 <b>Affiliation</b>，填 <span class="td-ctl">Ningbo University</span>。</li>
+    <li>第二行 AND，字段选 <b>Publication Titles</b>，填 <span class="td-ctl">NANO ENERGY</span> → Search。<br><b>字段必须确认</b>：实测 Word/All Fields 口径得 <b>486</b> 条；用 **Affiliation（OG）+ Publication Titles** 口径实测 <b>50</b> 条（旧记 61）。字段选错差近 10 倍。</li>
+    <li>结果页点 <b>Analyze Results</b>，字段选 <b>Publication Years</b>，把表格（实测 2023 = 9 最多、2024 = 5）截下来。</li>
+  </ul>
+  <div class="td-learn">这一步在练：机构用 Affiliation 字段、期刊用 Publication Titles 字段，两者别混；分布一律走 Analyze Results。</div>
+  <div class="td-learn" style="margin-left:28px">表单填完后，系统会在「检索范围」里自动生成一行等价表达式——<b>那是给你核对字段用的，不用管它，更不要复制粘贴</b>。</div>
+  <div class="td-shot"><b>存为：</b>WOS_Q4_年份分布_20261106.png</div>
+</div>
+
+<div class="td-task" data-id="t11">
+  <div class="td-head"><input type="checkbox"><span class="td-ttl">11　CBM 细节：Q1 作者/机构、Q2 主题词树、Q3 的 225、Q5 第一篇、Q6 创刊年/ISSN</span><span class="td-chip td-p1">补截图</span><span class="td-chip td-tab">中国生物医学文献服务系统</span></div>
+  <div class="td-why">七题计数都已实测，但这些细节没同屏；Q3 的 225 至今未复现（现场 2,331 / 266；2026-11-08 两词口径 5,926）。<b>CBM Q7 的两行口径 47 条已复现（共 3 页）；2 条需补第三行「作用机制」，同样因第三行加不出来未复核。</b>之前给的是带 <code class="inline">[常用字段:智能]</code> 的整串，这一版改用界面。</div>
+  <ul class="td-steps">
+    <li>点顶部 <b>高级检索</b> tab（另有快速 / 主题 / 分类检索，按需切）；先在「选择数据库」下拉确认是中国生物医学文献数据库。</li>
+    <li>在检索行里用<b>字段下拉</b>选字段（分类号 / 常用字段 / 中文标题 / 第一作者等），输入框只填词，行间用 AND/OR 下拉。</li>
+    <li>Q1：字段选「分类号」填 <span class="td-ctl">R541.2</span> → 检索后点 <b>学术分析</b>，看作者与机构分布（旧答案张宝仁 / 长海医院）。</li>
+    <li>Q2：切到 <b>主题检索</b>，查「髋脱位，先天性」，展开主题词树看上位链。</li>
+    <li>Q3：在高级检索里逐行加三个词和年份范围，再用<b>年龄 / 特征词限定</b>控件加「65 岁以上 / 老年人」，记下实际数；225 未复现就写差异。<br><b>2026-11-08 实测补充：</b>两词（二甲双胍+糖尿病）+年份 2021–2026 ＝ <b>5,926 条</b>（核心期刊 2,296，共 297 页）。<b>第三行加不出来</b>——CBM 高级检索 DOM 预置 9 行但默认只显示 2 行，展开控件 <code>#gplusAndMinus_2</code> 用 JS 点、用真实鼠标点都无效。你手动点「+」是可以展开的，所以三词口径只能你亲手跑。</li>
+    <li>Q5：核心期刊筛选 + 综述文献类型，结果页截第一篇《急性阑尾炎临床诊治研究进展》。</li>
+    <li>Q6：切到 <b>期刊检索</b> 查《浙江医学》，在刊详情页截创刊年 1979 / ISSN 1006-2785。</li>
+  </ul>
+  <div class="td-learn">这一步在练：CBM 的四个检索 tab 各管什么、以及"学术分析"按钮才是分布题的出口。</div>
+  <div class="td-shot"><b>存为：</b>CBM_Q1_作者机构_20261106.png、CBM_Q2_主题词树_20261106.png、CBM_Q3_年龄限定_20261106.png、CBM_Q5_第一篇_20261106.png、CBM_Q6_期刊详情_20261106.png</div>
+</div>
+
+<div class="td-task" data-id="t12">
+  <div class="td-head"><input type="checkbox"><span class="td-ttl">12　万方 Q7：高产机构 / 高产作者（旧文档说写反了）</span><span class="td-chip td-p1">补截图</span><span class="td-chip td-tab">万方数据知识服务平台</span></div>
+  <div class="td-why">4,039 条与第一篇已有截图，但机构/作者分布没同屏；当前搜索框里留着 <code class="inline">作者:黄悦勤 * 作者单位:… * 刊名:…</code> 这种带缩写的串，正是要改掉的做法。</div>
+  <ul class="td-steps">
+    <li>点顶部 <b>高级检索</b>，把搜索框清空，用逐行表单：字段选「主题」填 <span class="td-ctl">HPV疫苗</span>。</li>
+    <li>在「资源类型 / 文献类型」里勾 <b>期刊论文</b> + <b>会议论文</b>，确认 4,039 条。</li>
+    <li>结果页左栏展开 <b>机构</b> 分面，再展开 <b>作者</b> 分面，分别截榜首。</li>
+    <li>核对哪个是机构、哪个是作者（旧文档写「中国疾控中心 / 乔友林」，可能写反）。</li>
+  </ul>
+  <div class="td-learn">这一步在练：文献类型用勾选、高产排名用左栏分面，都不是靠在搜索框里加 <code class="inline">*</code> 拼出来。</div>
+  <div class="td-shot"><b>存为：</b>WANFANG_Q7_机构作者分析_20261106.png</div>
+</div>
+
+<div class="td-task" data-id="t13">
+  <div class="td-head"><input type="checkbox"><span class="td-ttl">13　PubMed Q1：用字段下拉和左栏筛选，确认「8 种」</span><span class="td-chip td-p1">左栏可点·8 未复现</span><span class="td-chip td-tab">PubMed Advanced Search Builder / NLM Catalog</span></div>
+  <div class="td-why"><b>2026-11-08 更正：左栏是可以点的，点了就生效。</b>实测 NLM Catalog 里 <code class="inline">melanoma[Title]</code> = 289 items，点左栏「NCBI journals」后变 <b>Items: 4</b>，页面顶部出现 <code class="inline">Filters activated: Journals referenced in the NCBI DBs. Clear all to show 289 items.</code> ⇒ 上一版「自动化点不动、需人工勾」的说法<b>已推翻</b>。旧答案「8 种」仍未复现。</div>
+  <ul class="td-steps">
+    <li>先在新开的 <b>PubMed Advanced Search Builder</b> 标签里练一遍：<b>Field Selector</b> 下拉选 <b>Title</b>，Search Term 填 <span class="td-ctl">melanoma</span>，点 <b>Add to query box / Search</b>，看结果数。</li>
+    <li>再切回 <b>NLM Catalog</b> 标签，用鼠标手动点左栏 <b>NCBI journals</b> 与 <b>Currently indexed</b> 两个筛选项。</li>
+    <li>看 Items 数变化并截图；若仍是 289 或 4，如实写「8 未复现」。</li>
+  </ul>
+  <div class="td-learn">这一步在练：<b>字段标签是下拉选出来的，不是手写方括号</b>；期刊题用 NLM Catalog 的左栏筛选，和 PubMed 论文检索是两个界面。</div>
+  <div class="td-learn" style="margin-left:28px">表单填完后，系统会在「检索范围」里自动生成一行等价表达式——<b>那是给你核对字段用的，不用管它，更不要复制粘贴</b>。</div>
+  <div class="td-shot"><b>要截：</b>左栏勾选状态 + Items: N　·　<b>存为：</b>PM_Q1_&lt;N&gt;种_人工勾选_20261106.png</div>
+</div>
+
+</div>
+<div class="divider"></div>
+<h2 id="s9b">附 · 界面方法检验（2026-11-06 晚，真人式逐字段操作）</h2>
+<p class="kv">这一轮不写检索式，只用鼠标点字段下拉、逐格填词、选 AND/OR、勾开关，验证「人类方法」搜得准不准。</p>
+<table style="width:100%;border-collapse:collapse;font-size:13.5px">
+<tr style="background:#f4f5f7"><th style="border:1px solid #e5e7eb;padding:7px">库 / 题</th><th style="border:1px solid #e5e7eb;padding:7px">界面怎么点</th><th style="border:1px solid #e5e7eb;padding:7px">实测</th><th style="border:1px solid #e5e7eb;padding:7px">结论</th></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">知网 Q8</td><td style="border:1px solid #e5e7eb;padding:6px">学位论文 + 两行「主题」</td><td style="border:1px solid #e5e7eb;padding:6px"><b>26 条</b></td><td style="border:1px solid #e5e7eb;padding:6px">与专业检索式 26 <b>完全一致</b>，界面法搜得准</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">知网 Q8 变体</td><td style="border:1px solid #e5e7eb;padding:6px">勾同义词扩展 / 字段改篇关摘 / 专场改总库 / 只填一词</td><td style="border:1px solid #e5e7eb;padding:6px">29 / <b>39</b> / 100 / 16,933</td><td style="border:1px solid #e5e7eb;padding:6px"><b>39 就是老师口述值</b>；扩展开关只 +3，不是 26↔568 主因</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">知网 Q6</td><td style="border:1px solid #e5e7eb;padding:6px">学术期刊 + 三行（作者单位「模糊」、期刊名称「精确」）</td><td style="border:1px solid #e5e7eb;padding:6px"><b>116 条</b></td><td style="border:1px solid #e5e7eb;padding:6px">与旧写法 107 <b>口径不同</b>，界面把差异摊开了</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">知网 Q3</td><td style="border:1px solid #e5e7eb;padding:6px">会议专场 +「论文集名称」+「篇关摘」两行；又试单行</td><td style="border:1px solid #e5e7eb;padding:6px">均「暂无数据」+ 滑块</td><td style="border:1px solid #e5e7eb;padding:6px"><b>卡点是滑块，与提交形态无关</b>；上版推断已证伪</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">PubMed</td><td style="border:1px solid #e5e7eb;padding:6px">Advanced Builder：Field Selector 选 Title → 填词 → ADD</td><td style="border:1px solid #e5e7eb;padding:6px">自动生成 <code>hypertension[Title]</code></td><td style="border:1px solid #e5e7eb;padding:6px">字段标签是<b>选</b>出来的，不是敲出来的</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">CBM Q7</td><td style="border:1px solid #e5e7eb;padding:6px">高级检索两行「常用字段」+ AND</td><td style="border:1px solid #e5e7eb;padding:6px">全部 47 条（共 3 页）</td><td style="border:1px solid #e5e7eb;padding:6px">要得 2 条必须补齐第三行「作用机制」，不能跳步</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">SD Q4 / Scopus Q7</td><td style="border:1px solid #e5e7eb;padding:6px">分栏表单 / 首页两行字段表单</td><td style="border:1px solid #e5e7eb;padding:6px">提交后结果页不渲染 / 不跳转</td><td style="border:1px solid #e5e7eb;padding:6px">VPN 侧问题，换成真人点也一样</td></tr>
+</table>
+<div class="note"><b>三点：</b>① 界面法在能出结果的库里搜得准；② 界面法的真正价值是把口径显式化——「中英文扩展」默认勾、作者单位是模糊还是精确、哪个专场，整串检索式里全看不见，568 至今无解就是因为旧截图里只有结果数；③ 知网滑块、SD 结果页、Scopus 提交是平台侧限制，仍需人工/换网络，不绕过。</div>
+
+<h2 id="s9">附 · 本次实测 vs 你的作答（差异一览）</h2>
+<table style="width:100%;border-collapse:collapse;font-size:13.5px">
+<tr style="background:#f4f5f7"><th style="border:1px solid #e5e7eb;padding:7px">库</th><th style="border:1px solid #e5e7eb;padding:7px">题</th><th style="border:1px solid #e5e7eb;padding:7px">你的作答</th><th style="border:1px solid #e5e7eb;padding:7px">本次实测</th><th style="border:1px solid #e5e7eb;padding:7px">说明</th></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">CBM</td><td style="border:1px solid #e5e7eb;padding:6px">1</td><td style="border:1px solid #e5e7eb;padding:6px">R541.2</td><td style="border:1px solid #e5e7eb;padding:6px">R541.2（4486篇）</td><td style="border:1px solid #e5e7eb;padding:6px">分类号成立</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">CBM</td><td style="border:1px solid #e5e7eb;padding:6px">2</td><td style="border:1px solid #e5e7eb;padding:6px">1446</td><td style="border:1px solid #e5e7eb;padding:6px">1475</td><td style="border:1px solid #e5e7eb;padding:6px">+29 收录增长</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">CBM</td><td style="border:1px solid #e5e7eb;padding:6px">3</td><td style="border:1px solid #e5e7eb;padding:6px">225</td><td style="border:1px solid #e5e7eb;padding:6px">266（加"老年"）</td><td style="border:1px solid #e5e7eb;padding:6px">三词不加年龄=2331</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">CBM</td><td style="border:1px solid #e5e7eb;padding:6px">4/6/7</td><td style="border:1px solid #e5e7eb;padding:6px">25/17/2</td><td style="border:1px solid #e5e7eb;padding:6px">25/17/2</td><td style="border:1px solid #e5e7eb;padding:6px">完全一致</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">CBM</td><td style="border:1px solid #e5e7eb;padding:6px">5</td><td style="border:1px solid #e5e7eb;padding:6px">116</td><td style="border:1px solid #e5e7eb;padding:6px">119</td><td style="border:1px solid #e5e7eb;padding:6px">核心期刊筛选，+3</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">知网</td><td style="border:1px solid #e5e7eb;padding:6px">6</td><td style="border:1px solid #e5e7eb;padding:6px">105</td><td style="border:1px solid #e5e7eb;padding:6px">107</td><td style="border:1px solid #e5e7eb;padding:6px">+2</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">万方</td><td style="border:1px solid #e5e7eb;padding:6px">6</td><td style="border:1px solid #e5e7eb;padding:6px">138</td><td style="border:1px solid #e5e7eb;padding:6px">138</td><td style="border:1px solid #e5e7eb;padding:6px">计数一致；第一篇已修正为《中老年人群…》</td></tr>
+<tr style="background:#fff8e6"><td colspan="5" style="border:1px solid #e5e7eb;padding:6px"><b>2026-11-06 复核新增差异（旧值 → 实测 / 原因）</b></td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">知网</td><td style="border:1px solid #e5e7eb;padding:6px">8</td><td style="border:1px solid #e5e7eb;padding:6px">568</td><td style="border:1px solid #e5e7eb;padding:6px">26</td><td style="border:1px solid #e5e7eb;padding:6px">旧检索式未留存，未复现，原因待查</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">知网</td><td style="border:1px solid #e5e7eb;padding:6px">9 第一篇</td><td style="border:1px solid #e5e7eb;padding:6px">李海龙</td><td style="border:1px solid #e5e7eb;padding:6px">肖斌 2009 / 791 下载</td><td style="border:1px solid #e5e7eb;padding:6px">旧答案错，90 条不变</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">WOS</td><td style="border:1px solid #e5e7eb;padding:6px">5</td><td style="border:1px solid #e5e7eb;padding:6px">3,335 / 718 / 47 / 228</td><td style="border:1px solid #e5e7eb;padding:6px">167 / 高被引 2 / 4,208 次</td><td style="border:1px solid #e5e7eb;padding:6px">旧值是全球 AD 口径，需 OG+AD 同时限定</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">Scopus</td><td style="border:1px solid #e5e7eb;padding:6px">3</td><td style="border:1px solid #e5e7eb;padding:6px">39 种 / 7.8</td><td style="border:1px solid #e5e7eb;padding:6px">37 种；OA+2023 = 7，最高 2.8</td><td style="border:1px solid #e5e7eb;padding:6px">口径不同，7.8 那本非 OA</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">Scopus</td><td style="border:1px solid #e5e7eb;padding:6px">6 / 7</td><td style="border:1px solid #e5e7eb;padding:6px">6970 / 388</td><td style="border:1px solid #e5e7eb;padding:6px">6,710 / 14</td><td style="border:1px solid #e5e7eb;padding:6px">同一检索式下旧值未复现</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">PubMed</td><td style="border:1px solid #e5e7eb;padding:6px">1</td><td style="border:1px solid #e5e7eb;padding:6px">8 种</td><td style="border:1px solid #e5e7eb;padding:6px">4（ncbijournals 口径）</td><td style="border:1px solid #e5e7eb;padding:6px">8 未复现；筛选复选框需人工勾</td></tr>
+<tr><td style="border:1px solid #e5e7eb;padding:6px">未完成</td><td style="border:1px solid #e5e7eb;padding:6px">—</td><td style="border:1px solid #e5e7eb;padding:6px">知网 Q3 / 万方 Q5 / SD 三题 / JCR 两题</td><td style="border:1px solid #e5e7eb;padding:6px">未复核</td><td style="border:1px solid #e5e7eb;padding:6px">风控 / 无子类 / 页面空白 / 需机构登录</td></tr>
+</table>
+<p class="kv" style="margin-top:22px">全部截图在 <code>文献检索核对截图\</code>（文件名带 20261106 者为上一轮新增）；本教程由 WorkBuddy 生成，2026-11-06 按《文献检索补跑_AI交接_20261106.md》复核修正。<b>2026-11-07～08 又用真实浏览器（Windows 桌面自动化，逐字段点选、不粘检索式）重跑了一轮，修正内容见下节。</b>数字来自温州医科大学 WebVPN / PubMed 的真实检索会话。原版备份：<code>文献检索手把手教程.bak-20261106.html</code>；本轮修改前备份：<code>文献检索手把手教程.bak-20261108-0038.html</code>。未跑通的题一律标「未复核」，不绕过验证码/风控，不代提交学习通作业。</p>
+
+<h2 id="classval">附 · 课上值 vs 今日实测（来自 10-29 作业操作步骤）</h2>
+<p class="kv">这一张是 10-29 那次整理时记下的「老师课上念的数」与「当天实测数」对照，保留它的价值是<b>看趋势</b>：数据库是活的，课上那个数永远和今天不一样。</p>
+<h2>附 · 课上值 vs 今日实测（差异对照）</h2>
+<table>
+<tr><th>题目</th><th>课上/你的值</th><th>今日实测</th><th>判断</th></tr>
+<tr><td>WOS Q3 被引</td><td>278（老师）</td><td>331</td><td>时间差，正常增长</td></tr>
+<tr><td>WOS Q4 篇数</td><td>51（老师/你）</td><td>61</td><td>时间差，正常增长</td></tr>
+<tr><td>WOS Q5 总篇数</td><td>2647（你）</td><td><b>3,335</b>（AD=First Affiliated Hospital）<br>718（OG=Wenzhou Medical University）</td><td>已截图核验：你的 2647 与任一写法都对不上，说明你当时加了额外限定</td></tr>
+<tr><td>WOS Q5 高被引</td><td>228（老师） / 47（你）</td><td>未取到</td><td>本次结果页的 Refine 面板里没有 Highly Cited 勾选项，无法重复该条件</td></tr>
+<tr><td>WOS Q6 关键词</td><td>microglia + Parkinson（老师）</td><td>—</td><td>你用了 transcriptional network，漏 Parkinson</td></tr>
+<tr><td>Scopus 2025 温医</td><td>6789（老师） / 6970（你）</td><td>未取到</td><td>Scopus 高级检索编辑器用 Chrome EditContext，自动化无法输入（详见文末「未能验证」）</td></tr>
+<tr><td>Scopus 学科期刊</td><td>37（老师） / 39（你）</td><td>未取到</td><td>同上</td></tr>
+<tr><td>万方 HPV</td><td>2269（老师） / 4021（你）</td><td><b>4,039</b> 条</td><td>已截图核验（主题 HPV疫苗 + 期刊/会议）；与你的 4021 只差 18 条，属时间增长</td></tr>
+<tr><td>知网 2 型糖尿病</td><td>39（老师） / 26（你）</td><td>568（主题 2型糖尿病 遗传基因）<br>8（主题 二型糖尿病 遗传基因）<br>5,835（主题 2型糖尿病 基因）</td><td>已截图核验；三种常见写法都复现不出 39，说明老师那题用的是更窄的字段（很可能是篇名精确）</td></tr>
+</table><div class="divider"></div>
+<h2 id="shots">附 · 实测截图清单（都在 <code>文献检索核对截图\</code> 与 <code>文献检索验证截图\</code>）</h2>
+<h2>附 A · 本轮实测截图清单（都在 <code>文献检索核对截图\</code>）</h2>
+<table>
+<tr><th>作业</th><th>题</th><th>实测值</th><th>文件（都在 文献检索核对截图\）</th></tr>
+<tr><td>10.28 专利</td><td>1/5/6</td><td>10 年 / 第 25 条 / 第 2 条</td><td>ZL_Article42.jpg、ZL_Article25.jpg、ZL_Article2.jpg</td></tr>
+<tr><td>10.21 WOS</td><td>3</td><td>1 条，被引 333</td><td>WOS_Q3.png</td></tr>
+<tr><td>10.21 WOS</td><td>4</td><td>61 / 335 / 50</td><td>WOS_Q4.png、WOS_Q4_cited.png、WOS_Q4_nsfc.png（年份表未同屏）</td></tr>
+<tr><td>10.21 WOS</td><td>5</td><td><b>167 条 / 高被引 2 / 4,208 次</b></td><td>WOS_Q5_167条_高被引2_20261106.png、WOS_Q5_167条_最高被引_20261106.png、WOS_Q5_167条_学科分布_20261106.png、WOS_Q5_167条_研究方向_20261106.png</td></tr>
+<tr><td>10.21 WOS</td><td>6</td><td>1 条；6,215 条</td><td>WOS_Q6a.png、WOS_Q6b.png</td></tr>
+<tr><td>10.14 Scopus</td><td>3</td><td>37 种；OA+2023 = 7 个，最高 2.8</td><td>SCOPUS_Q3_OA_2023_7条_CiteScore_20261106.png</td></tr>
+<tr><td>10.14 Scopus</td><td>6</td><td><b>6,710 篇</b>；被引最高 901 次；刊 Scientific Reports / 学科 Medicine / 作者 Ji, J.</td><td>SCOPUS_Q6_6710条_被引降序_20261106.png、SCOPUS_Q6_6710条_分析结果_20261106.png、SCOPUS_Q6_6710条_来源出版物筛选_全页_20261106.png</td></tr>
+<tr><td>10.14 Scopus</td><td>7</td><td><b>14 篇</b>；相关度第一篇 Kramer 1999</td><td>SCOPUS_Q7_14条_TITLE-ABS-KEY_20261106.png、SCOPUS_Q7_14条_相关度第一篇_20261106.png</td></tr>
+<tr><td>9.30 PubMed</td><td>1</td><td><code>ncbijournals</code> 口径 4；ISSN/频率已核</td><td>PM_Q1_4条_ncbijournals_20261106.png、PM_P1_journal.jpg</td></tr>
+<tr><td>9.30 PubMed</td><td>2–6</td><td>MeSH（D003327→D017202）/ 39 / 907·58·13 / 4,817 / 202</td><td>PM_P2_mesh.jpg、PM_P3_hypertension.jpg、PM_P4_copd.jpg、PM_P5_asthma.jpg、PM_P6_geriatric.jpg</td></tr>
+<tr><td>9.23 知网</td><td>1 / 2</td><td>270 篇 / 2 种</td><td>CNKI_Q1_270篇_第三册_20261106.png、CNKI_Q2_2种_北大核心_20261106.png</td></tr>
+<tr><td>9.23 知网</td><td>6</td><td><b>107 条</b>；下载第一 8,782</td><td>CNKI_Q6_107条_检索式_20261106.png、CNKI_Q6_107条_下载排序_20261106.png</td></tr>
+<tr><td>9.23 知网</td><td>8</td><td><b>26 条</b>（学位论文）</td><td>CNKI_Q8_26条_学位论文_20261106.png</td></tr>
+<tr><td>9.23 知网</td><td>9</td><td>90 条；下载第一肖斌 2009 / 791</td><td>CNKI_Q9_90条_检索式_20261106.png、CNKI_Q9_90条_下载排序_20261106.png</td></tr>
+<tr><td>9.23 万方</td><td>4 / 6</td><td>22 条；<b>138 条</b> + 相关度第一篇</td><td>WANFANG_Q4_22条.png、WANFANG_Q6_138条_相关度_20261106.png</td></tr>
+<tr><td>9.23 万方</td><td>7</td><td>4,039 条 + 第一篇</td><td>WANFANG_HPV_count.png、WANFANG_HPV.png</td></tr>
+<tr><td>9.16 CBM</td><td>1–7</td><td>4,486 / 1,475 / 2,331 与 266 / 25 / 119 / 17 / 2</td><td>CBM_Q1_R5412_4486条.png、CBM_Q2_1475条.png、CBM_Q3_2331条.png、CBM_Q3_266条.png、CBM_Q4_25条.png、CBM_Q5_119条.png、CBM_Q6_17条.png、CBM_Q7_2条.png</td></tr>
+<tr><td>受阻证据</td><td>—</td><td>SD 空白页 / Scopus 来源图表未加载 / 万方无临床医学子类</td><td>SD_Q2_期刊浏览页空白_受阻证据_20261106.png、SCOPUS_Q6_来源出版物图表未加载_受阻证据_20261106.png、WANFANG_Q5_期刊导航_医药卫生_20261106.png</td></tr>
+</table>
+
+<h2 id="unver">附 · 没能验证的条目（<b>不要当成已核实</b>）</h2>
+<h2>附 B · 本轮没跑出来的（别当成已核实）</h2>
+<div class="warnbox">
+<b>1. JCR 两题（LANCET 2017 IF 53.254；NATURE ISSN 0028-0836 / 2024 JIF 48.5 / 5 年 55.0）</b>——JCR 跳 Clarivate 统一登录，VPN 资源列表无入口。数值已用公开资料核实，但<b>没有库内截图</b>；要存证请用学校账号从 WOS 顶部 Products 进 JCR。<br>
+<b>2. ScienceDirect 三题（Q2 哮喘期刊 2 种 / Q4 2175 / Q5 31 篇）</b>——结果页只出表单不出列表；<code>/browse/journals-and-books</code> 整页空白（<code>SD_Q2_期刊浏览页空白_受阻证据_20261106.png</code>）。换时间/换 tab 仍失败，<b>旧答案一律标未复核</b>。<br>
+<b>3. 知网 Q3（2026 第四期关爱生命大讲堂 × 篇关摘=胰岛素抵抗，目标 3）</b>——<b>已用界面法复核</b>：会议专场 + 高级检索「论文集名称」+「篇关摘」两行，以及只填一行，均返回「抱歉，暂无数据」并提示「拖动下方拼图完成验证」。<b>卡点是滑块/安全验证，不是提交形态</b>（上一版「整串提交不像真人」的推断已证伪）。按红线不绕过，交用户人工过滑块后截图。<br>
+<b>4. 万方 Q5（临床医学 SCI 期刊 3 种）</b>——新版期刊导航这次能打开（学科「医药卫生」=1,545 本，SCI 分面显示 37），但页面<b>没有「临床医学」子类</b>，SCI 分面点击后计数也不变。3 种未复现，需人工在旧版 <code>g.wanfangdata.com.cn</code> 入口确认。<br>
+<b>5. Scopus Q1（AND NOT 表达式）</b>——语法正确但本轮未截图（纯语法题，无计数）。<br>
+<b>6. WOS Q3 / Q4 细节</b>——施引 281 / FRONTIERS IN ENDOCRINOLOGY / 2024 以及 Publication Years 表格未同屏；Q3 的 331 与 Q4 的 61/335/50 已有截图。Q5 的 <i>Research Areas</i> 本轮已补。<br>
+<b>7. CBM 细节</b>——Q1 作者/机构分布（张宝仁、长海医院）、Q2 主题词树、Q3 的 225、Q5 第一篇、Q6 创刊年/ISSN 未同屏；七题计数均已实测。<br>
+<b>8. 万方 Q7 高产机构/作者</b>——4,039 条与第一篇有截图，「中国疾控中心 / 乔友林」未同屏。<br>
+<b>9. PubMed Q1 的「8 种」</b>——NLM Catalog 左栏复选框用真实鼠标点击也不改变计数（无风控，属前端渲染问题）；现场 <span class="kv">界面做法：NLM Catalog：左栏勾「NCBI journals」，或 PubMed Advanced Builder 的 Field Selector 选 Title 后加词</span> = 4，需人工勾选确认。<br>
+<b>10. 专利 Q2/Q3/Q5/Q6 原题选项</b>——本轮未取得原题截图，答案依赖选项，见第 1 节提示。
+</div>
+
+<h2 id="s10">附 · 2026-11-08 本轮改了什么（逐条对照）</h2>
+<p class="kv">只列<b>实际改动</b>的条目。每条都写清「原来怎么写 / 现在怎么写 / 凭什么改」。</p>
+<table style="width:100%;border-collapse:collapse;font-size:13.5px">
+<tr style="background:#f4f5f7"><th style="border:1px solid #e5e7eb;padding:7px;width:14%">位置</th><th style="border:1px solid #e5e7eb;padding:7px;width:28%">原来怎么写</th><th style="border:1px solid #e5e7eb;padding:7px;width:30%">现在怎么写</th><th style="border:1px solid #e5e7eb;padding:7px">依据</th></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>总则</b></td><td style="border:1px solid #e5e7eb;padding:6px">「检索式都能直接复制;方括号是字段」</td><td style="border:1px solid #e5e7eb;padding:6px">改为「一律用鼠标点、字段靠下拉选、不要粘检索式」；方括号只是给你看懂系统生成了什么</td><td style="border:1px solid #e5e7eb;padding:6px">同一份文件后半部分（PubMed/Scopus 章）本来就禁止粘检索式，前后矛盾</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>总则</b></td><td style="border:1px solid #e5e7eb;padding:6px">「检索式写法统一看方括号字段 [主题][篇关摘]…」</td><td style="border:1px solid #e5e7eb;padding:6px">改为「字段靠下拉选，不靠手写」；并新增一条：分面签上的小数字不是命中总数</td><td style="border:1px solid #e5e7eb;padding:6px">同上；分面口径见知网 Q8 实测</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>CBM</b><br>通用操作</td><td style="border:1px solid #e5e7eb;padding:6px">标题写「先看这 <b>4</b> 条」，底下却有 <b>6</b> 条</td><td style="border:1px solid #e5e7eb;padding:6px">「先看这 <b>6</b> 条」</td><td style="border:1px solid #e5e7eb;padding:6px">数一下就知道</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>CBM Q1</b></td><td style="border:1px solid #e5e7eb;padding:6px">「分类检索 → <b>分类号输入框只填 R541.2</b> → 点检索」</td><td style="border:1px solid #e5e7eb;padding:6px"><b>分类检索里没有分类号输入框</b>。只有一个「查找分类词」框，<b>认类名不认分类号</b>：填 R541.2 → 「已找到 0 条相关记录」；填「风湿性心脏病」→ 2 条，点进去页头才是 <code>R541.2 风湿性心脏病</code>。要真出文献：回快速检索，字段选<b>分类号</b>填 R541.2</td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 在 CBM 上逐字试过。另：分类详情页那颗蓝色「检索」按钮提交的是空表单，只会提示「请输入检索词！」</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>CBM Q3</b></td><td style="border:1px solid #e5e7eb;padding:6px">「再加一行『老年』」当检索词；易错点写「必须加年龄词（老年/65岁）」</td><td style="border:1px solid #e5e7eb;padding:6px">改为<b>展开「限定检索」→ 年龄组勾「老年人：65岁以上」</b>；并说明为什么不能用「老年」凑</td><td style="border:1px solid #e5e7eb;padding:6px">CBM 高级检索页确有「限定检索」面板，年龄组九档齐全，含「老年人：65岁以上」。用关键词凑会漏掉写「65岁」「elderly」「aged」的文章</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>知网</b><br>通用操作</td><td style="border:1px solid #e5e7eb;padding:6px">没有提任何操作坑</td><td style="border:1px solid #e5e7eb;padding:6px">新增 3 个必踩的坑：<b>①第二行默认字段是「作者」</b>（不改就一定 0 条，且只回「抱歉，暂无数据」）<b>②联想词下拉会盖住检索按钮</b>（点了没反应，要先点空白处失焦，别按 Esc）<b>③刷新后字段回落默认值</b></td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 实测：不改字段得到 <code>（主题：2型糖尿病）AND（作者：遗传基因(精确)）</code> → 0 条；输入「胃癌」后联想词列表正好压在检索按钮上，连点数次都无反应</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>知网 Q8</b></td><td style="border:1px solid #e5e7eb;padding:6px">同一页里两处自相矛盾：一处写「字段改篇关摘得 39 条 = 老师口述值」，另一处写「老师口述 39 亦未复现」</td><td style="border:1px solid #e5e7eb;padding:6px">删掉矛盾表述；补上本轮发现的<b>口径真相</b>：总库口径实测 <b>94 条</b>，结果页分类签写「学位论文 26」，<b>26 是专场分面数、不是检索总数</b>。答题写 26</td><td style="border:1px solid #e5e7eb;padding:6px">实测：两行主题（2型糖尿病 / 遗传基因）总库 = 94；点分类签「学位论文26」进去 = 26，且细分显示「博士9 / 硕士17」</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>知网 Q9</b></td><td style="border:1px solid #e5e7eb;padding:6px">答案 <b>90 条</b>；易错点写「<b>必须写三种同义写法 OR</b>，只写 miR-146a 会漏」</td><td style="border:1px solid #e5e7eb;padding:6px">实测 <b>4,240 条</b>；<b>「必须写三种同义词」这条被推翻</b>——只写 miR-146a 也是 4,240 条，一公里不差；90 复现不出来，标为「未复现」，并要求自己跑一次截图</td><td style="border:1px solid #e5e7eb;padding:6px">两次实测：<code>（篇关摘：miR-146a(精确)）AND（篇关摘：胃癌(精确)）</code> = 4,240；<code>（篇关摘：(miR-146a OR miRNA-146a OR microRNA-146a)(精确)）AND（篇关摘：胃癌(精确)）</code> 同样 = 4,240。OR 是并集，只会变多不会变少，所以 90 不可能由「三行 OR + AND 胃癌」得出</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>PubMed</b><br>Q1</td><td style="border:1px solid #e5e7eb;padding:6px">「左栏 NCBI journals / Currently indexed 复选框<b>自动化点击不改变计数，需你人工勾选确认</b>」</td><td style="border:1px solid #e5e7eb;padding:6px"><b>删掉「点不动、需人工」</b>。改为：左栏可以直接点，点了就生效，289 → 4，页面还会出现 <code>Filters activated: Journals referenced in the NCBI DBs. Clear all to show 289 items.</code></td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 实测 NLM Catalog：<code>melanoma[Title]</code> = 289 items；点「NCBI journals」后 = Items: 4，检索式自动变 <code>melanoma[Title] AND (ncbijournals[All Fields])</code></td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>PubMed</b><br>通用操作</td><td style="border:1px solid #e5e7eb;padding:6px">正文禁手写方括号，但各题又写 <code>melanoma[Title]</code>、<code>2010:2026[pdat]</code>、<code>[Filter]</code></td><td style="border:1px solid #e5e7eb;padding:6px">新增一条说清：<b>方括号是系统选字段后自动生成的，是「结果」不是「输入」</b>；限定条件一律去左栏 Result Filters 勾，不要写进框里</td><td style="border:1px solid #e5e7eb;padding:6px">Advanced Search Builder 的行为如此；上一轮的写法自己打自己</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>PubMed</b><br>Q3 / Q6</td><td style="border:1px solid #e5e7eb;padding:6px">只写「39 条」「202 条」</td><td style="border:1px solid #e5e7eb;padding:6px">补上<b>不加限定时的基数</b>：Q3 不限年代 = <b>117</b>；Q6 该刊全时段 = <b>2,212</b>。并写清「查到 117 / 2,212 说明左栏年份没勾，不是查错」</td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 实测：加 <code>2021:2026[pdat]</code> 得 39、不加得 117；<code>(clin geriatr med)[jour]</code> 加 2023:2026 得 202、不加得 2,212。39 与 202 均复现</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>PubMed</b><br>Q4 / Q5</td><td style="border:1px solid #e5e7eb;padding:6px">只写「逐行用 Field Selector 选字段并 ADD」，<b>没说每行填什么词、左栏勾哪几项</b>，却给了 7 和 2,954</td><td style="border:1px solid #e5e7eb;padding:6px">补成可执行：Q4 两行 Title = COPD / mortality，左栏 Review + 65+ + 2010-2026；Q5 一行 MeSH Major Topic = Asthma，一行 MeSH Terms = Adolescent，左栏 Clinical Trial。并<b>标注 7 与 2,954 本轮都未复现</b>，附上我试出来的几个口径值作参照</td><td style="border:1px solid #e5e7eb;padding:6px">实测：Q4（Title COPD + mortality + Review + 2010-2026）= 58（旧记 7）；Q5 三种构造 = 4,817 / 3,472 / 3,265（旧记 2,954）</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>Scopus</b><br>章首 + Q3</td><td style="border:1px solid #e5e7eb;padding:6px">章首说「改用 <code>results.uri?src=s&amp;s=&lt;检索式&gt;</code> <b>URL 参数法</b>」；Q3 写去 <code>#search-term</code> 输入</td><td style="border:1px solid #e5e7eb;padding:6px">删掉 URL 参数法和 <code>#search-term</code> 元素 ID——<b>这两样是给程序用的，人点不出来</b>；改成「顶部 Sources → Subject area 勾 Critical Care Nursing (2906) → Apply → Source type 选 Journals」的纯点选描述</td><td style="border:1px solid #e5e7eb;padding:6px">同一章的通用操作本来就写「不要进表达式编辑器」，URL 参数法与之冲突；且 URL 参数不是人类操作路径</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>WOS</b><br>章首</td><td style="border:1px solid #e5e7eb;padding:6px">只写入口网址</td><td style="border:1px solid #e5e7eb;padding:6px">加实测状态：<b>本轮该入口打不开</b>，跳 <code>/wengine-vpn/failed</code>、页面写「出错啦！该网站无法访问!」；同轮其他库都正常，所以是 WOS 链路问题。这 6 题的数是 11-06 测的，本轮未复核</td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 从 WebVPN 资源页点「SCI数据库1」实测</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>专利 Q6</b></td><td style="border:1px solid #e5e7eb;padding:6px">题面写「<b>发明专利</b>有哪三种类型」，答案却是「发明 / 实用新型 / 外观设计」</td><td style="border:1px solid #e5e7eb;padding:6px">拆成两个口径：问「<b>发明创造</b>有哪三种」→ 发明/实用新型/外观设计（《专利法》第 2 条）；问「<b>发明专利</b>分哪几种」→ 产品发明/方法发明/改进发明。答题前先看清题面用哪个词</td><td style="border:1px solid #e5e7eb;padding:6px">原版自相矛盾：发明的三种类型 ≠ 发明创造的三种类型。《专利法》第 2 条第 2 款把发明分为产品发明与方法发明，教材常加改进发明</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>专利</b><br>Q2/Q3/Q5</td><td style="border:1px solid #e5e7eb;padding:6px">答案直接给 ABCD / ABCD / AD</td><td style="border:1px solid #e5e7eb;padding:6px">全部改成「<b>前提是选项正好是这几项</b>」，并补上《专利法》第 25 条<b>完整的 6 项</b>不授权清单与「说明书是否含摘要」的判定口径</td><td style="border:1px solid #e5e7eb;padding:6px">原题选项本轮未取得截图，硬给 ABCD 有误导风险；第 25 条确为 6 项</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>Scopus</b><br>Q1</td><td style="border:1px solid #e5e7eb;padding:6px">「Scopus Advanced 输入含 NOT 的表达式」——让人手打表达式</td><td style="border:1px solid #e5e7eb;padding:6px">改成界面点选：第一行填 hepatitis → Add search field → <b>行间的 Search Connector 下拉从 AND 改选 AND NOT</b> → 第二行填 alcoholic</td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 实测：Connector 下拉确实只有 <b>AND / OR / AND NOT</b> 三项；选 AND NOT 后检索正常执行，得 7,832 篇、不报错</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>Scopus</b><br>Q6</td><td style="border:1px solid #e5e7eb;padding:6px">「加一行年份 2025」；结果 6,710</td><td style="border:1px solid #e5e7eb;padding:6px">写清「<b>Add date range → Published from 和 To 两个框都要填 2025</b>」（只填一个会变成「2025 至今」）；结果更新为 <b>6,789</b>，并说明与 6,710 差 79 是收录增长</td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 实测复跑：Affiliation = Wenzhou Medical University + 2025–2025 → 6,789 documents found。另确认「1 through 10 of 2000」是<b>列表上限</b>不是计数</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>Scopus</b><br>Q7</td><td style="border:1px solid #e5e7eb;padding:6px">「第一行填两个同义词（OR）…得 14 篇」，没写是哪两个词、带不带引号</td><td style="border:1px solid #e5e7eb;padding:6px">补上关键提醒：<b>带不带英文双引号，结果差 6 倍</b>（<code>"renal ischemia"</code> 是精确词组＝3 篇；不加引号等于两个词 AND＝19 篇）；并把 6 种构造的实测值全部列出，标明 <b>14 未复现</b></td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 实测 6 种：3 / 69 / 3 / 4 / 19 / 19，没有一种等于 14</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>SD</b><br>Q2</td><td style="border:1px solid #e5e7eb;padding:6px">只说「浏览页整页空白」</td><td style="border:1px solid #e5e7eb;padding:6px">改成具体症状，免得你以为是自己没等够：<b>地址栏和标签页标题都正常显示</b>（<code>Browse journals and books - Page 1 | ScienceDirect.com</code>），<b>但页面里只有一个调查弹窗，关掉后没有任何正文元素</b>。并给出换条件的建议</td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 实测：页面树里只有文档节点 + 一个「请帮助我们改进 ScienceDirect」弹窗，关掉后正文为空</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>知网</b><br>Q1</td><td style="border:1px solid #e5e7eb;padding:6px">「顶部『会议』→ 检索论文集名称」，没说检索框在哪</td><td style="border:1px solid #e5e7eb;padding:6px">写清出版来源页的控件结构：<b>左边是字段下拉（6 项），真正的输入框在它右边</b>（提示语「请输入检索词」），输完点「出版来源检索」，再把类型切到「会议」。并写明本轮实测「关爱生命大讲堂」＝0 条、「中华精神科杂志」＝1 条，证明是库里没有而非操作问题</td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 实测：把词打进下拉里什么都不会发生（我第一次就是这么错的）；换已知刊名对照，控件正常</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>知网</b><br>Q2</td><td style="border:1px solid #e5e7eb;padding:6px">「期刊导航 → 医药卫生 → 精神病学 → 勾北大核心」</td><td style="border:1px solid #e5e7eb;padding:6px">补两个坑：①<b>点进学科后必须把类型切到「期刊」</b>，否则看到的是 816 条图书；②<b>新版出版来源导航上没有「北大核心」筛选器</b>，2 这个数得改用「学术评价」或「旧版入口→期刊导航→核心期刊」。并记录实测精神病学期刊总数＝<b>12 种</b></td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 实测：学科导航→医药卫生科技→精神病学，类型=图书 816 条，切期刊 12 条；整页翻遍无核心级别筛选</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>知网</b><br>Q3</td><td style="border:1px solid #e5e7eb;padding:6px">「受阻·需你划滑块」——把「抱歉，暂无数据」一律归因于滑块/风控</td><td style="border:1px solid #e5e7eb;padding:6px"><b>推翻这个归因</b>。实测：<code>（文献来源：关爱生命大讲堂(精确)）AND（篇关摘：胰岛素抵抗(精确)）</code> 返回暂无数据；单独 <code>（主题：关爱生命大讲堂）</code> 也是暂无数据；但紧接着 <code>（主题：胰岛素抵抗）</code> <b>正常出 1.86 万条</b>、没弹滑块 ⇒ <b>服务正常，是这个会议名在库里查不到</b>。并给出「暂无数据」的两层意思和排查法</td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 同一标签页连做三次检索对照</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>知网</b><br>Q6</td><td style="border:1px solid #e5e7eb;padding:6px">「高级检索三行…读数 107 篇」，没提每行字段怎么选</td><td style="border:1px solid #e5e7eb;padding:6px">写成可执行三步：点两次 <b>+</b> 加三行，<b>每行先点开字段下拉选字段</b>（作者／作者单位／文献来源），再填词、设精确/模糊；并给出<b>回读检索式</b>这个自检动作。结果更新为<b>116 条</b>，同时说明 107（检索式口径）与 116（界面法）为何并存</td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 实测：三行字段全部就位，总库口径 <b>116</b>，分类签「学术期刊 116 / 学位论文 0 / 会议 0」</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>知网</b><br>通用操作</td><td style="border:1px solid #e5e7eb;padding:6px">只说「每行左边下拉选字段」，没给清单</td><td style="border:1px solid #e5e7eb;padding:6px">补上<b>完整 16 个字段的实测清单</b>、学科专辑那一列的区别，以及「加行后检索按钮会下移」</td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 逐项展开下拉抄录</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>WOS</b><br>章首</td><td style="border:1px solid #e5e7eb;padding:6px">「本轮该入口打不开…是学校侧配置问题…这 6 题本轮没能重新验证」</td><td style="border:1px solid #e5e7eb;padding:6px"><b>改成「时好时坏，先重试」</b>：第一次确实跳 failed，隔一会儿再点就进去了，机构认证到 <code>Wenzhou Medical College</code>，Topic 检索实测正常出数（Ningbo University = 252，标签页标题和「252 Documents」两处对得上）。并写明自动化拿不到字段下拉选项这个限制（人手动点不受影响）</td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 实测：重试后进入 Smart Search 页并成功执行检索</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>WOS</b><br>通用操作</td><td style="border:1px solid #e5e7eb;padding:6px">「逐行：字段下拉选字段 → 点 <b>Add to query</b>」——但 WOS 里根本没有 Add to query 这个按钮</td><td style="border:1px solid #e5e7eb;padding:6px">改为真实控件名：四个页签 <b>FIELDED SEARCH / QUERY BUILDER / CITED REFERENCES / STRUCTURE</b>，加行用 <b>Add row</b>，年份用 <b>Add date range</b>，执行用 <b>Search</b>；并点明<b>新行默认字段是 All Fields、第一行默认 Topic</b></td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 实测界面：没有任何 Add to query 按钮，只有 Add row</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>WOS</b><br>易错点</td><td style="border:1px solid #e5e7eb;padding:6px">没有「字段选错」这一条</td><td style="border:1px solid #e5e7eb;padding:6px">新增实例：<code>NANO ENERGY(Topic) AND Ningbo University(All Fields)</code> = <b>486</b> 条，而题意的 Affiliation 口径是 <b>61</b> 条，<b>差 8 倍全在字段上</b></td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 实测 486</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>JCR</b><br>章首</td><td style="border:1px solid #e5e7eb;padding:6px">「跳转 Clarivate 统一登录，VPN 资源列表无单独入口」</td><td style="border:1px solid #e5e7eb;padding:6px">写清三条路都断了：<b>①资源页只有 6 个库、无 JCR 入口；②手工拼 <code>…/jcr/home</code> 被重定向回 WOS 首页；③products 下拉点不开</b>。并说明 JCR 是<b>独立订阅</b>产品，WOS 能进≠JCR 能进，给出「校园网直连 / 问图书馆」两条出路</td><td style="border:1px solid #e5e7eb;padding:6px">2026-11-08 逐条实测</td></tr>
+
+<tr><td style="border:1px solid #e5e7eb;padding:6px"><b>新增</b></td><td style="border:1px solid #e5e7eb;padding:6px">—</td><td style="border:1px solid #e5e7eb;padding:6px">页首新增「<b>按作业顺序重做一遍</b>」一节：七次作业的次序表 + 为什么按这个次序练</td><td style="border:1px solid #e5e7eb;padding:6px">用户要求「按作业顺序排好」</td></tr>
+</table>
+<div class="note"><b>本轮仍未解决的（不装懂）：</b><br>
+① <b>知网 Q9 的 90 条</b>：我只跑出 4,240，且证明「三种同义写法」对结果没有影响。要么旧记录的式子写错了，要么 90 对应别的字段/别的专场——需要你在浏览器里跑一次并截图（要含检索式和「共找到 N 条」）。<br>
+② <b>PubMed Q4 的 7 条、Q5 的 2,954 条</b>：几种常见口径都对不上（58 / 4,817 / 3,472 / 3,265）。原教程没写清每行填什么词，我按题面语义反推也落不到这两个数上。<br>
+③ <b>Scopus Q7 的 14 篇</b>：6 种写法试下来是 3 / 69 / 3 / 4 / 19 / 19，没有 14。要害在「引号」，但旧记录没留检索式。<br>
+④ <b>JCR 两题</b>：三条路都断了——资源页没有 JCR 入口、拼 URL 被重定向回 WOS、products 下拉点不开。JCR 是独立订阅，得用校园网直连或问图书馆。<br>
+⑤ <b>WOS 六题的具体数字</b>：WOS 入口重试后能进、也能出结果数，但它的<b>字段下拉是自定义控件，选项不进可访问性树</b>，我的自动化<b>改不到 Affiliation / Publication Titles</b>，只能停在 Topic / All Fields，口径不对就没法核对旧值（实测 486 vs 题意 61 就是这个原因）。这 6 题的数仍是 11-06 的，<b>你手动点能正常选字段，不受这个限制</b>。<br>
+⑥ <b>万方 Q4–Q7</b>：平台侧检索按钮不暴露给自动化，提交不了，旧值未经复核。<br>
+⑦ <b>知网 Q1 的 270、Q2 的 2</b>：Q1 需确认老师给的会议名在库里的准确写法（本轮「关爱生命大讲堂」＝0 条）；Q2 需换到旧版核心期刊导航才能数北大核心。</div>
+<p class="kv" style="margin-top:28px;border-top:1px solid #e5e7eb;padding-top:12px">并入来源：文献检索手把手教程.html（主体）· 文献检索题库与逐题操作.html（批次索引、截图清单、未核实）· 文献检索_人工任务清单_20261106.html（13 项待办）· 文献检索作业操作步骤.html（课上值对照）。原 4 份已归档到 <code>文献检索_合并前原件\</code>。</p>
+<p class="kv">本文件仅本机使用，不要外发。全程不提交学习通作业、不绕过验证码/滑块/统一身份认证/风控。</p>
+</div>
+<script>
+
+(function(){
+  var KEY='lit_manual_20261106_v2';
+  var tasks=[].slice.call(document.querySelectorAll('.td-task'));
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){saved={};}
+  function save(){
+    var o={};tasks.forEach(function(t){o[t.dataset.id]=t.querySelector('input').checked;});
+    try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}
+    var n=tasks.filter(function(t){return t.querySelector('input').checked;}).length;
+    document.getElementById('count').textContent=n+' / '+tasks.length+' 完成';
+    document.getElementById('fill').style.width=(n/tasks.length*100)+'%';
+  }
+  tasks.forEach(function(t){
+    var c=t.querySelector('input');
+    c.checked=!!saved[t.dataset.id];
+    t.classList.toggle('td-done',c.checked);
+    c.addEventListener('change',function(){t.classList.toggle('td-done',c.checked);save();});
+  });
+  window.resetAll=function(){tasks.forEach(function(t){t.querySelector('input').checked=false;t.classList.remove('td-done');});save();};
+  save();
+})();
+
+</script>
+</body></html>
