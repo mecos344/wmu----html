@@ -1,0 +1,2395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>医学文献检索 · 总手册（七讲 + 21 道复习题 + 13 道 PPT 题 + 实测对照）</title>
+<style>
+:root{
+  --bg:#fbfbfa; --card:#ffffff; --ink:#1a1a1a; --muted:#6b7280; --line:#e5e7eb;
+  --accent:#8c1c2b; --accent-soft:#fdf2f3;
+  --ok:#0f766e; --okbg:#ecfdf5; --warn:#92400e; --warnbg:#fffbeb; --bad:#b91c1c; --badbg:#fef2f2;
+  --blue:#1d4ed8; --bluebg:#eff6ff; --code:#f6f8fa;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font:15px/1.75 "Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;}
+.wrap{max-width:1140px;margin:0 auto;padding:36px 26px 90px}
+h1{font-size:30px;line-height:1.3;margin:0 0 8px;letter-spacing:-.4px}
+h2{font-size:21px;margin:52px 0 16px;padding:10px 16px;background:var(--accent);color:#fff;
+   border-radius:9px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;scroll-margin-top:16px}
+h2 .h2sub{font-size:12.5px;font-weight:400;opacity:.82;margin-left:auto}
+h3{font-size:17px;margin:30px 0 12px;padding-left:11px;border-left:4px solid var(--accent)}
+h4{font-size:15px;margin:20px 0 8px;color:#374151}
+p{margin:9px 0}
+ul,ol{margin:8px 0;padding-left:22px}
+li{margin:4px 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:"Cascadia Mono",Consolas,"Courier New",monospace;font-size:13px;
+     background:#eef1f5;padding:1px 5px;border-radius:4px;word-break:break-all}
+pre{font-family:"Cascadia Mono",Consolas,monospace;font-size:12.5px;line-height:1.65;
+    background:var(--code);border:1px solid var(--line);border-radius:8px;padding:11px 13px;
+    overflow-x:auto;white-space:pre-wrap;word-break:break-word;margin:8px 0}
+.cover{border-bottom:2px solid var(--ink);padding-bottom:16px;margin-bottom:6px}
+.sub{color:var(--muted);font-size:13.5px;margin:0 0 14px}
+.lead{font-size:15.5px;line-height:1.8;color:#374151;margin:14px 0 18px}
+.small{font-size:13px;color:var(--muted)}
+.hl{background:#fff3bf;padding:0 3px;border-radius:3px}
+.warn{background:#fffbeb;padding:0 3px;border-radius:3px}
+.tocbox{margin:22px 0 6px;padding:12px 16px;background:#fff;border:1px dashed var(--line);border-radius:10px}
+.tocbox b{display:block;color:var(--muted);font-size:12px;letter-spacing:.08em;margin-bottom:6px}
+.tocbox a{display:inline-block;margin:3px 7px 3px 0;font-size:12.5px;color:#374151;
+          border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.tocbox a:hover{background:var(--accent);color:#fff;border-color:var(--accent);text-decoration:none}
+.toc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:18px 0 8px}
+.toc-title{font-weight:700;font-size:13px;color:var(--muted);letter-spacing:.08em;margin-bottom:8px}
+.toc-links{display:flex;flex-wrap:wrap;gap:7px}
+.toc-links a{font-size:12.5px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;
+             background:#fff;color:#374151;white-space:nowrap}
+.toc-links a:hover{background:var(--accent);color:#fff;border-color:var(--accent);text-decoration:none}
+.infobox{background:var(--bluebg);border:1px solid #bfdbfe;border-left:4px solid var(--blue);
+         border-radius:8px;padding:12px 16px;margin:16px 0;font-size:14px}
+.infobox b{color:var(--blue)}
+.note{background:var(--warnbg);border:1px solid #fde68a;border-left:4px solid var(--warn);
+      border-radius:8px;padding:12px 16px;margin:16px 0;font-size:14px}
+.note b{color:var(--warn)}
+.warnbox{background:var(--badbg);border:1px solid #fecaca;border-left:4px solid var(--bad);
+         border-radius:8px;padding:12px 16px;margin:16px 0;font-size:14px}
+.warnbox b{color:var(--bad)}
+.okbox{background:var(--okbg);border:1px solid #a7f3d0;border-left:4px solid var(--ok);
+       border-radius:8px;padding:12px 16px;margin:16px 0;font-size:14px}
+.okbox b{color:var(--ok)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 16px;
+      font-size:14px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.card>b:first-child{display:block;margin-bottom:6px;color:#111}
+.card.ok{background:var(--okbg);border-color:#a7f3d0}
+.card.warn{background:var(--warnbg);border-color:#fde68a}
+.card ul,.card ol{margin:4px 0 2px 18px;padding:0}
+.facts{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 4px}
+.fact{font-size:12px;background:#eef1f5;color:#374151;border-radius:999px;padding:3px 11px}
+.step{background:var(--code);border:1px solid var(--line);border-left:4px solid #6b7280;
+      border-radius:8px;padding:12px 16px;margin:14px 0;font-size:14px}
+.step>b:first-child{display:block;margin-bottom:4px}
+.step ol,.step ul{margin:6px 0 2px 20px;padding:0}
+.quote{background:var(--okbg);border-left:4px solid var(--ok);border-radius:0 8px 8px 0;
+       padding:11px 16px;margin:14px 0;font-size:14px;color:#1f2937}
+.q-src{display:block;color:var(--muted);font-size:12px;margin-top:6px}
+table.std{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);
+         border-radius:8px;overflow:hidden;font-size:14px;margin:12px 0}
+table.std th,table.std td{padding:8px 11px;border-bottom:1px solid var(--line);
+                          text-align:left;vertical-align:top}
+table.std th{background:#f3f4f6;font-size:12.5px;color:#374151;font-weight:600}
+table.std tr:last-child td{border-bottom:none}
+table.std.tight{font-size:13px}
+table.std.tight th,table.std.tight td{padding:6px 9px}
+table.std code{font-size:12px}
+.tag{display:inline-block;font-size:11.5px;line-height:19px;padding:0 8px;border-radius:999px;
+     white-space:nowrap;font-weight:600}
+.tag.ok{background:var(--okbg);color:var(--ok)}
+.tag.warn{background:var(--warnbg);color:var(--warn)}
+.tag.bad{background:var(--badbg);color:var(--bad)}
+.qbox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px 18px 16px;
+      margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.qbox .stem{background:#f9fafb;border-left:3px solid #d1d5db;border-radius:0 6px 6px 0;
+            padding:10px 14px;margin:14px 0 12px;font-size:14.5px;line-height:1.75}
+.refs{display:grid;gap:8px;margin:10px 0 14px}
+.ref{display:grid;grid-template-columns:86px 1fr;gap:10px;font-size:13px;
+     padding:9px 12px;border-radius:8px;border:1px solid}
+.ref.g{background:var(--okbg);border-color:#a7f3d0}
+.ref.g b{color:var(--ok)}
+.ref.b{background:var(--bluebg);border-color:#bfdbfe}
+.ref.b b{color:var(--blue)}
+.ref .src{display:block;color:var(--muted);font-size:11.5px;margin-top:3px}
+.verdict{padding:12px 15px;border-radius:8px;font-size:14px;line-height:1.75;margin:14px 0 4px}
+.verdict ul{margin:6px 0 2px 20px}
+.v-ok{background:var(--okbg);border-left:4px solid var(--ok)}
+.v-warn{background:var(--warnbg);border-left:4px solid var(--warn)}
+.v-bad{background:var(--badbg);border-left:4px solid var(--bad)}
+.rules li{margin:7px 0}
+.checklist{list-style:none;padding-left:0}
+.checklist li{padding-left:24px;position:relative}
+.checklist li:before{content:"□";position:absolute;left:2px;color:var(--muted)}
+.divider{height:1px;background:var(--line);margin:34px 0 18px}
+.endnote{color:var(--muted);font-size:12.5px;line-height:1.8}
+.toplink{position:fixed;right:22px;bottom:22px;background:#fff;border:1px solid var(--line);
+         border-radius:999px;padding:8px 14px;font-size:12.5px;color:#374151;
+         box-shadow:0 2px 8px rgba(0,0,0,.08);z-index:9}
+@media (max-width:720px){
+  .wrap{padding:22px 14px 70px}
+  h1{font-size:23px} h2{font-size:18px;padding:9px 12px}
+  h2 .h2sub{display:none}
+  .ref{grid-template-columns:1fr}
+  table.std{font-size:12.5px}
+  table.std th,table.std td{padding:6px 7px}
+}
+@media print{
+  body{background:#fff;font-size:11.5px}
+  .toc,.toplink{display:none}
+  h2{background:#eee;color:#000;page-break-after:avoid}
+  h3{page-break-after:avoid}
+  .qbox,.card,table.std{page-break-inside:avoid;box-shadow:none}
+  .verdict{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap" id="top">
+<header class="cover">
+<h1>医学文献检索 · 总手册</h1>
+<p class="sub">七讲理论 · 题库原文 · 学生答案对错判断 · 老师录音口径 · 本轮实测　｜　依据 <code>D:\下载\yj</code> 全部 19 个文件 + 12 份课堂转写　｜　2026-11-14</p>
+</header>
+<nav class="toc" id="toc"><div class="toc-title">目录</div><div class="toc-links">
+<a href="#s0">0 · 导读：这份手册怎么用</a>
+<a href="#s1">1 · 检索基础：概念、类型、检索技术</a>
+<a href="#s2">2 · CBM / SinoMed：中文医学库的主场</a>
+<a href="#s3">3 · 中国知网 CNKI：字段最多、坑也最多</a>
+<a href="#s4">4 · 万方数据：换库就要换写法</a>
+<a href="#s5">5 · PubMed：规则最干净，陷阱最隐蔽</a>
+<a href="#s6">6 · ScienceDirect：一个框里不能分行</a>
+<a href="#s7">7 · Scopus：优先级和别的库反过来</a>
+<a href="#s8">8 · Web of Science：先想清楚「在哪个字段里找」</a>
+<a href="#s9">9 · JCR：影响因子到底怎么算</a>
+<a href="#s10">10 · 专利：只考法条，不考检索</a>
+<a href="#s11">11 · 期末复习：21 道官方答案逐题拆</a>
+<a href="#s12">12 · PPT 13 道题：谁对、谁错、谁不唯一</a>
+<a href="#s13">13 · 2026 作业实测总表：旧值 vs 新值</a>
+<a href="#s14">14 · 附录：老师原话与录音清单</a>
+<a href="#s15">15 · 附录：没解决的部分、材料清单与更正记录</a>
+</div></nav><section class="ch" id="s0">
+<h2>0 · 导读：这份手册怎么用 <span class="h2sub">先看这 3 分钟</span></h2>
+
+<p class="lead">这份手册把 <code>D:\下载\yj</code> 里全部 19 个文件（7 讲正课 PPT、9 份 zss/2025 讲义、作业常见问题 PPT、两份 PDF）加上 12 份课堂录音转写，压成一份可以顺着读、也可以按题查的东西。<b>理论、操作路径、题目原文、答案对错判断</b>四件事放在同一节里，不拆开。</p>
+
+<div class="infobox">
+<b>三句话结论（先记住，后面全是证据）</b>
+<ol>
+<li><b>《总复习题2025参考答案.pdf》才是真答案</b>：7 道填空 + 14 道简答，每题给了检索式和结果数，可直接当期末复习的标准答案用。</li>
+<li><b>《作业常见问题及参考答案.pptx》不是标准答案</b>，它是 44 张<b>学生答案截图</b>的合集。13 道题里只有 Q13（SD + Scopus 肾缺血）有老师亲口讲的标准答案，其余 12 题学生之间就能差几十倍。</li>
+<li><b>老师课堂录音的口径优先于任何文档</b>；文档之间打架时，按「讲义/法条原文 &gt; 老师录音 &gt; 本轮实测 &gt; 学生答案/旧文档」排序，本手册逐条标了来源。</li>
+</ol>
+</div>
+
+<h3>0.1 证据分级：每条结论后面都标了它从哪来</h3>
+<table class="std">
+<thead><tr><th>级别</th><th>来源</th><th>能证明什么</th><th>本手册里的标记</th></tr></thead>
+<tbody>
+<tr><td><b>A</b></td><td>七讲 PPT 原文、zss 讲义、《专利法》条文、数据库官方规则页</td><td>规则本身对不对、字段/符号怎么定义</td><td>灰色「讲义」标签</td></tr>
+<tr><td><b>B</b></td><td>课堂录音转写（元宝导出，12 份）</td><td>老师对某道题的口径、当场报出的数字</td><td>绿色「老师录音」标签，附时间点</td></tr>
+<tr><td><b>C</b></td><td>本轮自己跑出来的结果（有截图）</td><td>今天这个库、这个检索式究竟多少条</td><td>蓝色「实测」标签，附截图文件名</td></tr>
+<tr><td><b>D</b></td><td>PPT 里的学生答案、旧交接文档里的旧值</td><td>只说明「有人这么答过」，不能证明对</td><td>黄色「学生答案 / 旧值」标签</td></tr>
+</tbody>
+</table>
+<div class="warnbox"><b>两条硬规矩：</b>①没跑通的写「未验证 / 未复现」，不写「大约 / 应该」；②旧答案与新实测不一致时，<b>两个数都留着并写清差异原因</b>，不为了让数字对上而改检索式。</div>
+
+<h3>0.2 课程与考试信息（第一讲 PPT 第 6–7 页 + 期末复习 PDF）</h3>
+<div class="grid">
+<div class="card">
+<b>成绩构成</b>
+<ul>
+<li>平时作业 <b>30%</b></li>
+<li>考勤 <b>10%</b>（课上不定时签到）</li>
+<li>期末闭卷 <b>60%</b>，<b>90 分钟</b></li>
+</ul>
+</div>
+<div class="card">
+<b>作业规则</b>
+<ul>
+<li>学习通在线完成，<b>下一次课之前手动提交</b></li>
+<li>系统<b>不会自动提交</b>——不点提交就是 0 分</li>
+<li>答案格式：检索式 + 结果数 + 第一篇题名/第一作者/出处</li>
+<li>字体统一，<b>检索结果不要拍照上传</b></li>
+</ul>
+</div>
+<div class="card">
+<b>期末考试（复习 PDF 原话）</b>
+<ul>
+<li>题型：单选、多选（<b>错选、漏选均不给分</b>）、填空、简答</li>
+<li>闭卷，不能看纸质材料和电子课件；<b>可以使用 AI 工具</b></li>
+<li>外文数据库<b>用英文作答</b></li>
+<li>携带身份证/学生证，提前 5–10 分钟到场</li>
+<li>数据库打不开可换浏览器；不得互相交流</li>
+</ul>
+</div>
+</div>
+<div class="note"><b>注意：</b>「可以使用 AI 工具」是考场规则，不等于可以让人代做。老师录音里另有一句更硬的：<b>「可以用 AI 辅助理解，但最终的检索操作和答案必须由自己完成。」</b>本手册只做资料整理，不代填、不代交。</div>
+
+<h3>0.3 全库规则速查表（考前最后一眼看这张）</h3>
+<p class="small">这张表只写讲义明确讲过的内容；讲义没讲的项目写「未讲」，不替它补。</p>
+<table class="std tight">
+<thead><tr><th>数据库</th><th>布尔优先级</th><th>截词/通配</th><th>精确·短语</th><th>位置算符</th><th>主题词</th><th>最容易丢分的地方</th></tr></thead>
+<tbody>
+<tr><td><b>CBM / SinoMed</b></td><td><code>( ) &gt; NOT &gt; AND &gt; OR</code>，大小写均可</td><td><code>?</code> 代 1 个字符<br><code>%</code> 代 0 或任意个</td><td>半角双引号 <code>" "</code></td><td>无</td><td>有（MeSH 中译 + 中医药主题词表）</td><td>常用字段≠核心字段；加权/扩展勾错，数字差几倍</td></tr>
+<tr><td><b>知网 CNKI</b></td><td><code>*</code> <code>+</code> <code>-</code> <b>同级</b>，必须用半角括号定顺序</td><td>讲义未讲截词符（同义词靠 OR）</td><td>「精确/模糊」选项，或半角引号</td><td>无</td><td>有「主题」字段，但<b>主题≠篇关摘</b></td><td>单框 ≤120 字符；<code>* + -</code> 前后要空一格；多词不加引号会拆开</td></tr>
+<tr><td><b>万方</b></td><td><code>( ) &gt; NOT &gt; AND &gt; OR</code></td><td>未讲</td><td><code>" "</code> 精确匹配</td><td>无</td><td>无</td><td>运算符要英文半角；换库后字段名不一样</td></tr>
+<tr><td><b>PubMed</b></td><td><b>从左到右</b>，没有优先级</td><td><code>*</code> 代 0 或多个</td><td><code>" "</code> 强制检索（关闭自动匹配）</td><td>无</td><td>有 MeSH，<code>[Majr]</code> 加权 / <code>[Mesh]</code> 不加权</td><td>空格默认 AND；用了引号/截词/字段，自动词语匹配会被关掉</td></tr>
+<tr><td><b>ScienceDirect</b></td><td><code>( ) &gt; NOT/- &gt; AND &gt; OR</code></td><td>讲义未讲</td><td><code>" "</code> 短语（含单复数、英美拼写）</td><td>未讲</td><td>无</td><td>布尔符<b>必须大写</b>；<code>NOT</code> 与 <code>-</code> 等价，<code>-</code> 后<b>不能有空格</b>；题目要「研究性论文」必须二次筛选</td></tr>
+<tr><td><b>Scopus</b></td><td><code>OR &gt; W/n、PRE/n &gt; AND &gt; AND NOT</code></td><td><code>*</code> 多个<br><code>?</code> 1 个（必须跟单词连用）</td><td><code>" "</code> 短语；<code>{ }</code> 完全匹配</td><td><code>W/n</code> 顺序不限<br><code>PRE/n</code> A 在 B 前</td><td>无</td><td>检索式<b>必须英文</b>；<code>AND NOT</code> 通常放末尾；「组织检索」≠「归属机构」字段</td></tr>
+<tr><td><b>Web of Science</b></td><td><code>NEAR/x &gt; SAME &gt; NOT &gt; AND &gt; OR</code></td><td><code>*</code> ≥0 个<br><code>?</code> 1 个<br><code>$</code> 0 或 1 个</td><td><code>" "</code> 精确短语</td><td><code>NEAR/x</code>、<code>SAME</code></td><td>无（<code>TS</code> = 标题+摘要+关键词）</td><td><code>NEAR</code> 不能和 <code>AND</code> 同用；<code>SAME</code> 只保证「同一条地址」；分析「研究方向」默认字段其实是 Categories</td></tr>
+<tr><td><b>专利（SIPO）</b></td><td>只有 <code>AND</code>、<code>OR</code>；空格默认 AND</td><td>未讲</td><td>半角双引号（含空格/关键字时必须加）</td><td>无</td><td>无</td><td>要注册个人账号才能检索；日期格式 <code>YYYY-MM-DD / YYYY.MM.DD / YYYYMMDD / YYYYMM / YYYY</code></td></tr>
+</tbody>
+</table>
+
+<h3>0.4 十条不丢分的铁律</h3>
+<div class="card">
+<ol class="rules">
+<li><b>题里每一个限定词都要落地。</b>年代、文献类型、年龄组、性别、核心期刊、SCI 收录、研究性论文——漏一个，结果数就会大一个量级。</li>
+<li><b>限定条件优先用平台自带的筛选项</b>，不要拿关键词去凑。题目要「65 岁以上」，就在「限定检索」里勾年龄组，而不是多写一行「老年」。</li>
+<li><b>同一个逻辑符放同一个检索框</b>（老师原话）。三个同义词用 OR，就写在同一个框里，不要拆成三行再用 OR 连。</li>
+<li><b>同义词必须收集全并用 OR 连接。</b>讲义原话是「同义词尽量选全」，题目里给了提示词（如 miRNA-146a / microRNA-146a）就必须都用上。</li>
+<li><b>带特殊字符的词要加英文双引号。</b>连字符、括号、逗号在检索式里有语法含义，不加引号会被拆开。</li>
+<li><b>字段先在下拉里选，再填词。</b>结果页看到的 <code>[Title]</code>、<code>主题：</code> 是系统拼给你看的，不要反过来敲进输入框。</li>
+<li><b>读数只看「命中总数」。</b>不要用「每页条数 × 页数」去估，也不要把左侧分面标签上的小数字当总数。</li>
+<li><b>主题检索五步不能跳：</b>检索词 → 主题词 → 副主题词 → 是否加权 → 是否扩展。跳到第三步就会把「主题检索」做成「关键词检索」。</li>
+<li><b>结果数会随数据库收录增长。</b>旧答案对不上，先看是不是收录涨了，不要急着改检索式。</li>
+<li><b>检索式不必和「标准答案」一字不差。</b>老师原话：「只要符合数据库检索规则、能达到检索目的就可以了。」</li>
+</ol>
+</div>
+
+<nav class="tocbox">
+<b>跳转</b>
+<a href="#s1">1 检索基础</a><a href="#s2">2 CBM</a><a href="#s3">3 知网</a><a href="#s4">4 万方</a><a href="#s5">5 PubMed</a><a href="#s6">6 ScienceDirect</a><a href="#s7">7 Scopus</a><a href="#s8">8 Web of Science</a><a href="#s9">9 JCR</a><a href="#s10">10 专利</a><a href="#s11">11 期末 21 题</a><a href="#s12">12 PPT 13 题</a><a href="#s13">13 作业实测</a><a href="#s14">14 录音原话</a><a href="#s15">15 未解决项</a>
+</nav>
+</section>
+
+<section class="ch" id="s1">
+<h2>1 · 检索基础：概念、类型、检索技术 <span class="h2sub">第一讲 绪论</span></h2>
+
+<p class="lead">第一讲不涉及任何数据库操作，但它决定了后面每一道题能不能读懂。期末的单选题、多选题、填空题主要从这里出。<b>这一讲的核心只有一件事：把「文献」拆成可以检索的特征。</b></p>
+
+<div class="facts">
+<span class="fact">PPT 79 页</span>
+<span class="fact">4 个部分：文献基本概念 / 图书馆资源 / 医学文献数据库 / 文献检索 / 信息伦理</span>
+<span class="fact">老师钉钉：温州医科大学图书馆-甘佩玄</span>
+</div>
+
+<h3>1.1 从数据到智慧：文献到底是什么</h3>
+<table class="std">
+<thead><tr><th>层次</th><th>定义（PPT 原话压缩）</th><th>例子</th></tr></thead>
+<tbody>
+<tr><td>数据 Data</td><td>原始素材、理解事实的符号</td><td>36.5℃、37℃、38.1℃</td></tr>
+<tr><td>信息 Information</td><td>广义指客观事物存在、运动和变化的方式、特征、规律及其表现形式；狭义指消除随机不确定性的东西</td><td>「体温 38.1℃ 属于发热」</td></tr>
+<tr><td>知识 Knowledge</td><td>经过推理、分析和理解的信息</td><td>「发热是感染的常见表现」</td></tr>
+<tr><td>智慧 Wisdom</td><td>综合知识和经验的能力</td><td>「这个病人该先查什么」</td></tr>
+</tbody>
+</table>
+<div class="card">
+<b>文献的三要素</b>（三个都要有，缺一不成文献）
+<ol>
+<li><b>内容</b>：知识或信息 —— <span class="hl">内容是关键</span></li>
+<li><b>揭示和表达知识的手段</b>：文字、符号、声频、视频 —— <span class="hl">符号是表现形式</span></li>
+<li><b>记录信息符号的物质载体</b>：网络、纸张、缩微胶片 —— <span class="hl">载体是存在方式</span></li>
+</ol>
+</div>
+
+<h3>1.2 文献的三种划分方式（考点密集）</h3>
+<table class="std">
+<thead><tr><th>划分角度</th><th>类别</th><th>说明 / 例子</th></tr></thead>
+<tbody>
+<tr><td rowspan="5"><b>按载体形式</b></td><td>书写型</td><td>手稿、书信、原始记录</td></tr>
+<tr><td>印刷型</td><td>纸质书刊</td></tr>
+<tr><td>缩微型</td><td>缩微胶卷/平片。特点：存储密度高、保存周期长、生产成本低；局限：要专用阅读设备、不能批注</td></tr>
+<tr><td>视听型</td><td>录音、录像、幻灯片</td></tr>
+<tr><td><b>电子型</b></td><td>数字出版物、网络资源 —— <span class="hl">按载体划分，不是按出版形式</span></td></tr>
+<tr><td rowspan="7"><b>按出版形式</b></td><td>图书</td><td>不少于 49 页的非定期出版物。特征：书名、ISBN、版本、分类号。特点：成熟、全面、可靠、<b>时效性差</b></td></tr>
+<tr><td>期刊</td><td>定期/不定期连续出版物。特征：刊名、卷 Vol.、期 No.、ISSN、CN 号。特点：数量大、品种多、内容丰富、<b>出版周期短</b></td></tr>
+<tr><td>会议论文</td><td>学术会议上发表（宣读）的研究报告、论文，正式会议一般出版论文集</td></tr>
+<tr><td>学位论文</td><td>为获得学位撰写，问题专一、论述系统、带原创性，大多不出版</td></tr>
+<tr><td>专利文献</td><td>审批专利过程中产生的官方文件及出版物，主要指专利说明书</td></tr>
+<tr><td>技术标准</td><td>对产品和工程质量、规格及检验方法的技术规定</td></tr>
+<tr><td>科技报告</td><td>科研项目的正式报告或进展报告</td></tr>
+<tr><td rowspan="4"><b>按信息揭示深度</b><br>（加工层次）</td><td>零次文献</td><td>未正式发表的手稿、笔记、实验记录、口头交流</td></tr>
+<tr><td><b>一次文献</b></td><td>首次发表的原始研究成果：期刊论文、学位论文、专利、档案、研究报告</td></tr>
+<tr><td><b>二次文献</b></td><td>对一次文献加工整理的检索工具：目录、索引、文摘（CBM、PubMed 的题录都属此类）</td></tr>
+<tr><td><b>三次文献</b></td><td>对一次文献综合分析与概括：<b>综述</b>、教科书、年鉴、百科全书、手册</td></tr>
+</tbody>
+</table>
+<div class="warnbox"><b>这一节最容易错的两道题：</b>①「电子型文献属于哪种划分」——<b>载体形式</b>，不是出版形式；②「一次文献不包括」——<b>教科书</b>（它是三次文献，综合整理已有知识并按教学体系重组，不是原创发现）。</div>
+
+<h3>1.3 期刊、核心期刊、SCI 与分区</h3>
+<div class="grid">
+<div class="card">
+<b>正式期刊 vs 非正式期刊</b>
+<ul>
+<li>正式期刊：国家新闻出版署与国家科委审批，编入「国内统一刊号」<b>CN 号</b></li>
+<li>非正式期刊（内刊）：领取「内部报刊准印证」，<b>没有 CN 号</b>，只限行业内部交流</li>
+</ul>
+</div>
+<div class="card">
+<b>核心期刊</b>
+<p>某一学科领域中最能反映该学科学术水平、信息量大、利用率高、受普遍重视的权威期刊。国内主要用文献计量学方法 + 专家咨询测定（北大核心、CSCD、CSSCI 等）。</p>
+</div>
+<div class="card">
+<b>SCI 与 JCR</b>
+<ul>
+<li>SCI = Science Citation Index，美国科学情报研究所（ISI）出版的期刊文献检索工具，每年出版 <b>JCR</b>（期刊引证报告），公布影响因子与分区</li>
+<li>中科院分区：1 区前 5%，2 区 6%–20%，3 区 21%–50%，4 区 51%–100%</li>
+</ul>
+</div>
+</div>
+<div class="note"><b>别混：</b>「核心期刊」是<b>国内</b>期刊评价体系；「SCI 收录 / JCR 分区」是<b>国际</b>引文索引体系。判断题里经常拿这两个概念互换来设陷阱。</div>
+
+<h3>1.4 中图法与索书号</h3>
+<p>《中国图书馆分类法》（简称《中图法》）是我国建国后编制的大型综合性分类法，国内图书馆使用最广。<b>5 大部类、22 个基本大类</b>，混合号码「字母 + 数字」：A 马列、B 哲学宗教、C 社科总论 …… <b>R 医药卫生</b>、S 农业、T 工业技术、Z 综合性图书。</p>
+<table class="std tight">
+<thead><tr><th>分类号</th><th>类目</th><th>分类号</th><th>类目</th></tr></thead>
+<tbody>
+<tr><td>R</td><td>医药、卫生</td><td>R44</td><td>诊断学</td></tr>
+<tr><td>R1</td><td>预防医学、卫生学</td><td>R445</td><td>影像诊断学</td></tr>
+<tr><td>R2</td><td>中国医学</td><td>R445.1</td><td>超声波诊断</td></tr>
+<tr><td>R3</td><td>基础医学</td><td>R45</td><td>治疗学</td></tr>
+<tr><td>R4</td><td>临床医学</td><td>R47</td><td>护理学</td></tr>
+</tbody>
+</table>
+<div class="step">
+<b>索书号怎么读</b>（PPT 例子：<code>R282.71-61/1342/2</code>）
+<ol>
+<li><code>R282.71</code> —— 植物药（分类号，决定在书架上哪一段）</li>
+<li><code>-61</code> —— 复分号，代表「词典」</li>
+<li><code>/1342</code> —— 作者四角号码</li>
+<li><code>/2</code> —— 中册</li>
+</ol>
+</div>
+
+<h3>1.5 数据库：文档、记录、字段</h3>
+<p>数据库按一定数据结构组织、存储和管理数据，由<b>文档 → 记录 → 字段</b>三层组成。一条「记录」就是一篇文章的著录；一个「字段」就是它的一个属性（篇名、作者、刊名……）。</p>
+<table class="std">
+<thead><tr><th>划分</th><th>类别</th><th>代表</th></tr></thead>
+<tbody>
+<tr><td rowspan="3">按收录学科</td><td>综合性数据库</td><td>中国知网 CNKI、万方、Web of Science、Scopus</td></tr>
+<tr><td>专业性数据库</td><td><b>CBM</b>、PubMed、CA</td></tr>
+<tr><td>专题性数据库</td><td>中国药物专利数据库、GenBank</td></tr>
+<tr><td rowspan="5">按内容类型</td><td>文献型</td><td>书目/文摘（WOS、PubMed）、全文（知网、万方）</td></tr>
+<tr><td>数值型</td><td>化学物质毒性数据库 RTECS、EPS 统计数据平台</td></tr>
+<tr><td>事实型</td><td>美国医生数据咨询库 PDQ、Cochrane Library</td></tr>
+<tr><td>图像型</td><td>可视人计划数据库、全脑图谱、TCIA</td></tr>
+<tr><td>多媒体</td><td>JoVE 实验视频、医学史数据库</td></tr>
+</tbody>
+</table>
+<div class="card">
+<b>访问方式</b>
+<ul>
+<li><b>OA（Open Access）</b>：任何人可及时、免费、不受限制地获取，用于科研教育</li>
+<li><b>订阅</b>：个人订阅 / 机构订阅。校内直接访问，校外走学校 WebVPN</li>
+<li>登录：校园统一身份认证，用户名 = 学号/工号，初始密码 = <code>wmu.</code> + 身份证后六位；问题找信息技术中心 86689830</li>
+</ul>
+</div>
+
+<h3>1.6 检索原理与四大技术（全课程的总纲）</h3>
+<div class="step">
+<b>检索原理链条</b>
+<ol>
+<li>文献源 → 文献的选择与收集 → 文献特征</li>
+<li>用户 → 检索需求 → 检索提问 → <b>检索式</b></li>
+<li>两端都做「分析 → 标识 → 匹配」→ 输出检索结果 → 反馈调整</li>
+</ol>
+<p class="small">PPT 在这条链上只加了一句重话：<b>「构建合适的检索式，是至关重要的！」</b></p>
+</div>
+<p>检索技术只有四个抓手：<b>检索词、检索字段、逻辑关系、位置关系</b>。把繁杂的检索需求翻译成检索式，就是把这四样填对。</p>
+
+<h4>① 检索词：四条通用规则 + 一张停用词表</h4>
+<table class="std">
+<thead><tr><th>规则</th><th>含义</th><th>PPT 例子</th></tr></thead>
+<tbody>
+<tr><td><b>选规范词</b></td><td>按概念的实质选词，不按字面直译</td><td>「人造金刚石」不写 manmade diamonds，写 <code>Synthetic diamonds</code>（合成金刚石）</td></tr>
+<tr><td><b>选最小词汇</b></td><td>少用复合词，拆成单元词</td><td>「肝脏肿瘤」拆成 <code>肝脏</code> + <code>肿瘤</code></td></tr>
+<tr><td><b>同义词尽量选全</b></td><td>同一概念的各种表达都要覆盖，用 OR 连接</td><td>单车 + 自行车 + 脚踏车；艾滋病 + 获得性免疫缺陷综合征 + AIDS + HIV（单个词 7.8 万条，四个词 OR 后 13.6 万条）</td></tr>
+<tr><td><b>避开停用词</b></td><td>冠词、介词、连词、无意义副词不检索</td><td>any / by / the / of / however / significantly …</td></tr>
+</tbody>
+</table>
+<p class="small">同义词还包括：单复数与词性变化（product / production / producing / produce / productive）、上下位概念（青霉素 + 阿莫西林 + 甲氧西林）、化学物质名 + 元素符号（氮 + Nitrogen + N）、外来词的不同译写（阿兹海默 / 阿茨海默 / 阿尔茨海默 / 阿尔兹海默 / Alzheimer）。</p>
+<div class="note"><b>为什么必须收同义词：</b>PPT 那张表里，「阿兹海默」单独只有 524 条，「阿尔茨海默」有 33,430 条，五个词 OR 起来 53,207 条。只用一个词，漏检是数量级的。</div>
+
+<h4>② 检索字段：把词放到正确的格子里</h4>
+<p><b>字段</b>是反映文献内容特征（篇名、关键词、摘要、主题）和外部特征（作者、刊名、机构）并作为检索入口的著录事项，是构成数据库记录的最基本单位。<b>不限定字段，检索词会在全文里匹配，结果会掺进大量不相关文献。</b></p>
+<table class="std tight">
+<thead><tr><th>要查什么</th><th>用哪个字段</th><th>检索式形态</th></tr></thead>
+<tbody>
+<tr><td>关于哮喘的文献</td><td>主题 / 标题 / 篇名 / 题名 / 关键词 / 摘要</td><td><code>篇名：高血压</code></td></tr>
+<tr><td>张三发表的文献</td><td>作者</td><td><code>作者：张三</code></td></tr>
+<tr><td>温州医科大学的作者</td><td>地址 / 机构 / 作者单位</td><td><code>机构：温州医科大学</code></td></tr>
+<tr><td>发表在《自然》上</td><td>出处 / 期刊 / 文献来源 / 出版物标题</td><td><code>刊名：Nature</code></td></tr>
+<tr><td>糖尿病的综述</td><td>文献类型</td><td><code>review[PT]</code></td></tr>
+<tr><td>按编号找一篇</td><td>文献编号</td><td>DOI / PMID / WOS 号 / 申请号</td></tr>
+</tbody>
+</table>
+
+<h4>③ 逻辑关系：AND 缩小、OR 扩大、NOT 排除</h4>
+<table class="std">
+<thead><tr><th>运算符</th><th>表达式</th><th>含义</th><th>对结果的影响</th></tr></thead>
+<tbody>
+<tr><td>逻辑与 AND</td><td><code>A AND B</code>（也写作 <code>A * B</code>）</td><td>A 与 B 须同时命中，以词组或拆开形式出现，前后位置不限</td><td><b>缩小</b>（取交集）</td></tr>
+<tr><td>逻辑或 OR</td><td><code>A OR B</code>（也写作 <code>A + B</code>）</td><td>命中其一即可，用于同义词/近义词/不同词性</td><td><b>扩大</b>（取并集）</td></tr>
+<tr><td>逻辑非 NOT</td><td><code>A NOT B</code>（也写作 <code>A - B</code>）</td><td>包含 A 且排除 B</td><td><b>缩小</b>（排除）</td></tr>
+</tbody>
+</table>
+<div class="warnbox"><b>优先级因库而异，这是全课程最容易被扣分的一处：</b>CBM <code>() &gt; NOT &gt; AND &gt; OR</code>；万方 <code>() &gt; NOT &gt; AND &gt; OR</code>；知网 <code>* + -</code> <b>同级</b>、靠括号定序；PubMed <b>从左到右</b>；SD <code>() &gt; NOT &gt; AND &gt; OR</code>；Scopus <code>OR &gt; W/n &gt; AND &gt; AND NOT</code>；WOS <code>NEAR/x &gt; SAME &gt; NOT &gt; AND &gt; OR</code>。<b>换库就要重看优先级，不要背一套用到底。</b></div>
+<p class="small">经典例子：<code>卒中 OR 脑卒中 AND 护理</code>。在 CBM（AND 优先）里等于 <code>卒中 OR (脑卒中 AND 护理)</code>，不是你要的；要写成 <code>(卒中 OR 脑卒中) AND 护理</code>。</p>
+
+<h4>④ 位置关系：控制词与词的远近</h4>
+<p>位置检索（邻近检索）限定检索词在文献中的相对位置、前后次序，能体现词与词的亲疏关系。常见位置符：<code>near</code>、<code>same</code>、<code>with</code>、<code>W/n</code>。</p>
+<div class="card">
+<b>为什么需要它：</b>检索「温州医科大学附属医院」，作者 1 的单位是「中山大学附属第二医院」，作者 2 的单位是「温州医科大学药学院」。<br>
+用 <code>Wenzhou medical university affiliated hospital</code>（默认 AND）会把这篇检出来——两个词确实都出现了，但不在同一个单位里。<br>
+用 <code>Wenzhou medical university SAME affiliated hospital</code> 就不会——<code>SAME</code> 要求两个词出现在<b>同一条地址</b>里。
+</div>
+
+<h3>1.7 检索效果：查全率与查准率</h3>
+<div class="grid">
+<div class="card">
+<b>查准率 P</b>
+<p><code>P = a / (a + b) × 100%</code></p>
+<p class="small">检出相关文献量 / 检出文献总量。衡量「检出来的有多少是对的」。</p>
+</div>
+<div class="card">
+<b>查全率 R</b>
+<p><code>R = a / (a + c) × 100%</code></p>
+<p class="small">检出相关文献量 / 库内相关文献总量。衡量「该检的有没有漏」。</p>
+</div>
+<div class="card">
+<b>四象限</b>
+<p>a 检准信息、b 误检信息、c 漏检信息、d 无关信息。<br>a+b = 检出总量；a+c = 相关总量。</p>
+</div>
+</div>
+<div class="note"><b>手段与目标的对应关系（背下来）：</b>加权、字段限定、精确检索 → 提高<b>查准率</b>；扩展（含下位词）、OR 同义词、截词 → 提高<b>查全率</b>。老师课上反复用的判断句就是「扩展提高查全，加权提高查准」。</div>
+
+<h3>1.8 AI 与文献检索：能帮什么、不能信什么</h3>
+<div class="grid">
+<div class="card ok">
+<b>可以</b>
+<ul>
+<li>用自然语言提问，理解检索意图（NLP）</li>
+<li>按历史行为推荐相关文献（机器学习）</li>
+<li>语义层面挖掘潜在关联，补关键词想不到的角度</li>
+</ul>
+</div>
+<div class="card warn">
+<b>为什么会错（PPT 原文四点）</b>
+<ul>
+<li><b>更新不同步</b>：数据库更新 vs AI 数据集更新，谁先谁后都会对不上</li>
+<li><b>提示词语义偏差</b>：题目简略，AI 按训练数据推理，而不是模拟真实操作</li>
+<li><b>数据修正筛选</b>：各库有自己的索引规则、排序算法、标记筛选，AI 无法实时复现动态交互</li>
+<li><b>过于理想化</b>：AI 给的是「纯布尔逻辑推演」，数据库会在检索式上二次加工和扩展</li>
+</ul>
+</div>
+</div>
+<div class="quote">
+「可以用 AI 工具辅助理解，但最终的检索操作和答案必须由自己完成。」
+<span class="q-src">课堂录音 · 复习动员段（另见《文献数据库检索作业讲解》01:07 后的复习说明）</span>
+</div>
+<p class="small">第一讲最后还给了一份《关于在科研活动中规范使用人工智能技术的诚信提醒》（科发监审函字〔2024〕3 号）八条，核心是：可以用 AI 做调研、润色、翻译、规范化检查；<b>反对</b>直接使用未经核实的 AI 生成的调研报告、综述、申报材料、实验数据、整篇成果；使用了就要<b>声明工具名称、版本、日期及使用过程</b>。</p>
+
+<h3>1.9 对应题目：9.9 绪论作业（6 题，100 分）</h3>
+<table class="std">
+<thead><tr><th>#</th><th>题目</th><th>答案</th><th>依据</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>下列不属于按出版形式划分的文献是</td><td><b>电子型文献</b>（按<b>载体形式</b>划分）</td><td>老师讲评 06:09</td></tr>
+<tr><td>2</td><td>一次文献不包括</td><td><b>教科书</b>（三次文献）</td><td>老师讲评 06:09</td></tr>
+<tr><td>3</td><td>能扩大检索结果的检索技术是</td><td><b>截词符</b>（转写误作「介词符」）</td><td>老师讲评 07:02–07:59</td></tr>
+<tr><td>4</td><td>下列哪一项不是期刊的特点</td><td><b>系统性</b>（期刊特点是数量大、品种多、内容丰富、出版周期短）</td><td>老师讲评 07:59</td></tr>
+<tr><td>5</td><td>填空题：写出书名 + 在书架上找到该书的照片</td><td>书名与照片<b>都要有</b>；只交照片扣分（本次扣 1.7 分）</td><td>老师讲评 08:16</td></tr>
+<tr><td>6</td><td>（题干未在现有材料中留存）</td><td>—</td><td>待补</td></tr>
+</tbody>
+</table>
+<div class="warnbox"><b>第 3 题的陷阱值得单独说：</b>AND 是交集、OR 在多数库里也是「同义词并集但仍受其他条件约束」、NOT 是排除、精确检索是收紧——<b>只有截词符是明确扩大检索的</b>。老师原话：「能扩大检索结果的就是我们的截词符。」转写把它写成了「介词符」，是语音识别错误。</div>
+<div class="quote">
+「第一题……图书、期刊和专利文献，都是按照文献出版形式去划分。那电子型文献呢，我们是按照载体的形式去划分……教科书呢，它其实不是作者的原创研究发现，它是综合整理、归纳已有的知识，并且会按照我们的教学体系去重新组织，所以它是属于我们的三次文献。」
+<span class="q-src">生物医学数据库检索功能教学_元宝导出.md · 06:09</span>
+</div>
+</section>
+
+<section class="ch" id="s2">
+<h2>2 · CBM / SinoMed：中文医学库的主场 <span class="h2sub">第二讲 · 作业 7 题</span></h2>
+
+<p class="lead">CBM 是整门课唯一「全部题都能在一个中文界面里跑通」的数据库，也是期末简答题最可能出检索式的地方。它的难点不在界面，而在<b>主题检索那五个勾选项</b>——加权、扩展勾错一个，结果数就从一个变成一千三。</p>
+
+<div class="facts">
+<span class="fact">SinoMed 整合 8 个子库</span>
+<span class="fact">CBM 收录 1978 年以来 3145 种期刊（2025.04）、1290 余万篇题录</span>
+<span class="fact">全部题录均做主题标引 + 分类标引</span>
+<span class="fact">高级检索 22 个字段</span>
+<span class="fact">MeSH 副主题词 76 个（2025.07）+ 中医药副主题词 10 个</span>
+</div>
+
+<h3>2.1 它是什么：一个做了「标引」的库</h3>
+<p>SinoMed 是中国医学科学院医学信息研究所/图书馆研制的生物医学文献服务系统，整合中国生物医学文献数据库（<b>CBM</b>）、西文生物医学文献数据库（WBM）、北京协和医学院博硕学位论文数据库等 8 个子库。学科覆盖基础医学、临床医学、预防医学、药学、中医学与中药学。</p>
+<div class="card">
+<b>「标引」这两个字决定了它的用法</b>
+<ul>
+<li>每篇文献都被人工/半自动地打上<b>主题词</b>（来自《中文医学主题词》，= MeSH 中译本约 3 万余个 + 《中医药学主题词表》约 8000 余个）</li>
+<li>也被打上<b>分类号</b>（《中图法》）</li>
+<li>所以它有两个别的库没有的检索入口：<b>主题检索</b>、<b>分类检索</b></li>
+<li>2019 年起新增标识 2015 年以来文献的通讯作者；全面整合中文 DOI</li>
+</ul>
+</div>
+
+<h3>2.2 六种检索入口</h3>
+<table class="std">
+<thead><tr><th>入口</th><th>怎么用</th><th>关键规则</th></tr></thead>
+<tbody>
+<tr><td><b>快速检索</b></td><td>默认全部字段，支持通配符和布尔逻辑</td><td>多个词中间是空格 → <b>默认 AND</b>；集成「智能检索」；可用二次检索/限定检索/检索历史/年代进一步限定</td></tr>
+<tr><td><b>高级检索</b></td><td>多字段、多检索词逻辑组配</td><td>22 个字段；每次可输入多个词；勾「智能检索」与否结果不同；输入内容自动加英文双引号作为一个整体</td></tr>
+<tr><td><b>主题检索</b></td><td>检索词 → 主题词 → 副主题词 → 加权 → 扩展</td><td>由词表控制，查准率最高；找不到主题词时先截取词的一部分或换同义词</td></tr>
+<tr><td><b>分类检索</b></td><td>检索词 → 分类名/分类号 → 复分号 → 是否扩展</td><td>按《中图法》类目检索，适合「某一类疾病/某一学科」的查全</td></tr>
+<tr><td><b>引文检索</b></td><td>从被引文献题名、主题、作者、出处、机构、基金等查引用情况</td><td>支持发表年代、施引年代限定；可按期刊、作者、机构、期刊类型聚类</td></tr>
+<tr><td><b>期刊检索</b></td><td>按刊名、出版地、出版单位、期刊主题词、ISSN 查期刊</td><td>也可用首字母导航逐级浏览；能看某一期的文章</td></tr>
+</tbody>
+</table>
+<p class="small">另有<b>检索历史</b>：最多保存 200 条检索表达式；可勾选多条用 AND/OR/NOT 组合；可存成「检索策略」在「我的空间」定期调用；<b>系统退出后检索历史清除</b>。</p>
+
+<h3>2.3 高级检索：22 个字段，先分清「常用」和「核心」</h3>
+<p>22 个字段包括：常用字段、核心字段、全部字段、中文标题、英文标题、摘要、关键词、主题词、特征词、分类号、作者、第一作者、作者单位……</p>
+<table class="std">
+<thead><tr><th>字段</th><th>包含哪几项</th><th>什么时候用</th></tr></thead>
+<tbody>
+<tr><td><b>常用字段</b></td><td>中文标题 + 摘要 + 关键词 + <b>主题词</b>（4 项）</td><td>题目没指定字段时的默认选择，比「全部字段」干净</td></tr>
+<tr><td><b>核心字段</b></td><td>中文标题 + 关键词 + <b>主题词</b>（3 项，不含摘要）</td><td>要更准一点、又不至于漏太多时</td></tr>
+<tr><td>全部字段</td><td>整条记录所有可检索文字</td><td>最宽，容易掺进不相关文献</td></tr>
+<tr><td>中文标题</td><td>仅篇名</td><td>题目明确要求「题名中含有」时<b>必须用这个</b></td></tr>
+<tr><td>主题词</td><td>词表规范词</td><td>与「主题检索」入口不同：这里是字段限定，不涉及副主题词/加权/扩展</td></tr>
+<tr><td>特征词</td><td>如「人类」「老年人」「女(雌)性」</td><td>年龄组、性别、研究对象</td></tr>
+<tr><td>作者 / 第一作者 / 作者单位</td><td>外部特征</td><td>注意：<b>单位已单独限定后，作者字段不要再带单位</b></td></tr>
+</tbody>
+</table>
+<div class="warnbox"><b>最值钱的一条区分：</b>「常用字段」比「核心字段」多一个<b>摘要</b>。同一道题，用常用字段 61 条、用中文标题 52 条（PPT Q4），差的 9 条就是「摘要里有、标题里没有」的文献。题目写「题名中含有」，就只能用「中文标题」。</div>
+
+<h3>2.4 主题检索：五步一步都不能跳</h3>
+<div class="step">
+<b>检索词 → 主题词 → 副主题词 → 是否加权 → 是否扩展 → 检索</b>
+<ol>
+<li><b>检索词</b>：可直接输中/英文词，浏览主题词注释和树形结构来确定；也可用主题导航逐级浏览。多个同义词只对应一个主题词，主题词常采用<b>倒置格式</b>（「肾血管性高血压」→ 主题词「高血压，肾血管性」）。找不到主题词时，先截取词的一部分或试同义词。</li>
+<li><b>主题词</b>：确认唯一规范词。注意<b>同一个主题词可能属于多个主题树</b>，每棵树的上、下位词可能不同（例：「抗坏血酸」有 3 个主题树）。</li>
+<li><b>副主题词</b>：对主题词作限定，二者之间存在必然逻辑关系。例：「外科手术」可与疾病主题词（阑尾炎）、器官主题词（肝）组配，<b>不能</b>与化学物质主题词（葡萄糖）组配。</li>
+<li><b>是否加权</b>：加权 = 该词是文章主要论述内容，用 <code>*</code> 表示（<code>[MAJR]</code>），<b>提高查准率</b>。</li>
+<li><b>是否扩展</b>：扩展 = 把下位词一并检出（肝肿瘤 → 癌,肝细胞 / 肝肿瘤,实验性 / 腺瘤,肝细胞），<b>提高查全率</b>。</li>
+</ol>
+</div>
+
+<table class="std">
+<thead><tr><th>题面说法</th><th>加权</th><th>扩展</th><th>为什么</th></tr></thead>
+<tbody>
+<tr><td>「主要研究」「重点论述」</td><td><b>加权</b></td><td>看是否要求查全</td><td>加权就是这个意思</td></tr>
+<tr><td>只给主题，没给「重点/主要」</td><td>不加权</td><td>按需</td><td>加了会把次要讨论的文献排除</td></tr>
+<tr><td>「有关 XX 的综述」</td><td>按题面</td><td>按题面</td><td>综述是<b>文献类型</b>限定，不是加权</td></tr>
+<tr><td>「XX 方面的文献」（要全）</td><td>不加权</td><td><b>扩展</b></td><td>扩展含下位词，查全</td></tr>
+<tr><td>「XX 治疗 YY」（药物治疗）</td><td>按题面</td><td>按题面</td><td>副主题词固定搭配见下</td></tr>
+</tbody>
+</table>
+<div class="okbox"><b>《总复习题2025参考答案》给的一条固定搭配，直接背：</b><br>
+「药物治疗疾病的主题检索，副主题词搭配的固定选择是：<b>药物 / 治疗应用 + 疾病 / 药物疗法</b>。」<br>
+标准答案写法：<code>("二甲双胍/投药和剂量/副作用/中毒/毒性/治疗应用"[加权:不扩展]) AND "糖尿病/药物疗法"[加权:不扩展]</code> → <b>188</b> 条。</div>
+
+<h3>2.5 分类检索：找的是「一类」，不是「一个词」</h3>
+<div class="step">
+<b>检索词 → 分类名/分类号 → 复分号 → 是否扩展 → 检索</b>
+<ol>
+<li>分类名/分类号：R 医药卫生 → R4 临床医学 → R45 治疗学 → R456 生物疗法……</li>
+<li>复分号：对分类号进一步限定，如 <code>011</code> 流行病学调查、<code>022</code> 病理学、<code>025</code> 病因学、<code>026</code> 遗传学、<code>045</code> 影像诊断学</li>
+<li>是否扩展：勾上则含下位类目</li>
+</ol>
+</div>
+<div class="warnbox"><b>界面坑（实测踩过）：</b>「分类检索」页只有一个「查找分类词」输入框和一棵分类树，<b>这个框只认类名，不认分类号</b>。填 <code>R541.2</code> 会得到「已找到 0 条相关记录」，填「风湿性心脏病」才能查到 2 条类目。要把这一类文献真正检出来，回<b>快速检索</b>，字段下拉选「分类号」，输入 <code>R541.2</code> 再检索；或在高级检索里用分类号字段建一行。</div>
+
+<h3>2.6 结果处理与作业答题格式</h3>
+<div class="grid">
+<div class="card">
+<b>结果页能做什么</b>
+<ul>
+<li>显示格式：题录 / 文摘</li>
+<li>每页条数：20 / 50 / 100</li>
+<li>排序：入库、年代、作者、期刊、相关度、<b>被引频次</b></li>
+<li>期刊类型筛选：<b>核心期刊</b>、中华医学会期刊、循证文献</li>
+<li>输出：SinoMed、NoteExpress、EndNote、RefWorks、NoteFirst</li>
+</ul>
+</div>
+<div class="card ok">
+<b>作业答案格式（PPT 第 58 页原文）</b>
+<p>主要要求写<b>检索式、检索结果数、检索结果题名、第一作者、来源出版物</b>。</p>
+<pre>检索式："温州医科大学"[作者单位]
+        AND "肝癌"[常用字段:智能]
+结果：262
+题名：加速康复外科护理路径在老年肝癌
+      切除术患者中的应用效果
+第一作者：黄芬
+出处：现代实用医学</pre>
+</div>
+</div>
+
+<h3>2.7 易错点：CBM 五道 PPT 题为什么会差出三个数量级</h3>
+<table class="std">
+<thead><tr><th>PPT 题</th><th>学生答案出现过的数</th><th>差在哪</th><th>判断</th></tr></thead>
+<tbody>
+<tr><td><b>Q1</b> 2015–2017 二甲双胍 · 65 岁以上 · 不良反应</td><td>1 / 80</td><td>字段粒度：一组把「治疗糖尿病」「不良反应」写成带引号的常用字段短语，一组只写词根</td><td><span class="tag warn">题目本身不唯一</span> 两种写法都用了正确的年龄/人类限定</td></tr>
+<tr><td><b>Q2</b> 主题词加权检索肺动脉高压流行病学的综述</td><td>1301 / 1 / 12 / 246 / 153（单检 979）</td><td>加权 × 扩展的组合不同；「综述」是文献类型限定还是主题词</td><td><span class="tag warn">无唯一解</span> 题面没说扩不扩展</td></tr>
+<tr><td><b>Q3</b> 主题词加权扩展检索静脉血栓药物治疗</td><td>3152 / 5166</td><td>「主题词 + 副主题词分开写」vs「主题词/副主题词合成一个规范词」</td><td><span class="tag ok">合成写法更贴题</span></td></tr>
+<tr><td><b>Q4</b> 浙江大学厉有名 · 题名含非酒精性脂肪性肝病</td><td>61 / 52</td><td>常用字段 vs 中文标题</td><td><span class="tag ok">52 对</span> 题目要求「题名」</td></tr>
+<tr><td><b>Q5</b> 温医大所有附属医院 · 检验科/检验中心</td><td>744 / 780</td><td>先查「温州医科大学」再交集，vs 直接把「附属%医院」写进作者单位</td><td><span class="tag ok">780 更贴题</span> 744 会混进非附属单位</td></tr>
+</tbody>
+</table>
+<div class="warnbox"><b>四条反复踩的坑：</b>
+<ol>
+<li><b>年龄组当关键词写。</b>「65 岁以上」要在「限定检索」里勾「老年人：65 岁以上」，不是加一行「老年」——后者只匹配到标题/摘要里碰巧出现「老年」二字的文献。</li>
+<li><b>作者字段重复带单位。</b>老师原话：已经做了作者单位字段限定，作者那边就<b>不用再包含单位</b>。</li>
+<li><b>加权/扩展勾错。</b>「加权」= 主要主题词，提高查准；「扩展」= 含下位词，提高查全。两个都勾和两个都不勾，数字能差 100 倍。</li>
+<li><b>把分面数字当总数。</b>左栏「核心期刊：119」是筛选后的数，右上「全部：N」是历史总数，真实命中看左栏 navstat 和底部「共 X 页」。</li>
+</ol>
+</div>
+
+<h3>2.8 对应题目全表</h3>
+<h4>2026 作业（9.16，7 题，已批 90.1 分）</h4>
+<table class="std">
+<thead><tr><th>题</th><th>最可信的值</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>风湿性心脏病分类号 + 发文最多作者/机构</td><td>R541.2；实测 4,486 篇</td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>髋脱位主题词 + 上位链</td><td>髋脱位，先天性；上位链：发育性髋关节发育不良 → 肌肉骨骼畸形 → 肌骨骼疾病</td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>二甲双胍 65 岁以上不良反应</td><td>旧答案 225；两词 5,926 / 三词 2,331 / 加「老年」266；<b>225 未复现</b></td><td><span class="tag bad">未复现</span></td></tr>
+<tr><td>范建高 × 非酒精性脂肪性肝病</td><td>25</td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>核心期刊阑尾炎综述</td><td>旧 116；实测 299 → 限核心 <b>119</b>（+3 为收录增长）</td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>《浙江医学》2025 年高血压</td><td>17</td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>IL-8 × 类风湿 × 作用机制</td><td>2</td><td><span class="tag ok">实测</span></td></tr>
+</tbody>
+</table>
+
+<h4>总复习题 2025（CBM 部分 5 题，官方给了答案）</h4>
+<table class="std">
+<thead><tr><th>题</th><th>官方答案</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>填空 1：温州医学院出版的期刊种数；《肝胆胰外科杂志》2016 年第 5 期篇数</td><td><b>7 种；24 篇</b></td><td>期刊检索 → 出版单位 = 温州医学院</td></tr>
+<tr><td>简答 1：2010 年以来成年人 19–44 岁精神障碍的病例报告</td><td><b>1470</b><br><code>("精神障碍"[常用字段:智能]) AND (病例报告[文献类型]) AND (成年人[特征词]) AND (人类[特征词]) AND 2010-[日期]</code></td><td>年龄用<b>特征词</b>，文献类型用<b>文献类型</b>字段</td></tr>
+<tr><td>简答 2：二甲双胍治疗糖尿病（主题词加权不扩展，副主题词扩展）</td><td><b>188</b><br><code>("二甲双胍/投药和剂量/副作用/中毒/毒性/治疗应用"[加权:不扩展]) AND "糖尿病/药物疗法"[加权:不扩展]</code></td><td>背「药物/治疗应用 + 疾病/药物疗法」这条固定搭配</td></tr>
+<tr><td>简答 3：蠕虫病传播途径的核心期刊文献 + 发文最多作者</td><td><b>117</b>；<code>"R532/012"[分类号:扩展]</code>；作者<b>钱宝珍（6 篇）</b></td><td>核心期刊在结果页筛；发文最多用「学术分析」</td></tr>
+<tr><td>简答 4：上海市第一人民医院刘堃教授作为第一作者</td><td><b>8</b>；<code>"刘堃"[第一作者] AND "上海市第一人民医院〔上海〕"[作者单位]</code></td><td>题说「第一作者」就不能用「作者」字段</td></tr>
+</tbody>
+</table>
+
+<h4>PPT《作业常见问题》CBM 部分</h4>
+<p class="small">Q1–Q5 的完整五组学生答案、检索式原文与逐条判断见 <a href="#s12">第 12 章</a>。这五题<b>没有老师讲评录音</b>——CBM 那节课的转写在 27:12 停在「给大家 10 分钟做练习，待会儿找人上来演示」，后面的讲评没录到。所以本章对 Q1–Q5 的判断只能依据讲义规则，不能给「官方数字」。</p>
+
+<h3>2.9 老师原话</h3>
+<div class="quote">
+「如果是精确的话，目前检索到是 2269 条……发表数量最多的机构就是北京大学人民医院，作者是魏丽慧。」
+<span class="q-src">数据库检索规则与作业讲解 · 09:47–10:34（万方 HPV 疫苗题，方法同样适用于 CBM 的「发文最多机构/作者」）</span>
+</div>
+<div class="quote">
+「大家如果已经进行作者单位的一个字段限定的话，那在作者这边呢，我们就不用重复再进行一个包含单位的这样的一个字段。」
+<span class="q-src">数据库检索规则与作业讲解 · 07:36</span>
+</div>
+<div class="quote">
+「同一个逻辑符就放在一个检索框里。」「表达及功能，我们可以不作为检索词放在我们的检索式里面。」
+<span class="q-src">数据库检索规则与作业讲解 · 14:50–18:04（知网 miR-146a 题，逻辑规则通用）</span>
+</div>
+</section>
+
+<section class="ch" id="s3">
+<h2>3 · 中国知网 CNKI：字段最多、坑也最多 <span class="h2sub">第三讲（上）</span></h2>
+
+<p class="lead">知网是中文全文库里「字段最细」的一个：16 个检索项、单库还有专属字段。作业里 9 道题有 6 道在知网，出错基本集中在三处——<b>把「主题」当「篇关摘」、把「总库」当「学术期刊」、把运算符的优先级想当然</b>。</p>
+
+<div class="facts">
+<span class="fact">期刊 8590 余种，含北大核心 1970 余种</span>
+<span class="fact">全文 6450 余万篇</span>
+<span class="fact">硕士 683 万篇 / 博士 65 万篇</span>
+<span class="fact">会议论文 395 余万篇</span>
+<span class="fact">10 大专辑 · 168 个专题</span>
+</div>
+
+<h3>3.1 检索规则：知网的布尔运算和别的库不一样</h3>
+<table class="std">
+<thead><tr><th>项目</th><th>知网规则</th><th>注意</th></tr></thead>
+<tbody>
+<tr><td>运算符</td><td><code>*</code>（与）、<code>+</code>（或）、<code>-</code>（非）</td><td>也可以直接用 AND / OR / NOT；所有符号和字母必须<b>英文半角</b>，不区分大小写</td></tr>
+<tr><td>优先级</td><td><b><code>* + -</code> 三者同级</b>，必须用英文半角括号 <code>()</code> 改变运算次序</td><td>第三讲 PPT 与 zss 讲义口径一致。<b>不要套用 CBM 的 NOT&gt;AND&gt;OR</b></td></tr>
+<tr><td>空格</td><td>输入 <code>*</code> <code>+</code> <code>-</code> 时，<b>前后要空一个字节</b></td><td>不空格会被当成词的一部分</td></tr>
+<tr><td>检索框容量</td><td>高级检索单个检索框<b>不得超过 120 个字符</b></td><td>长检索式要拆行</td></tr>
+<tr><td>精确/模糊</td><td>每个字段可单独选「精确」或「模糊」</td><td>精确 = 把词组当独立运算符；模糊 = 可整体也可拆开匹配</td></tr>
+<tr><td>特殊字符</td><td>检索词本身含空格或 <code>* + - ( ) / % =</code> 时，须用英文半角单/双引号引起来</td><td>否则会产生歧义</td></tr>
+</tbody>
+</table>
+<div class="warnbox"><b>更正一处常见误记：</b>网上流传的「知网优先级 <code>() &gt; NOT &gt; AND &gt; OR</code>」是<b>万方</b>的规则，不是知网的。知网 PPT 原话是「优先级：<code>*、+、-</code> 同级，英文半角圆括号可改变运算次序」。本手册早期版本也写错过，这里以 PPT 原文为准。</div>
+
+<h3>3.2 16 个检索项：主题、篇关摘、关键词到底差在哪</h3>
+<table class="std">
+<thead><tr><th>字段</th><th>检索范围</th><th>什么时候用</th></tr></thead>
+<tbody>
+<tr><td><b>主题</b></td><td>在知网标引出的主题字段中检索，嵌入专业词典、主题词表、中英对照词典、停用词表，并用关键词截断算法截掉低相关文献</td><td>一框式检索的默认字段；查全查准折中</td></tr>
+<tr><td><b>篇关摘</b></td><td><b>篇名 + 关键词 + 摘要</b>三处</td><td>题目点名「篇关摘」时必须用；老师讲评作业时反复强调的字段</td></tr>
+<tr><td>关键词</td><td>原文给出的中英文关键词 + 机器标引的关键词</td><td>比篇关摘窄，比篇名宽</td></tr>
+<tr><td>篇名</td><td>期刊/会议/学位/辑刊的中英文标题；报纸含引题、正标题、副标题；年鉴为条目题名；专利为专利名称</td><td>题目要求「题名中含有」时用</td></tr>
+<tr><td>全文</td><td>篇名、关键词、摘要、正文、参考文献全部文字</td><td>最宽，容易误检</td></tr>
+<tr><td>作者 / 第一作者 / 通讯作者</td><td>作者为原文中英文作者（专利为发明人）；第一作者 = 排在第一的责任人；通讯作者 = 课题总负责人</td><td>题目说「第一作者」就不能用「作者」</td></tr>
+<tr><td>作者单位</td><td>原文给出的机构名称；学位论文含学位授予单位 + 任职单位</td><td>与作者字段<b>不要重复</b>限定</td></tr>
+<tr><td>基金</td><td>按基金名称查受资助文献（期刊/会议/学位/辑刊）</td><td>「受国家自然科学基金资助」用这个</td></tr>
+<tr><td>摘要 / 小标题 / 参考文献</td><td>摘要为中英文摘要；小标题为各级标题（学位论文为中英文目录）；参考文献检索「参考文献里含某词的文献」</td><td>参考文献检索是知网特色</td></tr>
+<tr><td>分类号</td><td>中图分类号（专利为专利分类号）</td><td>按学科查全</td></tr>
+<tr><td>文献来源</td><td>期刊/辑刊/报纸/会议/年鉴为所在刊物；学位论文为学位授予单位；专利为权利人/申请人</td><td>刊名限定用这个</td></tr>
+<tr><td>DOI</td><td>按 DOI 号检索（国内文献只支持在知网注册 DOI 的）</td><td>已知 DOI 找单篇</td></tr>
+</tbody>
+</table>
+<div class="warnbox"><b>老师最强调的一句：</b>「<b>主题字段不等于篇关摘</b>」（期末复习 PDF 里也单列了这一条）。主题是标引+算法处理过的字段，篇关摘是篇名/关键词/摘要三处的字面匹配，两者结果数不同，不能互相替代。</div>
+
+<h3>3.3 四种检索功能与三种浏览功能</h3>
+<div class="grid">
+<div class="card">
+<b>跨库检索 / 单库检索</b>
+<ul>
+<li>高级检索默认在「总库」跨库检索（期刊+学位+会议+专利+…）</li>
+<li>可切到学术期刊、学位论文、会议论文、专利文献等单库</li>
+<li><b>总库的数一定 ≥ 单库的数</b>（PPT Q6：总库 132 vs 学术期刊 98）</li>
+</ul>
+</div>
+<div class="card">
+<b>单库专属字段</b>
+<ul>
+<li>期刊库：来源期刊 <code>JN</code>、ISSN <code>SN</code>、CN 号 <code>CN</code>、卷、期</li>
+<li>学位论文库：<b>导师</b> <code>TU</code>、学科专业名称、学位年度、学位单位 <code>DF</code>、优秀论文级别</li>
+<li>会议论文库：会议时间、<b>会议名称</b> <code>CV</code>、报告级别、论文集名称 <code>CP</code></li>
+</ul>
+</div>
+<div class="card">
+<b>作者发文检索</b>
+<p>输入作者姓名后，右侧引导列表可按机构勾选，精准定位同名作者。</p>
+</div>
+<div class="card">
+<b>句子检索</b>
+<p>「同一句」= 包含 1 个断句标点（句号、问号、感叹号、省略号）；<br>「同一段」= 20 句之内。</p>
+</div>
+</div>
+<table class="std">
+<thead><tr><th>浏览功能</th><th>能查什么</th><th>典型题</th></tr></thead>
+<tbody>
+<tr><td><b>期刊导航</b></td><td>按学科/期刊类型浏览，查特定期刊的出版周期、ISSN、复合影响因子</td><td>「外科学期刊多少种？北大核心多少种？《临床麻醉学杂志》的出版周期/ISSN/影响因子」</td></tr>
+<tr><td><b>学位授予单位导航</b></td><td>按单位查博士/硕士/硕博论文数量，可切学科</td><td>「南京大学多少篇学位论文？法学博士、理学硕士各多少？」</td></tr>
+<tr><td><b>会议导航</b></td><td>按年份、国内/国际会议论文集浏览</td><td>「浙江大学主办多少次会？最近一次是什么会？论文集多少篇？」</td></tr>
+</tbody>
+</table>
+
+<h3>3.4 结果页：分组、排序、知网节</h3>
+<div class="grid">
+<div class="card">
+<b>分组筛选</b>
+<p>结果区左侧可按主题、文献来源、学科、作者、机构、基金、文献类型筛选，支持多条件组合。</p>
+</div>
+<div class="card">
+<b>四种排序</b>
+<p>相关度、发表时间、被引、下载。（作业常要求「按下载量排序」「按被引排序」）</p>
+</div>
+<div class="card">
+<b>知网节</b>
+<p>参考文献（越查越深）、引证文献（越查越新）、相似文献。文献详情页的出版来源信息含期刊名、年期、页码。</p>
+</div>
+</div>
+<div class="step">
+<b>检索窍门（PPT 第 38 页总结）</b>
+<ol>
+<li>全面了解领域：用高级检索，逻辑组配，先写好检索策略</li>
+<li>快速了解领域：一框式跨库检索，系统默认「主题」</li>
+<li>结果太少要扩检：换字段（放宽到全文/主题）、加同义词、去限定</li>
+<li>结果太多要缩检：改用题名/篇名、关键词字段</li>
+<li>巧用分组（作者、机构、年度、基金）与排序（时间、被引、下载）</li>
+<li>巧用知网节：参考文献、引证文献、相似文献</li>
+</ol>
+</div>
+
+<h3>3.5 易错点（对照 PPT Q6 / Q7 与作业实测）</h3>
+<table class="std">
+<thead><tr><th>错法</th><th>后果</th><th>正确做法</th></tr></thead>
+<tbody>
+<tr><td>题目要「篇关摘」，用了「主题」</td><td>结果数对不上，且无法解释</td><td>先在下拉里选「篇关摘」，再填词</td></tr>
+<tr><td>题目要「发表的文献」，只查了学术期刊</td><td>漏掉学位论文/会议/专利（132 → 98）</td><td>没限定类型就用「总库」；限定了再用单库</td></tr>
+<tr><td>把三个同义词拆成三行再 OR</td><td>逻辑关系被行间运算符改写</td><td>同一逻辑符放<b>同一个检索框</b>（老师原话）</td></tr>
+<tr><td>把「表达及功能」也写进检索式</td><td>多一个限制条件，结果被砍（10 → 8）</td><td>题面里的描述性词语<b>不作检索词</b>（老师原话）</td></tr>
+<tr><td>带连字符的词不加引号</td><td><code>miR-146a</code> 被拆成 miR 和 146a</td><td>加英文双引号 <code>"miR-146a"</code></td></tr>
+<tr><td>「期刊名称」和「文献来源」混用</td><td>部分单库里没有「期刊名称」字段</td><td>期刊库用「来源期刊 JN」或「文献来源」</td></tr>
+<tr><td>学位论文题用「作者」找导师</td><td>检不到</td><td>学位论文库用「<b>导师</b> TU」字段</td></tr>
+</tbody>
+</table>
+
+<h3>3.6 对应题目全表</h3>
+<h4>2026 作业（9.23，知网部分）</h4>
+<table class="std">
+<thead><tr><th>题</th><th>最可信的值</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>会议论文第三册篇数</td><td><b>270</b></td><td><span class="tag ok">老师录音 + 实测一致</span></td></tr>
+<tr><td>精神病学北大核心期刊种数</td><td><b>2 种</b></td><td><span class="tag ok">老师录音 + 实测一致</span></td></tr>
+<tr><td>《关爱生命大讲堂》2026 年第 4 期 · 篇关摘含胰岛素抵抗</td><td><b>3 篇</b>（老师）；实测被风控拦截，未取到</td><td><span class="tag warn">仅有老师口径</span></td></tr>
+<tr><td>黄悦勤 × 北大六院 × 《中国心理卫生杂志》</td><td>知网 <b>105</b>（老师）/ 实测 107；万方 138；第一篇《医学科研中随机误差控制和样本量确定》</td><td><span class="tag warn">差 2 条</span></td></tr>
+<tr><td>2 型糖尿病遗传基因 · 学位论文</td><td>老师 <b>39</b>（篇关摘）；实测 26（主题）；旧文档 568 未复现</td><td><span class="tag bad">旧值错</span></td></tr>
+<tr><td>miR-146a × 胃癌细胞 · 篇关摘</td><td>老师现场演示未报确切数；实测 <b>90</b>；第一篇实为<b>肖斌</b>（不是旧答案的李海龙）</td><td><span class="tag warn">旧答案第一篇错</span></td></tr>
+</tbody>
+</table>
+
+<h4>总复习题 2025（知网部分 3 题）</h4>
+<table class="std">
+<thead><tr><th>题</th><th>官方答案</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>受国家自然科学基金资助、发表于《中国肿瘤》</td><td><b>276</b>；（基金：国家自然科学基金）AND（期刊名称：中国肿瘤）</td><td>基金 + 刊名两个字段</td></tr>
+<tr><td>浙江大学汤永民教授以第一导师指导的博士论文</td><td><b>19</b>；（第一导师：汤永民）AND（作者单位：浙江大学）</td><td><b>导师字段</b>，且「第一导师」不是「导师」</td></tr>
+<tr><td>2014 浙江省肾脏病学术年会 · 血液透析</td><td><b>89</b>；（会议名称：2014 浙江省肾脏病学术年会）AND（篇关摘：血液透析）</td><td>会议名称 <code>CV</code> 字段</td></tr>
+</tbody>
+</table>
+
+<h4>PPT《作业常见问题》知网部分</h4>
+<p class="small">Q6（张志荣，132 / 98）与 Q7（miR-146a，10 / 5 / 8 / 30，实测 90）的完整学生答案见 <a href="#s12">第 12 章</a>。Q7 是 13 题里<b>唯一有老师逐句讲评</b>的一题（除 Q13 外），老师的四条口径值得单独抄下来：</p>
+<div class="quote">
+「表达及功能，我们可以不作为检索词放在我们的检索式里面……同一个逻辑符就放在一个检索框里。」
+<span class="q-src">数据库检索规则与作业讲解 · 14:50–16:35（讲 miR-146a 题）</span>
+</div>
+
+<h3>3.7 老师原话</h3>
+<div class="quote">
+「第三题是要求我们在知网上检索 2026 年第四期关爱生命大讲堂……在篇关摘字段中含有胰岛素抵抗的文献的数量……显示的数量是有三篇。」
+<span class="q-src">数据库检索规则与作业讲解 · 01:14–01:46</span>
+</div>
+<div class="quote">
+「知网……结果数量是 105 篇……第一篇呢，就是我们的医学科研中随机误差控制和样本量的一个确定。」
+<span class="q-src">数据库检索规则与作业讲解 · 04:01–05:42（黄悦勤题）</span>
+</div>
+<div class="quote">
+「检索到的一个数量就是 39……第一篇就是谭丹丹的基于复杂网络模型的重要干预……学位授予年度最多的是 2012 年有六篇，学位授予单位最多的是河北医科大学和浙江大学。」
+<span class="q-src">数据库检索规则与作业讲解 · 12:39（2 型糖尿病遗传基因题）</span>
+</div>
+</section>
+
+<section class="ch" id="s4">
+<h2>4 · 万方数据：换库就要换写法 <span class="h2sub">第三讲（下）</span></h2>
+
+<p class="lead">万方和知网是「同一道题、两套字段名」。它的规则比知网简单，但结果常常差一截——因为两个库的收录范围、标引深度、同义词处理都不一样。<b>同一题在知网和万方给出两个数，不是谁错了，是口径不同。</b></p>
+
+<div class="facts">
+<span class="fact">5 个主要库：期刊 / 学位 / 会议 / NSTL 外文 / 中外专利</span>
+<span class="fact">优先级 ( ) &gt; NOT &gt; AND &gt; OR</span>
+<span class="fact">支持精确 / 模糊两种匹配</span>
+</div>
+
+<h3>4.1 检索规则</h3>
+<table class="std">
+<thead><tr><th>运算符</th><th>含义</th><th>示例</th></tr></thead>
+<tbody>
+<tr><td><code>AND</code></td><td>所有词同时出现在文献中</td><td><code>题名：(阿司匹林 AND 高血压)</code></td></tr>
+<tr><td><code>OR</code></td><td>至少一个词出现</td><td><code>题名：(艾滋病 OR AIDS)</code></td></tr>
+<tr><td><code>NOT</code></td><td>后面的词不出现</td><td><code>题名：(糖尿病 NOT 二型)</code></td></tr>
+<tr><td><code>" "</code></td><td>精确匹配，引号内容作为整体检索</td><td><code>题名：("新冠肺炎")</code></td></tr>
+<tr><td><code>( )</code></td><td>限定检索顺序，括号内优先运算</td><td><code>题名：((艾滋病 OR AIDS) AND 免疫)</code></td></tr>
+</tbody>
+</table>
+<div class="okbox"><b>优先级：<code>( ) &gt; NOT &gt; AND &gt; OR</code>。</b>运算符建议用<b>英文半角</b>输入。高级检索每个字段可选「精确」或「模糊」匹配。</div>
+
+<h3>4.2 资源与浏览</h3>
+<div class="grid">
+<div class="card">
+<b>5 个主要数据库</b>
+<ol>
+<li>中国学术期刊数据库</li>
+<li>中国学位论文全文数据库</li>
+<li>中国学术会议文献数据库</li>
+<li>NSTL（国家科技图书文献中心）外文文献数据库</li>
+<li>中外专利数据库</li>
+</ol>
+</div>
+<div class="card">
+<b>检索区域</b>
+<ul>
+<li>可切换不同类型文献（期刊/学位/会议/专利）</li>
+<li>「更多选项」可展开：按刊名首字母、<b>核心收录</b>、收录地区、<b>出版周期</b>浏览期刊</li>
+<li>按学科浏览期刊</li>
+</ul>
+</div>
+<div class="card">
+<b>期刊详情能看什么</b>
+<ul>
+<li>曾用名、影响因子、ISSN</li>
+<li>主办单位、国内刊号（CN）</li>
+<li>可跳转到某一期的文献</li>
+</ul>
+</div>
+</div>
+
+<h3>4.3 万方的典型题路子</h3>
+<div class="step">
+<b>「某学科的双月刊有多少种 + 主办单位 + 国内刊号」</b>
+<ol>
+<li>首页 → 期刊 → 按学科浏览 → 选学科（如「肿瘤学」）</li>
+<li>用「出版周期」筛选「双月刊」→ 读数</li>
+<li>点进目标刊（如《肿瘤药学》）→ 详情页读主办单位、CN 号</li>
+</ol>
+<p class="small">官方答案示例：肿瘤学双月刊 <b>11 种</b>；《肿瘤药学》主办单位 <b>湖南省肿瘤医院</b>，国内刊号 <b>43-1507/R</b>。</p>
+</div>
+<div class="step">
+<b>「某作者指导的学位论文」</b>
+<ol>
+<li>切到「学位论文」子库</li>
+<li>字段选「导师」，输入姓名；再按需加「作者单位」</li>
+<li>注意与知网的区别：知网学位论文库的字段叫「导师 / 第一导师」，万方也是「导师」</li>
+</ol>
+<p class="small">官方答案示例：泰山医学院刘林祥教授指导的学位论文 <b>44</b> 条，写法 <code>作者单位:(泰山医学院) * 导师:("刘林祥")</code>。</p>
+</div>
+
+<h3>4.4 易错点：同一题在两个库数字不同，怎么解释</h3>
+<table class="std">
+<thead><tr><th>现象</th><th>原因</th><th>怎么处理</th></tr></thead>
+<tbody>
+<tr><td>知网 105 篇，万方 138 篇（黄悦勤题）</td><td>两库收录的期刊范围、年限、标引深度不同；万方对机构名/作者名的规范化程度不同</td><td>题目指定哪个库就答哪个库；<b>不要把两个数混着写</b></td></tr>
+<tr><td>老师报 2,269，旧文档写 4,039（HPV 疫苗）</td><td>旧文档可能用了「全部字段」或没加「精确」；老师用的是精确检索</td><td>以老师口径为准，写清「精确」二字</td></tr>
+<tr><td>「临床医学 SCI 期刊 3 种」复现不出来</td><td>万方新版期刊导航里<b>没有「临床医学」这个子类</b>，学科树改版了</td><td>标「未复现」，不硬凑</td></tr>
+<tr><td>「发文最多的机构/作者」每次不一样</td><td>万方没有知网那种「学术分析」面板，要在结果页左侧分面看，或导出后统计</td><td>写清用的是什么口径（分面 / 导出统计）</td></tr>
+</tbody>
+</table>
+
+<h3>4.5 对应题目全表</h3>
+<h4>2026 作业（9.23，万方部分）</h4>
+<table class="std">
+<thead><tr><th>题</th><th>最可信的值</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>蒋毅老师指导的学位论文</td><td><b>22 条</b></td><td><span class="tag ok">老师录音 + 实测一致</span></td></tr>
+<tr><td>临床医学 SCI 期刊种数</td><td><b>3 种</b>（老师）；新版导航无「临床医学」子类，未复现</td><td><span class="tag warn">仅有老师口径</span></td></tr>
+<tr><td>HPV 疫苗（期刊 + 会议）</td><td>老师：<b>2,269</b>（精确）；高产机构 <b>北京大学人民医院</b>；高产作者 <b>魏丽慧</b><br>旧文档 4,039 / 中国疾控中心 / 乔友林（错）</td><td><span class="tag bad">旧值错</span></td></tr>
+</tbody>
+</table>
+
+<h4>总复习题 2025（万方部分 4 题）</h4>
+<table class="std">
+<thead><tr><th>题</th><th>官方答案</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>郭建华《运用反向斑点杂交技术检测四川地区结核分枝杆菌 katG 基因 315 位点的突变》，四川大学学报（自然科学版）2009</td><td>被引频次 <b>2</b></td><td>篇名 + 作者 + 出处三字段定位单篇</td></tr>
+<tr><td>肿瘤学的双月刊种数；《肿瘤药学》主办单位、国内刊号</td><td><b>11</b>；<b>湖南省肿瘤医院</b>；<b>43-1507/R</b></td><td>期刊导航 + 出版周期筛选</td></tr>
+<tr><td>炎症性肠病：发文最多的单位、作者、期刊</td><td><b>930</b>；全部字段 = 炎症性肠病 并且 全文类型 = 中华医学会期刊<br>单位 <b>北京协和医院</b>；作者 <b>钱家鸣</b>；期刊 <b>中华消化杂志</b></td><td>「发文最多」三连问</td></tr>
+<tr><td>泰山医学院刘林祥教授指导的学位论文</td><td><b>44</b>；<code>作者单位:(泰山医学院) * 导师:("刘林祥")</code></td><td>导师字段 + 单位</td></tr>
+</tbody>
+</table>
+
+<h3>4.6 老师原话</h3>
+<div class="quote">
+「如果是精确的话，目前检索到是 2269 条……发表数量最多的机构就是北京大学人民医院，作者是魏丽慧。」
+<span class="q-src">数据库检索规则与作业讲解 · 09:47–10:34</span>
+</div>
+<div class="quote">
+「由蒋毅老师指导的学位论文呢，目前是有 22 条文献。」
+<span class="q-src">数据库检索规则与作业讲解 · 03:17</span>
+</div>
+<div class="quote">
+「一共有 3 种。」（临床医学 SCI 期刊题）
+<span class="q-src">数据库检索规则与作业讲解 · 约 02:40–03:10 段（该题现场演示，新版导航已改版）</span>
+</div>
+</section>
+
+<section class="ch" id="s5">
+<h2>5 · PubMed：规则最干净，陷阱最隐蔽 <span class="h2sub">第四讲 · 作业 6 题</span></h2>
+
+<p class="lead">PubMed 是免费库，界面最规范，但它有一个别的库都没有的机制——<b>自动词语匹配</b>。你输入一个词，它会在后台把词拆开、换成 MeSH、再在所有字段里搜一遍。所以同一句检索式，加不加引号、加不加字段标签，结果能差几十倍。</p>
+
+<div class="facts">
+<span class="fact">4000 万+ 篇文献（2026-03-17）</span>
+<span class="fact">NLM / NIH / NCBI</span>
+<span class="fact">数据来源：MEDLINE、OLDMEDLINE、Record in process、Record supplied by publisher</span>
+<span class="fact">MeSH 27,000+ 主题词</span>
+<span class="fact">副主题词 76 个（2025.07）</span>
+<span class="fact">每周五天更新</span>
+</div>
+
+<h3>5.1 检索规则：PubMed 的优先级是「没有优先级」</h3>
+<table class="std">
+<thead><tr><th>项目</th><th>规则</th><th>后果</th></tr></thead>
+<tbody>
+<tr><td>布尔优先级</td><td><b>从左到右依次运算</b>，没有 NOT&gt;AND&gt;OR 那套</td><td><code>A AND B OR C</code> 会先算 <code>A AND B</code>，再 OR C</td></tr>
+<tr><td>括号</td><td>可加圆括号改变运算次序</td><td>复杂检索式<b>必须显式加括号</b></td></tr>
+<tr><td>大小写</td><td>AND / OR / NOT 大小写均可（建议大写）</td><td>—</td></tr>
+<tr><td>空格</td><td>多个检索词之间空格 = <b>默认 AND</b></td><td><code>heart attack</code> 先当短语试，再拆成 heart AND attack</td></tr>
+<tr><td>截词</td><td><code>*</code> 代表 0 或多个字符</td><td><code>acupunctur*</code> → acupuncture / acupunctural / acupuncturation…；<code>smok*</code> → smoke / smoking / smoked / smoker</td></tr>
+<tr><td>精确检索</td><td>短语加英文半角双引号 <code>" "</code></td><td>关闭自动词语匹配，把短语当整体在所有字段检索</td></tr>
+<tr><td>字段限定</td><td>格式 <code>检索词[字段标识]</code></td><td>关闭自动词语匹配</td></tr>
+</tbody>
+</table>
+<div class="note"><b>关于截词的更正（重要）：</b><code>smoke*</code> 和 <code>smok*</code> <b>都能</b>命中 smoker——截词是前缀匹配，<code>smoke*</code> 覆盖 smoke / smoked / smoker / smokers / smokes。所以「<code>smoke*</code> 会漏掉 smoker」这个说法是<b>错的</b>，本手册早期草稿写错过，这里更正。<code>smok*</code> 唯一多出来的是 smoky / smokeless 这类词。</div>
+
+<h3>5.2 常用字段标识（背这一张就够作业用）</h3>
+<table class="std tight">
+<thead><tr><th>标识</th><th>字段</th><th>标识</th><th>字段</th></tr></thead>
+<tbody>
+<tr><td><code>[TI]</code></td><td>文献标题</td><td><code>[TIAB]</code></td><td>标题 / 摘要</td></tr>
+<tr><td><code>[AB]</code></td><td>摘要</td><td><code>[TW]</code></td><td>text words（全文自由词）</td></tr>
+<tr><td><code>[AU]</code></td><td>作者姓名</td><td><code>[1AU]</code></td><td>第一作者</td></tr>
+<tr><td><code>[FAU]</code></td><td>作者全名</td><td><code>[AD]</code></td><td>作者机构</td></tr>
+<tr><td><code>[TA]</code></td><td>期刊名称</td><td><code>[DP]</code></td><td>出版时间</td></tr>
+<tr><td><code>[PT]</code></td><td>文献类型</td><td><code>[MH]</code></td><td>MeSH 主题词</td></tr>
+<tr><td><code>[Majr]</code></td><td>主要 MeSH 主题词（加权）</td><td><code>[SH]</code></td><td>MeSH 副主题词</td></tr>
+<tr><td><code>[PMID]</code></td><td>PubMed 文献号</td><td><code>[LA]</code></td><td>语种</td></tr>
+</tbody>
+</table>
+<p class="small">例 1：<code>Wenzhou Medical University[AD]</code> —— 查温医大作者。<br>例 2：<code>diabetes[TI] AND review[PT]</code> —— 查糖尿病的综述。</p>
+
+<h3>5.3 自动词语匹配：PubMed 最需要理解的一件事</h3>
+<div class="step">
+<b>匹配原理（PPT 第 15–16 页）</b>
+<ol>
+<li>输入的词/短语依次在多个词表中比对：<b>MeSH 转换表</b>（主题词、副主题词）→ <b>刊名转换表</b>（全称、缩写、ISSN）→ <b>著者转换表</b>（全名）→ <b>著者索引表</b>（缩写）→ <b>合作者转换表</b> → <b>合作者索引表</b></li>
+<li>一旦匹配成功就不再往下；把结果转换为相应 MeSH 词、刊名或著者</li>
+<li>再把短语本身、构成短语的单词<b>分别在所有字段</b>里检索一遍</li>
+<li>最后把这一堆 OR 起来，输出结果</li>
+</ol>
+</div>
+<div class="warnbox"><b>什么时候自动词语匹配会被关闭（四个触发器）：</b>①词组精确检索（加引号）；②截词检索（用 <code>*</code>）；③字段限定（用 <code>[TI]</code> 等）；④逻辑组配。只要用了其中任何一个，系统就不再帮你扩展同义词——<b>这时你必须自己把同义词 OR 全</b>。</div>
+<p class="small">PPT 的例子：输入 <code>blood</code>，实际执行的是 27 个词的 OR，包含 <code>"blood"[MeSH Subheading]</code>、<code>"blood"[All Fields]</code>、<code>hematology</code>、<code>hematoma</code>、<code>hemorrhage</code>…… 这也是为什么输入一个词能检出几十万条。</p>
+
+<h3>5.4 四种检索方式</h3>
+<div class="grid">
+<div class="card">
+<b>① 基本检索</b>
+<p>一个框，支持自动词语匹配、精确检索、字段检索、联想输入。</p>
+</div>
+<div class="card">
+<b>② 高级检索</b>
+<p>选字段 + 填词 → <b>ADD</b> 把检索式加到检索框 → 可在框内直接改 → Search。多条检索式之间可设逻辑运算。</p>
+</div>
+<div class="card">
+<b>③ 单篇引文匹配器</b>
+<p>Single Citation Matcher：已知作者、期刊名（全称或标准缩写）、出版年月日、卷、期、起始页码或篇名中任意词，定位单篇。</p>
+</div>
+<div class="card">
+<b>④ 期刊检索</b>
+<p>查的是<b>期刊</b>不是文献：刊名、简称、曾用名、ISSN、创刊年、出版周期、出版国、出版商、语种、官网。</p>
+</div>
+</div>
+
+<h3>5.5 MeSH 主题检索：和 CBM 同一套五步</h3>
+<div class="step">
+<b>检索词 → 主题词 → 副主题词 → 是否加权 → 是否扩展 → 检索</b>
+<ol>
+<li><b>中文词 → 英文词 → MeSH Term</b>：例「肾性高血压」→ renal hypertension → <code>Hypertension, Renal</code>（倒置格式）</li>
+<li><b>副主题词</b>：对主题词限定，76 个。例：疾病可配 complications / diagnosis / diet therapy / etiology / nursing / prevention &amp; control / therapy；药物可配 administration &amp; dosage / adverse effects / pharmacokinetics / poisoning / therapeutic use</li>
+<li><b>加权</b>：勾选 = 限定为主要主题词，写作 <code>[Majr]</code>；不勾 = <code>[Mesh]</code>。加权提高查准率</li>
+<li><b>扩展</b>：页面下方树状结构可勾「不扩展」；默认含下位词，提高查全率</li>
+<li><b>检索</b>：生成的检索式可以直接改</li>
+</ol>
+</div>
+<table class="std">
+<thead><tr><th>「阿司匹林治疗高血压」的三种加权方式</th><th>检索式</th><th>含义</th></tr></thead>
+<tbody>
+<tr><td>聚焦阿司匹林</td><td><code>"Aspirin/therapeutic use"[Majr] AND "Hypertension/drug therapy"[Mesh]</code></td><td>阿司匹林是主要主题词</td></tr>
+<tr><td>聚焦高血压</td><td><code>"Aspirin/therapeutic use"[Mesh] AND "Hypertension/drug therapy"[Majr]</code></td><td>高血压是主要主题词</td></tr>
+<tr><td>两个都聚焦</td><td><code>"Aspirin/therapeutic use"[Majr] AND "Hypertension/drug therapy"[Majr]</code></td><td>两个都是主要主题词，最窄</td></tr>
+</tbody>
+</table>
+<div class="note"><b>什么时候别用主题检索（PPT 第 40 页原话）：</b>「不是所有词都有主题词」；「较新或较老的文献主题词均无法查出，即用高级检索」。<b>主题检索提高查准率，高级检索提高查全率。</b></div>
+
+<h3>5.6 结果过滤：9 类 Filter</h3>
+<div class="grid">
+<div class="card">
+<b>默认显示 4 类</b>
+<ol><li>出版时间</li><li>文本可用性</li><li>文献属性</li><li>文献类型</li></ol>
+</div>
+<div class="card">
+<b>展开后 9 类</b>
+<ol><li>出版时间</li><li>文本可用性</li><li>文献属性</li><li>文献类型</li><li>原始文献语种</li><li>研究对象物种</li><li>研究对象性别</li><li>研究对象年龄</li><li>其他</li></ol>
+</div>
+<div class="card">
+<b>两个操作细节</b>
+<ul>
+<li><code>Custom Range</code> 可设具体年份或范围</li>
+<li>点「显示其余 5 个过滤选项」才会出现后 5 类；文献类型要再点一次才展开全部</li>
+</ul>
+</div>
+</div>
+
+<h3>5.7 易错点（对照 PPT Q8 / Q9 / Q10）</h3>
+<table class="std">
+<thead><tr><th>PPT 题</th><th>学生答案</th><th>问题</th><th>判断</th></tr></thead>
+<tbody>
+<tr><td><b>Q8</b> 高血压 × 吸烟（提示截词符）</td><td>212 / 9,269 / 45,943 / 45,986</td><td>212 那条额外加了 Review + 2022 年限定，检出来的是「妊娠期高血压与甲状腺功能」，属于关键词误命中；45,986 是纯 <code>hypertension AND smok*</code>，最贴题</td><td><span class="tag ok">45,986 / 45,943 合规</span></td></tr>
+<tr><td><b>Q9</b> John William Smith · 题名含癌症治疗</td><td>153 / 1 / 12</td><td>B 的 <code>(cancer OR neoplasms) AND (treatment OR therapy)[Title]</code> 里，<code>[Title]</code> 只作用于后一个括号，前一组变成全字段；C 把四组词拆成两个 AND 块，语义被改写</td><td><span class="tag ok">153 合规</span> 四词平铺 OR 才对</td></tr>
+<tr><td><b>Q10</b> 儿童哮喘药物治疗的英文综述（主题检索）</td><td>2,512 / 15,331 ×2 / 1,786</td><td>A 用关键词 <code>asthma AND drug therapy</code>，不是 MeSH 副主题词；B/C 同为 15,331，说明 Child 筛选没生效（计数没变）</td><td><span class="tag ok">1,786 最贴题</span> MeSH + Review + Child + English</td></tr>
+</tbody>
+</table>
+<div class="warnbox"><b>三条通用教训：</b>
+<ol>
+<li><b>字段标签的位置决定作用范围。</b><code>(A OR B) AND C[Title]</code> 只有 C 受 [Title] 限制，A、B 仍是全字段。</li>
+<li><b>同义词 OR 要平铺在同一层括号里</b>，不要拆成两个 AND 块——拆了就从「任一命中」变成「两组都要命中」。</li>
+<li><b>题目说「主题检索」，就必须出现 <code>[Mesh]</code> / <code>[Majr]</code></b>；只写关键词不算。</li>
+</ol>
+</div>
+
+<h3>5.8 对应题目全表</h3>
+<h4>2026 作业（9.30，6 题，已批 82.6 分）</h4>
+<table class="std">
+<thead><tr><th>题</th><th>最可信的值</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>melanoma 期刊有几种</td><td>旧答案 8；实测 <code>melanoma[Title] AND ncbijournals</code> = <b>4 种</b>；8 未复现</td><td><span class="tag bad">旧值未复现</span></td></tr>
+<tr><td>冠心病 MeSH / 上位词</td><td>Coronary Disease <b>D003327</b>；Myocardial Ischemia <b>D017202</b></td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>高血压 × 吸烟（近五年）</td><td><b>39</b></td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>COPD 死亡率综述</td><td><b>7</b></td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>青少年哮喘临床试验</td><td><b>2,954</b></td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>Clinics in Geriatric Medicine 近三年</td><td><b>202</b></td><td><span class="tag ok">实测</span></td></tr>
+</tbody>
+</table>
+
+<h4>总复习题 2025（PubMed 部分 3 题）</h4>
+<table class="std">
+<thead><tr><th>题</th><th>官方答案</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>单篇引文匹配器：2018 年李校堃教授发表于 Nature 关于 α-Klotho 的文献，PMID 与 Epub 时间</td><td><b>PMID 29342138</b>；<b>Epub 2018 Jan 17</b><br>Gaozhi Chen et al. α-Klotho is a non-enzymatic molecular scaffold for FGF23 hormone signalling. Nature 2018 Jan 25;553(7689):461-466.</td><td>用单篇引文匹配器，不要用基本检索硬撞</td></tr>
+<tr><td>主题检索：近 10 年二甲双胍治疗糖尿病的临床试验英文文献，19 周岁以上男性</td><td><b>767</b><br><code>("Metformin/therapeutic use"[Mesh]) AND "Diabetes Mellitus/drug therapy"[Mesh]</code><br>Filters: Clinical Trial, in the last 10 years, English, Adult: 19+ years, Male</td><td>MeSH 副主题词 + 5 个 Filter</td></tr>
+<tr><td>期刊检索：心理学方面的英文期刊；Journal of health service psychology 的出版单位</td><td><b>821</b>；<b>Springer International Publishing</b></td><td>查的是期刊不是文献；用 NLM Catalog</td></tr>
+</tbody>
+</table>
+
+<h4>PPT《作业常见问题》PubMed 部分</h4>
+<p class="small">Q8–Q10 的完整学生答案见 <a href="#s12">第 12 章</a>。这三题老师没有讲评录音，判断只能依据检索规则。</p>
+
+<h3>5.9 老师原话</h3>
+<div class="quote">
+「PubMed 不提供全文，但会提供指向原文的链接。」「截词检索使用星号 <code>*</code>，可以提高查全率。」「字段限定可以提高查准率。」
+<span class="q-src">PubMed主题词检索教学_元宝导出.md · 课程小结</span>
+</div>
+<div class="quote">
+「当使用词组精确检索、截词检索、字段限定检索、逻辑组配检索等功能时，系统会自动关闭自动词语匹配功能。」
+<span class="q-src">第四讲：PubMed.pptx · 第 15 页</span>
+</div>
+</section>
+
+<section class="ch" id="s6">
+<h2>6 · ScienceDirect：一个框里不能分行 <span class="h2sub">第五讲（上）</span></h2>
+
+<p class="lead">SD 是全文库，规则看着简单，但它有两个致命细节：<b>布尔运算符必须大写</b>、<b>一个检索框里写多个词时括号必须自己锁死</b>。老师讲 Q13 时第一句话就是「SD 一个检索框里不能加行，优先级一定要用括号锁死」——学生答成 170,325 条，就是括号没锁。</p>
+
+<div class="facts">
+<span class="fact">Elsevier 核心产品，全球最大全学科全文库</span>
+<span class="fact">5785 种期刊（含《柳叶刀》《细胞》）</span>
+<span class="fact">37,276 种电子书</span>
+<span class="fact">330 多万篇 OA 文章</span>
+<span class="fact">4 大学科领域、24 个学科分类</span>
+</div>
+
+<h3>6.1 检索规则</h3>
+<table class="std">
+<thead><tr><th>项目</th><th>规则</th></tr></thead>
+<tbody>
+<tr><td>布尔运算符</td><td><code>AND</code>、<code>OR</code>、<code>NOT</code>（或 <code>-</code>）<b>必须全部大写</b></td></tr>
+<tr><td>优先级</td><td><code>( )</code> &gt; <code>NOT / -</code> &gt; <code>AND</code> &gt; <code>OR</code></td></tr>
+<tr><td>NOT 与减号</td><td><code>hepatitis NOT alcoholic</code> = <code>hepatitis -alcoholic</code>；<b><code>-</code> 与 B 之间不能有空格</b>，且 <code>-</code> 必须在英文状态下输入</td></tr>
+<tr><td>短语检索</td><td>双引号 <code>" "</code>，如 <code>"heart attack"</code>，可同时检出 heart attack / heart-attack</td></tr>
+<tr><td>单复数与拼写</td><td>用单数可同时找到复数与所有格；用 US 拼写可同时找到 UK 拼写（<code>"color code"</code> 含 colour code）</td></tr>
+<tr><td>停用词</td><td>about / any / by / especially / of / the / we / with … 被标为非搜索用词，不可检索</td></tr>
+</tbody>
+</table>
+<div class="warnbox"><b>最容易错的一处：</b><code>hepatitis - alcoholic</code>（有空格）和 <code>hepatitis-alcoholic</code>（没有空格）都不是你要的。<b>正确写法是 <code>hepatitis -alcoholic</code></b>——减号紧贴后面的词。差一个空格，结果从 55,421 变成 385,288。</div>
+
+<h3>6.2 两个检索入口</h3>
+<div class="grid">
+<div class="card">
+<b>快速检索</b>
+<p>首页一个框，旁边有「免费电子期刊链接（OA）」入口，点击可切到高级检索。</p>
+</div>
+<div class="card">
+<b>高级检索</b>
+<p>点「展开更多字段」后可选：全文、刊名/书名、出版年份、作者、作者机构、卷、期、页码、图书号/期刊号、题名、参考文献、题名/摘要/关键词。</p>
+</div>
+<div class="card">
+<b>结果页限定</b>
+<p>出版年、文献类型、出版物标题、学科领域、原文语种、获取类型。</p>
+</div>
+</div>
+
+<h3>6.3 出版物浏览：找期刊就用这条路</h3>
+<div class="step">
+<b>「某学科有多少种开放获取期刊 / 某刊 ISSN」</b>
+<ol>
+<li>首页 → <b>Journals &amp; Books</b>（出版物浏览）</li>
+<li>左侧选学科分类（如 Neuroscience）</li>
+<li>用 <b>Access Type</b> 筛：<code>Subscription &amp; Complimentary</code>（已订购，可看全文）/ <code>Open Access</code>（免费，不论是否订购都能下全文）/ <code>Contains Open Access</code>（部分卷期免费）</li>
+<li>读右上角「该学科出版物总数」；点刊名进详情页读 ISSN</li>
+</ol>
+</div>
+<p class="small">期刊页还能看：卷期导航、投稿系统、作者索引、<code>Articles in press</code>（已过同行评审、在线优先）、最新/最高被引/最多下载/最流行（社交媒体）/中国作者文献。</p>
+
+<h3>6.4 易错点：Q13 那道 170,325 是怎么来的</h3>
+<table class="std">
+<thead><tr><th>学生答案</th><th>检索式</th><th>结果</th><th>问题</th></tr></thead>
+<tbody>
+<tr><td>A</td><td><code>(Renal ischemia) OR (kidney ischemia) AND multiorgan failure</code></td><td>170,325</td><td>OR 优先级低于 AND，实际算成 <code>Renal ischemia OR (kidney ischemia AND multiorgan failure)</code>，把「肾缺血」全部放出来了</td></tr>
+<tr><td>B</td><td><code>Title, abstract, keywords: ((Renal ischemia) OR (kidney ischemia) AND multiorgan failure)</code></td><td>7,140</td><td>字段限定对了，但<b>外层括号仍没锁住</b>，仍是 OR 打头</td></tr>
+<tr><td><b>正确</b></td><td><code>("renal ischemia" OR "kidney ischemia") AND "multiorgan failure"</code>，再筛研究性论文</td><td><b>57 → 31</b></td><td>老师口径：初检 57 篇，限「研究性论文」后 31 篇</td></tr>
+</tbody>
+</table>
+<div class="okbox"><b>老师原话（Q13 讲评）：</b>「SD 一个检索框里不能加行，<b>优先级一定要用括号锁死</b>；题目要求研究性文献，检索后必须再用文献类型二次筛选。SD 结果 57 篇，限研究性论文后 31 篇。」</div>
+
+<h3>6.5 对应题目全表</h3>
+<h4>2026 作业（10.14，SD 部分）</h4>
+<table class="std">
+<thead><tr><th>题</th><th>最可信的值</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>非酒精性肝炎的检索表达式</td><td><code>hepatitis AND NOT alcoholic</code>（等价 <code>hepatitis -alcoholic</code>）</td><td><span class="tag ok">老师录音 + 资料</span></td></tr>
+<tr><td>SD 中含 asthma 的期刊数</td><td><b>2 种</b>；<i>Annals of Allergy, Asthma &amp; Immunology</i>；ISSN 1081-1206 / 1534-4436</td><td><span class="tag ok">老师录音</span></td></tr>
+<tr><td>SD 2025 年温医大发文量</td><td>老师 <b>2,175</b>；实测页面一直转圈，未取到</td><td><span class="tag warn">仅有老师口径</span></td></tr>
+<tr><td>SD 肾缺血 + 多器官衰竭</td><td>老师 <b>57 → 研究性 31</b>；实测受阻</td><td><span class="tag ok">有官方答案</span></td></tr>
+</tbody>
+</table>
+
+<h4>总复习题 2025（SD 1 题）</h4>
+<table class="std">
+<thead><tr><th>题</th><th>官方答案</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>Neuroscience 领域的开放获取期刊共几种；《Alzheimer's &amp; Dementia》的 ISSN</td><td><b>191 种</b>；<b>1552-5260</b></td><td>出版物浏览 → 学科 Neuroscience → Access Type = Open Access</td></tr>
+</tbody>
+</table>
+
+<h3>6.6 老师原话</h3>
+<div class="quote">
+「SD 检索到的是 57 篇……在研究性论文这边进行二次筛选，就是 31 篇。」
+<span class="q-src">文献数据库检索作业讲解 · 01:19:34</span>
+</div>
+<div class="quote">
+「含有哮喘的期刊数量呢是只有两个。」
+<span class="q-src">文献数据库检索作业讲解 · 01:13:31</span>
+</div>
+</section>
+
+<section class="ch" id="s7">
+<h2>7 · Scopus：优先级和别的库反过来 <span class="h2sub">第五讲（下）</span></h2>
+
+<p class="lead">Scopus 是全世界最大的索引文摘库。它有两个「反直觉」的地方：<b>OR 的优先级最高</b>（不是最低），<b>「组织检索」和「归属机构」字段不是一回事</b>。作业里数字对不上，八成是这两处之一。</p>
+
+<div class="facts">
+<span class="fact">2.9 万多种期刊（主要同行评审）</span>
+<span class="fact">426,000+ 本图书，年增 10,000+</span>
+<span class="fact">7000 多家出版社、4 大学科领域</span>
+<span class="fact">中文界面可用，但检索式必须英文</span>
+</div>
+
+<h3>7.1 检索规则：OR 最先算</h3>
+<table class="std">
+<thead><tr><th>项目</th><th>规则</th></tr></thead>
+<tbody>
+<tr><td>布尔运算符</td><td><code>AND</code>、<code>OR</code>、<code>AND NOT</code>（注意是 <code>AND NOT</code>，不是 <code>NOT</code>）</td></tr>
+<tr><td>优先级</td><td><b><code>OR</code> &gt; <code>W/n</code>、<code>PRE/n</code> &gt; <code>AND</code> &gt; <code>AND NOT</code></b></td></tr>
+<tr><td>AND NOT 位置</td><td>通常应用于查询的<b>末尾</b></td></tr>
+<tr><td>空格</td><td>检索词之间的空格默认 AND（<code>heart attack</code> → <code>heart AND attack</code>）</td></tr>
+<tr><td>位置算符</td><td><code>A W/n B</code>：A 与 B 之间最多隔 n 个单词，<b>前后顺序不限</b><br><code>A PRE/n B</code>：最多隔 n 个单词，且 <b>A 在 B 前面</b></td></tr>
+<tr><td>截词</td><td><code>*</code> 代表 0 或多个字符（<code>criminal* insan*</code>）；<code>?</code> 代表 1 个字符（<code>f??t</code> → foot / feet）</td></tr>
+<tr><td>通配限制</td><td>通配符<b>必须与单词一起使用</b>，不能单独用；通配符与单词之间用连字符时，通配符会被删除（<code>title(*-art)</code> → <code>title(art)</code>）</td></tr>
+<tr><td>短语</td><td><code>" "</code> 粗略短语（含复数、拼写变形）；<code>{ }</code> <b>完全匹配</b>，连停用词、空格、标点都算进去（<code>{heart-attack}</code> ≠ <code>{heart attack}</code>）</td></tr>
+<tr><td>其他</td><td>重音字符可不带重音检索；特殊字符用 <code>{ }</code> 括起；对文本字段做词干提取（criterion ↔ criteria）</td></tr>
+</tbody>
+</table>
+<div class="warnbox"><b>示例（PPT 原文）：</b><code>sensor W/15 robot AND water OR orbit OR planet</code> 的处理顺序是：①先算 <code>OR</code>（water / orbit / planet）；②再算 <code>W/15</code>（sensor 与 robot 距离 15 词内）；③最后算 <code>AND</code>。<b>如果你想要「(sensor 与 robot 近邻) 且 (water 或 orbit 或 planet)」，这个式子恰好是对的；但如果你想要「sensor 与 (robot 且 water)」，就必须自己加括号。</b></div>
+
+<h3>7.2 四种检索方式 + 两个容易混的入口</h3>
+<div class="grid">
+<div class="card">
+<b>文献检索</b>
+<p>检索区 + 检索历史区；可在多条检索式之间选逻辑关系；结果页可限定/排除、勾选导出、排序、可视化分析。</p>
+</div>
+<div class="card">
+<b>来源出版物检索</b>
+<p>按学科类别、刊名（标题）、出版商、ISSN 查来源出版物；可看 CiteScore、SJR、SNIP、学科排名、百分位。</p>
+</div>
+<div class="card warn">
+<b>组织检索 ≠ 归属机构</b>
+<p><b>组织检索</b>会做机构归并（温医大 + 附一 + 附二 → 一个机构），查机构总量时推荐用。<br><b>「归属机构」字段</b>涵盖机构名称、城市、国家/地区三个字段，检索词可能出现在一篇文章的<b>不同机构</b>里。</p>
+</div>
+<div class="card">
+<b>其他</b>
+<p>支持 DOI 直接检索（如 <code>10.1016/j.pharmthera.2020.107513</code>）；检索式必须用英文。</p>
+</div>
+</div>
+<div class="step">
+<b>「Wenzhou AND hospital」两种写法的差别（PPT 原例）</b>
+<ol>
+<li><code>归属机构：Wenzhou AND hospital</code> —— 两个词<b>可以在同一篇文章的不同机构</b>里，会把「温州某单位 + 别处某医院」也检出来</li>
+<li><code>归属机构名称：Wenzhou AND hospital</code> —— 两个词必须在<b>同一个机构</b>里</li>
+</ol>
+<p class="small">要「温州的医院」，用「归属机构名称」；要「温医大系统（含各附属医院）」，用「组织检索」。</p>
+</div>
+
+<h3>7.3 来源出版物指标</h3>
+<table class="std">
+<thead><tr><th>指标</th><th>定义</th></tr></thead>
+<tbody>
+<tr><td><b>CiteScore</b></td><td>该期刊过去 4 年（含当年）发表的文章在过去 4 年被引用的总次数 ÷ 该刊过去 4 年发表的文章数</td></tr>
+<tr><td>CiteScore Tracker</td><td>即时更新指数，每月更新</td></tr>
+<tr><td>SJR</td><td>期刊声望值表</td></tr>
+<tr><td>SNIP</td><td>标准化影响指数</td></tr>
+<tr><td>学科排名</td><td><code>99th</code> = 该学科前 1%；<code>#1/142</code> = 该学科 142 种期刊中排第 1</td></tr>
+</tbody>
+</table>
+
+<h3>7.4 易错点（对照 Q13 与作业实测）</h3>
+<table class="std">
+<thead><tr><th>错法</th><th>后果</th><th>正确做法</th></tr></thead>
+<tbody>
+<tr><td>把 <code>OR</code> 当最低优先级</td><td>括号一省，结果爆炸</td><td>Scopus 里 <code>OR</code> 最先算，复杂式子必须加括号</td></tr>
+<tr><td>用 <code>NOT</code></td><td>Scopus 是 <code>AND NOT</code></td><td><code>hepatitis AND NOT alcoholic</code></td></tr>
+<tr><td>查机构总量用「归属机构」字段</td><td>漏掉附属医院，或少算/多算</td><td>用「组织检索」</td></tr>
+<tr><td>排序方式没跟上题目要求</td><td>「被引最高」「相关度第一篇」会变成另一个答案</td><td>Q13 老师明确：<b>按相关度排序</b>；温医题：按被引频次排序</td></tr>
+<tr><td>把「来源出版物」页的期刊数当文献数</td><td>数字差几个量级</td><td>期刊数在来源出版物页读，文献数在文献检索页读</td></tr>
+</tbody>
+</table>
+<div class="okbox"><b>Q13 的 Scopus 部分，老师给了唯一标准答案：</b>「检索肾脏缺血跟合并多器官衰竭……找到的 <b>241 篇</b>文献，按照相关度去进行一个排序。」四份学生答案（339 / 209）没有一个对上。</div>
+
+<h3>7.5 对应题目全表</h3>
+<h4>2026 作业（10.14，Scopus 部分）</h4>
+<table class="std">
+<thead><tr><th>题</th><th>最可信的值</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>非酒精性肝炎的表达式</td><td><code>hepatitis AND NOT alcoholic</code></td><td><span class="tag ok">老师录音 + 资料</span></td></tr>
+<tr><td>Critical Care Nursing 期刊数；仅 OA + 2023 的值</td><td><b>37</b>（老师与实测一致；旧 39 未复现）；仅 OA + 2023 → <b>7 个</b>；最高 OA 刊 <i>Acute and Critical Care</i>，<b>2.8</b></td><td><span class="tag warn">旧值 39 未复现</span></td></tr>
+<tr><td>Scopus 2025 年温医大发文</td><td>老师 <b>6,789</b>；实测 <b>6,710</b>；旧 6,970 未复现</td><td><span class="tag bad">三个数都不同</span></td></tr>
+<tr><td>Scopus 肾缺血 + 多器官衰竭</td><td>老师 <b>241</b>（相关度排序）；实测 <code>TITLE-ABS-KEY("renal ischemia" OR "kidney ischemia") AND TITLE-ABS-KEY("multiorgan failure")</code> = <b>14</b>；旧 388 未复现</td><td><span class="tag bad">口径差很大</span></td></tr>
+<tr><td>Scopus 结果分析（6,710 条）</td><td>被引最高 GBD 2023（Lancet，901 次）；学科 Medicine 34.6%；作者 Ji, J.；来源出版物第一 <i>Scientific Reports</i>（100）</td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>相关度排序第一篇（14 条）</td><td>Kramer A.A. 等，<i>Kidney International</i> 1999;55(6):2362-2367，被引 269</td><td><span class="tag ok">实测</span></td></tr>
+</tbody>
+</table>
+
+<h4>总复习题 2025（Scopus 2 题）</h4>
+<table class="std">
+<thead><tr><th>题</th><th>官方答案</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>CiteScore 最高的开放获取期刊及其最新 CiteScore</td><td><b>Living Reviews in Relativity</b>；<b>69.9</b></td><td>来源出版物 → 筛 OA → 按 CiteScore 排序</td></tr>
+<tr><td>近 5 年《Brain Stimulation》上 Tourette syndrome 的文献 + 被引最高的一篇</td><td><b>15</b><br><code>(SRCTITLE("Brain Stimulation") AND TITLE-ABS-KEY("Tourette syndrome")) AND PUBYEAR &gt; 2015</code><br>被引最高 <b>80</b> 次：<i>Deep Brain Stimulation for Tourette-Syndrome: A Systematic Review and Meta-Analysis</i></td><td><code>SRCTITLE</code> 限刊名、<code>PUBYEAR &gt; 2015</code> 限年份</td></tr>
+</tbody>
+</table>
+
+<h3>7.6 老师原话</h3>
+<div class="quote">
+「Scopus……结果就是 6789，要求是按照被引频次去排序。」
+<span class="q-src">文献数据库检索作业讲解 · 01:21:21</span>
+</div>
+<div class="quote">
+「检索肾脏缺血跟合并多器官衰竭……找到的 241 篇文献，按照相关度去进行一个排序。」
+<span class="q-src">文献数据库检索作业讲解 · 01:24:30</span>
+</div>
+<div class="quote">
+「37 个结果……选择 OA……结果就是 7 个……2023 年的值是 2.8。」
+<span class="q-src">文献数据库检索作业讲解 · 01:14:58</span>
+</div>
+</section>
+
+<section class="ch" id="s8">
+<h2>8 · Web of Science：先想清楚「在哪个字段里找」 <span class="h2sub">第六讲（上）</span></h2>
+
+<p class="lead">WOS 是引文索引库，它的价值不在「检出多少条」，而在「检出来之后能怎么分析」。作业里的分析题（发文最多的期刊/研究方向/作者、高被引、热点）全部靠 <b>Analyze Results</b>，而这里最容易错的是<b>分析字段选错</b>——默认的 <i>Web of Science Categories</i> 和题目要的 <i>Research Areas</i> 是两个东西。</p>
+
+<div class="facts">
+<span class="fact">核心合集：SCI-E / SSCI / A&amp;HCI / ESCI / CPCI / BKCI / IC-CCR</span>
+<span class="fact">SCI-E 收录 9446 种期刊、178 个学科、50 多种文字</span>
+<span class="fact">SSCI 3539 种 / 58 个社科领域</span>
+<span class="fact">A&amp;HCI 1808 种 / 28 个人文艺术领域</span>
+<span class="fact">ESCI 9159 种 / 250 个领域</span>
+<span class="fact">中国刊物 292 种</span>
+</div>
+
+<h3>8.1 引文索引是怎么来的</h3>
+<p>1955 年 Garfield（尤金·加菲尔德）在 <i>Science</i> 发文，提出把引文索引作为一种新的文献检索与分类工具：<b>把一篇文献作为检索字段</b>，从而跟踪一个课题的发展过程及学科之间的交叉渗透。</p>
+<div class="grid">
+<div class="card"><b>参考文献</b><p>越查越<b>深</b>——这篇论文建立在哪些研究之上</p></div>
+<div class="card"><b>引证文献</b><p>越查越<b>新</b>——后来谁引用了它</p></div>
+<div class="card"><b>相关记录</b><p>越查越<b>广</b>——与它共引或被共引的文献</p></div>
+</div>
+<p class="small">引文形成的三种关系：学科上的相关性（理论与方法借鉴、技术应用）、横向上的对应性（实验方法互参、结果比较）、纵向上的继承性（课题基础与起源、发展与进步、反引/学术争鸣）。</p>
+
+<h3>8.2 检索运算符（WOS 的符号最多）</h3>
+<table class="std">
+<thead><tr><th>运算符</th><th>作用</th><th>示例</th><th>结果</th></tr></thead>
+<tbody>
+<tr><td><code>" "</code></td><td>精确检索短语</td><td><code>"stem cell"</code></td><td>只检 stem cell 这个短语</td></tr>
+<tr><td><code>*</code></td><td>代表 ≥0 个字符</td><td><code>gene*</code></td><td>gene、genetics、generation…</td></tr>
+<tr><td><code>?</code></td><td>代表 1 个字符</td><td><code>wom?n</code></td><td>women、woman</td></tr>
+<tr><td><code>$</code></td><td>代表 0 或 1 个字符</td><td><code>Colo$r</code></td><td>color、colour</td></tr>
+<tr><td><code>NEAR/x</code></td><td>两词最多间隔 x 个单词，<b>顺序不限</b></td><td><code>heart NEAR/2 attack</code></td><td>Heart, Attacked / Heart attack triage…</td></tr>
+<tr><td><code>SAME</code></td><td>两词出现在<b>同一条地址</b>，顺序不限</td><td><code>Yale SAME hosp</code></td><td>Yale hospital / hospital 1 of Yale university…</td></tr>
+</tbody>
+</table>
+<div class="warnbox"><b>三条硬规则：</b>①优先级 <code>NEAR/x &gt; SAME &gt; NOT &gt; AND &gt; OR</code>；②<code>NEAR</code> 不带 <code>/x</code> 时默认间隔 <b>15</b> 个词；③<b><code>NEAR</code> 不能和 <code>AND</code> 同时使用，检索式无效</b>。检索词和运算符不区分大小写；两个词之间空格默认执行 AND。</div>
+
+<h3>8.3 所属机构 vs 地址：WOS 最实用的一个区分</h3>
+<table class="std">
+<thead><tr><th></th><th>所属机构（Affiliation）</th><th>地址（Address）</th></tr></thead>
+<tbody>
+<tr><td>检索范围</td><td>同一机构的现用名、曾用名、扩展名都能检到</td><td>作者署名的原始地址字符串</td></tr>
+<tr><td>写法要求</td><td>一级单位名称要拼写完整，有联想功能</td><td>可用缩写；<b>不要用冠词（a/an/the）和介词（of/in/for）</b></td></tr>
+<tr><td>适合</td><td>「温州医科大学的作者」→ <code>Wenzhou medical university</code></td><td>「温医大眼视光医院」→ <code>Wenzhou medical university SAME eye hospital</code></td></tr>
+</tbody>
+</table>
+<div class="step">
+<b>为什么附属医院必须用 SAME</b>
+<ol>
+<li>全称：<code>The first affiliated hospital of Wenzhou medical university</code> —— 含冠词和介词，<b>检不到</b></li>
+<li>直接拼：<code>Wenzhou medical university first affiliated hospital</code>（默认 AND）—— 可能命中「温医大某作者 + 另一单位附属医院」的论文</li>
+<li>正确：<code>(Wenzhou medical university) SAME (first affiliated hospital)</code> —— <b>同一条地址</b></li>
+</ol>
+</div>
+
+<h3>8.4 分析检索结果：分析题的全部操作都在这里</h3>
+<div class="step">
+<b>路径</b>
+<ol>
+<li>检索 → 结果页顶部 <b>Analyze Results</b></li>
+<li>在「选择要分析的字段」下拉里选字段（25 个可选：出版年、文献类型、作者、Web of Science 类别、citation topics meso/micro、可持续发展目标、WOS 索引、所属机构、带部门的所属机构、出版物标题、语种、国家/地区、出版商、<b>研究方向</b>、开放获取、基金资助机构、基金资助编号、会议名称、团体作者、丛书名称、编者、社论声明……）</li>
+<li>设置排序与显示方式（至少显示 N 条）</li>
+<li>看可视化：树状图 / 柱状图；鼠标悬停显示数量，单击查看对应记录</li>
+</ol>
+</div>
+<div class="warnbox"><b>最容易错的一步：</b>「研究方向」和「Web of Science Categories」是两个字段。<b>默认字段是 Categories</b>，题目问「研究方向」时要手动切到 <code>Research Areas</code>。实测同一批文献，Categories 口径下 Gastroenterology/Hepatology 是 16，Research Areas 口径下是 21——<b>不是数据变了，是字段变了</b>。</div>
+
+<h3>8.5 高被引论文 ≠ 被引频次高</h3>
+<table class="std">
+<thead><tr><th></th><th>定义</th><th>性质</th></tr></thead>
+<tbody>
+<tr><td><b>被引频次高</b></td><td>绝对被引次数高</td><td>绝对概念，不涉及学科和年份</td></tr>
+<tr><td><b>高被引论文</b></td><td>过去 10 年发表、在同年度同学科领域中被引频次排名全球<b>前 1%</b></td><td>相对概念，取决于同学科同年发表的论文数</td></tr>
+<tr><td><b>热点论文</b></td><td>出版不超过 2 年，且在当前两个月内被引；每个领域<b>前 0.1%</b></td><td>相对 + 时间窗很窄</td></tr>
+</tbody>
+</table>
+<p class="small">PPT 的例子：2022 年 cell biology 被引 1000 次的论文没进前 1%（该学科当年 4000 篇，要进前 40 名）；2022 年 psychoanalysis 被引 100 次排第 25 名，反而进了前 1%。<b>两者只有交叉，没有包含关系。</b></p>
+
+<h3>8.6 五个核心任务与对应操作</h3>
+<table class="std">
+<thead><tr><th>任务</th><th>怎么做</th><th>看什么字段</th></tr></thead>
+<tbody>
+<tr><td>文献综述</td><td>读现成 REVIEW，或自己 Analyze Results</td><td>出版年（趋势）、作者、机构、出版物标题、国家/地区</td></tr>
+<tr><td>找经典文献</td><td>按被引频次排序 + 快速过滤「高被引论文」</td><td>被引频次、高被引标记</td></tr>
+<tr><td>追热点</td><td>快速过滤「热点论文」</td><td>Hot Papers</td></tr>
+<tr><td>追踪课题</td><td>从一篇高质量文献出发：参考文献 / 引证文献 / 相关记录</td><td>越查越深 / 新 / 广</td></tr>
+<tr><td>追踪大牛</td><td>检索作者 → 结果页<b>创建跟踪服务</b></td><td>作者、通讯作者地址</td></tr>
+</tbody>
+</table>
+<div class="note"><b>一个反直觉的点：</b>同一篇论文，参考文献只有 50 篇，施引文献可能上万篇。PPT 里 iPS 那篇的例子是 50 篇参考文献 / 17,637 篇施引 / 40,695 篇相关记录。另外，学校只订购 SCI、SSCI，所以施引文献里来自 A&amp;HCI、CPCI 的部分<b>不显示</b>——数字会比「全球被引」小，这是正常的。</div>
+
+<h3>8.7 易错点（对照 PPT Q11 / Q12 与作业实测）</h3>
+<table class="std">
+<thead><tr><th>PPT 题</th><th>学生答案</th><th>问题</th><th>判断</th></tr></thead>
+<tbody>
+<tr><td><b>Q11</b> Yamanaka Shinya × iPS，总被引 / H 指数</td><td>5 / 243 / 198</td><td>A 多加了「国家/地区 = JAPAN」，把结果压到 5 条，已经不是 Yamanaka 的 iPS 全集；B 用「所有字段」比 TS 宽</td><td><span class="tag bad">三个都不完全对</span> 作者用 AU、主题用 TS、不加国家限定</td></tr>
+<tr><td><b>Q12</b> 温医二院：期刊 / 研究方向 / 作者</td><td>6,921（结论一致）</td><td>「期刊发文量最多」出现两种说法：<b>Elsevier（出版商）</b> vs <b>FRONTIERS IN PHARMACOLOGY（期刊名）</b></td><td><span class="tag bad">Elsevier 是错的</span> 题目问「哪种期刊」</td></tr>
+</tbody>
+</table>
+<div class="warnbox"><b>Q12 这个错很典型：</b>Analyze Results 的「出版物标题」字段给出的是期刊名；「出版商」是另一个字段。把出版商当期刊答，等于答错了对象。<br>另外，「研究方向」一定要切到 <code>Research Areas</code>；用默认的 Categories，答案会变成另一个学科名。</div>
+
+<h3>8.8 对应题目全表</h3>
+<h4>2026 作业（10.21，6 题，待批阅）</h4>
+<table class="std">
+<thead><tr><th>题</th><th>最可信的值</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>LANCET 2017 年影响因子</td><td><b>53.254</b></td><td><span class="tag ok">老师录音 + 外部核实</span></td></tr>
+<tr><td>Nature 的 ISSN / 2024 IF / 5 年 IF</td><td><b>0028-0836；48.5；55.0</b>（老师未报数，外部核实）</td><td><span class="tag warn">未同屏</span></td></tr>
+<tr><td>MEDICINA-LITHUANIA 被引次数 / 引用最多刊 / 年份</td><td>老师 <b>278</b> 次；旧文档 331 / FRONTIERS IN ENDOCRINOLOGY / 2024（未同屏）</td><td><span class="tag warn">旧值与老师不一致</span></td></tr>
+<tr><td>宁波大学 × NANO ENERGY</td><td>老师 <b>51 条 / 335 次 / 国自然 41 篇 / 2021 与 2023</b>；旧文档 61 / 335 / 2024 / 50</td><td><span class="tag bad">旧值错 4 处</span></td></tr>
+<tr><td>温医附一院</td><td><code>OG=(Wenzhou Medical University) AND AD=(First Affiliated Hospital)</code> → <b>167 条</b>；高被引 2；最高被引 Klionsky 2016 <i>Autophagy</i> <b>4,208</b> 次</td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>Science 小胶质细胞 / 关键词</td><td><b>1 条</b>；关键词检索 <b>6,215 条</b></td><td><span class="tag ok">实测</span></td></tr>
+</tbody>
+</table>
+
+<h4>总复习题 2025（WOS 2 题）</h4>
+<table class="std">
+<thead><tr><th>题</th><th>官方答案</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>首都医科大学 2000 年至今 SCI 论文的分析：高被引 / 热点 / 研究方向 / 作者 / 基金 / 期刊</td><td>总 <b>41,310</b>；<code>机构扩展: (Capital Medical University) AND 出版年: (2000-2021)</code><br>高被引 <b>249</b>；热点 <b>28</b>；研究方向 <b>NEUROSCIENCES NEUROLOGY（6,834）</b>；作者 <b>WANG Y（1,615）</b>；基金 <b>NSFC（14,363）</b>；期刊 <b>CHINESE MEDICAL JOURNAL（1,655）</b></td><td>六个分析全部在 Analyze Results 里做；机构要用「机构扩展」字段</td></tr>
+<tr><td>温医附院诸葛启钏医生发表的文献 + 被引最高的期刊</td><td><b>85</b>；<code>机构扩展: (wenzhou medical university) AND 作者: (zhuge qc)</code></td><td>作者写「姓 + 名首字母」缩写</td></tr>
+</tbody>
+</table>
+
+<h3>8.9 老师原话</h3>
+<div class="quote">
+「一共是有 51 条……被引频次最多的是 335 次……国家自然科学基金委员会资助的论文数量是 41 篇……最多的年份有两个，2021 年跟 2023 年。」
+<span class="q-src">文献数据库检索作业讲解 · 01:06:29–01:07:37（宁波大学 × NANO ENERGY）</span>
+</div>
+<div class="quote">
+「大家不要太纠结你的检索式是不是跟标准答案一模一样……只要符合数据库检索规则、能达到检索目的就可以了。」
+<span class="q-src">文献数据库检索作业讲解 · 01:07:37–01:08:50</span>
+</div>
+</section>
+
+<section class="ch" id="s9">
+<h2>9 · JCR：影响因子到底怎么算 <span class="h2sub">第六讲（下）</span></h2>
+
+<p class="lead">JCR 不是文献库，是<b>期刊评价工具</b>。作业里只有两类题：查某刊某年的影响因子，和查某学科有多少种期刊被收录。看起来最简单，但「年份」和「五年影响因子」两个概念年年有人弄错。</p>
+
+<div class="facts">
+<span class="fact">Journal Citation Reports，多学科期刊评价工具</span>
+<span class="fact">唯一提供基于引文数据统计信息的期刊评价资源</span>
+<span class="fact">每年随 WOS 核心合集更新</span>
+</div>
+
+<h3>9.1 影响因子 IF 的定义与算法</h3>
+<div class="card">
+<b>期刊影响因子（Impact Factor）</b>
+<p><code>IF = 该期刊前两年发表论文在当年被引用的次数 ÷ 该期刊前两年发表论文的总数</code></p>
+<p class="small">用途：评估同一研究领域不同期刊的相对重要性。</p>
+</div>
+<div class="step">
+<b>PPT 的算术示例：《柳叶刀》2024 年影响因子</b>
+<ol>
+<li>分子 = 2022 年文献在 2024 年被引次数（22,415）+ 2023 年文献在 2024 年被引次数（16,871）= <b>39,286</b></li>
+<li>分母 = 2022 年文献数（223）+ 2023 年文献数（221）= <b>444</b></li>
+<li>IF 2024 = 39,286 ÷ 444 = <b>88.5</b></li>
+</ol>
+</div>
+<div class="okbox">
+<b>五年影响因子（5 Year Impact Factor）</b>
+<p><code>5 Year IF 2024 = 前 5 年发表的文献在第 6 年被引的次数 ÷ 前 5 年发表的文献数</code></p>
+<p><b>注意：不是过去 5 年影响因子的平均值！</b>（PPT 第 58 页专门用一行字强调）</p>
+</div>
+
+<h3>9.2 怎么查</h3>
+<div class="grid">
+<div class="card">
+<b>检索</b>
+<p>输入期刊<b>全名、简称、ISSN 或学科</b>。</p>
+</div>
+<div class="card">
+<b>浏览</b>
+<p>可「浏览全部期刊」或「浏览全部学科」（WOS 核心合集范围）。</p>
+</div>
+<div class="card">
+<b>期刊详情页</b>
+<ul>
+<li>基本信息：刊名（全名/简称）、ISSN、语种、出版商、学科、出版周期</li>
+<li>影响因子：<b>可切换查看其他年份</b>；可看计算公式；可看学科变化</li>
+<li>五年影响因子</li>
+<li>期刊排名：如 <i>Lancet</i> 在「医学：综合与内科」<b>1/332</b>，<b>1 区</b></li>
+</ul>
+</div>
+</div>
+<div class="note"><b>两个常见追问（PPT 第 59 页原题）：</b>「影响因子多少算高？」「如何判断期刊是不是顶刊？」——PPT 没有给绝对值，给的是<b>相对判断</b>：看学科内排名（#1/142）、分区（Q1）、百分位（99th）。跨学科比绝对 IF 没有意义。</div>
+
+<h3>9.3 易错点</h3>
+<table class="std">
+<thead><tr><th>错法</th><th>后果</th><th>正确做法</th></tr></thead>
+<tbody>
+<tr><td>年份没切</td><td>查 2017 年却读到最新一年（如 2024 的 88.5）</td><td>详情页点「选择年份」或「全部年份」，在表格里找对应年</td></tr>
+<tr><td>把 5 年 IF 当成 5 年平均</td><td>数值对不上</td><td>按公式算：前 5 年文献在第 6 年被引 ÷ 前 5 年文献数</td></tr>
+<tr><td>把 eISSN 当 ISSN</td><td>填错</td><td>期刊详情页会同时给 print ISSN 与 eISSN，题目一般要 print</td></tr>
+<tr><td>没登录机构账号</td><td>只能看部分年份或看不到排名</td><td>从学校 WebVPN 进，认机构成功后再查</td></tr>
+</tbody>
+</table>
+
+<h3>9.4 对应题目全表</h3>
+<h4>2026 作业（10.21，JCR 2 题）</h4>
+<table class="std">
+<thead><tr><th>题</th><th>最可信的值</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>《柳叶刀》2017 年影响因子</td><td><b>53.254</b></td><td><span class="tag ok">老师录音 + 外部核实；JCR 未进</span></td></tr>
+<tr><td>Nature 的 ISSN / 2024 IF / 5 年 IF</td><td><b>0028-0836 / 48.5 / 55.0</b></td><td><span class="tag warn">外部核实，未同屏</span></td></tr>
+</tbody>
+</table>
+
+<h4>总复习题 2025（JCR 1 题，3 问）</h4>
+<table class="std">
+<thead><tr><th>问</th><th>官方答案</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>SCI 收录的影响因子最高的期刊及其 2023 年 IF</td><td><b>CA-A CANCER JOURNAL FOR CLINICIANS</b>；<b>292.278</b></td><td>按 IF 排序浏览全部期刊</td></tr>
+<tr><td>行为科学（Behavioral Sciences）有多少种期刊被 SCIE &amp; SSCI 收录</td><td><b>53 种</b></td><td>浏览全部学科 → Behavioral Sciences</td></tr>
+<tr><td>《ACS NANO》2022 年 IF / 5 年 IF</td><td><b>13.334 / 14.486</b></td><td>详情页切到 2022 年，同时读 IF 与 5 Year IF</td></tr>
+</tbody>
+</table>
+
+<h3>9.5 老师原话</h3>
+<div class="quote">
+「第一题应该是找柳叶刀的 2017 年的影响因子，然后大家直接在这儿输入期刊名称就行了……在 JCR 页这边呢，我们选择 all，它就会出现一个表格，就是所有年份的影响因子，包括五年影响因子，那我们就可以看到 2017 年它的影响因子就是 53.254。」
+<span class="q-src">文献数据库检索作业讲解 · 01:01:48–01:02:55</span>
+</div>
+<div class="quote">
+「第二题是找 Nature 它的 ISSN 号、2024 年的影响因子跟 5 年影响因子，操作是一样的……它的 ISSN 号就在期刊名称的下面，然后它的影响因子大家就可以在这边去进行查看。」
+<span class="q-src">文献数据库检索作业讲解 · 01:02:55–01:03:37</span>
+</div>
+</section>
+
+<section class="ch" id="s10">
+<h2>10 · 专利：只考法条，不考检索 <span class="h2sub">第七讲 · 作业 6 题</span></h2>
+
+<p class="lead">老师在录音里说得很明确：<b>「考试的那个检索操作方面呢，就不涉及专利的一个检索，就是在数据库去进行检索的，这个题目是没有的。」</b>专利这一讲要掌握的是类型、期限、不授予专利的情形、专利文献的构成——全是可以在教材/法条上找到确定答案的题。</p>
+
+<div class="facts">
+<span class="fact">《专利法》第 42 条：20 / 10 / 15 年，均自申请日起算</span>
+<span class="fact">《专利法》第 25 条：6 类不授予专利权</span>
+<span class="fact">SIPO 检索系统收录 105 个国家/地区/组织</span>
+<span class="fact">专利文献三部分：扉页 / 权利要求 / 说明书</span>
+</div>
+
+<h3>10.1 专利与专利制度</h3>
+<div class="card">
+<b>专利（Patent）</b>
+<p>来源于拉丁语 <i>Litterae patentes</i>，意为公开的信件或公共文献，是中世纪君主用来颁布某种特权的证明。专利是<b>专利权的简称</b>：专利机构对发明创造授予的独特权利，受相关法律保护。</p>
+<p><b>专利制度</b>：利用法律、行政和经济手段保护发明创造，鼓励发明创造活动，促进科技进步与创新，推动发明创造推广应用和经济发展的知识产权保护制度。</p>
+</div>
+<table class="std">
+<thead><tr><th>特性</th><th>含义</th></tr></thead>
+<tbody>
+<tr><td>地域性</td><td>在专利机构审批保护的地域范围内有效</td></tr>
+<tr><td>时间性</td><td>授权后对权利的保护有一定的有效期</td></tr>
+<tr><td>经济性</td><td>专利信息包括与权利主体经济活动密切相关的信息</td></tr>
+<tr><td>法律性</td><td>专利活动依据法律而存在，必然表现出法律活动的存在状态</td></tr>
+<tr><td>技术性</td><td>专利的保护客体包含 90% 以上的科学技术研发成果</td></tr>
+<tr><td>战略性</td><td>通过对专利多方面信息统计、分析、整合，可得到具有战略性特征的情报</td></tr>
+</tbody>
+</table>
+
+<h3>10.2 三种类型与期限（必背表）</h3>
+<table class="std">
+<thead><tr><th>类型</th><th>保护对象</th><th>牙刷例子</th><th>期限（中国大陆）</th></tr></thead>
+<tbody>
+<tr><td><b>发明专利</b></td><td>对产品、方法或者其改进所提出的新的技术方案或技术构想；<b>不要求已实践证明可直接用于工业生产</b></td><td>通过光谱传感器在刷牙过程中无创监测口腔健康状态的方法和系统</td><td><b>20 年</b></td></tr>
+<tr><td><b>实用新型专利</b></td><td>对产品的形状、构造或者其结合所提出的适于实用的新的技术方案</td><td>具有防滑凹槽和可拆卸防飞沫挡板的牙刷</td><td><b>10 年</b></td></tr>
+<tr><td><b>外观设计专利</b></td><td>对产品的形状、图案或者其结合以及色彩与形状、图案的结合所作出的富有美感并适于工业应用的新设计</td><td>牙刷的形状、图案、色彩及其结合的新设计</td><td><b>15 年</b></td></tr>
+</tbody>
+</table>
+<table class="std tight">
+<thead><tr><th>地区</th><th>发明</th><th>实用新型</th><th>外观设计</th></tr></thead>
+<tbody>
+<tr><td>中国大陆</td><td>20 年</td><td>10 年</td><td>15 年</td></tr>
+<tr><td>中国香港</td><td>标准专利 20 年</td><td>短期专利 8 年</td><td>25 年（独立注册）</td></tr>
+<tr><td>中国澳门</td><td>20 年</td><td>10 年</td><td>25 年（独立注册）</td></tr>
+<tr><td>中国台湾</td><td>20 年</td><td>新型 10 年（形式审查）</td><td>设计 15 年</td></tr>
+<tr><td>国际主流</td><td>普遍 20 年</td><td>非普遍（中、日、韩、德等）</td><td>普遍（外观设计/注册设计）</td></tr>
+</tbody>
+</table>
+<div class="okbox">
+<b>《中华人民共和国专利法》第四十二条（原文）</b>
+<p>「发明专利权的期限为 <b>20 年</b>，实用新型专利权的期限为 <b>10 年</b>，外观设计专利权的期限为 <b>15 年</b>，<b>均自申请日起计算</b>。」</p>
+<p class="small">同条还规定：发明专利授权过程中因不合理延迟可请求期限补偿；为补偿新药上市审评审批占用的时间，新药相关发明专利可请求补偿，<b>补偿期限不超过 5 年，新药批准上市后总有效专利权期限不超过 14 年</b>。</p>
+</div>
+<div class="warnbox"><b>终止的两种情形（第 44 条）：</b>①没有按规定缴纳年费；②专利权人以书面声明放弃专利权。年费自被授予专利权的当年开始缴纳（第 43 条）。</div>
+
+<h3>10.3 哪些成果不能申请专利（第 25 条，6 项）</h3>
+<table class="std">
+<thead><tr><th>#</th><th>不授予专利权的情形</th><th>为什么</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>科学发现</td><td>发现自然规律，不是技术方案</td></tr>
+<tr><td>2</td><td>智力活动的规则和方法</td><td>不构成技术方案</td></tr>
+<tr><td>3</td><td><b>疾病的诊断和治疗方法</b></td><td>①人道主义考虑；②个性化，无法在产业上利用</td></tr>
+<tr><td>4</td><td>动物和植物品种</td><td>—</td></tr>
+<tr><td>5</td><td>原子核变换方法以及用该方法获得的物质</td><td>—</td></tr>
+<tr><td>6</td><td>对平面印刷品的图案、色彩或二者结合作出的主要起标识作用的设计</td><td>—</td></tr>
+</tbody>
+</table>
+<div class="grid">
+<div class="card">
+<b>属于「诊断方法」（不能授权）</b>
+<p>以有生命的人体或动物体为对象，以获得疾病诊断结果或健康状况为直接目的。<br>例：血压测量法、诊脉法、X 光诊断法、超声诊断法、基因筛查诊断法。</p>
+</div>
+<div class="card">
+<b>属于「治疗方法」（不能授权）</b>
+<p>为使有生命的人体或动物体恢复/获得健康或减少痛苦，进行阻断、缓解或消除病因、病灶的过程。<br>例：外科手术、药物治疗、心理疗法；以治疗为目的的针灸、麻醉、推拿、按摩、刮痧、气功、催眠、药浴、空气浴、阳光浴、森林浴和护理方法；以治疗为目的的辐射刺激/照射；涂覆、冷冻、透热；预防疾病的免疫方法；血液透析、麻醉深度监控、药物注射等辅助方法；以治疗为目的的受孕/避孕/体外受精/胚胎转移；整容、肢体拉伸、减肥、增高；伤口消毒、包扎；人工呼吸、输氧。</p>
+</div>
+</div>
+<div class="note"><b>注意区分：</b>「疾病的诊断和治疗方法」不授权，但<b>诊断用的器械、试剂、药品本身可以申请专利</b>。题目若问「下列不能授予专利的是」，要看清选项说的是「方法」还是「产品」。</div>
+
+<h3>10.4 专利文献</h3>
+<p>专利文献是包含已经申请或被确认为发现、发明、实用新型和工业品外观设计的研究、设计、开发和试验成果的有关资料，以及保护发明人、专利所有人及权利人有关资料的已出版或未出版文件（或其摘要）的总称。——世界知识产权组织（WIPO），1988</p>
+<div class="step">
+<b>专利文献的三部分</b>
+<ol>
+<li><b>扉页</b>：申请日、申请号、申请人、申请人地址、专利名称、发明人、摘要……</li>
+<li><b>权利要求</b>：在说明书基础上，用构成发明技术方案的技术特征表明要求专利保护范围的法律文件</li>
+<li><b>说明书</b>：①技术领域（所属或直接应用的具体领域）；②背景技术（介绍评价相关背景技术，指出存在的问题）；③发明内容（要解决的技术问题、实现的技术方案、带来的有益效果）；④附图、实施方式（便于理解，充分详细描述细节）</li>
+</ol>
+</div>
+<p><b>专利文献的 7 个特点：</b>文字精炼叙述严谨 / 技术新颖内容广泛 / 系统完整实用详尽 / 出版迅速报道及时 / 著录规范格式统一 / 重复出版（同族）与众多样 / 法律作用强且具有相对局限性。</p>
+
+<h3>10.5 专利检索系统与三种应用场景</h3>
+<div class="card">
+<b>国家知识产权局（SIPO）检索及分析系统</b>
+<p><code>pss-system.cponline.cnipa.gov.cn</code> —— <b>需注册个人账户登录后才能检索</b>。收录 105 个国家、地区和组织的专利数据，另有引文、同族、法律状态等数据。</p>
+<ul>
+<li>布尔运算符：<b>只有 <code>AND</code>、<code>OR</code></b>；多个检索词用空格间隔，<b>空格默认 AND</b></li>
+<li>日期支持 <code>-</code> <code>.</code>，格式：<code>YYYY-MM-DD</code>、<code>YYYY.MM.DD</code>、<code>YYYYMMDD</code>、<code>YYYYMM</code>、<code>YYYY</code></li>
+<li>支持半角括号：<code>国产 (智能手机)</code> → 先算 <code>智能 AND 手机</code>，再与「国产」AND</li>
+<li>检索条件含空格/保留关键字/运算符时，须用<b>半角双引号</b>：<code>"WILLIAMS AND LANE INC"</code></li>
+</ul>
+</div>
+<table class="std">
+<thead><tr><th>场景</th><th>目的</th><th>案例</th></tr></thead>
+<tbody>
+<tr><td><b>法律状态检索</b></td><td>了解某项专利申请是否授权、某项专利是否有效</td><td>要生产清华大学发明的智能心脏听诊器，先查它是否仍在保护期；若已过期/被无效，可以生产</td></tr>
+<tr><td><b>同族专利检索</b></td><td>以一件专利为线索，查同一专利族的全部成员，了解地域布局</td><td>阿斯利康的蛋白激酶抑制剂在中、美、澳、日、韩、新、加、丹麦等多国申请了同族专利</td></tr>
+<tr><td><b>新颖性检索</b></td><td>查证申请日以前没有同样的发明在国内外出版物公开发表、使用或为公众所知，也没人申请过专利</td><td>开发智能听诊器前检索，若已有「基于身份识别 + 蓝牙通信」的同样方案，则无新颖性</td></tr>
+</tbody>
+</table>
+<div class="note"><b>三个角色的区别（选择题常考）：</b><b>发明人</b>只能是自然人，是对发明创造实质性特点作出创造性贡献的人，享有署名权与奖励权；<b>申请人/专利权人</b>可以是自然人也可以是法人，承担申请费用与市场风险，享有财产性权利；<b>代理人</b>是持专利代理师资格证的专业人士，负责撰写申请文件、流程管理、提供咨询，对申请人负责并有保密义务。</div>
+
+<h3>10.6 对应题目：2026 作业 6 题（已过截止，未提交）</h3>
+<table class="std">
+<thead><tr><th>#</th><th>题目</th><th>文档答案</th><th>判断</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>实用新型的保护期</td><td>10 年</td><td><span class="tag ok">对</span> 专利法第 42 条</td></tr>
+<tr><td>2</td><td>专利的特征（多选）</td><td>ABCD（含「策略性」）</td><td><span class="tag warn">待核</span> 讲义把「战略性」列为第 6 个特性；选项原文未见</td></tr>
+<tr><td>3</td><td>说明书包括（多选）</td><td>ABCD</td><td><span class="tag warn">待核</span> 讲义四要素是技术领域/背景技术/发明内容/附图实施方式；若选项含「摘要」则错（摘要属扉页）</td></tr>
+<tr><td>4</td><td>专利质量指标（多选）</td><td>ABC</td><td><span class="tag warn">待核</span> 取决于选项</td></tr>
+<tr><td>5</td><td>不授予专利的情形（多选）</td><td>AD</td><td><span class="tag bad">可能不止</span> 第 25 条共 6 项；若选项含「疾病的诊断和治疗方法」「科学发现」「智力活动规则」，答案应更多</td></tr>
+<tr><td>6</td><td>「三种类型」</td><td>发明 / 实用新型 / 外观设计</td><td><span class="tag warn">看问法</span> 若问「专利的三种类型」→ 对；若问「发明专利的类型」→ 应为产品发明 / 方法发明 / 改进发明</td></tr>
+</tbody>
+</table>
+<div class="warnbox"><b>为什么第 5、6 题必须看原题选项：</b>多选题「错选、漏选均不给分」，在没有选项原文的情况下任何判断都是猜。本手册只指出「文档答案与法条/讲义不一致的地方」，不替原题定答案。</div>
+
+<h3>10.7 老师原话</h3>
+<div class="quote">
+「然后我们专利这部分的话，就大家要掌握我们专利的一些类型期限，然后知道哪一些成果呢？它是不能申请专利的。我们考试考试的那个检索操作方面呢，就不涉及专利的一个检索，就是在数据库去进行检索的，这个题目是没有的。」
+<span class="q-src">文献数据库检索作业讲解 · 59:17</span>
+</div>
+</section>
+
+<section class="ch" id="s11">
+<h2>11 · 期末复习：21 道官方答案逐题拆 <span class="h2sub">总复习题2025参考答案.pdf + 期末复习新.pdf</span></h2>
+
+<p class="lead">这份 PDF 是整门课<b>唯一一份真正的答案</b>：7 道填空 + 14 道简答，每题都给了检索式和结果数。它的前言已经把话说清楚，先抄在这里。</p>
+
+<div class="infobox">
+<b>PDF 前言原文</b>
+<ul>
+<li>「部分参考答案因检索时间问题，<b>结果数量会发生改变</b>」</li>
+<li>「检索题一般有<b>多种做法，符合题意即可</b>」</li>
+<li>「部分检索题未给出第一篇文献的题录，大家做题目时应<b>按标准格式答题</b>」</li>
+</ul>
+<p class="small">这三句话解释了为什么你在不同时间跑出来的数会和答案差几条——<b>方法对，数会漂</b>。期末填空/简答如果要报数，写「约」或者写你实际跑出来的数，并保留检索式。</p>
+</div>
+
+<h3>11.1 一、填空题（7 题，33.6 分）</h3>
+<table class="std">
+<thead><tr><th>#</th><th>题目</th><th>官方答案</th><th>操作路径 / 要点</th><th>讲</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>CBM：温州医学院出版的期刊有 ___ 种；其中《肝胆胰外科杂志》2016 年第 5 期发表的文献有 ___ 篇</td><td><b>7 种；24 篇</b></td><td>期刊检索 → 出版单位 = 温州医学院；再点进该刊 2016 年第 5 期读数</td><td>2</td></tr>
+<tr><td>2</td><td>JCR：SCI 收录的影响因子最高的期刊及该刊 2023 年 IF ___；行为科学（Behavioral Sciences）被 SCIE&amp;SSCI 收录 ___ 种；《ACS NANO》2022 年 IF ___、五年 IF ___</td><td><b>CA-A CANCER JOURNAL FOR CLINICIANS，292.278</b>；<b>53 种</b>；<b>13.334；14.486</b></td><td>浏览全部期刊按 IF 排序；浏览全部学科；期刊详情切 2022 年</td><td>9</td></tr>
+<tr><td>3</td><td>万方：郭建华《运用反向斑点杂交技术检测四川地区结核分枝杆菌 katG 基因 315 位点的突变》，四川大学学报（自然科学版）2009 年发表，被引频次是 ___</td><td><b>2</b></td><td>篇名 + 作者 + 出处三字段定位单篇，看被引频次</td><td>4</td></tr>
+<tr><td>4</td><td>万方：肿瘤学的双月刊有 ___ 种；《肿瘤药学》的主办单位 ___、国内刊号 ___</td><td><b>11 种</b>；<b>湖南省肿瘤医院</b>；<b>43-1507/R</b></td><td>期刊导航 → 学科「肿瘤学」→ 出版周期「双月刊」；点刊看详情</td><td>4</td></tr>
+<tr><td>5</td><td>PubMed 单引文匹配器：2018 年我校李校堃教授发表于 Nature 关于 α-Klotho 的文献，PMID ___、Epub 时间 ___</td><td><b>PMID 29342138</b>；<b>Epub 2018 Jan 17</b><br>Gaozhi Chen et al. α-Klotho is a non-enzymatic molecular scaffold for FGF23 hormone signalling. <i>Nature</i> 2018 Jan 25;553(7689):461-466.</td><td>单篇引文匹配器，用作者 + 刊名 + 年份定位</td><td>5</td></tr>
+<tr><td>6</td><td>ScienceDirect：Neuroscience 领域的开放获取期刊共 ___ 种；《Alzheimer's &amp; Dementia》的 ISSN 是 ___</td><td><b>191 种</b>；<b>1552-5260</b></td><td>出版物浏览 → 学科 Neuroscience → Access Type = Open Access</td><td>6</td></tr>
+<tr><td>7</td><td>Scopus：CiteScore 最高的开放获取期刊是 ___，最新 CiteScore 是 ___</td><td><b>Living Reviews in Relativity</b>；<b>69.9</b></td><td>来源出版物 → 筛 OA → 按 CiteScore 降序</td><td>7</td></tr>
+</tbody>
+</table>
+
+<h3>11.2 二、简答题（14 题，66.4 分）</h3>
+<table class="std">
+<thead><tr><th>#</th><th>题目</th><th>官方答案与检索式</th><th>讲</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>CBM 高级检索：2010 年以来成年人（19–44 岁）精神障碍的病例报告</td><td><b>1470</b><br><code>("精神障碍"[常用字段:智能]) AND (病例报告[文献类型]) AND (成年人[特征词]) AND (人类[特征词]) AND 2010-[日期]</code><br>第一篇：棕榈酸帕利哌酮注射剂致水肿 1 例，李伟，临床精神医学杂志 2020;30(3):168</td><td>2</td></tr>
+<tr><td>2</td><td>CBM 主题检索：二甲双胍治疗糖尿病的文献（主题词加权不扩展，副主题词扩展）</td><td><b>188</b><br><code>("二甲双胍/投药和剂量/副作用/中毒/毒性/治疗应用"[加权:不扩展]) AND "糖尿病/药物疗法"[加权:不扩展]</code><br>第一篇：盐酸二甲双胍缓释片用于社区糖尿病治疗的临床疗效分析，陈钦，糖尿病新世界 2020;23(5):194-195<br><b>注：药物治疗疾病的副主题词固定搭配 = 药物/治疗应用 + 疾病/药物疗法</b></td><td>2</td></tr>
+<tr><td>3</td><td>CBM 分类检索：蠕虫病传播途径的核心期刊文献，以及发文最多的作者</td><td><b>117</b>；<code>"R532/012"[分类号:扩展]</code>；作者<b>钱宝珍（6 篇）</b><br>第一篇：达到血吸虫病传播阻断标准 10 年后人群病情监测和评价，闻礼永，中国人兽共患病学报 2006;22(12):1118-1120</td><td>2</td></tr>
+<tr><td>4</td><td>CBM：上海市第一人民医院刘堃教授<b>作为第一作者</b>发表的文献</td><td><b>8</b>；<code>"刘堃"[第一作者] AND "上海市第一人民医院〔上海〕"[作者单位]</code><br>第一篇：高糖环境下视网膜微血管周细胞 β1,4 半乳糖基转移酶-1 的表达，刘堃，中国眼耳鼻喉科杂志 2007;7(3):147-149</td><td>2</td></tr>
+<tr><td>5</td><td>CNKI：受国家自然科学基金资助、发表于《中国肿瘤》的文献</td><td><b>276</b>；（基金：国家自然科学基金）AND（期刊名称：中国肿瘤）</td><td>3</td></tr>
+<tr><td>6</td><td>CNKI 学位论文：浙江大学汤永民教授以<b>第一导师</b>指导发表的博士学位论文</td><td><b>19</b>；（第一导师：汤永民）AND（作者单位：浙江大学）</td><td>3</td></tr>
+<tr><td>7</td><td>CNKI 会议论文：2014 浙江省肾脏病学术年会发表的有关血液透析的文献</td><td><b>89</b>；（会议名称：2014 浙江省肾脏病学术年会）AND（篇关摘：血液透析）</td><td>3</td></tr>
+<tr><td>8</td><td>万方：检索炎症性肠病的文献，找出发文最多的单位、作者、期刊</td><td><b>930</b>；全部字段 = 炎症性肠病 并且 全文类型 = 中华医学会期刊<br>单位<b>北京协和医院</b>；作者<b>钱家鸣</b>；期刊<b>中华消化杂志</b></td><td>4</td></tr>
+<tr><td>9</td><td>万方学位论文：泰山医学院刘林祥教授指导发表的学位论文</td><td><b>44</b>；<code>作者单位:(泰山医学院) * 导师:("刘林祥")</code></td><td>4</td></tr>
+<tr><td>10</td><td>PubMed 主题检索：近 10 年二甲双胍治疗糖尿病的临床试验英文文献，研究对象为 19 周岁以上男性</td><td><b>767</b><br><code>("Metformin/therapeutic use"[Mesh]) AND "Diabetes Mellitus/drug therapy"[Mesh]</code><br>Filters: Clinical Trial、in the last 10 years、English、Adult: 19+ years、Male</td><td>5</td></tr>
+<tr><td>11</td><td>PubMed 期刊检索：心理学方面的英文期刊；Journal of health service psychology 的出版单位</td><td><b>821</b>；<b>Springer International Publishing</b></td><td>5</td></tr>
+<tr><td>12</td><td>Scopus：近 5 年《Brain Stimulation》上 Tourette syndrome 的文献，被引最高的一篇</td><td><b>15</b><br><code>(SRCTITLE("Brain Stimulation") AND TITLE-ABS-KEY("Tourette syndrome")) AND PUBYEAR &gt; 2015</code><br>被引 <b>80</b>：<i>Deep Brain Stimulation for Tourette-Syndrome: A Systematic Review and Meta-Analysis</i></td><td>7</td></tr>
+<tr><td>13</td><td>WOS：首都医科大学 2000 年至今被 SCI 收录的论文，分析高被引/热点/研究方向/作者/基金/期刊</td><td>总 <b>41,310</b>；<code>机构扩展: (Capital Medical University) AND 出版年: (2000-2021)</code><br>高被引 <b>249</b>；热点 <b>28</b>；研究方向 <b>NEUROSCIENCES NEUROLOGY（6,834）</b>；作者 <b>WANG Y（1,615）</b>；基金 <b>NSFC（14,363）</b>；期刊 <b>CHINESE MEDICAL JOURNAL（1,655）</b></td><td>8</td></tr>
+<tr><td>14</td><td>WOS：我校附属医院诸葛启钏医生发表的文献，被引最高的一篇所在期刊</td><td><b>85</b>；<code>机构扩展: (wenzhou medical university) AND 作者: (zhuge qc)</code></td><td>8</td></tr>
+</tbody>
+</table>
+<div class="warnbox"><b>注意第 13 题的年份：</b>题干写「2000 年至今」，官方答案用的是「2000-2021」。说明这份答案定稿在 2021 年前后，<b>数字会随年份增长</b>。期末考试若遇到同题，按题目给的年份区间做，不要照抄 41,310。</div>
+
+<h3>11.3 期末复习提纲：一张表串起全部规则</h3>
+<table class="std">
+<thead><tr><th>数据库</th><th>检索规则</th><th>检索功能</th><th>浏览 / 其他</th><th>特别注意</th></tr></thead>
+<tbody>
+<tr><td><b>CBM</b></td><td>布尔逻辑（优先级）、截词、精确检索</td><td>快速检索；高级检索 + 限定检索；<b>主题检索</b>；<b>分类检索</b>；期刊检索</td><td>检索历史、引文检索</td><td>加权 / 扩展的含义</td></tr>
+<tr><td><b>知网</b></td><td>布尔逻辑、精确检索</td><td>跨库检索、单库检索、作者发文检索、句子检索</td><td>期刊导航、学位授予单位导航、会议导航</td><td><b>主题字段 ≠ 篇关摘</b>；高级检索里逻辑符号的写法</td></tr>
+<tr><td><b>万方</b></td><td>布尔逻辑、精确匹配</td><td>文献检索（可按类型切换）</td><td>期刊导航（刊名首字母/核心收录/收录地区/出版周期）</td><td>运算符英文半角</td></tr>
+<tr><td><b>PubMed</b></td><td>布尔逻辑、截词检索、字段限定、精确检索</td><td>基本检索（自动词语匹配）、高级检索、单篇引文匹配器、期刊检索、MeSH 主题检索、结果过滤</td><td>—</td><td>自动匹配何时被关闭</td></tr>
+<tr><td><b>ScienceDirect</b></td><td>布尔逻辑运算、精确检索</td><td>快速检索、高级检索</td><td>出版物浏览</td><td><b>注意题目对文献类型的限定</b></td></tr>
+<tr><td><b>Scopus</b></td><td>布尔逻辑（<code>AND NOT</code>）、位置限定（<code>W/n</code>、<code>PRE/n</code>）、截词、精确检索与完全匹配</td><td>文献检索、组织检索、来源出版物检索</td><td>—</td><td>检索式必须英文；<code>OR</code> 优先级最高</td></tr>
+<tr><td><b>Web of Science</b></td><td>布尔逻辑、精确检索、截词、位置限定（<code>NEAR/x</code>、<code>SAME</code>）</td><td>智能检索、高级检索</td><td>引文网络（参考文献/引证文献/相关记录）；JCR 期刊引证报告</td><td><b>地址字段的注意事项</b></td></tr>
+</tbody>
+</table>
+<p class="small">复习 PDF 还附了检索词四规则（选规范词 / 最小词汇 / 同义词选全 / 避开停用词）和一张英文停用词表，内容与第一讲 1.6 节完全一致，这里不重复。</p>
+
+<h3>11.4 考场注意事项（复习 PDF 最后一页原文）</h3>
+<div class="card">
+<ul class="checklist">
+<li>携带身份证或学生证，<b>提前 5–10 分钟</b>到考场</li>
+<li><b>闭卷考试</b>，不能查看纸质材料和电子课件；<b>可以使用 AI 工具</b></li>
+<li>题型：<b>单选、多选（错选、漏选均不给分）、填空、简答</b></li>
+<li>注意看题目的<b>限定条件</b>、要求的<b>检索方式与检索字段</b></li>
+<li>检索式要规范；<b>如果复制不了，直接手动输入</b></li>
+<li>外文数据库<b>使用英文作答</b></li>
+<li>注意格式、文本字体要统一</li>
+<li>如果遇到数据库打不开，<b>可以尝试更换浏览器</b></li>
+<li>不得互相交流或使用任何交流通讯软件</li>
+</ul>
+</div>
+<div class="note"><b>最后一句提醒：</b>这 21 道题的<b>方法</b>是标准答案，<b>数字</b>不是。数据库每年在长，同一道题今天跑出来可能多几十条。答题时把「检索式 + 字段 + 限定条件」写清楚，比背数字有用。</div>
+</section>
+
+<section class="ch" id="s12">
+<h2>12 · PPT 13 道题：谁对、谁错、谁不唯一 <span class="h2sub">作业常见问题及参考答案.pptx</span></h2>
+
+<p class="lead">这一章是整份材料的核心。PPT 名字叫「参考答案」，实际是 <b>29 页 / 44 张学生答案截图</b> 的合集。下面按题把每一份学生答案的检索式和结果数摊开，再用讲义规则和老师录音判它。判断分三档：<span class="tag ok">合规</span> / <span class="tag warn">不唯一</span> / <span class="tag bad">有错</span>。</p>
+
+<div class="infobox">
+<b>先给结论：13 题里只有 Q13 有老师亲口讲的标准答案（SD 57 → 研究性 31；Scopus 241，按相关度排序）。</b>Q1–Q12 全部只有学生答案，而学生之间经常差几十倍——这不是学生太差，而是<b>题目本身没把「加权/扩展/字段/排序」写死</b>。所以本章的判断逻辑是：<b>先看题面约束，再看检索式是否违反该库规则</b>，不拿「谁的数字大/小」当对错。
+</div>
+
+<h3>12.1 速览表</h3>
+<table class="std tight">
+<thead><tr><th>题</th><th>PPT 页</th><th>库</th><th>题目</th><th>答案数</th><th>出现的数</th><th>结论</th></tr></thead>
+<tbody>
+<tr><td><b>Q1</b></td><td>1–2</td><td>CBM</td><td>二甲双胍 · 2015–2017 · 65 岁以上 · 不良反应</td><td>3</td><td>1 / 80 / 未显示</td><td><span class="tag warn">不唯一</span></td></tr>
+<tr><td><b>Q2</b></td><td>3–5</td><td>CBM</td><td>主题词加权检索肺动脉高压流行病学的综述</td><td>5</td><td>1301 / 1 / 12 / 246 / 153（+979）</td><td><span class="tag warn">不唯一</span></td></tr>
+<tr><td><b>Q3</b></td><td>6–7</td><td>CBM</td><td>主题词加权扩展检索静脉血栓药物治疗</td><td>2</td><td>3152 / 5166</td><td><span class="tag ok">B 更贴题</span></td></tr>
+<tr><td><b>Q4</b></td><td>8–10</td><td>CBM</td><td>浙江大学厉有名 · 题名含非酒精性脂肪性肝病</td><td>3</td><td>61 / 52</td><td><span class="tag ok">52 对</span></td></tr>
+<tr><td><b>Q5</b></td><td>11–12</td><td>CBM</td><td>温医大所有附属医院 · 检验科/检验中心</td><td>2</td><td>744 / 780</td><td><span class="tag ok">780 更贴题</span></td></tr>
+<tr><td><b>Q6</b></td><td>13</td><td>知网</td><td>张志荣 · 华西药学杂志</td><td>2</td><td>132 / 98</td><td><span class="tag warn">看文献类型</span></td></tr>
+<tr><td><b>Q7</b></td><td>14–15</td><td>知网</td><td>miR-146a · 胃癌细胞 · 篇关摘</td><td>4</td><td>10 / 5 / 8 / 30（实测 90）</td><td><span class="tag warn">A 最接近</span></td></tr>
+<tr><td><b>Q8</b></td><td>16–17</td><td>PubMed</td><td>高血压 × 吸烟 · 截词符</td><td>4</td><td>212 / 9,269 / 45,943 / 45,986</td><td><span class="tag ok">45,986 合规</span></td></tr>
+<tr><td><b>Q9</b></td><td>18–19</td><td>PubMed</td><td>John William Smith · 题名含癌症治疗</td><td>3</td><td>153 / 1 / 12</td><td><span class="tag ok">153 合规</span></td></tr>
+<tr><td><b>Q10</b></td><td>20–21</td><td>PubMed</td><td>儿童哮喘 · 主题检索 · 药物治疗 · 英文综述</td><td>4</td><td>2,512 / 15,331×2 / 1,786</td><td><span class="tag ok">1,786 最贴题</span></td></tr>
+<tr><td><b>Q11</b></td><td>22–23</td><td>WOS</td><td>Yamanaka Shinya · iPS · 总被引 / H 指数</td><td>3</td><td>5 / 243 / 198</td><td><span class="tag bad">三个都有问题</span></td></tr>
+<tr><td><b>Q12</b></td><td>24–25</td><td>WOS</td><td>温医二院 · 期刊 / 研究方向 / 作者</td><td>3</td><td>6,921</td><td><span class="tag bad">Elsevier 答错</span></td></tr>
+<tr><td><b>Q13</b></td><td>26–27</td><td>SD + Scopus</td><td>肾缺血 × 多器官衰竭</td><td>4</td><td>SD 170,325 / 7,140；Scopus 339 / 209</td><td><span class="tag bad">四个全错</span></td></tr>
+</tbody>
+</table>
+
+<!-- ============ Q1 ============ -->
+<h3>Q1 · CBM：二甲双胍 · 2015–2017 · 65 岁以上 · 不良反应</h3>
+<div class="qbox">
+<p class="stem">检索 2015–2017 年二甲双胍在治疗 65 岁以上老年人糖尿病过程中可能出现的不良反应的文献。</p>
+<div class="refs">
+<div class="ref g"><b>老师录音</b>无。CBM 那节课的转写在 27:12 停在「给大家 10 分钟做练习，待会儿找人上来演示」，后面的讲评没有录到。<span class="src">生物医学数据库检索功能教学_元宝导出.md</span></div>
+<div class="ref b"><b>本轮实测</b>题目已换成年份 2021–2026。两词（二甲双胍 + 糖尿病）+ 年代 = 5,926 条；三词（+ 不良反应）= 2,331 条；再加「老年」= 266 条。<b>225 未复现</b>。<span class="src">文献检索_实测证据日志_20261108.md</span></div>
+</div>
+<table class="std">
+<thead><tr><th>答案</th><th>检索式</th><th>结果</th><th>第一篇</th></tr></thead>
+<tbody>
+<tr><td>A</td><td><code>("二甲双胍"[常用字段:智能] AND "治疗糖尿病"[常用字段:智能] AND "不良反应"[常用字段:智能]) AND (老年人[特征词]) AND (人类[特征词]) AND 2015-2017[日期]</code></td><td><b>1</b></td><td>二甲双胍治疗老年社区糖尿病疗效观察 / 高金洲 / 今日健康 2015;14(8):156-157</td></tr>
+<tr><td>B</td><td><code>("二甲双胍"[常用字段] OR "Metformin"[常用字段] OR "二甲基脒基胍"[常用字段] OR "格华止"[常用字段] OR "盐酸二甲双胍"[常用字段] OR "二甲双胍"[主题词]) AND ("糖尿病"[常用字段] OR "Diabetes Mellitus"[常用字段] OR "糖尿病"[主题词]) AND 老年人[特征词] AND 人类[特征词] AND 2015-2017[日期]</code></td><td>未显示</td><td>格列喹酮联合阿卡波糖治疗老年 2 型糖尿病的疗效观察 / 谢讯华 / 中国现代药物应用 2016;10(11):128-129</td></tr>
+<tr><td>C</td><td><code>(二甲双胍 糖尿病 不良反应) AND (老年人[特征词]) AND (人类[特征词]) AND 2015-2017[日期]</code></td><td><b>80</b></td><td>同上（谢讯华）</td></tr>
+</tbody>
+</table>
+<div class="verdict v-warn"><b>判断：不唯一。</b>三份答案都用了正确的年龄/人类限定（<code>老年人[特征词]</code> + <code>人类[特征词]</code> + 日期），这是这道题的关键动作。差别在<b>字段粒度</b>：A 把「治疗糖尿病」「不良反应」都当成带引号的常用字段短语，等于要求这两个字符串整体出现，所以只剩 1 条；C 只写词根，放宽到 80 条。<b>题面没有「查全」或「查准」要求，两个数都能自圆其说。</b>B 的思路（同义词全 OR）其实最符合「同义词收全」的规则，但没显示结果数，无法判断。</div>
+<div class="note"><b>附加提醒：</b>2026 年作业的同题已改为 2021–2026，且「65 岁以上」要用<b>限定检索里的年龄组</b>，不是加「老年」当检索词。旧答案 225 在本轮任何写法下都没复现——先别改检索式，先确认题面年份和字段。</div>
+</div>
+
+<!-- ============ Q2 ============ -->
+<h3>Q2 · CBM：主题词加权检索肺动脉高压流行病学的综述</h3>
+<div class="qbox">
+<p class="stem">主题词加权检索有关肺动脉高压流行病学的综述文献。</p>
+<div class="refs">
+<div class="ref g"><b>老师方法</b>主题检索五步：检索词 → 主题词 → 副主题词 → 是否加权（标记为主要研究内容就是加权）→ 是否扩展（要扩大查全就扩展）。<span class="src">医学文献检索方法教学_元宝导出.md</span></div>
+<div class="ref b"><b>本轮实测</b>CBM 主题检索：肺动脉高压 + 副主题词 人种学/流行病学/死亡率，不加权不扩展 → <b>1,475 条</b>（旧答案 1,446，+29 为收录增长）。<span class="src">CBM_Q2_1475条.png</span></div>
+</div>
+<table class="std">
+<thead><tr><th>答案</th><th>检索式</th><th>结果</th><th>第一篇</th></tr></thead>
+<tbody>
+<tr><td>A</td><td><code>"肺动脉高压/人种学/流行病学/死亡率"[加权:扩展]</code></td><td><b>1301</b></td><td>影响左心疾病相关肺动脉高压患者预后的因素分析 / 王研锦等 / 包头医学院学报 2024;40(12):62-67,91</td></tr>
+<tr><td>B</td><td><code>"肺动脉高压"[加权:扩展] AND "流行病学"[加权:扩展]</code></td><td><b>1</b></td><td>肺动脉高压患者中有较高的甲状腺疾病流行率 / 刘晓荻(译) / 基础医学与临床 2007;27(12):封3</td></tr>
+<tr><td>C</td><td><code>("肺动脉高压/流行病学"[加权:不扩展]) AND "综述"[不加权:扩展]</code></td><td><b>12</b></td><td>慢性阻塞性肺疾病相关肺动脉高压的病理生理机制和治疗进展 / 张参、贾卫华 / 中西医结合心脑血管病杂志 2024;22(21):3926-3930</td></tr>
+<tr><td>D</td><td><code>("肺动脉高压/人种学/流行病学/死亡率"[加权:扩展]) AND ("综述"[文献类型])</code></td><td><b>246</b></td><td>CXCL9、CXCL10 在肺动脉高压中的研究进展 / 李汝芳等 / 中国呼吸与危重监护杂志 2024;23(11):818-822</td></tr>
+<tr><td>E</td><td><code>("肺动脉高压/流行病学"[加权:扩展]) AND ("综述"[文献类型])</code></td><td><b>153</b></td><td>同上（另：单检 <code>"肺动脉高压/流行病学"[加权:扩展]</code> = 979）</td></tr>
+</tbody>
+</table>
+<div class="verdict v-warn"><b>判断：不唯一，五个答案五个数。</b>差异全部来自两个勾选项的组合：<b>加权</b>（主题词是否为主要研究内容）和<b>扩展</b>（是否含下位词）。题面只说「加权」，<b>没说「扩展」</b>，所以 A 的 1301（加权+扩展，一条式含三个副主题词）和 C 的 12（只保留流行病学副主题词 + 综述限定）都能自圆其说。<br><b>唯一能判错的是 B：</b>把「流行病学」当独立主题词去 AND「肺动脉高压」，等于要求两个主题词都加权——这不是「肺动脉高压的流行病学」，语义已经变了，所以只有 1 条。</div>
+<div class="note"><b>考试怎么答：</b>按老师反复强调的「题目没要求就选默认选项」——主题词加权、副主题词按题面选、扩展按是否要求查全决定，最后用「综述」作<b>文献类型</b>限定（D 的写法）最稳。</div>
+</div>
+
+<!-- ============ Q3 ============ -->
+<h3>Q3 · CBM：主题词加权扩展检索静脉血栓药物治疗</h3>
+<div class="qbox">
+<p class="stem">主题词加权扩展检索静脉血栓药物治疗方面的文献。</p>
+<div class="refs">
+<div class="ref g"><b>老师方法</b>「加权」= 主题词标为主要研究内容；「扩展」= 把下位主题词一并检出。两步都在主题检索界面勾选。<span class="src">医学文献检索方法教学_元宝导出.md</span></div>
+<div class="ref b"><b>本轮实测</b>未单独跑本题。</div>
+</div>
+<table class="std">
+<thead><tr><th>答案</th><th>检索式</th><th>结果</th><th>第一篇</th></tr></thead>
+<tbody>
+<tr><td>A</td><td><code>"静脉血栓"[加权:扩展] AND "药物治疗"[加权:扩展]</code></td><td><b>3152</b></td><td>例颅内静脉窦血栓取栓术联合上矢状窦置管溶栓治疗患者的护理 / 周婧 / 天津护理 2024;32(6):731-734</td></tr>
+<tr><td>B</td><td><code>"静脉血栓形成/药物疗法"[加权:扩展]</code></td><td><b>5166</b></td><td>介入治疗髂静脉压迫综合征伴下肢深静脉血栓形成的临床应用研究 / 杨海南等 / 罕少疾病杂志 2024;31(12):112-113</td></tr>
+</tbody>
+</table>
+<div class="verdict v-ok"><b>判断：B 更贴题。</b>A 把「主题词」和「副主题词」拆成两个独立主题词去 AND，等于要求「药物治疗」本身也是一个加权主题词；B 用 <code>主题词/副主题词</code> 合成一个规范词，才是主题检索里「主题词 + 副主题词」的标准写法。B 的范围更大（5166），因为「药物疗法」作为副主题词已经包含治疗类的下位概念。<b>3152 与 5166 不是对错关系，是检索式粒度不同</b>；但题面写的是「主题词加权扩展」，B 的写法才对得上「主题词 + 副主题词」这个结构。</div>
+</div>
+
+<!-- ============ Q4 ============ -->
+<h3>Q4 · CBM：浙江大学厉有名 · 题名含非酒精性脂肪性肝病</h3>
+<div class="qbox">
+<p class="stem">检索浙江大学厉有名教授发表的题名中含有非酒精性脂肪性肝病的文献。</p>
+<div class="refs">
+<div class="ref g"><b>老师方法</b>字段限定要「一步到位」：作者单位已限定，作者字段就不要再带单位字样；题名限定用「中文标题」。<span class="src">数据库检索规则与作业讲解_元宝导出.md 07:36</span></div>
+<div class="ref b"><b>本轮实测</b>未跑本题（2026 版作业换成了「范建高 × 非酒精性脂肪性肝病」= 25 条）。</div>
+</div>
+<table class="std">
+<thead><tr><th>答案</th><th>检索式</th><th>结果</th><th>第一篇</th></tr></thead>
+<tbody>
+<tr><td>A</td><td><code>%"浙江大学"%[作者单位] AND %"厉有名"%[作者] AND "非酒精性脂肪性肝病"[中文标题:智能]</code></td><td>未显示</td><td>非酒精性脂肪性肝病诊治进展与挑战 / 徐承富、厉有名 / 现代实用医学 2023;35(10):1264-1266</td></tr>
+<tr><td>B</td><td><code>%"浙江大学"%[作者单位] AND %"厉有名"%[作者] AND "非酒精性脂肪性肝病"[常用字段:智能]</code></td><td><b>61</b></td><td>同上</td></tr>
+<tr><td>C</td><td><code>"厉有名"[作者] AND "非酒精性脂肪性肝病"[中文标题:智能] AND %"浙江大学"%[作者单位]</code></td><td><b>52</b></td><td>同上</td></tr>
+</tbody>
+</table>
+<div class="verdict v-ok"><b>判断：C（52）对。</b>B 与 C 只差一个字段：<b>常用字段 61 条 / 中文标题 52 条</b>。题面明确要求「<b>题名中含有</b>」，所以必须用「中文标题」；B 把「题名」放宽成了「常用字段」（= 中文标题 + 摘要 + 关键词 + 主题词），多出来的 9 条是「摘要或关键词里有、标题里没有」的文献。<br>A 的字段是对的，但没显示结果数，无法核对；写法上 <code>%"…"%</code> 是全模糊匹配，能用，只是不如直接选字段干净。</div>
+</div>
+
+<!-- ============ Q5 ============ -->
+<h3>Q5 · CBM：温医大所有附属医院 · 检验科 / 检验中心</h3>
+<div class="qbox">
+<p class="stem">检索温州医科大学所有附属医院的检验科或检验中心的学者发表的文献。</p>
+<div class="refs">
+<div class="ref g"><b>老师方法</b>作者单位支持「精确 / 模糊」两种匹配；要覆盖「所有附属医院」，单位名要写成可通配的形式。<span class="src">生物医学数据库检索功能教学_元宝导出.md</span></div>
+<div class="ref b"><b>本轮实测</b>未跑本题。</div>
+</div>
+<table class="std">
+<thead><tr><th>答案</th><th>检索式</th><th>结果</th><th>第一篇</th></tr></thead>
+<tbody>
+<tr><td>A</td><td><code>#34=(#33) AND (#32)；#33 检验科；#32 温州医科大学</code></td><td><b>744</b></td><td>复发性流产患者维生素 D 与抗磷脂抗体水平相关性研究 / 夏建妹等 / 电实医学 2024;53(23):3559-3561</td></tr>
+<tr><td>B</td><td><code>("温州医科大学附属%医院")[作者单位] AND ("检验科"[作者单位] OR "检验中心"[作者单位])</code></td><td><b>780</b></td><td>凝血因子 X … 突变蛋白结构与功能分析 / 李阳阳等 / 温州医科大学学报 2024;54(11):927-931,936</td></tr>
+</tbody>
+</table>
+<div class="verdict v-ok"><b>判断：B（780）更贴题。</b>A 先用「温州医科大学」把范围放到 22,199 条，再与「检验科」取交集——这样会混进<b>非附属单位</b>的检验科（只要作者单位里同时出现「温州医科大学」和「检验科」，哪怕不是附属医院）。B 把「附属%医院」直接写进作者单位，<code>%</code> 通配任意字符，正好覆盖「附属第一医院 / 附属第二医院 / 附属眼视光医院…」，再与检验科/检验中心 OR，语义与题面一致。<br><span class="warn">#33 的条数 OCR 不清（约 2,303），以截图为准。</span></div>
+</div>
+
+<!-- ============ Q6 ============ -->
+<h3>Q6 · 知网：张志荣 · 华西药学杂志</h3>
+<div class="qbox">
+<p class="stem">知网：检索四川大学华西药学院的张志荣在《华西药学杂志》上发表的文献。</p>
+<div class="refs">
+<div class="ref g"><b>老师录音</b>同类题（黄悦勤那题）讲评：<b>作者单位已做精确限定后，作者字段就不要再带单位</b>；知网优先用「篇关摘」。<span class="src">数据库检索规则与作业讲解_元宝导出.md</span></div>
+<div class="ref b"><b>本轮实测</b>未跑本题。</div>
+</div>
+<table class="std">
+<thead><tr><th>答案</th><th>检索范围</th><th>结果</th><th>第一篇</th></tr></thead>
+<tbody>
+<tr><td>A</td><td>总库（作者：张志荣(四川大学)(精确)）AND（文献来源：华西药学杂志(精确)）</td><td><b>132</b></td><td>MCC950 纳米药物晶体的制备及体外性质研究 / 史蓉英、傅佳丽、殷志杰等 / 华西药学杂志 2025;40(02):127-130</td></tr>
+<tr><td>B</td><td>学术期刊（作者单位：四川大学华西药学院(模糊)）AND（作者：张志荣(精确)）AND（期刊名称：华西药学杂志(精确)）</td><td><b>98</b></td><td>同上</td></tr>
+</tbody>
+</table>
+<div class="verdict v-warn"><b>判断：不唯一，取决于「文献」是否等于「期刊论文」。</b>132（总库）与 98（学术期刊）差 34 条，差在<b>资源范围</b>：总库还包含学位论文、会议、专利等。题目说「发表的文献」，没有限定文献类型，<b>两个都能站住</b>；如果按课程作业的惯例（老师要看的是期刊论文），98 更稳。<br>A 的写法还有一个问题：把「四川大学」塞进作者字段（<code>张志荣(四川大学)</code>），这正是老师说的「作者字段不要重复带单位」——它靠的是知网作者字段里的机构联想，属于碰巧能用，不规范。</div>
+</div>
+
+<!-- ============ Q7 ============ -->
+<h3>Q7 · 知网：miR-146a · 胃癌细胞 · 篇关摘</h3>
+<div class="qbox">
+<p class="stem">知网：检索有关 miR-146a（miRNA-146a、microRNA-146a）在胃癌细胞中表达及功能的文献（字段要求篇关摘）。</p>
+<div class="refs">
+<div class="ref g"><b>老师录音（有直接讲评）</b>同一逻辑符（OR）要放在<b>同一个检索框</b>里；带特殊字符（连字符）的检索词要加英文双引号；「表达及功能」可以<b>不作为检索词</b>；完整检索式现场演示过，条数「比之前剪的又多了几篇」。<span class="src">数据库检索规则与作业讲解 14:50–16:35</span></div>
+<div class="ref b"><b>本轮实测</b>专业检索 <code>TKA=('miR-146a' + 'miRNA-146a' + 'microRNA-146a') AND TKA='胃癌'</code> → <b>90 条</b>；下载降序第一篇是<b>肖斌</b>，2009，第三军医大学，791 下载（不是旧答案里的李海龙）。<span class="src">CNKI_Q9_90条_下载排序_20261106.png</span></div>
+</div>
+<table class="std">
+<thead><tr><th>答案</th><th>检索式</th><th>结果</th><th>第一篇</th></tr></thead>
+<tbody>
+<tr><td>A</td><td>学术期刊（篇关摘：<code>'miR-146a'+'miRNA-146a'+'microRNA-146a'</code>（精确））AND（篇关摘：胃细胞（精确））</td><td><b>10</b></td><td>LncRNA MALAT1 通过靶向 miR-146a 调节 PI3K/Akt 信号通路影响胃细胞的增殖、迁移和侵袭 / 邢智伟等 / 沈阳药科大学学报 2024;41(05):581-589+618</td></tr>
+<tr><td>B</td><td>总库 篇关摘：<code>'miR-146a(miRNA-146a、microRNA-146a) 在胃细胞中表达及功能'</code></td><td><b>5</b></td><td>幽门螺杆菌感染相关的非编码 RNA 筛选、鉴定及其功能研究[D] / 杨柳 / 大连医科大学，2016</td></tr>
+<tr><td>C</td><td>总库（篇关摘：<code>miR-146a+miRNA-146a+microRNA-146a</code>（精确））AND（篇关摘：胃癌细胞（模糊））AND（篇关摘：表达及功能（模糊））</td><td><b>8</b></td><td>miR-146a 在胃组织中的表达及临床意义[C] / 侯志斌等 / 2011:84-85</td></tr>
+<tr><td>D</td><td>总库（篇关摘：胃细胞（精确））AND（篇关摘：<code>miR-146a+miRNA-146a+microRNA-146a</code>（精确）），中英文扩展</td><td><b>30</b></td><td>邢智伟等（同上）</td></tr>
+</tbody>
+</table>
+<div class="verdict v-warn"><b>判断：A（10）最接近老师口径，但四个答案各有硬伤。</b>
+<ul>
+<li><b>B 错两处：</b>把三个同义词塞进一个引号里（变成要求整串出现），还把「表达及功能」写进了检索词——老师明确说这两个都不该这么写。</li>
+<li><b>C 错一处：</b>「表达及功能」作为检索词，被老师点名否掉；虽然它结果最少（8），不是因为它准，是因为它多了一个不必要的限制。</li>
+<li><b>D 的 30：</b>字段和同义词写法都对，但开了「中英文扩展」，范围被放大；另外用的是「胃细胞」不是「胃癌细胞」。</li>
+<li><b>A 的 10：</b>只用篇关摘 + 三个同义词同框 + 「胃细胞」精确，结构与老师演示一致。</li>
+</ul>
+<b>但不能直接拿 A 的 10 和实测 90 对比</b>：实测用的是「胃癌」不是「胃癌细胞」，且年份多了两年，收录也涨了。老师现场也没报确切数，只说「比之前剪的又多了几篇」。</div>
+<div class="note"><b>这道题真正要记的是三条规则：</b>①同一逻辑符放同一个框；②特殊字符加英文引号；③题面里的描述性词语（「表达及功能」）不作检索词。</div>
+</div>
+
+<!-- ============ Q8 ============ -->
+<h3>Q8 · PubMed：高血压 × 吸烟 · 截词符</h3>
+<div class="qbox">
+<p class="stem">基本检索／高级检索：检索高血压与吸烟的关系的文献（hypertension、smoker、smoking、smoked）（提示：截词符）。</p>
+<div class="refs">
+<div class="ref g"><b>老师方法</b>截词符：无限截词用 <code>*</code>（代表零或多个字符）。<b>题目给出的同义表达必须用 OR 连起来</b>。<span class="src">数据库检索功能与期刊指标讲解_元宝导出.md</span></div>
+<div class="ref b"><b>本轮实测</b>PubMed 近五年高血压 × 吸烟 = 39 条。<span class="src">PM_P3_hypertension.jpg</span></div>
+</div>
+<table class="std">
+<thead><tr><th>答案</th><th>检索式</th><th>结果</th><th>第一篇</th></tr></thead>
+<tbody>
+<tr><td>A</td><td><code>hypertension AND smok*</code>　Filters: Review, from 2022 至 2022/12/12</td><td><b>212</b></td><td>Toloza FJ, et al. Association between maternal thyroid function and risk of gestational hypertension and pre-eclampsia. Lancet Diabetes Endocrinol. 2022;10(4):243-252.</td></tr>
+<tr><td>B</td><td><code>(hypertension) AND (smoke*)</code></td><td><b>9,269</b></td><td>Virdis A, et al. Cigarette smoking and hypertension. Curr Pharm Des. 2010;16(23):2518-2525.</td></tr>
+<tr><td>C</td><td><code>(((smoker) OR (smoking)) OR (smoked)) AND (hypertension)</code></td><td><b>45,943</b></td><td>Virdis A, et al.（同上）</td></tr>
+<tr><td>D</td><td><code>hypertension AND smok*</code></td><td><b>45,986</b></td><td>Di Raimondo D, et al. Ketogenic Diet, Physical Activity, and Hypertension—A Narrative Review. Nutrients. 2021;13(8):2567.</td></tr>
+</tbody>
+</table>
+<div class="verdict v-ok"><b>判断：D（45,986）最贴题，C（45,943）用同义词 OR，也合规。</b>
+<ul>
+<li><b>A 的 212 不合格：</b>它加了 <code>Review</code> 和 2022 年单年两个限定，检出来的是「妊娠期高血压与甲状腺功能」——高血压只是被提到，不是主题。题目问的是「高血压与吸烟的关系」，不是综述。</li>
+<li><b>B 的 9,269：</b>写法本身没错（<code>smoke*</code> 能覆盖 smoker），但数只有 D 的 1/5，说明截图里还有没显示出来的限定条件（年份/字段）。<b>仅凭检索式无法解释这 5 倍差</b>，标「口径不明」。</li>
+<li><b>C 的 45,943 与 D 的 45,986 只差 43 条：</b>C 是三个词形逐一 OR，D 是 <code>smok*</code>，两者覆盖范围几乎相同，差的是 <code>smok*</code> 多匹配到的 smoky / smokeless 一类词。</li>
+</ul>
+</div>
+<div class="note"><b>更正一处流传很广的说法：</b>「<code>smoke*</code> 会漏掉 smoker」是<b>错的</b>。截词是前缀匹配，<code>smoke*</code> 覆盖 smoke / smoked / smoker / smokers / smokes。真正要注意的是相反方向：<code>smok*</code> 范围更大，会带进 smoky、smokeless 等无关词。<b>本手册早期草稿写错过这一条，以此处为准。</b></div>
+</div>
+
+<!-- ============ Q9 ============ -->
+<h3>Q9 · PubMed：John William Smith · 题名含癌症治疗</h3>
+<div class="qbox">
+<p class="stem">高级检索：检索作者 John William Smith（smith jw）发表的论文标题中含癌症治疗（cancer、neoplasms、treatment、therapy）方面的文献。</p>
+<div class="refs">
+<div class="ref g"><b>老师方法</b>作者字段要同时覆盖全名与「姓 + 首字母缩写」两种写法，用 OR 连接；题名限定统一用 <code>[Title]</code>。<span class="src">PubMed主题词检索教学_元宝导出.md</span></div>
+<div class="ref b"><b>本轮实测</b>未跑本题。</div>
+</div>
+<table class="std">
+<thead><tr><th>答案</th><th>检索式</th><th>结果</th><th>第一篇</th></tr></thead>
+<tbody>
+<tr><td>A</td><td><code>(John William Smith[Author] OR smith jw[Author]) AND (cancer[Title] OR neoplasms[Title] OR treatment[Title] OR therapy[Title])</code></td><td><b>153</b></td><td>Holmes FA, Moy B, Delaloge S, et al. Overall survival with neratinib after trastuzumab-based adjuvant therapy in HER2-positive breast cancer (ExteNET). Eur J Cancer. 2023;184:48-59.</td></tr>
+<tr><td>B</td><td><code>(John William Smith[Author]) AND ((cancer OR neoplasms) AND (treatment OR therapy)[Title])</code></td><td><b>1</b></td><td>Jain, Deepti, et al. Cervical squamous cell carcinoma outcomes across continents: A retrospective study. Gynecol Oncol. 2024;190:272-282.</td></tr>
+<tr><td>C</td><td><code>((John William Smith[Author] OR smith jw[Author]) AND (cancer[Title] OR neoplasms[Title])) AND (treatment[Title] OR therapy[Title])</code></td><td><b>12</b></td><td>Holmes FA, et al.（同上）</td></tr>
+</tbody>
+</table>
+<div class="verdict v-ok"><b>判断：A（153）合规。</b>
+<ul>
+<li><b>B 的 1 条，错在括号和字段标签位置：</b><code>(cancer OR neoplasms) AND (treatment OR therapy)[Title]</code> 里，<code>[Title]</code> 只作用于后一个括号，<b>前一组变成全字段检索</b>；而且四个词被拆成「癌症组 AND 治疗组」，语义从「题名含任一词」变成「题名同时含两类词」。</li>
+<li><b>C 的 12 条，同错：</b>把四个词拆成两个 AND 块，也是在要求「癌症词 AND 治疗词」同时出现。</li>
+<li><b>A 对在：</b>四个词在同一层括号里平铺 OR，<code>[Title]</code> 逐个加，作者两种写法 OR，逻辑与题面完全对应。</li>
+</ul>
+</div>
+</div>
+
+<!-- ============ Q10 ============ -->
+<h3>Q10 · PubMed：儿童哮喘 · 主题检索 · 药物治疗 · 英文综述</h3>
+<div class="qbox">
+<p class="stem">主题检索：儿童（Child: birth-18 years）哮喘（asthma）的药物治疗（drug therapy）的英文综述文献。</p>
+<div class="refs">
+<div class="ref g"><b>老师方法</b>主题检索 = MeSH 词 + 副主题词；子集限定（年龄、文献类型、语种）在左栏 Filters 里勾。<span class="src">PubMed主题词检索教学_元宝导出.md</span></div>
+<div class="ref b"><b>本轮实测</b>未跑本题（同类：青少年哮喘临床试验 = 2,954）。<span class="src">PM_P5_asthma.jpg</span></div>
+</div>
+<table class="std">
+<thead><tr><th>答案</th><th>检索式</th><th>结果</th><th>第一篇</th></tr></thead>
+<tbody>
+<tr><td>A</td><td><code>asthma AND drug therapy</code>　Filters: Review, English, Child: birth-18 years</td><td><b>2,512</b></td><td>Kim LHY, Saleh C, Whalen-Browne A, O'Byrne PM, Chu DK. Triple vs Dual Inhaler Therapy and Asthma Outcomes in Moderate to Severe Asthma. JAMA. 2021;325(24):2466-2479.</td></tr>
+<tr><td>B</td><td><code>"Asthma/drug therapy"[Mesh]</code></td><td><b>15,331</b></td><td>Mahesh S, Ramamurthy M. Management of Acute Asthma in Children. Indian J Pediatr. 2022;89(4):366-372.</td></tr>
+<tr><td>C</td><td><code>"Asthma/drug therapy"[Mesh]</code>　Filters: Child: birth-18 years, Sort by Most Recent</td><td><b>15,331</b></td><td>Abulimiti K, Shoukeer K, Lu QX. Controversies in Pediatric Asthma: A Bibliometric Evaluation. Pediatr Pulmonol. 2025;60(4):e71064.</td></tr>
+<tr><td>D</td><td>逐次叠加：<code>#17</code> 无筛选 42,677 → <code>#18</code> +Review 8,243 → <code>#19</code> +Child 2,062 → <code>#20</code> +English <b>1,786</b></td><td><b>1,786</b></td><td>Abulimiti K, et al.（同上）</td></tr>
+</tbody>
+</table>
+<div class="verdict v-ok"><b>判断：D（1,786）最贴题。</b>
+<ul>
+<li><b>A 的 2,512 不合格：</b>用的是关键词 <code>asthma AND drug therapy</code>，<b>没有出现 MeSH 副主题词</b>，题目要求的是「主题检索」。</li>
+<li><b>B 的 15,331：</b>MeSH 写法对了，但一个 Filter 都没勾——年龄、综述、语种全缺。</li>
+<li><b>C 的 15,331 与 B 完全相同：</b>检索式里写了 Child 筛选、排序显示 Most Recent，但<b>计数没变</b>，说明筛选没有真正生效（或截图是加筛选前的）。这是「看起来做了、其实没做」的典型。</li>
+<li><b>D 对在：</b><code>"Asthma/drug therapy"[Mesh]</code> + Review + Child + English 四个条件逐个叠加，每一步都报数（42,677 → 8,243 → 2,062 → 1,786），过程可复核。</li>
+</ul>
+</div>
+</div>
+
+<!-- ============ Q11 ============ -->
+<h3>Q11 · WOS：Yamanaka Shinya · iPS · 总被引 / H 指数</h3>
+<div class="qbox">
+<p class="stem">在 Web of Science 核心合集中检索日本作者 Yamanaka Shinya 发表的关于诱导多能干细胞（Induced Pluripotent Stem Cell, IPS cell）研究的文献，并分析结果，写出被引频次最高的论文题录、该组文献的总被引频次和 H 指数。</p>
+<div class="refs">
+<div class="ref g"><b>老师方法</b>WOS 的 <code>TS</code> 字段 = 标题 + 摘要 + 关键词；分析结果用 Analyze Results；被引频次、H 指数在「引文报告」里。<span class="src">文献数据库检索作业讲解 01:09–01:11</span></div>
+<div class="ref b"><b>本轮实测</b>未跑本题。</div>
+</div>
+<table class="std">
+<thead><tr><th>答案</th><th>检索式</th><th>结果</th><th>被引最高 / H 指数</th></tr></thead>
+<tbody>
+<tr><td>A</td><td><code>AU=(Yamanaka Shinya) AND TS=(Induced Pluripotent Stem Cell, IPS cell) AND 国家/地区=JAPAN</code></td><td><b>5</b></td><td>《Characterization of Dendritic Cells and Macrophages Generated by Directed Differentiation from Mouse Induced Pluripotent Stem Cells》Senju S 等，STEM CELLS 2009;27(5):1021-1031。总被引 341，H 指数 5</td></tr>
+<tr><td>B</td><td><code>Induced Pluripotent Stem Cell OR IPS</code>（所有字段）AND <code>Yamanaka Shinya</code>（作者）</td><td><b>243</b></td><td>Takahashi K, Yamanaka S. Induction of pluripotent stem cells from mouse embryonic and adult fibroblast cultures by defined factors. CELL 2006;126(4):663-676。被引 19,279，H 指数 98</td></tr>
+<tr><td>C</td><td><code>Induced Pluripotent Stem Cell OR IPS</code>（所有字段）AND <code>Yamanaka Shinya</code>（作者）</td><td><b>198</b></td><td>同上。总被引 70,278，H 指数 89</td></tr>
+</tbody>
+</table>
+<div class="verdict v-bad"><b>判断：三个都有问题。</b>
+<ul>
+<li><b>A 的 5 条：</b>额外加了「国家/地区 = JAPAN」，把结果压到 5 条。Yamanaka 虽然在日本，但题目<b>没有要求限定国家</b>；5 条已经不是「Yamanaka 的 iPS 文献全集」。</li>
+<li><b>B 的 243 条：</b>用「所有字段」比 <code>TS</code>（篇关摘）更宽，会把参考文献、机构名里碰巧出现的词也算进来；H 指数 98 是这一口径的结果。</li>
+<li><b>C 的 198 条：</b>检索式看起来和 B 一样，数却不同——说明实际执行时字段或时间范围有差别（截图未同屏），<b>无法判断哪个是「对的」</b>；H 指数 89 与 B 的 98 差 9，也印证两次检索范围不同。</li>
+<li><b>正确做法：</b>作者用 <code>AU</code>，主题用 <code>TS</code>，<b>不加国家限定</b>；然后看「引文报告」里的总被引次数与 H 指数。</li>
+</ul>
+</div>
+</div>
+
+<!-- ============ Q12 ============ -->
+<h3>Q12 · WOS：温医二院 · 期刊 / 研究方向 / 作者</h3>
+<div class="qbox">
+<p class="stem">在 SCI 核心合集中检索温州医科大学附属第二医院学者发表的文献。分析检索结果：哪种期刊发文量最多？哪个研究方向发文量最多？哪位作者发文量最多？</p>
+<div class="refs">
+<div class="ref g"><b>老师方法</b>「研究方向」要在 Analyze Results 里把字段从 <i>Web of Science Categories</i> 切到 <b><i>Research Areas</i></b>；默认字段是 Categories，两者结果不同。<span class="src">文献检索补跑_AI交接_20261106.md 第 5.2 节</span></div>
+<div class="ref b"><b>本轮实测（附一院口径）</b><code>OG=(Wenzhou Medical University) AND AD=(First Affiliated Hospital)</code> → <b>167 条</b>；高被引 2；最高被引 Klionsky 2016 <i>Autophagy</i> 4,208 次；研究方向 Gastroenterology Hepatology 21 / Oncology 21（Categories 口径下是 16）。<span class="src">WOS_Q5_167条_研究方向_20261106.png</span></div>
+</div>
+<table class="std">
+<thead><tr><th>答案</th><th>检索式</th><th>结果</th><th>三个结论</th></tr></thead>
+<tbody>
+<tr><td>A</td><td>—（仅结论）</td><td>—</td><td>期刊量最多 <b>Elsevier</b>；研究方向 Pharmacology Pharmacy；作者 Ge, Ren-shan</td></tr>
+<tr><td>B</td><td>—（仅结论）</td><td>—</td><td>期刊 <b>FRONTIERS IN PHARMACOLOGY</b>；研究方向 Pharmacology Pharmacy；作者 Ge RS</td></tr>
+<tr><td>C</td><td><code>Wenzhou Medical Univ SAME (Second affiliated hosp OR 2nd affiliated hosp OR affiliated hosp 2)</code>（地址）</td><td><b>6,921</b></td><td>期刊 FRONTIERS IN PHARMACOLOGY；研究方向 Pharmacology &amp; Pharmacy；作者 Ge Ren-shan；最高被引 Klionsky DJ 等，AUTOPHAGY 2021;17(1):1-382</td></tr>
+</tbody>
+</table>
+<div class="verdict v-bad"><b>判断：A 的「Elsevier」是错的，其余两人基本一致。</b>
+<ul>
+<li><b>Elsevier 是出版商，不是期刊。</b>Analyze Results 里「出版物标题」字段给的才是期刊名；「出版商」是另一个字段。题目问「哪种期刊」，答案只能是 <b>FRONTIERS IN PHARMACOLOGY</b>。</li>
+<li><b>研究方向三人都是 Pharmacology Pharmacy</b>——但要注意这个结论是在哪个字段下得出的。如果用的是默认的 <i>Web of Science Categories</i>，学科名会写成「Pharmacology &amp; Pharmacy」；切到 <i>Research Areas</i> 才是「Pharmacology Pharmacy」。两种写法可能对应不同计数。</li>
+<li><b>作者 Ge, Ren-shan / Ge RS 是同一个人</b>，只是缩写格式不同；WOS 作者字段建议统一写「姓 + 名首字母」。</li>
+<li><b>C 的地址写法值得学：</b>用 <code>SAME</code> + 多个 OR 变体（Second affiliated hosp / 2nd affiliated hosp / affiliated hosp 2）覆盖同一单位的不同拼法，比写全称更稳。</li>
+</ul>
+</div>
+</div>
+
+<!-- ============ Q13 ============ -->
+<h3>Q13 · SD + Scopus：肾缺血 × 多器官衰竭 <span class="tag ok">唯一有老师标准答案</span></h3>
+<div class="qbox">
+<p class="stem">在 SD 和 Scopus 中分别检索肾脏缺血（Renal ischemia、kidney ischemia）和多器官衰竭（multiorgan failure）的文献。</p>
+<div class="refs">
+<div class="ref g"><b>老师录音（有直接讲评）</b>SD 一个检索框里不能加行，<b>优先级一定要用括号锁死</b>；题目要求「研究性文献」，检索后必须再用文献类型二次筛选。<b>SD 57 篇 → 限研究性论文后 31 篇</b>；Scopus 同一题 <b>241 篇</b>，按相关度排序。<span class="src">文献数据库检索作业讲解 01:17:28–01:24:30</span></div>
+<div class="ref b"><b>本轮实测</b>Scopus <code>TITLE-ABS-KEY("renal ischemia" OR "kidney ischemia") AND TITLE-ABS-KEY("multiorgan failure")</code> → <b>14 篇</b>；改相关度排序，第一篇 Kramer A.A. 等，<i>Kidney International</i> 1999;55(6):2362-2367，被引 269。旧答案 388 未复现；老师口述 241 是另一口径。<span class="src">SCOPUS_Q7_14条_相关度第一篇_20261106.png</span></div>
+</div>
+<table class="std">
+<thead><tr><th>答案</th><th>库</th><th>检索式</th><th>结果</th><th>第一篇</th></tr></thead>
+<tbody>
+<tr><td>A</td><td>SD</td><td><code>(Renal ischemia) OR (kidney ischemia) AND multiorgan failure</code></td><td><b>170,325</b></td><td>Malperfusion, Malperfusion Syndrome, and Mesenteric Ischemia in Aortic Dissection / Seminars in Thoracic and Cardiovascular Surgery</td></tr>
+<tr><td>B</td><td>SD</td><td><code>Title, abstract, keywords: ((Renal ischemia) OR (kidney ischemia) AND multiorgan failure)</code></td><td><b>7,140</b></td><td>Renal nerve afferents drive preferential renal sympathoexcitation in response to acute renal ischemia/reperfusion in rats / A.C. Marreiros 等 / Autonomic Neuroscience 2025</td></tr>
+<tr><td>C</td><td>Scopus</td><td><code>TITLE-ABS-KEY((renal AND ischemia) OR (kidney AND ischemia)) AND TITLE-ABS-KEY(multiorgan AND failure)</code></td><td><b>339</b></td><td>Erythropoietin and the promise of ischemic multiorgan protection / Stevens RD, Bhardwaj A / Critical Care Medicine 2008;36(8):2436-2447</td></tr>
+<tr><td>D</td><td>Scopus</td><td><code>TITLE-ABS-KEY(renal AND ischemia OR kidney AND ischemia) AND TITLE-ABS-KEY(multiorgan AND failure)</code></td><td><b>209</b></td><td>Non-steroidal anti-inflammatory drugs (NSAIDs) and organ damage: A current perspective / Bandyopadhyay U / Biochemical Pharmacology</td></tr>
+</tbody>
+</table>
+<div class="verdict v-bad"><b>判断：四份学生答案没有一个对上老师口径。</b>
+<ul>
+<li><b>A 的 170,325：</b>括号没锁。<code>(Renal ischemia) OR (kidney ischemia) AND multiorgan failure</code> 按 SD 的优先级（OR 最低、AND 较高）算成 <code>Renal ischemia OR (kidney ischemia AND multiorgan failure)</code>，等于把「肾缺血」全部放出来了。</li>
+<li><b>B 的 7,140：</b>字段限定对了，但<b>外层括号仍然没起作用</b>——整个式子被包在一个括号里，里面还是 OR 打头。</li>
+<li><b>C 的 339 / D 的 209：</b>写法不同（C 把两个词各自 AND 再 OR；D 依赖 Scopus 的 OR 优先级最高），得到的范围也不同；与老师 241 的差距来自「是否把 renal/kidney 与 ischemia 作为短语」以及排序/时间口径。</li>
+<li><b>正确写法（SD）：</b><code>("renal ischemia" OR "kidney ischemia") AND "multiorgan failure"</code>，初检 57 → 限 research articles 31。</li>
+<li><b>正确写法（Scopus）：</b><code>TITLE-ABS-KEY("renal ischemia" OR "kidney ischemia") AND TITLE-ABS-KEY("multiorgan failure")</code>，按相关度排序 → 老师口径 241。</li>
+</ul>
+<b>为什么本手册实测只有 14 条：</b>用了短语加引号（更严格），且 Scopus 收录与老师演示时不同。14 与 241 不是「谁对谁错」，是<b>短语 vs 单词、以及时间/字段口径</b>不同。可复现的是「14 条 + 第一篇 Kramer 1999」这个组合。</div>
+</div>
+
+<h3>12.2 这 13 题暴露的 7 类错误（按出现频率排）</h3>
+<table class="std">
+<thead><tr><th>类型</th><th>出现在</th><th>正确做法</th></tr></thead>
+<tbody>
+<tr><td><b>括号没锁住优先级</b></td><td>Q13 A/B、Q9 B/C、Q13 C/D</td><td>先写括号再填词；换库先查优先级</td></tr>
+<tr><td><b>字段用错 / 少字段</b></td><td>Q4 B、Q6 A、Q7 C、Q10 A/B</td><td>题面点名「题名 / 篇关摘 / 主题检索」就按字面选字段</td></tr>
+<tr><td><b>额外加限定</b></td><td>Q8 A、Q11 A、Q7 C</td><td>题目没要求的不加（国家、年份、Review、表达及功能）</td></tr>
+<tr><td><b>同义词写法错</b></td><td>Q7 B、Q9 B</td><td>同一逻辑符同一框，平铺 OR，不要塞进一个引号</td></tr>
+<tr><td><b>检索范围错（总库 vs 单库 / 所有字段 vs TS）</b></td><td>Q6 A、Q11 B</td><td>没限定类型用总库；主题用 TS 不用 All Fields</td></tr>
+<tr><td><b>筛选没生效</b></td><td>Q10 C</td><td>勾完筛选看计数有没有变；不变就是没生效</td></tr>
+<tr><td><b>概念混淆</b></td><td>Q12 A（出版商 vs 期刊）、Q2 B（主题词 vs 副主题词）</td><td>先确认题目问的对象是什么</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="ch" id="s13">
+<h2>13 · 2026 作业实测总表：旧值 vs 新值 <span class="h2sub">别和 PPT 那 13 题混用</span></h2>
+
+<p class="lead">这一章是<b>你自己这学期</b>的作业题，和 PPT 里 2025 届那 13 道不是同一批。列在这里是为了让你一眼看出：哪些答案已经核实、哪些还挂着、哪些旧文档写错了。<b>状态标记</b>：<span class="tag ok">一致</span> / <span class="tag warn">存疑</span> / <span class="tag bad">未复现或旧值错</span>。</p>
+
+<div class="note"><b>怎么读「差异原因」这一列：</b>结果数变化只有三种原因——①数据库收录增长（正常，一般 +几到 +几十）；②检索口径不同（字段、限定、精确/模糊）；③旧答案本身错了。<b>先排除②，再判断③，不要一看到数字不同就改检索式。</b></div>
+
+<h3>13.1 9.9 绪论（6 题，100 分）</h3>
+<table class="std">
+<thead><tr><th>题目</th><th>当前最可信的答案</th><th>依据</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>不属于按出版形式划分的文献</td><td>电子型文献（按载体形式划分）</td><td>老师讲评 06:09</td><td><span class="tag ok">一致</span></td></tr>
+<tr><td>一次文献不包括</td><td>教科书（三次文献）</td><td>老师讲评 06:09</td><td><span class="tag ok">一致</span></td></tr>
+<tr><td>能扩大检索结果的检索技术</td><td>截词符（转写误作「介词符」）</td><td>老师讲评 07:02–07:59</td><td><span class="tag warn">转写有误</span></td></tr>
+<tr><td>不属于期刊特点的选项</td><td>系统性</td><td>老师讲评 07:59</td><td><span class="tag ok">一致</span></td></tr>
+<tr><td>填空题：书名 + 书架照片</td><td>两者都要有；只交照片扣分（本次扣 1.7）</td><td>老师讲评 08:16</td><td><span class="tag ok">一致</span></td></tr>
+</tbody>
+</table>
+
+<h3>13.2 9.16 CBM（7 题，已批 90.1 分）</h3>
+<table class="std">
+<thead><tr><th>题目</th><th>当前最可信的值</th><th>旧值 / 差异</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>风湿性心脏病分类号 + 发文最多作者/机构</td><td>R541.2；实测 4,486 篇</td><td>—</td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>髋脱位主题词 + 上位链</td><td>髋脱位，先天性；发育性髋关节发育不良 → 肌肉骨骼畸形 → 肌骨骼疾病</td><td>—</td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>二甲双胍 65 岁以上不良反应</td><td>两词 5,926 / 三词 2,331 / 加「老年」266</td><td>旧 225，<b>本轮未复现</b></td><td><span class="tag bad">未复现</span></td></tr>
+<tr><td>范建高 × 非酒精性脂肪性肝病</td><td>25</td><td>—</td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>核心期刊阑尾炎综述</td><td>实测 299 → 限核心 <b>119</b></td><td>旧 116，+3 为收录增长</td><td><span class="tag ok">一致</span></td></tr>
+<tr><td>《浙江医学》2025 年高血压</td><td>17</td><td>—</td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>IL-8 × 类风湿 × 作用机制</td><td>2</td><td>—</td><td><span class="tag ok">实测</span></td></tr>
+</tbody>
+</table>
+
+<h3>13.3 9.23 知网 + 万方（9 题）</h3>
+<table class="std">
+<thead><tr><th>库</th><th>题目</th><th>当前最可信的值</th><th>旧值 / 差异</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>知网</td><td>会议论文第三册篇数</td><td><b>270</b></td><td>—</td><td><span class="tag ok">老师 + 实测一致</span></td></tr>
+<tr><td>知网</td><td>精神病学北大核心期刊种数</td><td><b>2 种</b></td><td>—</td><td><span class="tag ok">老师 + 实测一致</span></td></tr>
+<tr><td>知网</td><td>《关爱生命大讲堂》2026 年第 4 期 · 篇关摘含胰岛素抵抗</td><td><b>3 篇</b>（老师）</td><td>实测被风控拦截，未取到</td><td><span class="tag warn">仅有老师口径</span></td></tr>
+<tr><td>知网</td><td>黄悦勤 × 北大六院 × 《中国心理卫生杂志》</td><td>知网 <b>105</b>（老师）/ 实测 107；万方 138；第一篇《医学科研中随机误差控制和样本量确定》</td><td>+2 条为收录增长；万方口径不同</td><td><span class="tag warn">存疑</span></td></tr>
+<tr><td>知网</td><td>2 型糖尿病遗传基因 · 学位论文</td><td>老师 <b>39</b>（篇关摘）；实测 26（主题）</td><td>旧文档 568，<b>未复现</b></td><td><span class="tag bad">旧值错</span></td></tr>
+<tr><td>知网</td><td>miR-146a × 胃癌 · 篇关摘</td><td>实测 <b>90</b>；第一篇<b>肖斌</b>（791 下载）</td><td>旧答案第一篇写李海龙，<b>错</b></td><td><span class="tag warn">第一篇错</span></td></tr>
+<tr><td>万方</td><td>蒋毅老师指导的学位论文</td><td><b>22 条</b></td><td>—</td><td><span class="tag ok">老师 + 实测一致</span></td></tr>
+<tr><td>万方</td><td>临床医学 SCI 期刊种数</td><td><b>3 种</b>（老师）</td><td>新版导航无「临床医学」子类，<b>未复现</b></td><td><span class="tag warn">仅有老师口径</span></td></tr>
+<tr><td>万方</td><td>HPV 疫苗（期刊 + 会议）</td><td>老师 <b>2,269</b>（精确）；高产机构 <b>北京大学人民医院</b>；高产作者 <b>魏丽慧</b></td><td>旧 4,039 / 中国疾控中心 / 乔友林，<b>全错</b></td><td><span class="tag bad">旧值错</span></td></tr>
+</tbody>
+</table>
+
+<h3>13.4 9.30 PubMed（6 题，已批 82.6 分）</h3>
+<table class="std">
+<thead><tr><th>题目</th><th>当前最可信的值</th><th>旧值 / 差异</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>melanoma 期刊有几种</td><td><code>melanoma[Title] AND ncbijournals</code> = <b>4 种</b></td><td>旧 8，<b>未复现</b></td><td><span class="tag bad">旧值错</span></td></tr>
+<tr><td>冠心病 MeSH / 上位词</td><td>Coronary Disease <b>D003327</b>；Myocardial Ischemia <b>D017202</b></td><td>—</td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>高血压 × 吸烟（近五年）</td><td><b>39</b></td><td>—</td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>COPD 死亡率综述</td><td><b>7</b></td><td>—</td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>青少年哮喘临床试验</td><td><b>2,954</b></td><td>—</td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>Clinics in Geriatric Medicine 近三年</td><td><b>202</b></td><td>—</td><td><span class="tag ok">实测</span></td></tr>
+</tbody>
+</table>
+
+<h3>13.5 10.14 SD + Scopus（7 题）</h3>
+<table class="std">
+<thead><tr><th>库</th><th>题目</th><th>当前最可信的值</th><th>旧值 / 差异</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>SD/Scopus</td><td>非酒精性肝炎的检索表达式</td><td><code>hepatitis AND NOT alcoholic</code></td><td>—</td><td><span class="tag ok">老师 + 资料</span></td></tr>
+<tr><td>SD</td><td>含 asthma 的期刊数</td><td><b>2 种</b>；<i>Annals of Allergy, Asthma &amp; Immunology</i>；ISSN 1081-1206 / 1534-4436</td><td>—</td><td><span class="tag ok">老师录音</span></td></tr>
+<tr><td>Scopus</td><td>Critical Care Nursing 期刊数</td><td><b>37</b>；仅 OA + 2023 → <b>7 个</b>；最高 OA 刊 <i>Acute and Critical Care</i> <b>2.8</b></td><td>旧 39，<b>未复现</b></td><td><span class="tag warn">旧值差 2</span></td></tr>
+<tr><td>SD</td><td>2025 年温医大发文量</td><td>老师 <b>2,175</b></td><td>实测页面转圈，未取到</td><td><span class="tag warn">仅有老师口径</span></td></tr>
+<tr><td>SD</td><td>肾缺血 + 多器官衰竭</td><td>老师 <b>57 → 研究性 31</b></td><td>实测受阻</td><td><span class="tag ok">有官方答案</span></td></tr>
+<tr><td>Scopus</td><td>2025 年温医大发文量</td><td>老师 <b>6,789</b>；实测 <b>6,710</b></td><td>旧 6,970，<b>未复现</b></td><td><span class="tag bad">三个数都不同</span></td></tr>
+<tr><td>Scopus</td><td>肾缺血 + 多器官衰竭</td><td>老师 <b>241</b>（相关度排序）；实测 14（TITLE-ABS-KEY 短语写法）</td><td>旧 388，<b>未复现</b></td><td><span class="tag bad">口径差很大</span></td></tr>
+</tbody>
+</table>
+
+<h3>13.6 10.21 Web of Science（6 题）</h3>
+<table class="std">
+<thead><tr><th>题目</th><th>当前最可信的值</th><th>旧值 / 差异</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>LANCET 2017 影响因子</td><td><b>53.254</b></td><td>—</td><td><span class="tag ok">老师 + 外部核实</span></td></tr>
+<tr><td>Nature ISSN / 2024 IF / 5 年 IF</td><td><b>0028-0836 / 48.5 / 55.0</b></td><td>老师未报数，外部核实</td><td><span class="tag warn">未同屏</span></td></tr>
+<tr><td>MEDICINA-LITHUANIA 被引 / 引用最多刊 / 年份</td><td>老师 <b>278</b> 次</td><td>旧 331 / FRONTIERS IN ENDOCRINOLOGY / 2024，未同屏</td><td><span class="tag warn">存疑</span></td></tr>
+<tr><td>宁波大学 × NANO ENERGY</td><td>老师 <b>51 条 / 335 次 / 国自然 41 篇 / 2021 与 2023</b></td><td>旧 61 / 335 / 2024 / 50，<b>4 处不一致</b></td><td><span class="tag bad">旧值错</span></td></tr>
+<tr><td>温医附一院</td><td><code>OG + AD</code> → <b>167 条</b>；高被引 2；最高被引 Klionsky 2016 <i>Autophagy</i> <b>4,208</b></td><td>—</td><td><span class="tag ok">实测</span></td></tr>
+<tr><td>Science 小胶质细胞 / 关键词</td><td><b>1 条</b>；关键词检索 <b>6,215 条</b></td><td>—</td><td><span class="tag ok">实测</span></td></tr>
+</tbody>
+</table>
+
+<h3>13.7 10.28 专利（6 题，已过截止，未提交）</h3>
+<table class="std">
+<thead><tr><th>题目</th><th>文档答案</th><th>核实</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>实用新型保护期</td><td>10 年</td><td>《专利法》第 42 条</td><td><span class="tag ok">对</span></td></tr>
+<tr><td>专利特征（多选）</td><td>ABCD（含「策略性」）</td><td>讲义第 6 个特性是「战略性」；需原题选项</td><td><span class="tag warn">待核</span></td></tr>
+<tr><td>说明书包括（多选）</td><td>ABCD</td><td>四要素：技术领域/背景技术/发明内容/附图实施方式；「摘要」属扉页</td><td><span class="tag warn">待核</span></td></tr>
+<tr><td>质量指标（多选）</td><td>ABC</td><td>取决于选项</td><td><span class="tag warn">待核</span></td></tr>
+<tr><td>不授予专利（多选）</td><td>AD</td><td>第 25 条共 6 项，答案可能不止 AD</td><td><span class="tag bad">可能错</span></td></tr>
+<tr><td>「三种类型」</td><td>发明 / 实用新型 / 外观设计</td><td>若问「发明专利的类型」应为产品/方法/改进发明</td><td><span class="tag warn">看问法</span></td></tr>
+</tbody>
+</table>
+
+<h3>13.8 汇总：40 条里有多少是「能直接用的」</h3>
+<div class="grid">
+<div class="card ok"><b>一致 / 实测</b><p>约 24 条。有截图或老师录音双证，可以直接复习。</p></div>
+<div class="card warn"><b>存疑</b><p>约 9 条。有老师口径但没有同屏证据，或新旧差几条。</p></div>
+<div class="card bad"><b>未复现 / 旧值错</b><p>约 7 条。旧文档的数字跑不出来，已标出正确值或「仅有老师口径」。</p></div>
+</div>
+<div class="warnbox"><b>三条不要做的事：</b>①不要拿 PPT 那 13 题的数字来套这学期的作业题（题目不同）；②不要把「老师口述的数」写成「实测」；③不要为了让数字对上而改检索式——先记录差异，再找原因。</div>
+</section>
+
+<section class="ch" id="s14">
+<h2>14 · 附录：老师原话与录音清单 <span class="h2sub">可以直接拿去对答案的证据</span></h2>
+
+<p class="lead">课堂录音转写共 <b>12 份</b>，放在 <code>C:\Users\华为\Desktop\学习\录音\文献\</code>。转写由元宝导出，<b>有个别语音识别错误</b>（「偏关灾」= 篇关摘、「介词符」= 截词符、「背影」= 被引），引用时以语义为准。</p>
+
+<h3>14.1 关于「答案」的原话</h3>
+<table class="std">
+<thead><tr><th>内容</th><th>原话</th><th>出处</th></tr></thead>
+<tbody>
+<tr><td>作者单位不重复</td><td>「大家如果已经进行作者单位的一个字段限定的话，那在作者这边呢，我们就不用重复再进行一个包含单位的这样的一个字段。」</td><td>数据库检索规则与作业讲解 07:36</td></tr>
+<tr><td>关爱生命大讲堂</td><td>「第三题是要求我们在知网上检索 2026 年第四期关爱生命大讲堂……在篇关摘字段中含有胰岛素抵抗的文献的数量……显示的数量是有三篇。」</td><td>同上 01:14–01:46</td></tr>
+<tr><td>蒋毅学位论文</td><td>「由蒋毅老师指导的学位论文呢，目前是有 22 条文献。」</td><td>同上 03:17</td></tr>
+<tr><td>黄悦勤</td><td>「知网……结果数量是 105 篇……第一篇呢，就是我们的医学科研中随机误差控制和样本量的一个确定。」</td><td>同上 04:01–05:42</td></tr>
+<tr><td>HPV 疫苗</td><td>「如果是精确的话，目前检索到是 2269 条……发表数量最多的机构就是北京大学人民医院，作者是魏丽慧。」</td><td>同上 09:47–10:34</td></tr>
+<tr><td>2 型糖尿病遗传基因</td><td>「检索到的一个数量就是 39……第一篇就是谭丹丹的基于复杂网络模型的重要干预……学位授予年度最多的是 2012 年有六篇，学位授予单位最多的是河北医科大学和浙江大学。」</td><td>同上 12:39</td></tr>
+<tr><td>miR-146a</td><td>「表达及功能，我们可以不作为检索词放在我们的检索式里面……同一个逻辑符就放在一个检索框里。」</td><td>同上 14:50–18:04</td></tr>
+<tr><td>LANCET 2017 IF</td><td>「2017 年它的影响因子就是 53.254。」</td><td>文献数据库检索作业讲解 01:02:28</td></tr>
+<tr><td>宁波大学 × NANO ENERGY</td><td>「一共是有 51 条……被引频次最多的是 335 次……国家自然科学基金委员会资助的论文数量是 41 篇……最多的年份有两个，2021 年跟 2023 年。」</td><td>同上 01:06:29–01:07:37</td></tr>
+<tr><td>不要纠结检索式</td><td>「大家不要太纠结你的检索式是不是跟标准答案一模一样……只要符合数据库检索规则、能达到检索目的就可以了。」</td><td>同上 01:07:37–01:08:50</td></tr>
+<tr><td>SD asthma 期刊</td><td>「含有哮喘的期刊数量呢是只有两个。」</td><td>同上 01:13:31</td></tr>
+<tr><td>Scopus Critical Care Nursing</td><td>「37 个结果……选择 OA……结果就是 7 个……2023 年的值是 2.8。」</td><td>同上 01:14:58</td></tr>
+<tr><td>SD Q13</td><td>「SD 检索到的是 57 篇……在研究性论文这边进行二次筛选，就是 31 篇。」</td><td>同上 01:19:34</td></tr>
+<tr><td>Scopus 温医</td><td>「Scopus……结果就是 6789，要求是按照被引频次去排序。」</td><td>同上 01:21:21</td></tr>
+<tr><td>Scopus Q13</td><td>「检索肾脏缺血跟合并多器官衰竭……找到的 241 篇文献，按照相关度去进行一个排序。」</td><td>同上 01:24:30</td></tr>
+<tr><td>专利不考检索</td><td>「大家要掌握我们专利的一些类型期限，然后知道哪一些成果呢？它是不能申请专利的……考试的那个检索操作方面呢，就不涉及专利的一个检索。」</td><td>同上 59:17</td></tr>
+<tr><td>绪论三题</td><td>「电子型文献呢，我们是按照载体的形式去划分……教科书……是属于我们的三次文献。」「能扩大检索结果的就是我们的截词符。」</td><td>生物医学数据库检索功能教学 06:09–07:59</td></tr>
+<tr><td>AI 使用边界</td><td>「可以用 AI 工具辅助理解，但最终的检索操作和答案必须由自己完成。」</td><td>复习动员段</td></tr>
+</tbody>
+</table>
+
+<h3>14.2 12 份转写清单</h3>
+<table class="std tight">
+<thead><tr><th>文件</th><th>大小</th><th>本手册里用来支持</th></tr></thead>
+<tbody>
+<tr><td>生物医学数据库检索功能教学_元宝导出.md</td><td>22 KB</td><td>绪论 4 题讲评、CBM 概述/布尔/截词/主题检索</td></tr>
+<tr><td>医学文献检索方法教学_元宝导出.md</td><td>19 KB</td><td>CBM 主题检索五步、加权/扩展</td></tr>
+<tr><td>数据库检索规则与作业讲解_元宝导出.md</td><td>18 KB</td><td>知网/万方 9 题讲评（105、2269、39、22、3 篇）</td></tr>
+<tr><td>文献数据库检索作业讲解_元宝导出.md</td><td>68 KB</td><td>WOS/JCR/SD/Scopus 讲评（53.254、51、57→31、241、6789、37）</td></tr>
+<tr><td>数据库检索与影响因子查看讲解_元宝导出.md</td><td>68 KB</td><td>WOS 引文分析、JCR 影响因子</td></tr>
+<tr><td>PubMed主题词检索教学_元宝导出.md</td><td>31 KB</td><td>PubMed 布尔、截词、字段、MeSH</td></tr>
+<tr><td>医学文献数据库与检索方法_元宝导出.md</td><td>29 KB</td><td>检索词规则、查全查准、截词</td></tr>
+<tr><td>文献检索的重要性与学习价值_元宝导出.md</td><td>32 KB</td><td>第一讲概念、文献类型、核心期刊、中图法</td></tr>
+<tr><td>数据库检索功能与期刊指标讲解_元宝导出.md</td><td>11 KB</td><td>期刊指标、PubMed 过滤</td></tr>
+<tr><td>数据库检索功能与开放获取介绍_元宝导出.md</td><td>12 KB</td><td>SD 开放获取、出版物浏览</td></tr>
+<tr><td>AI在学术检索中的应用与规范_元宝导出.md</td><td>11 KB</td><td>AI 与检索、学术诚信</td></tr>
+<tr><td>医学文献数据库检索与作业要求_元宝导出.md</td><td>8 KB</td><td>课程要求、作业提交</td></tr>
+</tbody>
+</table>
+<div class="note"><b>转写缺口：</b>CBM 那节课在 <b>27:12</b> 停在「给大家 10 分钟做练习，待会儿找人上来演示」，<b>后面的讲评没有录到</b>。这就是为什么 PPT 的 Q1–Q5（CBM 五题）没有老师口径——不是没讲，是没录上。要补只有两条路：找回完整录音重转，或按讲义规则自己跑一遍。</div>
+</section>
+
+<section class="ch" id="s15">
+<h2>15 · 附录：没解决的部分、材料清单与更正记录 <span class="h2sub">凡没把握的，这里都写明</span></h2>
+
+<h3>15.1 还没解决 / 没验证的 9 项</h3>
+<table class="std">
+<thead><tr><th>#</th><th>事项</th><th>现状</th><th>影响</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>CBM 五题（PPT Q1–Q5）没有老师讲评</td><td>录音在 27:12 中断</td><td>只能按规则判对错，没有官方数字</td></tr>
+<tr><td>2</td><td>PPT 13 题里只有 Q13 有标准答案</td><td>已确认</td><td>其余 12 题不要当「标准答案」背</td></tr>
+<tr><td>3</td><td>知网《关爱生命大讲堂》题</td><td>实测被风控拦截</td><td>只有老师口述「3 篇」</td></tr>
+<tr><td>4</td><td>万方「临床医学 SCI 期刊」</td><td>新版导航无该子类</td><td>只有老师口述「3 种」</td></tr>
+<tr><td>5</td><td>SD 2025 温医大发文量</td><td>页面持续转圈</td><td>只有老师口述「2,175」</td></tr>
+<tr><td>6</td><td>JCR 两题（LANCET / Nature）</td><td>需机构登录，未进库</td><td>数字靠老师录音 + 外部核实，未同屏</td></tr>
+<tr><td>7</td><td>Scopus 温医 2025（6,789 / 6,710 / 6,970）</td><td>三个口径都没完全对上</td><td>无法判断哪个是「最终正确答案」</td></tr>
+<tr><td>8</td><td>PPT 学生答案的 OCR</td><td>Windows OCR 3× 识别，关键数字做了三轮比对</td><td>引号、括号、【】可能有个别偏差，<b>引用请以 PPT 原截图为准</b></td></tr>
+<tr><td>9</td><td>专利 6 题</td><td>缺原题选项</td><td>第 2/3/4/5/6 题只能标「待核」</td></tr>
+</tbody>
+</table>
+
+<h3>15.2 材料清单：<code>D:\下载\yj</code> 共 19 个文件</h3>
+<table class="std tight">
+<thead><tr><th>类别</th><th>文件</th><th>页数 / 大小</th><th>用途</th></tr></thead>
+<tbody>
+<tr><td rowspan="7">七讲正课 PPT</td><td>第一讲绪论.pptx</td><td>79 页 / 63 MB</td><td>第 1 章</td></tr>
+<tr><td>第二讲SinoMed.pptx</td><td>60 页 / 38 MB</td><td>第 2 章</td></tr>
+<tr><td>第三讲中文全文数据库.pptx</td><td>45 页 / 41 MB</td><td>第 3、4 章</td></tr>
+<tr><td>第四讲：PubMed.pptx</td><td>49 页 / 32 MB</td><td>第 5 章</td></tr>
+<tr><td>第五讲Scopus&amp;SD.pptx</td><td>50 页 / 28 MB</td><td>第 6、7 章</td></tr>
+<tr><td>第六讲Web of Science.pptx</td><td>59 页 / 57 MB</td><td>第 8、9 章</td></tr>
+<tr><td>第七讲：专利检索.pptx</td><td>31 页 / 28 MB</td><td>第 10 章</td></tr>
+<tr><td rowspan="6">zss 讲义（同内容精简版）</td><td>CBM-zss.pptx</td><td>37 页</td><td>补充 CBM 字段/规则</td></tr>
+<tr><td>中文综合数据库-zss.pptx</td><td>58 页</td><td>补充知网字段、万方规则</td></tr>
+<tr><td>PubMed-zss.pptx / PUBMED 2025.pptx</td><td>38 / 42 页</td><td>补充 PubMed 规则</td></tr>
+<tr><td>SD SCOPUS-zss.pptx / ScoPus.pptx</td><td>49 / 26 页</td><td>补充 SD/Scopus 规则</td></tr>
+<tr><td>Web of Science-zss.pptx / Web of Science2025.pptx</td><td>62 / 38 页</td><td>补充 WOS 规则</td></tr>
+<tr><td>专利文献.pptx</td><td>36 页</td><td>补充专利类型/文献构成</td></tr>
+<tr><td rowspan="2">作业与复习</td><td>作业常见问题及参考答案.pptx</td><td>29 页 / 44 图</td><td>第 12 章（13 题）</td></tr>
+<tr><td>总复习题2025参考答案.pdf</td><td>8 页 / 21 题</td><td>第 11 章（官方答案）</td></tr>
+<tr><td>考试说明</td><td>期末复习新.pdf</td><td>4 页</td><td>第 11.3–11.4 节</td></tr>
+</tbody>
+</table>
+
+<h3>15.3 更正记录：本手册改掉的 5 个错误说法</h3>
+<table class="std">
+<thead><tr><th>#</th><th>曾经的说法</th><th>更正为</th><th>依据</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>知网布尔优先级是 <code>() &gt; NOT &gt; AND &gt; OR</code></td><td>知网 <code>* + -</code> <b>同级</b>，靠半角括号定序；<code>() &gt; NOT &gt; AND &gt; OR</code> 是万方的规则</td><td>第三讲 PPT 第 9 页 + 中文综合数据库-zss 第 12 页</td></tr>
+<tr><td>2</td><td><code>smoke*</code> 会漏掉 smoker</td><td><b>不会。</b>截词是前缀匹配，<code>smoke*</code> 覆盖 smoke / smoked / smoker / smokers；<code>smok*</code> 只是多出 smoky 一类词</td><td>第四讲 PPT 第 13 页截词原理</td></tr>
+<tr><td>3</td><td>《作业常见问题及参考答案.pptx》是标准答案</td><td>它是<b>学生答案合集</b>；13 题只有 Q13 有老师标准答案</td><td>PPT 结构（44 张「学生答案」截图）+ 录音比对</td></tr>
+<tr><td>4</td><td><code>D:\下载\yj</code> 共 18 个文件</td><td><b>19 个</b>（7 讲 + 9 份 zss/2025 讲义 + 作业 PPT + 2 份 PDF）</td><td>目录枚举</td></tr>
+<tr><td>5</td><td>CBM 分类检索可以直接输分类号</td><td>「查找分类词」框<b>只认类名</b>；要按分类号检索，回快速检索选「分类号」字段</td><td>界面实测</td></tr>
+</tbody>
+</table>
+
+<h3>15.4 使用边界</h3>
+<div class="warnbox">
+<ul>
+<li>本手册<b>只做资料整理与核对</b>，不代填、不代交任何作业，不提供考试代答。</li>
+<li>所有「实测」都附了截图文件名；没截图的写「未验证」，不写「应该」。</li>
+<li>结果数会随数据库收录增长而变化；<b>方法可复用，数字只作参考</b>。</li>
+<li>PPT 学生答案来自 OCR，个别字符可能有偏差；正式引用请回原截图。</li>
+<li>老师录音里明确：<b>「最终的检索操作和答案必须由自己完成。」</b></li>
+</ul>
+</div>
+
+<div class="divider"></div>
+<p class="small endnote">生成日期：2026-11-14　｜　材料来源：<code>D:\下载\yj</code>（19 个文件）、<code>学习\录音\文献</code>（12 份转写）、<code>文献检索补跑_AI交接_20261106.md</code>、<code>文献检索核对截图\</code>。<br>
+配套文件：<code>文献检索_答案对照_20261114.html</code>（13 题单页速查）、<code>文献检索_综合手册.html</code>（旧版教程 + 待办清单）。</p>
+</section>
+
+<a class="toplink" href="#top">↑ 回到目录</a>
+</div>
+</body>
+</html>
